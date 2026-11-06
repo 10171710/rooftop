@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Page Not Found | AURA SKY Rooftop & Lounge</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <meta name="description" content="The page you are looking for has drifted above the clouds. Return to AURA SKY Rooftop & Lounge for skyline dining, craft cocktails, and live DJ nights.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: { 300: '#F5E6B8', 400: '#E5C468', 500: '#D4AF37', 600: '#B89222' },
+            midnight: '#07090E',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            display: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=96">
+</head>
+<body class="bg-white text-slate-900 dark:bg-[#07090E] dark:text-slate-100 min-h-screen flex flex-col justify-between relative overflow-x-hidden">
+
+  <!-- Background Ambience -->
+  <div class="absolute inset-0 z-0">
+    <img src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?auto=format&fit=crop&w=2400&q=85" 
+         alt="Skyline Clouds" class="w-full h-full object-cover opacity-65">
+    <div class="absolute inset-0 bg-gradient-to-t from-[#07090E] via-[#07090E]/85 to-transparent"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 w-full bg-black border-b border-amber-500/20 shadow-lg shadow-black/50 px-4 sm:px-8 py-4 flex justify-between items-center" style="background-color: #000000 !important; background: #000000 !important;">
+    <a href="index.html" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0">
+            <div class="w-full h-full bg-black rounded-[10px] flex items-center justify-center">
+              <i class="fa-solid fa-martini-glass-citrus text-amber-400 text-base group-hover:rotate-12 transition duration-300"></i>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display text-xl font-bold tracking-widest text-white group-hover:text-amber-400 transition leading-none">AURA SKY</span>
+            <span class="text-[9px] uppercase tracking-[0.25em] text-amber-400 font-semibold mt-1">Rooftop & Lounge</span>
+          </div>
+        </a>
+
+    <div class="flex items-center gap-3">
+      <button class="theme-toggle-btn w-9 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center justify-center text-sm" aria-label="Toggle Theme">
+        <i class="theme-toggle-icon fa-solid fa-moon"></i>
+      </button>
+      <button class="rtl-toggle-btn px-2.5 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center gap-1.5 text-xs font-semibold" aria-label="Toggle RTL Mode">
+        <i class="fa-solid fa-globe text-xs"></i>
+        <span class="rtl-toggle-label">LTR</span>
+      </button>
+      <a href="index.html" class="text-xs text-white hover:text-amber-400 flex items-center gap-1 font-semibold ml-2">
+        <i class="fa-solid fa-house text-xs"></i> Home
+      </a>
+    </div>
+  </header>
+
+  <!-- 404 Main Body -->
+  <main class="relative z-10 max-w-2xl mx-auto px-4 py-12 text-center space-y-6">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-300 text-xs font-bold uppercase tracking-widest animate-float">
+      <i class="fa-solid fa-cloud"></i>
+      <span>Lost in the Stratosphere</span>
+    </div>
+
+    <h1 class="font-display text-7xl sm:text-9xl font-bold gold-gradient-text tracking-widest">
+      404
+    </h1>
+
+    <h2 class="font-serif text-2xl sm:text-4xl font-bold text-white">
+      Above The Clouds, Off The Floor Plan
+    </h2>
+
+    <p class="text-sm text-gray-300 max-w-md mx-auto leading-relaxed">
+      The table, cocktail, or skyline page you are looking for has departed on a private elevator or does not exist on our 54th floor deck.
+    </p>
+
+    <!-- Search Box -->
+    <div class="max-w-md mx-auto pt-2">
+      <div class="relative">
+        <input type="text" placeholder="Search the menu, events, or lounge pages..." class="w-full bg-slate-900 border border-gray-700 rounded-xl py-3 pl-4 pr-10 text-xs text-white focus:border-amber-400 focus:outline-none">
+        <button class="absolute right-3 top-1/2 -translate-y-1/2 text-amber-400">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick Navigation Buttons -->
+    <div class="flex flex-wrap justify-center gap-4 pt-4">
+      <a href="index.html" class="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold uppercase tracking-wider transition shadow-lg shadow-amber-500/30">
+        <i class="fa-solid fa-house mr-1.5"></i> Return to Skyline Home
+      </a>
+      <a href="menu.html" class="px-6 py-3 rounded-xl glass-dark border border-amber-500/30 hover:border-amber-400 text-amber-300 text-xs font-bold uppercase tracking-wider transition">
+        <i class="fa-solid fa-book-open mr-1.5"></i> View Tasting Menu
+      </a>
+      <a href="contact.html" class="px-6 py-3 rounded-xl glass-dark border border-gray-700 text-gray-300 hover:text-white text-xs font-semibold transition">
+        <i class="fa-solid fa-concierge-bell mr-1.5"></i> Contact Concierge
+      </a>
+    </div>
+  </main>
+
+      <footer class="relative z-10 py-6 text-center text-[11px] text-gray-400 border-t border-gray-900 bg-black flex flex-col items-center gap-3" style="background-color: #000000 !important; background: #000000 !important;">
+    <a href="index.html" class="flex items-center gap-2.5 group">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0">
+        <div class="w-full h-full bg-black rounded-[6px] flex items-center justify-center">
+          <i class="fa-solid fa-martini-glass-citrus text-amber-400 text-xs group-hover:rotate-12 transition duration-300"></i>
+        </div>
+      </div>
+      <div class="flex flex-col text-left">
+        <span class="font-display text-sm font-bold tracking-widest text-white group-hover:text-amber-400 transition leading-none">AURA SKY</span>
+        <span class="text-[8px] uppercase tracking-[0.25em] text-amber-400 font-semibold mt-0.5">Rooftop & Lounge</span>
+      </div>
+    </a>
+    <div class="flex gap-2 pt-1">
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Twitter / X" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+    </div>
+    <div class="flex flex-wrap gap-4 text-[10px] text-gray-400 pt-1">
+      <a href="#privacyPolicy" class="hover:text-amber-400 transition cursor-pointer">Privacy Policy</a>
+      <a href="#termsOfService" class="hover:text-amber-400 transition cursor-pointer">Terms of Service</a>
+      <a href="#dressCode" class="hover:text-amber-400 transition cursor-pointer">Dress Code Policy</a>
+      <a href="#sitemap" class="hover:text-amber-400 transition cursor-pointer">Sitemap</a>
+    </div>
+    <div>&copy; 2026 AURA SKY Rooftop & Lounge. All Rights Reserved.</div>
+  </footer>
+
+  <script src="assets/js/main.js?v=96"></script>
+</body>
+</html>
+

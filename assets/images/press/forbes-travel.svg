@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 56" width="200" height="56" fill="none">
+  <defs>
+    <linearGradient id="forbesGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+  </defs>
+  <!-- Forbes Wordmark -->
+  <text x="100" y="22" font-family="'Georgia', 'Times New Roman', serif" font-size="24" font-weight="bold" font-style="italic" letter-spacing="1" fill="#FFFFFF" class="fill-white" text-anchor="middle">Forbes</text>
+  <!-- 5 Gold Stars Rating (Distinctly spaced, no collisions) -->
+  <g fill="url(#forbesGold)" transform="translate(100, 31)">
+    <path transform="translate(-32, 0) scale(0.65)" d="M0 -6 L1.8 -1.8 L6.2 -1.8 L2.7 0.8 L4 5.2 L0 2.5 L-4 5.2 L-2.7 0.8 L-6.2 -1.8 L-1.8 -1.8 Z"/>
+    <path transform="translate(-16, 0) scale(0.65)" d="M0 -6 L1.8 -1.8 L6.2 -1.8 L2.7 0.8 L4 5.2 L0 2.5 L-4 5.2 L-2.7 0.8 L-6.2 -1.8 L-1.8 -1.8 Z"/>
+    <path transform="translate(0, 0) scale(0.65)" d="M0 -6 L1.8 -1.8 L6.2 -1.8 L2.7 0.8 L4 5.2 L0 2.5 L-4 5.2 L-2.7 0.8 L-6.2 -1.8 L-1.8 -1.8 Z"/>
+    <path transform="translate(16, 0) scale(0.65)" d="M0 -6 L1.8 -1.8 L6.2 -1.8 L2.7 0.8 L4 5.2 L0 2.5 L-4 5.2 L-2.7 0.8 L-6.2 -1.8 L-1.8 -1.8 Z"/>
+    <path transform="translate(32, 0) scale(0.65)" d="M0 -6 L1.8 -1.8 L6.2 -1.8 L2.7 0.8 L4 5.2 L0 2.5 L-4 5.2 L-2.7 0.8 L-6.2 -1.8 L-1.8 -1.8 Z"/>
+  </g>
+  <!-- TRAVEL GUIDE -->
+  <text x="100" y="48" font-family="'Montserrat', 'Arial', sans-serif" font-size="8" font-weight="800" letter-spacing="3" fill="#F59E0B" text-anchor="middle">TRAVEL GUIDE</text>
+</svg>

@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events & Live Music | AURA SKY Rooftop & Lounge</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <meta name="description"
+    content="Explore five signature nights at AURA SKY: brass and bourbon, a nylon-string supper club, candlelight piano, electric violin after dark, and handpan sunsets above the city.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: { 300: '#F5E6B8', 400: '#E5C468', 500: '#D4AF37', 600: '#B89222' },
+            midnight: '#07090E',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            display: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=96">
+</head>
+
+<body class="bg-white text-slate-900 dark:bg-[#07090E] dark:text-slate-100 transition-colors duration-300">
+
+  <!-- Main Navigation Header -->
+  <header class="sticky top-0 z-40 bg-black border-b border-amber-500/20 shadow-lg shadow-black/50"
+    style="background-color: #000000 !important; background: #000000 !important;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div
+            class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0">
+            <div class="w-full h-full bg-black rounded-[10px] flex items-center justify-center">
+              <i
+                class="fa-solid fa-martini-glass-citrus text-amber-400 text-base group-hover:rotate-12 transition duration-300"></i>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <span
+              class="font-display text-xl font-bold tracking-widest text-white group-hover:text-amber-400 transition leading-none">AURA
+              SKY</span>
+            <span class="text-[9px] uppercase tracking-[0.25em] text-amber-400 font-semibold mt-1">Rooftop &
+              Lounge</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium whitespace-nowrap">
+          <!-- Home (Dropdown) -->
+          <div class="relative dropdown-group">
+            <button
+              class="flex items-center gap-1.5 text-white hover:text-amber-400 py-2 focus:outline-none transition whitespace-nowrap font-medium">
+              <span>Home</span>
+              <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
+            </button>
+            <div class="dropdown-menu absolute top-full left-0 w-60 py-2 mt-2 rounded-xl shadow-2xl z-50">
+              <a href="index.html" class="dropdown-link  block px-4 py-2.5 text-xs">
+                <div class="dropdown-item-title font-bold text-white hover:text-amber-400">Home 1 - Skyline Dining</div>
+                <div class="dropdown-item-sub text-[10px] text-gray-400">Panoramic Rooftop Restaurant</div>
+              </a>
+              <a href="index-2.html" class="dropdown-link  block px-4 py-2.5 text-xs">
+                <div class="dropdown-item-title font-bold text-white hover:text-amber-400">Home 2 - Sunset Lounge</div>
+                <div class="dropdown-item-sub text-[10px] text-gray-400">Craft Cocktails & DJ Club</div>
+              </a>
+            </div>
+          </div>
+
+          <a href="about.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">About</a>
+          <a href="menu.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Menu</a>
+          <a href="events.html" class="whitespace-nowrap text-amber-400 font-semibold nav-active active">Events & Live Music</a>
+          <a href="gallery.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Gallery</a>
+          <a href="blog.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Blog</a>
+          <a href="contact.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Contact</a>
+          <a href="dashboard-guest.html" class="whitespace-nowrap text-white hover:text-amber-400 transition ">
+            Dashboard
+          </a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <button
+            class="theme-toggle-btn w-9 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center justify-center text-sm"
+            aria-label="Toggle Theme">
+            <i class="theme-toggle-icon fa-solid fa-moon"></i>
+          </button>
+          <button
+            class="rtl-toggle-btn px-2.5 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center gap-1.5 text-xs font-semibold"
+            aria-label="Toggle RTL Mode">
+            <i class="fa-solid fa-globe text-xs"></i>
+            <span class="rtl-toggle-label">LTR</span>
+          </button>
+          <a href="login.html"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-amber-400 via-gold-500 to-amber-500 text-black shadow-lg shadow-amber-500/25 hover:scale-[1.02] active:scale-[0.98] transition">
+            <i class="fa-solid fa-user-lock"></i>
+            <span>Login Portal</span>
+          </a>
+          <button id="mobileMenuBtn"
+            class="lg:hidden w-10 h-10 rounded-lg border border-amber-500/30 bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-[#07090E] border-b border-amber-500/20 px-6 py-6">
+      <div class="flex flex-col gap-4 text-sm font-medium">
+        <div class="border-b border-gray-800 pb-2">
+          <button id="mobileHomeDropdownBtn"
+            class="w-full flex justify-between items-center text-gray-300 py-1 font-semibold">
+            <span>Home</span>
+            <i class="fa-solid fa-chevron-down text-xs"></i>
+          </button>
+          <div id="mobileHomeDropdownMenu" class="hidden pl-4 pt-2 flex flex-col gap-2">
+            <a href="index.html" class="text-gray-300 hover:text-amber-400 text-xs py-1">Home 1 - Skyline Dining</a>
+            <a href="index-2.html" class="text-gray-300 hover:text-amber-400 text-xs py-1">Home 2 - Sunset Lounge</a>
+          </div>
+        </div>
+        <a href="about.html" class="text-white hover:text-amber-400 py-1">About</a>
+        <a href="menu.html" class="text-white hover:text-amber-400 py-1">Menu</a>
+        <a href="events.html" class="whitespace-nowrap text-amber-400 font-bold py-1">Events & Live Music</a>
+        <a href="gallery.html" class="text-white hover:text-amber-400 py-1">Gallery</a>
+        <a href="blog.html" class="text-white hover:text-amber-400 py-1">Blog</a>
+        <a href="contact.html" class="text-white hover:text-amber-400 py-1">Contact</a>
+        <a href="dashboard-guest.html" class="text-white hover:text-amber-400 py-1 ">
+          Dashboard
+        </a>
+        <a href="login.html" class="text-amber-400 py-2 border-t border-gray-800  font-semibold">
+          <i class="fa-solid fa-user-lock"></i> Guest Login Portal
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner (Matching Blog Page Hero Center Container with Custom Background) -->
+  <section
+    class="relative min-h-[92vh] flex items-center justify-center py-20 bg-black border-b border-amber-500/15 text-center overflow-hidden">
+    <!-- Hero Background Image -->
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1597106525363-7916ebf5b083?auto=format&fit=crop&w=1920&q=85"
+        alt="AURA SKY Events & Live Music Atmosphere" class="w-full h-full object-cover object-center scale-100">
+      <div class="contact-hero-overlay"></div>
+    </div>
+    <div class="relative z-10 w-full max-w-3xl mx-auto px-4">
+      <div class="contact-hero-box p-8 sm:p-12 rounded-3xl text-center transition-all duration-300">
+        <span
+          class="contact-hero-badge inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 transition">
+          <i class="fa-solid fa-music mr-1.5 text-amber-400"></i> Nightlife &amp; Live Music Series
+        </span>
+        <h1 class="contact-hero-title font-serif text-3xl sm:text-5xl lg:text-6xl font-bold mb-4">
+          Soundscapes <span class="gold-gradient-text font-display italic font-normal">Above The Skyline</span>
+        </h1>
+        <p class="contact-hero-desc text-sm sm:text-base max-w-xl mx-auto leading-relaxed mb-8">
+          Brass at blue hour, nylon-string supper clubs, candlelit piano, electric violin after dark, and handpan
+          sunsets &mdash; signature live experiences at 820 feet.
+        </p>
+
+        <!-- Action Buttons inside Center Container Box -->
+        <div class="flex flex-wrap items-center justify-center gap-3">
+          <a href="#events-schedule"
+            class="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold uppercase tracking-wider transition shadow-lg shadow-amber-500/25 flex items-center gap-2">
+            <i class="fa-solid fa-calendar-check"></i> Explore Schedule
+          </a>
+          <a href="contact.html"
+            class="px-6 py-3 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 text-white hover:text-amber-400 border border-amber-500/30 text-xs font-bold uppercase tracking-wider transition flex items-center gap-2">
+            <i class="fa-solid fa-champagne-glasses"></i> Reserve VIP Table
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Calendar & Schedule -->
+  <section id="events-schedule" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Events Filter Bar (Themed to Rooftop Restaurant & Lounge Bar Instruments) -->
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-12 pb-6 border-b border-gray-800">
+        <div>
+          <h2 class="font-serif text-2xl font-bold text-white">Upcoming Experiences</h2>
+          <p class="text-xs text-gray-400 mt-1">Select an event below to reserve VIP tables or join the guestlist.</p>
+        </div>
+        <div class="events-filter-bar flex flex-wrap gap-2">
+          <button type="button" data-event-filter="all" onclick="filterEvents('all', this)"
+            class="event-filter-btn px-4 py-2 rounded-lg bg-amber-500 text-black border border-amber-500 text-xs font-bold uppercase tracking-wider transition cursor-pointer">All
+            Experiences</button>
+          <button type="button" data-event-filter="sax-brass" onclick="filterEvents('sax-brass', this)"
+            class="event-filter-btn px-4 py-2 rounded-lg glass-dark border border-gray-700 hover:border-amber-400 text-gray-300 text-xs font-bold uppercase tracking-wider transition cursor-pointer"><i
+              class="fa-solid fa-music mr-1.5 text-amber-400"></i> Brass & Percussion</button>
+          <button type="button" data-event-filter="strings-piano" onclick="filterEvents('strings-piano', this)"
+            class="event-filter-btn px-4 py-2 rounded-lg glass-dark border border-gray-700 hover:border-amber-400 text-gray-300 text-xs font-bold uppercase tracking-wider transition cursor-pointer"><i
+              class="fa-solid fa-guitar mr-1.5 text-amber-400"></i> Strings, Piano & Violin</button>
+        </div>
+      </div>
+
+      <!-- Events List (Signature Event Nights at AURA SKY) -->
+      <div class="space-y-6">
+
+        <!-- Event 1: Brass & Bourbon at Blue Hour -->
+        <div
+          class="event-card rounded-2xl glass-dark border border-amber-500/20 p-6 sm:p-8 hover-elevate transition flex flex-col lg:flex-row items-center justify-between gap-8"
+          data-event-category="all sax-brass sax jazz">
+          <div class="flex flex-col sm:flex-row items-center gap-6 w-full lg:w-auto">
+            <div class="w-full sm:w-48 h-40 rounded-xl overflow-hidden shrink-0 border border-amber-500/20">
+              <img src="assets/images/events/saxophone-live-9002789.jpg"
+                alt="Live brass saxophone performance at the AURA SKY rooftop lounge"
+                class="w-full h-full object-cover hover:scale-105 transition duration-500">
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2 mb-2">
+                <span class="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500 text-black">Every
+                  Friday</span>
+                <span
+                  class="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500/15 border border-amber-500/30 text-amber-300"><i
+                    class="fa-solid fa-music mr-1"></i> Live New Orleans Brass Quintet</span>
+                <span class="text-xs text-amber-400 font-semibold"><i class="fa-regular fa-clock mr-1"></i> 6:30 PM -
+                  10:30 PM</span>
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-white">Brass & Bourbon at Blue Hour</h3>
+              <p class="text-xs text-gray-400 max-w-xl mt-1 leading-relaxed">A five-piece brass band leads the terrace
+                into the weekend with smoky funk and lazy New Orleans swing, while the bar pours a guided bourbon flight
+                beside the open-flame grill.</p>
+              <div class="flex flex-wrap items-center gap-4 text-xs text-gray-300 mt-3">
+                <span><i class="fa-solid fa-whiskey-glass text-amber-400 mr-1"></i> Small-Batch Bourbon Flight</span>
+                <span><i class="fa-solid fa-fire text-amber-400 mr-1"></i> Flame-Grilled Octopus</span>
+                <span><i class="fa-solid fa-cloud-sun text-amber-400 mr-1"></i> West Terrace Blue Hour</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col sm:flex-row lg:flex-col items-center gap-3 w-full lg:w-44 shrink-0">
+            <span class="text-sm font-bold text-amber-400 text-center">Complimentary with Dinner / Lounge Table</span>
+            <button
+              onclick="showToast('Guestlist Confirmed', 'You are on the guestlist for Brass & Bourbon at Blue Hour!', 'success')"
+              class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold uppercase tracking-wider transition">
+              Join Friday Guestlist
+            </button>
+            <button data-open-reservation onclick="openReservationModal()"
+              class="w-full py-2.5 rounded-xl border border-amber-500/30 text-amber-300 hover:bg-amber-500/10 text-xs font-semibold transition">
+              Reserve Terrace Table
+            </button>
+          </div>
+        </div>
+
+        <!-- Event 2: Nylon Nocturne Supper Club -->
+        <div
+          class="event-card rounded-2xl glass-dark border border-amber-500/20 p-6 sm:p-8 hover-elevate transition flex flex-col lg:flex-row items-center justify-between gap-8"
+          data-event-category="all strings-piano strings guitar acoustic">
+          <div class="flex flex-col sm:flex-row items-center gap-6 w-full lg:w-auto">
+            <div class="w-full sm:w-48 h-40 rounded-xl overflow-hidden shrink-0 border border-amber-500/20">
+              <img src="assets/images/events/guitar-pexels-1407322.jpg"
+                alt="Acoustic guitarist performing during a rooftop sunset dinner"
+                class="w-full h-full object-cover hover:scale-105 transition duration-500">
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2 mb-2">
+                <span class="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500 text-black">Every
+                  Saturday</span>
+                <span
+                  class="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500/15 border border-amber-500/30 text-amber-300"><i
+                    class="fa-solid fa-guitar mr-1"></i> Spanish Nylon Guitar & Cajón</span>
+                <span class="text-xs text-amber-400 font-semibold"><i class="fa-regular fa-clock mr-1"></i> 5:30 PM -
+                  9:00 PM</span>
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-white">Nylon Nocturne Supper Club</h3>
+              <p class="text-xs text-gray-400 max-w-xl mt-1 leading-relaxed">A classical guitarist and cajón player
+                trace Andalusian melodies through a slow sunset supper, with candlelit tables along the glass balustrade
+                and a sommelier-led coastal wine flight.</p>
+              <div class="flex flex-wrap items-center gap-4 text-xs text-gray-300 mt-3">
+                <span><i class="fa-solid fa-wine-glass text-amber-400 mr-1"></i> Albariño & Sherry Flight</span>
+                <span><i class="fa-solid fa-utensils text-amber-400 mr-1"></i> Seven-Course Sunset Menu</span>
+                <span><i class="fa-solid fa-border-all text-amber-400 mr-1"></i> Infinity Edge Tables</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col sm:flex-row lg:flex-col items-center gap-3 w-full lg:w-44 shrink-0">
+            <span class="text-sm font-bold text-amber-400 text-center">Dinner Reservation Required</span>
+            <button data-open-reservation onclick="openReservationModal()"
+              class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold uppercase tracking-wider transition">
+              Book Supper Club
+            </button>
+            <button
+              onclick="showToast('Menu Preview', 'The Nylon Nocturne sunset supper menu is ready to view.', 'info')"
+              class="w-full py-2.5 rounded-xl border border-amber-500/30 text-amber-300 hover:bg-amber-500/10 text-xs font-semibold transition">
+              View Sunset Menu
+            </button>
+          </div>
+        </div>
+
+        <!-- Event 3: Ivory & Ember Candlelight Piano -->
+        <div
+          class="event-card rounded-2xl glass-dark border border-amber-500/20 p-6 sm:p-8 hover-elevate transition flex flex-col lg:flex-row items-center justify-between gap-8"
+          data-event-category="all strings-piano piano acoustic jazz">
+          <div class="flex flex-col sm:flex-row items-center gap-6 w-full lg:w-auto">
+            <div class="w-full sm:w-48 h-40 rounded-xl overflow-hidden shrink-0 border border-amber-500/20">
+              <img src="assets/images/events/piano-lounge-34977994.jpg"
+                alt="Grand pianist performing in the candlelit AURA SKY rooftop lounge"
+                class="w-full h-full object-cover hover:scale-105 transition duration-500">
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2 mb-2">
+                <span class="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500 text-black">Every
+                  Wednesday</span>
+                <span
+                  class="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500/15 border border-amber-500/30 text-amber-300"><i
+                    class="fa-solid fa-music mr-1"></i> Concert Grand Piano & Double Bass</span>
+                <span class="text-xs text-amber-400 font-semibold"><i class="fa-regular fa-clock mr-1"></i> 7:00 PM -
+                  11:00 PM</span>
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-white">Ivory & Ember: Candlelight Piano</h3>
+              <p class="text-xs text-gray-400 max-w-xl mt-1 leading-relaxed">Our resident grand piano takes the glass
+                dining room for an evening of jazz ballads and cinematic nocturnes, joined by a double bass and a
+                trolley of aged tawny ports.</p>
+              <div class="flex flex-wrap items-center gap-4 text-xs text-gray-300 mt-3">
+                <span><i class="fa-solid fa-wine-bottle text-amber-400 mr-1"></i> Aged Tawny Port Trolley</span>
+                <span><i class="fa-solid fa-music text-amber-400 mr-1"></i> Grand Piano & Double Bass</span>
+                <span><i class="fa-solid fa-fire text-amber-400 mr-1"></i> Candlelit Glass Room</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col sm:flex-row lg:flex-col items-center gap-3 w-full lg:w-44 shrink-0">
+            <span class="text-sm font-bold text-amber-400 text-center">Exclusive Dining Experience</span>
+            <button data-open-reservation onclick="openReservationModal()"
+              class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold uppercase tracking-wider transition">
+              Reserve Piano Table
+            </button>
+            <button onclick="showToast('VIP Waitlist', 'Added to the Ivory & Ember priority seating queue.', 'success')"
+              class="w-full py-2.5 rounded-xl border border-amber-500/30 text-amber-300 hover:bg-amber-500/10 text-xs font-semibold transition">
+              Join Priority Waitlist
+            </button>
+          </div>
+        </div>
+
+        <!-- Event 4: Electric Afterglow Violin Over Deep House -->
+        <div
+          class="event-card rounded-2xl glass-dark border border-amber-500/20 p-6 sm:p-8 hover-elevate transition flex flex-col lg:flex-row items-center justify-between gap-8"
+          data-event-category="all strings-piano strings violin acoustic">
+          <div class="flex flex-col sm:flex-row items-center gap-6 w-full lg:w-auto">
+            <div class="w-full sm:w-48 h-40 rounded-xl overflow-hidden shrink-0 border border-amber-500/20">
+              <img src="assets/images/events/electric-afterglow-unsplash.jpg"
+                alt="Electric violinist performing at the AURA SKY rooftop after-dark session"
+                class="w-full h-full object-cover hover:scale-105 transition duration-500">
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2 mb-2">
+                <span class="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500 text-black">Every
+                  Thursday</span>
+                <span
+                  class="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500/15 border border-amber-500/30 text-amber-300"><i
+                    class="fa-solid fa-music mr-1"></i> Electric Violin & Live Looper</span>
+                <span class="text-xs text-amber-400 font-semibold"><i class="fa-regular fa-clock mr-1"></i> 8:30 PM -
+                  1:00 AM</span>
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-white">Electric Afterglow: Violin Over Deep House</h3>
+              <p class="text-xs text-gray-400 max-w-xl mt-1 leading-relaxed">A five-string electric violin loops over
+                warm deep house as the rooftop turns after-dark, with smoked negronis, heated edge cabanas, and a
+                late-night menu built for sharing.</p>
+              <div class="flex flex-wrap items-center gap-4 text-xs text-gray-300 mt-3">
+                <span><i class="fa-solid fa-martini-glass text-amber-400 mr-1"></i> Smoked Negroni Service</span>
+                <span><i class="fa-solid fa-crown text-amber-400 mr-1"></i> Heated Edge Cabanas</span>
+                <span><i class="fa-solid fa-headphones text-amber-400 mr-1"></i> Late-Night Deep House</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col sm:flex-row lg:flex-col items-center gap-3 w-full lg:w-44 shrink-0">
+            <span class="text-sm font-bold text-amber-400 text-center">$35 Lounge Entry / VIP Cabanas</span>
+            <button onclick="showToast('Guestlist Confirmed', 'You are registered for Electric Afterglow.', 'success')"
+              class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold uppercase tracking-wider transition">
+              RSVP Afterglow
+            </button>
+            <button data-open-reservation onclick="openReservationModal()"
+              class="w-full py-2.5 rounded-xl border border-amber-500/30 text-amber-300 hover:bg-amber-500/10 text-xs font-semibold transition">
+              Reserve a Cabana
+            </button>
+          </div>
+        </div>
+
+        <!-- Event 5: Horizon Drum Handpan at Golden Hour -->
+        <div
+          class="event-card rounded-2xl glass-dark border border-amber-500/20 p-6 sm:p-8 hover-elevate transition flex flex-col lg:flex-row items-center justify-between gap-8"
+          data-event-category="all sax-brass percussion jazz lounge">
+          <div class="flex flex-col sm:flex-row items-center gap-6 w-full lg:w-auto">
+            <div class="w-full sm:w-48 h-40 rounded-xl overflow-hidden shrink-0 border border-amber-500/20">
+              <img src="assets/images/events/horizon-drum-unsplash.jpg"
+                alt="Handpan and percussion instruments set for a sunset session at AURA SKY"
+                class="w-full h-full object-cover hover:scale-105 transition duration-500">
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2 mb-2">
+                <span class="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500 text-black">Every
+                  Sunday</span>
+                <span
+                  class="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500/15 border border-amber-500/30 text-amber-300"><i
+                    class="fa-solid fa-drum mr-1"></i> Handpan, Hang Drum & Congas</span>
+                <span class="text-xs text-amber-400 font-semibold"><i class="fa-regular fa-clock mr-1"></i> 5:00 PM -
+                  9:30 PM</span>
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-white">Horizon Drum: Handpan at Golden Hour</h3>
+              <p class="text-xs text-gray-400 max-w-xl mt-1 leading-relaxed">Meditative handpan textures and hand-played
+                congas carry the terrace through golden hour, paired with a raw bar of oysters and crudo plus a
+                botanical spritz trolley.</p>
+              <div class="flex flex-wrap items-center gap-4 text-xs text-gray-300 mt-3">
+                <span><i class="fa-solid fa-martini-glass-citrus text-amber-400 mr-1"></i> Botanical Spritz
+                  Trolley</span>
+                <span><i class="fa-solid fa-fish text-amber-400 mr-1"></i> Oyster & Crudo Bar</span>
+                <span><i class="fa-solid fa-sun text-amber-400 mr-1"></i> West-Facing Sunset Deck</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col sm:flex-row lg:flex-col items-center gap-3 w-full lg:w-44 shrink-0">
+            <span class="text-sm font-bold text-amber-400 text-center">Open Sunset Seating</span>
+            <button data-open-reservation onclick="openReservationModal()"
+              class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold uppercase tracking-wider transition">
+              Reserve Sunset Table
+            </button>
+            <button
+              onclick="showToast('Table Notification', 'We will alert you 30 minutes before Horizon Drum begins.', 'info')"
+              class="w-full py-2.5 rounded-xl border border-amber-500/30 text-amber-300 hover:bg-amber-500/10 text-xs font-semibold transition">
+              Set Sunset Reminder
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Extra Section 1: VIP Bottle Service & Cabana Hospitality Packages -->
+  <section
+    class="py-20 bg-gradient-to-b from-black via-zinc-950 to-black border-t border-amber-500/20 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span
+          class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30 uppercase tracking-widest inline-block mb-3">
+          <i class="fa-solid fa-champagne-glasses mr-1 text-amber-400"></i> Event Night Hospitality
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
+          Event-Night Tables & <span class="gold-gradient-text">Bottle Service</span>
+        </h2>
+        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+          Choose a perch for the evening, from skyline-edge cabanas to the glass atrium, each with its own host, pour
+          ritual, and late-night menu.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Tier 1 -->
+        <div
+          class="bg-zinc-900/80 border border-amber-500/20 rounded-2xl p-8 hover:border-amber-400 transition shadow flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-xs uppercase font-bold text-amber-400 tracking-wider">Horizon Edge Cabana</span>
+              <span class="text-xs text-gray-400">Seats up to 6</span>
+            </div>
+            <div class="font-serif text-3xl font-bold text-white mb-4">$1,200 <span
+                class="text-xs font-sans text-gray-400">min spend</span></div>
+            <ul class="space-y-3 text-xs text-gray-300 mb-8">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Two Bottles Grower
+                Champagne</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Ossetra Caviar & Warm
+                Blini</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Event-Night Table
+                Captain</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Priority Skyline-Edge
+                Access</li>
+            </ul>
+          </div>
+          <button data-open-reservation
+            class="w-full py-3 rounded-xl border border-amber-500/40 text-amber-400 hover:bg-amber-500 hover:text-black font-bold text-xs uppercase tracking-wider transition">
+            Reserve Horizon Edge
+          </button>
+        </div>
+
+        <!-- Tier 2 -->
+        <div
+          class="bg-zinc-900/90 border border-amber-500/40 rounded-2xl p-8 hover:border-amber-400 transition shadow-2xl flex flex-col justify-between relative ring-1 ring-amber-500/30">
+          <span
+            class="absolute -top-3 right-6 bg-gradient-to-r from-amber-500 to-amber-600 text-black text-[10px] font-black uppercase tracking-wider px-3 py-0.5 rounded-full shadow">Most
+            Requested</span>
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-xs uppercase font-bold text-amber-400 tracking-wider">Afterglow Booth</span>
+              <span class="text-xs text-gray-400">Seats up to 10</span>
+            </div>
+            <div class="font-serif text-3xl font-bold text-white mb-4">$2,500 <span
+                class="text-xs font-sans text-gray-400">min spend</span></div>
+            <ul class="space-y-3 text-xs text-gray-300 mb-8">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Three Magnums Rosé
+                Champagne</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Japanese Whisky &
+                Yuzu Highball Station</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Chef's Late-Night
+                Skewer Platter</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Dedicated Host & Coat
+                Service</li>
+            </ul>
+          </div>
+          <button data-open-reservation
+            class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs uppercase tracking-wider transition shadow-lg shadow-amber-500/20"
+            style="color: #000000 !important;">
+            Reserve Afterglow Booth
+          </button>
+        </div>
+
+        <!-- Tier 3 -->
+        <div
+          class="bg-zinc-900/80 border border-amber-500/20 rounded-2xl p-8 hover:border-amber-400 transition shadow flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-xs uppercase font-bold text-amber-400 tracking-wider">Celestial Atrium</span>
+              <span class="text-xs text-gray-400">Seats up to 25</span>
+            </div>
+            <div class="font-serif text-3xl font-bold text-white mb-4">$5,000 <span
+                class="text-xs font-sans text-gray-400">min spend</span></div>
+            <ul class="space-y-3 text-xs text-gray-300 mb-8">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Private Bartender &
+                Sommelier Duo</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Bespoke Six-Course
+                Chef's Table</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Live Acoustic Duo for
+                Two Hours</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Panoramic Glass
+                Atrium Partition</li>
+            </ul>
+          </div>
+          <button data-open-reservation
+            class="w-full py-3 rounded-xl border border-amber-500/40 text-amber-400 hover:bg-amber-500 hover:text-black font-bold text-xs uppercase tracking-wider transition">
+            Inquire Celestial Atrium
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Extra Section 2: Private Buyouts & Corporate Penthouse Galas -->
+  <section class="py-20 bg-zinc-950/90 border-t border-amber-500/15 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div
+        class="bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border border-amber-500/30 rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-10 shadow-2xl">
+        <div class="max-w-2xl">
+          <span
+            class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30 uppercase tracking-widest inline-block mb-3">
+            <i class="fa-solid fa-building mr-1 text-amber-400"></i> Private Celebrations
+          </span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
+            Private Penthouse Buyouts & <span class="gold-gradient-text">Brand Galas</span>
+          </h2>
+          <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+            Command the entire 54th floor for world-class corporate summits, fashion after-parties, and milestone
+            celebrations. Complete with 360° skyline vistas, Meyer Sound concert acoustic zoning, and Antoine Dubois
+            custom catering.
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+            <div class="p-3 rounded-xl bg-black/40 border border-gray-800">
+              <span class="text-amber-400 font-serif font-bold text-lg block">350</span>
+              <span class="text-gray-400 text-[10px] uppercase">Reception Capacity</span>
+            </div>
+            <div class="p-3 rounded-xl bg-black/40 border border-gray-800">
+              <span class="text-amber-400 font-serif font-bold text-lg block">140</span>
+              <span class="text-gray-400 text-[10px] uppercase">Seated Dinner</span>
+            </div>
+            <div class="p-3 rounded-xl bg-black/40 border border-gray-800">
+              <span class="text-amber-400 font-serif font-bold text-lg block">4K</span>
+              <span class="text-gray-400 text-[10px] uppercase">LED Video Walls</span>
+            </div>
+            <div class="p-3 rounded-xl bg-black/40 border border-gray-800">
+              <span class="text-amber-400 font-serif font-bold text-lg block">100%</span>
+              <span class="text-gray-400 text-[10px] uppercase">Weather Proof</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-4 w-full sm:w-auto">
+          <a href="contact.html"
+            class="px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs uppercase tracking-wider transition text-center shadow-xl shadow-amber-500/20"
+            style="color: #000000 !important;">
+            Inquire Full Buyout
+          </a>
+          <button onclick="showToast('Lookbook Sent', 'Event deck lookbook sent to your inbox.', 'info')"
+            class="px-8 py-4 rounded-xl border border-amber-500/40 text-amber-400 hover:bg-amber-500/10 font-bold text-xs uppercase tracking-wider transition text-center">
+            Download Event Deck
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Extra Section 3: Resident Artist & Sonic Virtuoso Spotlight -->
+  <section class="py-20 bg-black/90 border-t border-amber-500/20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span
+          class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30 uppercase tracking-widest inline-block mb-3">
+          <i class="fa-solid fa-music mr-1 text-amber-400"></i> The AURA Collective
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
+          Resident Curators & <span class="gold-gradient-text">Guest Virtuosos</span>
+        </h2>
+        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+          A rotating collective of selectors, pianists, and percussionists shapes each night, reading the room and the
+          skyline rather than repeating a fixed set.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <div
+          class="bg-zinc-900/80 border border-amber-500/20 rounded-2xl p-6 hover:border-amber-400 transition text-center shadow">
+          <div class="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-amber-500/30 overflow-hidden shadow-lg">
+            <img src="assets/images/residents/noor-haddad.jpg" alt="Portrait of Noor Haddad, resident selector"
+              class="w-full h-full object-cover" loading="lazy">
+          </div>
+          <span
+            class="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded border border-amber-500/20 inline-block mb-2">Resident
+            Selector</span>
+          <h3 class="text-white font-serif text-lg font-bold mb-1">Noor Haddad</h3>
+          <p class="text-gray-400 text-xs mb-3">Deep house and sunset downtempo, threading oud samples and field
+            recordings through warm analogue bass.</p>
+          <span class="text-gray-500 text-[11px] block">Thursdays & Saturdays • 9:00 PM</span>
+        </div>
+
+        <div
+          class="bg-zinc-900/80 border border-amber-500/30 rounded-2xl p-6 hover:border-amber-400 transition text-center shadow-xl relative ring-1 ring-amber-500/20">
+          <span
+            class="absolute -top-3 right-6 bg-gradient-to-r from-amber-500 to-amber-600 text-black text-[10px] font-black uppercase tracking-wider px-3 py-0.5 rounded-full shadow">Fan
+            Favorite</span>
+          <div class="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-amber-500/30 overflow-hidden shadow-lg">
+            <img
+              src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=400&h=400&q=80"
+              alt="Portrait of Dario Moretti, resident pianist" class="w-full h-full object-cover object-top"
+              loading="lazy">
+          </div>
+          <span
+            class="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded border border-amber-500/20 inline-block mb-2">Resident
+            Pianist</span>
+          <h3 class="text-white font-serif text-lg font-bold mb-1">Dario Moretti</h3>
+          <p class="text-gray-400 text-xs mb-3">Improvises across neo-soul, film noir, and Italian jazz standards on the
+            glass-room grand piano.</p>
+          <span class="text-gray-500 text-[11px] block">Wednesdays • 7:00 PM</span>
+        </div>
+
+        <div
+          class="bg-zinc-900/80 border border-amber-500/20 rounded-2xl p-6 hover:border-amber-400 transition text-center shadow">
+          <div class="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-amber-500/30 overflow-hidden shadow-lg">
+            <img src="assets/images/residents/amara-okafor.jpg" alt="Portrait of Amara Okafor, resident percussionist"
+              class="w-full h-full object-cover" loading="lazy">
+          </div>
+          <span
+            class="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded border border-amber-500/20 inline-block mb-2">Resident
+            Percussionist</span>
+          <h3 class="text-white font-serif text-lg font-bold mb-1">Amara Okafor</h3>
+          <p class="text-gray-400 text-xs mb-3">Handpan, congas, and frame drum; builds improvised sunset rituals with
+            rotating guest instrumentalists.</p>
+          <span class="text-gray-500 text-[11px] block">Sundays • 5:00 PM</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Universal Footer -->
+  <!-- Main Footer (Pure Black in Both Themes) -->
+  <footer class="bg-black text-gray-400 text-xs border-t border-amber-500/20 pt-16 pb-12"
+    style="background-color: #000000 !important; background: #000000 !important;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-gray-800">
+
+        <!-- Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <a href="index.html" class="flex items-center gap-3 group">
+            <div
+              class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0">
+              <div class="w-full h-full bg-black rounded-[10px] flex items-center justify-center">
+                <i
+                  class="fa-solid fa-martini-glass-citrus text-amber-400 text-base group-hover:rotate-12 transition duration-300"></i>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <span
+                class="font-display text-xl font-bold tracking-widest text-white group-hover:text-amber-400 transition leading-none">AURA
+                SKY</span>
+              <span class="text-[9px] uppercase tracking-[0.25em] text-amber-400 font-semibold mt-1">Rooftop &
+                Lounge</span>
+            </div>
+          </a>
+          <p class="text-gray-400 max-w-sm leading-relaxed text-xs">
+            Elevated dining, Michelin-trained craftsmanship, and panoramic skyline vistas from the 54th floor penthouse
+            of the Grand Metropolis Tower.
+          </p>
+          <!-- Credential Badges -->
+          <div class="flex flex-wrap gap-2 pt-1">
+            <span class="footer-credential-pill"><i class="fa-solid fa-award text-amber-400"></i> Michelin Star Guide
+              2026</span>
+            <span class="footer-credential-pill"><i class="fa-solid fa-shield-halved text-emerald-400"></i> 54th Fl
+              Penthouse Reserve</span>
+          </div>
+          <!-- Contact Items with Clickable Links -->
+          <div class="space-y-1.5 text-xs pt-1">
+            <div class="footer-contact-item"><i class="fa-solid fa-location-dot text-amber-400"></i> <a
+                href="contact.html">5400 Skyline Blvd, Penthouse Level, Metropolis</a></div>
+            <div class="footer-contact-item"><i class="fa-solid fa-phone text-amber-400"></i> <a
+                href="tel:+18005552872">+1 (800) 555-AURA (2872)</a></div>
+            <div class="footer-contact-item"><i class="fa-solid fa-envelope text-amber-400"></i> <a
+                href="mailto:concierge@auraskyrooftop.com">concierge@auraskyrooftop.com</a></div>
+          </div>
+          <!-- Squircle Social Buttons with Hover Glow -->
+          <div class="flex gap-2 pt-2">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="Facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="Twitter / X" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="YouTube Channel" title="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links with Chevrons & Hover Slide -->
+        <div>
+          <h4
+            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-amber-400 pl-2">
+            Navigation</h4>
+          <ul class="space-y-2.5">
+            <li><a href="about.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> About Our Sky
+                Lounge</a></li>
+            <li><a href="menu.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Culinary &
+                Mixology Menu</a></li>
+            <li><a href="events.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Nightlife & DJ
+                Lineups</a></li>
+            <li><a href="gallery.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Panoramic Photo
+                Gallery</a></li>
+            <li><a href="pricing.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> VIP Cabanas &
+                Bottle Service</a></li>
+            <li><a href="contact.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Location &
+                Directions</a></li>
+          </ul>
+        </div>
+
+        <!-- Services & Private Dining -->
+        <div>
+          <h4
+            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-amber-400 pl-2">
+            Experiences</h4>
+          <ul class="space-y-2.5">
+            <li><a href="service-details.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i>
+                Penthouse VIP Cabanas</a></li>
+            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Sunset
+                Romantic Dinners</a></li>
+            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Private
+                Corporate Buyouts</a></li>
+            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Mixology
+                Masterclasses</a></li>
+            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Skyline
+                Wedding Receptions</a></li>
+            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Sommelier Wine
+                Tastings</a></li>
+          </ul>
+        </div>
+
+        <!-- Portals & VIP Dispatch -->
+        <div>
+          <h4
+            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-amber-400 pl-2">
+            Portals & System</h4>
+          <ul class="space-y-2.5">
+            <li><a href="dashboard-guest.html" class="footer-nav-link text-amber-300 font-semibold"><i
+                  class="fa-solid fa-user mr-1 text-xs"></i> Guest Dashboard</a></li>
+            <li><a href="dashboard-admin.html" class="footer-nav-link text-emerald-400 font-semibold"><i
+                  class="fa-solid fa-chart-line mr-1 text-xs"></i> Admin Dashboard</a></li>
+            <li><a href="login.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Login / VIP
+                Portal</a></li>
+            <li><a href="register.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Create
+                Account</a></li>
+            <li><a href="coming-soon.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Coming Soon
+                / Maintenance</a></li>
+            <li><a href="404.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> 404 Error Page</a>
+            </li>
+          </ul>
+          <!-- Newsletter Dispatch -->
+          <div class="mt-4 pt-3 border-t border-gray-800">
+            <span class="text-[11px] font-semibold text-white uppercase tracking-wider block mb-1">VIP Skyline
+              Dispatch</span>
+            <form class="footer-newsletter-box"
+              onsubmit="event.preventDefault(); showToast('VIP Subscription Confirmed', 'You are on the VIP priority guest list.', 'success'); this.reset();">
+              <input type="email" placeholder="vip.guest@gmail.com"
+                pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" required aria-label="Email address">
+              <button type="submit">Join</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright & Legal with Interactive Modals -->
+      <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-gray-500">
+        <div>
+          &copy; 2026 AURA SKY Rooftop & Lounge. All Rights Reserved. Crafted for ThemeForest & TemplateMonster.
+        </div>
+        <div class="flex flex-wrap gap-4 sm:gap-6">
+          <a href="#privacyPolicy" class="hover:text-amber-400 transition cursor-pointer">Privacy Policy</a>
+          <a href="#termsOfService" class="hover:text-amber-400 transition cursor-pointer">Terms of Service</a>
+          <a href="#dressCode" class="hover:text-amber-400 transition cursor-pointer">Dress Code Policy</a>
+          <a href="#sitemap" class="hover:text-amber-400 transition cursor-pointer">Sitemap</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Universal Reservation Modal -->
+  <div id="reservationModal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div
+      class="relative w-full max-w-2xl rounded-2xl glass-dark border border-amber-500/40 p-6 sm:p-8 shadow-2xl text-left">
+      <button data-close-modal class="absolute top-5 right-5 text-gray-400 hover:text-white text-lg"><i
+          class="fa-solid fa-xmark"></i></button>
+      <div class="mb-6">
+        <span class="text-xs uppercase font-bold text-amber-400 tracking-wider">AURA SKY • 54th Floor</span>
+        <h3 class="font-serif text-2xl font-bold text-white mt-1">Reserve Your Skyline Table</h3>
+      </div>
+      <form id="reservationForm" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-medium text-gray-300 mb-1">Guests</label>
+            <select id="reserveGuests"
+              class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-xs text-white">
+              <option>2 Guests</option>
+              <option>4 Guests</option>
+              <option>6 Guests</option>
+              <option>8+ Cabana</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-300 mb-1">Date</label>
+            <input type="date" id="reserveDate" required
+              class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-xs text-white">
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-medium text-gray-300 mb-1">Full Name <span
+                class="text-amber-400 font-bold">*</span></label>
+            <input type="text" id="reserveName" required placeholder="Guest Name"
+              class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-xs text-white">
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-300 mb-1">Phone Number</label>
+            <input type="tel" id="reservePhone" name="phone" required placeholder="10-digit mobile number"
+              pattern="[0-9]{10}" minlength="10" maxlength="10" inputmode="numeric"
+              title="Please enter a valid 10-digit phone number"
+              class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-xs text-white focus:border-amber-400 focus:outline-none">
+          </div>
+        </div>
+        <div class="pt-4 flex justify-end">
+          <button type="submit"
+            class="px-8 py-3 rounded-lg bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold uppercase tracking-wider transition">
+            Confirm Skyline Reservation
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js?v=96"></script>
+</body>
+
+</html>

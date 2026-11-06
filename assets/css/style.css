@@ -1,0 +1,5420 @@
+/* ===================================================================
+   AURA SKY - Rooftop Restaurant & Lounge Bar HTML Template
+   Crafted for ThemeForest / TemplateMonster / Premium Projects
+   Author: Aura Studio
+   =================================================================== */
+
+/* Custom Fonts & Smooth Reset */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap');
+
+:root {
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-display: 'Cinzel', serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  --gold-primary: #D4AF37;
+  --gold-light: #F3E5AB;
+  --gold-dark: #997A15;
+  --champagne: #EED9B3;
+  --bronze: #8C6D3B;
+
+  --dark-bg: #07090E;
+  --dark-card: #0F1420;
+  --dark-card-hover: #161E30;
+  --dark-border: rgba(212, 175, 55, 0.15);
+  --dark-border-subtle: rgba(255, 255, 255, 0.08);
+
+  --light-bg: #FFFFFF;
+  --light-card: #FFFFFF;
+  --light-card-hover: #F8FAFC;
+  --light-border: rgba(180, 140, 40, 0.25);
+  --light-border-subtle: rgba(0, 0, 0, 0.08);
+
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* RTL keeps the same typography as LTR — only layout direction flips. */
+
+/* ===================================================================
+   0. COMPREHENSIVE RTL SYSTEM (FULL DIRECTIONAL MIRRORING)
+   =================================================================== */
+html[dir="rtl"],
+body[dir="rtl"],
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+/* All headings, paragraphs, lists, forms, and cards align to the right in RTL */
+html[dir="rtl"] h1:not(.text-center):not([class*="text-center"]):not(.text-center *):not([class*="text-center"] *),
+html[dir="rtl"] h2:not(.text-center):not([class*="text-center"]):not(.text-center *):not([class*="text-center"] *),
+html[dir="rtl"] h3:not(.text-center):not([class*="text-center"]):not(.text-center *):not([class*="text-center"] *),
+html[dir="rtl"] h4:not(.text-center):not([class*="text-center"]):not(.text-center *):not([class*="text-center"] *),
+html[dir="rtl"] h5:not(.text-center):not([class*="text-center"]):not(.text-center *):not([class*="text-center"] *),
+html[dir="rtl"] h6:not(.text-center):not([class*="text-center"]):not(.text-center *):not([class*="text-center"] *),
+html[dir="rtl"] p:not(.text-center):not([class*="text-center"]):not(.text-center *):not([class*="text-center"] *),
+html[dir="rtl"] li:not(.text-center),
+html[dir="rtl"] blockquote:not(.text-center),
+html[dir="rtl"] figcaption:not(.text-center),
+html[dir="rtl"] label:not(.text-center),
+html[dir="rtl"] input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
+html[dir="rtl"] textarea,
+html[dir="rtl"] select,
+html[dir="rtl"] .subheadline:not(.text-center),
+html[dir="rtl"] .hero-desc:not(.text-center),
+html[dir="rtl"] .card:not(.text-center),
+html[dir="rtl"] .text-left {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* Explicit text-center remains centered */
+html[dir="rtl"] .text-center,
+html[dir="rtl"] .text-center *,
+html[dir="rtl"] [class*="text-center"],
+html[dir="rtl"] [class*="text-center"] * {
+  text-align: center !important;
+}
+
+/* Explicit text-right flips to left */
+html[dir="rtl"] .text-right {
+  text-align: left !important;
+  direction: ltr !important;
+}
+
+/* RTL Arrow & Directional Icon Mirroring */
+html[dir="rtl"] .fa-arrow-right,
+html[dir="rtl"] .fa-arrow-right-long,
+html[dir="rtl"] .fa-chevron-right,
+html[dir="rtl"] .fa-angle-right,
+html[dir="rtl"] .fa-caret-right,
+html[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1) !important;
+  display: inline-block;
+}
+
+html[dir="rtl"] .fa-arrow-left,
+html[dir="rtl"] .fa-arrow-left-long,
+html[dir="rtl"] .fa-chevron-left,
+html[dir="rtl"] .fa-angle-left,
+html[dir="rtl"] .fa-caret-left {
+  transform: scaleX(-1) !important;
+  display: inline-block;
+}
+
+/* RTL Margin & Padding Alignment */
+html[dir="rtl"] .mr-1 { margin-right: 0 !important; margin-left: 0.25rem !important; }
+html[dir="rtl"] .mr-1\.5 { margin-right: 0 !important; margin-left: 0.375rem !important; }
+html[dir="rtl"] .mr-2 { margin-right: 0 !important; margin-left: 0.5rem !important; }
+html[dir="rtl"] .mr-2\.5 { margin-right: 0 !important; margin-left: 0.625rem !important; }
+html[dir="rtl"] .mr-3 { margin-right: 0 !important; margin-left: 0.75rem !important; }
+html[dir="rtl"] .mr-4 { margin-right: 0 !important; margin-left: 1rem !important; }
+html[dir="rtl"] .mr-6 { margin-right: 0 !important; margin-left: 1.5rem !important; }
+
+html[dir="rtl"] .ml-1 { margin-left: 0 !important; margin-right: 0.25rem !important; }
+html[dir="rtl"] .ml-1\.5 { margin-left: 0 !important; margin-right: 0.375rem !important; }
+html[dir="rtl"] .ml-2 { margin-left: 0 !important; margin-right: 0.5rem !important; }
+html[dir="rtl"] .ml-2\.5 { margin-left: 0 !important; margin-right: 0.625rem !important; }
+html[dir="rtl"] .ml-3 { margin-left: 0 !important; margin-right: 0.75rem !important; }
+html[dir="rtl"] .ml-4 { margin-left: 0 !important; margin-right: 1rem !important; }
+
+/* Floating Badges pinned to corners flip position in RTL */
+html[dir="rtl"] .brand-shoots-badge,
+html[dir="rtl"] [class*="rounded-2xl"] > .absolute.top-3.right-3,
+html[dir="rtl"] [class*="rounded-2xl"] > .absolute.top-4.right-4 {
+  right: auto !important;
+  left: 0.75rem !important;
+}
+
+/* RTL Brand Logos & SVG Coordinate Protection */
+html[dir="rtl"] svg,
+[dir="rtl"] svg,
+.press-logo-card,
+.press-logo-card svg,
+.press-logo-card svg * {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+}
+
+html[dir="rtl"] .press-logo-card {
+  direction: ltr !important;
+  text-align: center !important;
+}
+
+html[dir="rtl"] svg text,
+[dir="rtl"] svg text {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+}
+
+
+/* Image Rendering: keep photographic content smooth and sharp at every size */
+img {
+  image-rendering: auto;
+}
+
+/* Base Body Setup */
+body {
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0D14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
+}
+
+html.light ::-webkit-scrollbar-track,
+.light ::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+html.light ::-webkit-scrollbar-thumb,
+.light ::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover,
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #997A15;
+}
+
+/* Typography Helpers */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Luxury Gold Gradients & Text Glow */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF0A8 0%, #F59E0B 50%, #D97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.25));
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #F59E0B 0%, #FCD34D 50%, #B45309 100%);
+}
+
+.gold-border-glow {
+  border: 1.5px solid rgba(245, 158, 11, 0.45);
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.2);
+}
+
+.gold-border-glow:hover {
+  border-color: rgba(245, 158, 11, 0.85);
+  box-shadow: 0 0 35px rgba(245, 158, 11, 0.35);
+}
+
+/* ===================================================================
+   THEME TOGGLE & RTL BUTTONS (Vibrant & High Contrast in BOTH Themes)
+   =================================================================== */
+.theme-toggle-btn,
+.rtl-toggle-btn {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  min-width: 2.5rem !important;
+  border-radius: 0.75rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+  background: #111622 !important;
+  border: 1.5px solid #F59E0B !important;
+  color: #FBBF24 !important;
+  box-shadow: 0 2px 12px rgba(245, 158, 11, 0.25) !important;
+}
+
+.rtl-toggle-btn {
+  width: auto !important;
+  padding: 0 0.75rem !important;
+  gap: 0.375rem !important;
+}
+
+.theme-toggle-btn i,
+.rtl-toggle-btn i {
+  color: #FBBF24 !important;
+  font-size: 1rem !important;
+}
+
+.theme-toggle-btn:hover,
+.rtl-toggle-btn:hover {
+  background: #1B2234 !important;
+  border-color: #FCD34D !important;
+  color: #FCD34D !important;
+  box-shadow: 0 4px 18px rgba(245, 158, 11, 0.45) !important;
+  transform: translateY(-1px);
+}
+
+/* Theme Toggle Button in Light Mode (Deep Slate stands out with 12:1 contrast against white navbar) */
+html.light .theme-toggle-btn,
+html.light .rtl-toggle-btn,
+html:not(.dark) .theme-toggle-btn,
+html:not(.dark) .rtl-toggle-btn,
+body.light .theme-toggle-btn,
+body.light .rtl-toggle-btn {
+  background: #0F172A !important;
+  border: 1.5px solid #0F172A !important;
+  color: #FBBF24 !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2) !important;
+}
+
+html.light .theme-toggle-btn i,
+html.light .rtl-toggle-btn i,
+html:not(.dark) .theme-toggle-btn i,
+html:not(.dark) .rtl-toggle-btn i {
+  color: #FBBF24 !important;
+  font-size: 1rem !important;
+}
+
+html.light .theme-toggle-btn:hover,
+html.light .rtl-toggle-btn:hover,
+html:not(.dark) .theme-toggle-btn:hover,
+html:not(.dark) .rtl-toggle-btn:hover {
+  background: #1B2234 !important;
+  border-color: #FCD34D !important;
+  color: #FCD34D !important;
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.25) !important;
+  transform: translateY(-1px);
+}
+
+/* ===================================================================
+   VIBRANT HIGH-CONTRAST THEME ACCENT COLOR (DARK THEME)
+   Luminous radiant gold on deep dark luxury backgrounds
+   =================================================================== */
+html.dark .text-amber-400,
+html.dark .text-gold-400,
+.dark .text-amber-400,
+.dark .text-gold-400 {
+  color: #FBBF24 !important;
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.25);
+}
+
+html.dark .text-amber-300,
+.dark .text-amber-300 {
+  color: #FCD34D !important;
+}
+
+/* Glassmorphism Classes */
+.glass-dark {
+  background: rgba(15, 20, 32, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.glass-dropdown-dark {
+  background: rgba(10, 13, 20, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.glass-dropdown-light {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* ===================================================================
+   HERO BACKGROUND PHOTOS & SCRIMS
+   The photo stays full-colour in both themes — only the scrim changes so
+   light mode keeps a clearly visible skyline instead of a washed-out white.
+   =================================================================== */
+
+/* Home 1 (Skyline Dining) — centered hero */
+.hero1-photo {
+  opacity: 0.95;
+}
+
+.hero1-overlay {
+  background: linear-gradient(180deg, rgba(7, 9, 14, 0.2) 0%, rgba(7, 9, 14, 0.55) 70%, #07090E 100%);
+}
+
+html.light .hero1-photo,
+html:not(.dark) .hero1-photo,
+body.light .hero1-photo {
+  opacity: 1;
+}
+
+html.light .hero1-overlay,
+html:not(.dark) .hero1-overlay,
+body.light .hero1-overlay {
+  background:
+    radial-gradient(ellipse at center, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.2) 55%, rgba(255, 255, 255, 0) 78%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.66) 0%, rgba(255, 255, 255, 0.42) 48%, rgba(255, 255, 255, 0.82) 80%, #FFFFFF 100%);
+}
+
+/* Home 2 (Sunset Lounge) — split editorial hero.
+   Heavy on the copy side, lighter over the showcase card, so the layout
+   reads differently from the centered Home 1 hero in both themes. */
+.hero2-photo {
+  opacity: 0.7;
+}
+
+.hero2-overlay {
+  background:
+    linear-gradient(90deg, rgba(6, 8, 13, 0.96) 0%, rgba(6, 8, 13, 0.9) 42%, rgba(6, 8, 13, 0.55) 72%, rgba(6, 8, 13, 0.28) 100%),
+    linear-gradient(180deg, rgba(6, 8, 13, 0.35) 0%, rgba(6, 8, 13, 0.2) 55%, #06080D 100%);
+}
+
+html.light .hero2-photo,
+html:not(.dark) .hero2-photo,
+body.light .hero2-photo {
+  opacity: 1;
+}
+
+html.light .hero2-overlay,
+html:not(.dark) .hero2-overlay,
+body.light .hero2-overlay {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.97) 0%, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.55) 70%, rgba(255, 255, 255, 0.22) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 55%, #FFFFFF 100%);
+}
+
+/* Home 2 Hero — infinite marquee ticker ribbon */
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 32s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+[dir="rtl"] .marquee-track {
+  animation-direction: reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Animations */
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s infinite ease-in-out;
+}
+
+@keyframes floatSlow {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Soundwave Equalizer & DJ Vinyl Animations */
+@keyframes soundwave {
+
+  0%,
+  100% {
+    height: 5px;
+  }
+
+  50% {
+    height: 20px;
+  }
+}
+
+.animate-wave-1 {
+  animation: soundwave 1.1s ease-in-out infinite;
+}
+
+.animate-wave-2 {
+  animation: soundwave 0.8s ease-in-out infinite 0.2s;
+}
+
+.animate-wave-3 {
+  animation: soundwave 1.4s ease-in-out infinite 0.4s;
+}
+
+.animate-wave-4 {
+  animation: soundwave 0.9s ease-in-out infinite 0.15s;
+}
+
+.animate-wave-5 {
+  animation: soundwave 1.2s ease-in-out infinite 0.35s;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 14s linear infinite;
+}
+
+.animate-float {
+  animation: floatSlow 5s infinite ease-in-out;
+}
+
+/* Dropdown Submenu Transition */
+.dropdown-menu {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dropdown-group:hover .dropdown-menu,
+.dropdown-group:focus-within .dropdown-menu {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RTL Transformations */
+[dir="rtl"] .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .text-left {
+  text-align: right;
+}
+
+[dir="rtl"] .text-right {
+  text-align: left;
+}
+
+/* Interactive Card Hover Elevate */
+.hover-elevate {
+  transition: var(--transition-smooth);
+}
+
+.hover-elevate:hover {
+  transform: translateY(-5px);
+}
+
+/* Table Management Floor Plan Grid */
+.floor-plan-seat {
+  transition: all 0.2s ease;
+}
+
+.floor-plan-seat.available {
+  border-color: #10B981;
+}
+
+.floor-plan-seat.reserved {
+  border-color: #EF4444;
+  opacity: 0.85;
+}
+
+.floor-plan-seat.vip {
+  border-color: var(--gold-primary);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+/* Badge Styles */
+.badge-gold {
+  background: rgba(212, 175, 55, 0.15);
+  color: #D4AF37;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Audio Player Pulse Button */
+.audio-pulse {
+  position: relative;
+}
+
+.audio-pulse::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  border: 2px solid var(--gold-primary);
+  opacity: 0.6;
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping {
+
+  75%,
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* Lightbox overlay */
+.lightbox-modal {
+  display: none;
+}
+
+.lightbox-modal.active {
+  display: flex;
+}
+
+/* ===================================================================
+   LIGHT THEME OVERRIDES (Pure White Background & Day Ambience)
+   =================================================================== */
+html.light,
+html:not(.dark),
+body.light,
+html.light body,
+html:not(.dark) body {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+}
+
+/* Light Theme Headings & Text */
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6,
+html:not(.dark) h1,
+html:not(.dark) h2,
+html:not(.dark) h3,
+html:not(.dark) h4,
+html:not(.dark) h5,
+html:not(.dark) h6,
+body.light h1,
+body.light h2,
+body.light h3,
+body.light h4,
+body.light h5,
+body.light h6 {
+  color: #0F172A !important;
+}
+
+html.light :not(header):not(footer):not(#toastContainer):not(.auth-brand-header):not(.dashboard-sidebar-header):not(header *):not(footer *):not(#toastContainer *):not(.auth-brand-header *):not(.dashboard-sidebar-header *).text-white,
+html:not(.dark) :not(header):not(footer):not(#toastContainer):not(.auth-brand-header):not(.dashboard-sidebar-header):not(header *):not(footer *):not(#toastContainer *):not(.auth-brand-header *):not(.dashboard-sidebar-header *).text-white,
+body.light :not(header):not(footer):not(#toastContainer):not(.auth-brand-header):not(.dashboard-sidebar-header):not(header *):not(footer *):not(#toastContainer *):not(.auth-brand-header *):not(.dashboard-sidebar-header *).text-white {
+  color: #0F172A !important;
+}
+
+html.light :not(header):not(footer):not(#toastContainer):not(.auth-brand-header):not(.dashboard-sidebar-header):not(header *):not(footer *):not(#toastContainer *):not(.auth-brand-header *):not(.dashboard-sidebar-header *).text-gray-100,
+html.light :not(header):not(footer):not(#toastContainer):not(.auth-brand-header):not(.dashboard-sidebar-header):not(header *):not(footer *):not(#toastContainer *):not(.auth-brand-header *):not(.dashboard-sidebar-header *).text-gray-200,
+html.light :not(header):not(footer):not(#toastContainer):not(.auth-brand-header):not(.dashboard-sidebar-header):not(header *):not(footer *):not(#toastContainer *):not(.auth-brand-header *):not(.dashboard-sidebar-header *).text-gray-300,
+html.light :not(header):not(footer):not(#toastContainer):not(.auth-brand-header):not(.dashboard-sidebar-header):not(header *):not(footer *):not(#toastContainer *):not(.auth-brand-header *):not(.dashboard-sidebar-header *).text-gray-400,
+html:not(.dark) :not(header):not(footer):not(#toastContainer):not(.auth-brand-header):not(.dashboard-sidebar-header):not(header *):not(footer *):not(#toastContainer *):not(.auth-brand-header *):not(.dashboard-sidebar-header *).text-gray-100,
+html:not(.dark) :not(header):not(footer):not(#toastContainer):not(.auth-brand-header):not(.dashboard-sidebar-header):not(header *):not(footer *):not(#toastContainer *):not(.auth-brand-header *):not(.dashboard-sidebar-header *).text-gray-200,
+html:not(.dark) :not(header):not(footer):not(#toastContainer):not(.auth-brand-header):not(.dashboard-sidebar-header):not(header *):not(footer *):not(#toastContainer *):not(.auth-brand-header *):not(.dashboard-sidebar-header *).text-gray-300,
+html:not(.dark) :not(header):not(footer):not(#toastContainer):not(.auth-brand-header):not(.dashboard-sidebar-header):not(header *):not(footer *):not(#toastContainer *):not(.auth-brand-header *):not(.dashboard-sidebar-header *).text-gray-400,
+body.light :not(header):not(footer):not(#toastContainer):not(.auth-brand-header):not(.dashboard-sidebar-header):not(header *):not(footer *):not(#toastContainer *):not(.auth-brand-header *):not(.dashboard-sidebar-header *).text-gray-100,
+body.light :not(header):not(footer):not(#toastContainer):not(.auth-brand-header):not(.dashboard-sidebar-header):not(header *):not(footer *):not(#toastContainer *):not(.auth-brand-header *):not(.dashboard-sidebar-header *).text-gray-200,
+body.light :not(header):not(footer):not(#toastContainer):not(.auth-brand-header):not(.dashboard-sidebar-header):not(header *):not(footer *):not(#toastContainer *):not(.auth-brand-header *):not(.dashboard-sidebar-header *).text-gray-300,
+body.light :not(header):not(footer):not(#toastContainer):not(.auth-brand-header):not(.dashboard-sidebar-header):not(header *):not(footer *):not(#toastContainer *):not(.auth-brand-header *):not(.dashboard-sidebar-header *).text-gray-400 {
+  color: #334155 !important;
+}
+
+html.light .text-gray-500,
+html:not(.dark) .text-gray-500,
+body.light .text-gray-500 {
+  color: #64748B !important;
+}
+
+/* ===================================================================
+   VIBRANT HIGH-CONTRAST THEME ACCENT COLOR (LIGHT THEME)
+   Replaces washed-out yellow/amber with rich Royal Gold / Dark Amber
+   Contrast Ratio on #FFFFFF is 5:1 to 8:1 (WCAG AA & AAA compliant)
+   =================================================================== */
+html.light :not(header):not(footer):not(header *):not(footer *).text-amber-300,
+html.light :not(header):not(footer):not(header *):not(footer *).text-amber-400,
+html.light :not(header):not(footer):not(header *):not(footer *).text-amber-500,
+html.light :not(header):not(footer):not(header *):not(footer *).text-gold-400,
+html.light :not(header):not(footer):not(header *):not(footer *).text-gold-500,
+html:not(.dark) :not(header):not(footer):not(header *):not(footer *).text-amber-300,
+html:not(.dark) :not(header):not(footer):not(header *):not(footer *).text-amber-400,
+html:not(.dark) :not(header):not(footer):not(header *):not(footer *).text-amber-500,
+html:not(.dark) :not(header):not(footer):not(header *):not(footer *).text-gold-400,
+html:not(.dark) :not(header):not(footer):not(header *):not(footer *).text-gold-500,
+body.light :not(header):not(footer):not(header *):not(footer *).text-amber-300,
+body.light :not(header):not(footer):not(header *):not(footer *).text-amber-400,
+body.light :not(header):not(footer):not(header *):not(footer *).text-amber-500 {
+  color: #B45309 !important;
+}
+
+html.light .text-amber-200,
+html:not(.dark) .text-amber-200,
+body.light .text-amber-200 {
+  color: #78350F !important;
+  /* Rich deep bronze amber - 7.5:1 contrast */
+}
+
+html.light a:not(.text-black):not(.bg-amber-500):not(.bg-amber-400):not(.bg-gradient-to-r):hover,
+html:not(.dark) a:not(.text-black):not(.bg-amber-500):not(.bg-amber-400):not(.bg-gradient-to-r):hover {
+  color: #FBBF24 !important;
+  /* Unified luminous gold hover across both themes */
+}
+
+html.light .hover\:text-amber-400:hover,
+html.light .hover\:text-amber-300:hover,
+html:not(.dark) .hover\:text-amber-400:hover,
+html:not(.dark) .hover\:text-amber-300:hover {
+  color: #FBBF24 !important;
+  /* Unified luminous gold hover across both themes */
+}
+
+/* Gold Gradient Headline Text in Light Mode: Bold Royal Bronze-Gold */
+html.light .gold-gradient-text,
+html:not(.dark) .gold-gradient-text,
+body.light .gold-gradient-text {
+  background: linear-gradient(135deg, #78350F 0%, #B45309 45%, #92400E 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  font-weight: 700 !important;
+}
+
+/* Badges and Tags in Light Mode */
+html.light .bg-amber-500\/10,
+html.light .bg-amber-500\/15,
+html.light .bg-amber-500\/20,
+html:not(.dark) .bg-amber-500\/10,
+html:not(.dark) .bg-amber-500\/15,
+html:not(.dark) .bg-amber-500\/20 {
+  background-color: #FEF3C7 !important;
+  border-color: #F59E0B !important;
+  color: #92400E !important;
+}
+
+/* High-contrast Primary CTA button in both themes */
+a[href="login.html"].bg-gradient-to-r,
+button[data-open-reservation].bg-gradient-to-r {
+  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #D97706 100%) !important;
+  color: #000000 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.05em !important;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35) !important;
+}
+
+/* Unified Pure Black Header & Navigation (SAME IN BOTH THEMES)
+   User Requirement: Header background pure solid black in both themes */
+header,
+html.light header,
+html:not(.dark) header,
+body.light header,
+header.sticky {
+  background-color: #000000 !important;
+  background: #000000 !important;
+  border-bottom: 1px solid rgba(245, 158, 11, 0.25) !important;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.7) !important;
+}
+
+header nav a,
+html.light header nav a,
+html:not(.dark) header nav a,
+body.light header nav a {
+  color: #D1D5DB !important;
+  /* Crisp luxury silver-white across all pages & themes */
+  transition: color 0.25s ease !important;
+}
+
+header nav a:hover,
+html.light header nav a:hover,
+html:not(.dark) header nav a:hover,
+body.light header nav a:hover {
+  color: #FBBF24 !important;
+  /* Luminous gold on hover */
+}
+
+header nav a.text-amber-400,
+html.light header nav a.text-amber-400,
+html:not(.dark) header nav a.text-amber-400,
+body.light header nav a.text-amber-400,
+header nav a.active {
+  color: #FBBF24 !important;
+  font-weight: 600 !important;
+}
+
+/* Dropdown Menu - Luxury Dark in Both Themes */
+.dropdown-menu,
+.glass-dropdown-dark,
+html.light .dropdown-menu,
+html.light .glass-dropdown-dark,
+html:not(.dark) .dropdown-menu,
+html:not(.dark) .glass-dropdown-dark {
+  background: #0B0F19 !important;
+  background-color: #0B0F19 !important;
+  border: 1px solid rgba(245, 158, 11, 0.3) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7) !important;
+}
+
+.dropdown-menu .dropdown-link,
+.dropdown-menu a,
+html.light .dropdown-menu a,
+html:not(.dark) .dropdown-menu a {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #D1D5DB !important;
+  transition: all 0.2s ease !important;
+}
+
+.dropdown-menu .dropdown-link:hover,
+.dropdown-menu a:hover,
+html.light .dropdown-menu a:hover,
+html:not(.dark) .dropdown-menu a:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #FBBF24 !important;
+}
+
+.dropdown-menu .dropdown-item-title {
+  color: #FFFFFF !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  transition: color 0.2s ease !important;
+}
+
+.dropdown-menu .dropdown-link:hover .dropdown-item-title,
+.dropdown-menu a:hover .dropdown-item-title,
+.dropdown-menu .dropdown-link.active .dropdown-item-title,
+.dropdown-menu .dropdown-item-title.text-amber-400 {
+  color: #FBBF24 !important;
+}
+
+.dropdown-menu .dropdown-item-sub {
+  color: #94A3B8 !important;
+  font-size: 0.68rem !important;
+  font-weight: 400 !important;
+  margin-top: 2px !important;
+  line-height: 1.2 !important;
+}
+
+.dropdown-menu .dropdown-link:hover .dropdown-item-sub,
+.dropdown-menu a:hover .dropdown-item-sub {
+  color: #CBD5E1 !important;
+}
+
+/* Mobile Menu - Luxury Dark in Both Themes */
+#mobileMenu,
+html.light #mobileMenu,
+html:not(.dark) #mobileMenu,
+body.light #mobileMenu {
+  background: #07090E !important;
+  border-bottom: 1px solid rgba(245, 158, 11, 0.2) !important;
+}
+
+#mobileMenu a,
+html.light #mobileMenu a,
+html:not(.dark) #mobileMenu a {
+  color: #D1D5DB !important;
+}
+
+#mobileMenu a:hover,
+html.light #mobileMenu a:hover,
+html:not(.dark) #mobileMenu a:hover {
+  color: #FBBF24 !important;
+}
+
+/* Logo Text in Header & Footer - Identical Crisp Luxury White in Both Themes */
+header .font-display,
+footer .font-display,
+html.light header .font-display,
+html.light footer .font-display,
+html:not(.dark) header .font-display,
+html:not(.dark) footer .font-display {
+  color: #FFFFFF !important;
+}
+
+/* Light Theme Announcement / Top Bar */
+html.light .bg-gradient-to-r.from-amber-600\/30,
+html.light .bg-gradient-to-r.from-amber-600\/40,
+html:not(.dark) .bg-gradient-to-r.from-amber-600\/30,
+html:not(.dark) .bg-gradient-to-r.from-amber-600\/40 {
+  background: linear-gradient(90deg, #FEF3C7 0%, #FDE68A 50%, #FEF3C7 100%) !important;
+  color: #78350F !important;
+  border-bottom-color: rgba(212, 175, 55, 0.3) !important;
+}
+
+html.light .bg-gradient-to-r.from-amber-600\/30 span,
+html.light .bg-gradient-to-r.from-amber-600\/30 button,
+html.light .bg-gradient-to-r.from-amber-600\/30 a,
+html:not(.dark) .bg-gradient-to-r.from-amber-600\/30 span,
+html:not(.dark) .bg-gradient-to-r.from-amber-600\/30 button,
+html:not(.dark) .bg-gradient-to-r.from-amber-600\/30 a {
+  color: #78350F !important;
+}
+
+/* Cards & Containers in Light Theme */
+html.light .glass-dark,
+html:not(.dark) .glass-dark,
+body.light .glass-dark,
+html.light .menu-item-card,
+html:not(.dark) .menu-item-card,
+html.light .reservation-card,
+html:not(.dark) .reservation-card,
+html.light .gallery-card,
+html:not(.dark) .gallery-card,
+html.light article,
+html:not(.dark) article,
+html.light aside>div:not(.dashboard-sidebar-header),
+html:not(.dark) aside>div:not(.dashboard-sidebar-header) {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  border-color: rgba(212, 175, 55, 0.25) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05) !important;
+  color: #1E293B !important;
+}
+
+/* All background classes matching dark hex codes forced to pure white (EXCEPT HEADER AND FOOTER) */
+html.light section:not(header):not(footer),
+html:not(.dark) section:not(header):not(footer),
+body.light section:not(header):not(footer),
+html.light main:not(header):not(footer),
+html:not(.dark) main:not(header):not(footer),
+body.light main:not(header):not(footer),
+html.light div[class*="07090E"]:not(header *):not(footer *),
+html.light div[class*="06080D"]:not(header *):not(footer *),
+html.light div[class*="0A0D14"]:not(header *):not(footer *),
+html.light div[class*="0F1420"]:not(header *):not(footer *),
+html.light div[class*="0C101A"]:not(header *):not(footer *),
+html.light div[class*="040609"]:not(header *):not(footer *) {
+  background-color: #FFFFFF !important;
+}
+
+/* Semi-transparent dark container backgrounds (EXCEPT HEADER AND FOOTER) */
+html.light div[class*="bg-black/"]:not(header *):not(footer *),
+html:not(.dark) div[class*="bg-black/"]:not(header *):not(footer *),
+body.light div[class*="bg-black/"]:not(header *):not(footer *) {
+  background-color: #FFFFFF !important;
+  border-color: rgba(212, 175, 55, 0.2) !important;
+}
+
+/* Gradients in Light Theme: convert dark gradients into clean bright day-ambience / white */
+html.light .from-black,
+html.light .from-\[\#07090E\],
+html.light .from-\[\#06080D\],
+html.light .from-\[\#0A0D14\],
+html.light .from-\[\#0F1420\] {
+  --tw-gradient-from: #FFFFFF var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgba(255, 255, 255, 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+html.light .via-\[\#0F1420\],
+html.light .via-\[\#07090E\],
+html.light .via-\[\#07090E\]\/80,
+html.light .via-\[\#07090E\]\/85,
+html.light .via-\[\#06080D\],
+html.light .via-\[\#06080D\]\/75,
+html.light .via-\[\#0C101A\] {
+  --tw-gradient-stops: var(--tw-gradient-from), #F8FAFC var(--tw-gradient-via-position), var(--tw-gradient-to) !important;
+}
+
+html.light .to-\[\#07090E\],
+html.light .to-\[\#06080D\],
+html.light .to-\[\#0A0D14\],
+html.light .to-black {
+  --tw-gradient-to: #FFFFFF var(--tw-gradient-to-position) !important;
+}
+
+/* Banner Sections in Light Mode: Pure white with soft warm top gradient */
+html.light section.bg-gradient-to-b,
+html.light section.bg-gradient-to-t {
+  background-image: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%) !important;
+  background-color: #FFFFFF !important;
+}
+
+/* Standalone full-page overlays in 404, coming soon, login, register */
+html.light .absolute.inset-0.bg-gradient-to-t {
+  background-image: linear-gradient(to top, #FFFFFF 20%, rgba(255, 255, 255, 0.85) 60%, rgba(255, 255, 255, 0.4) 100%) !important;
+}
+
+/* Golden Hour Call to Action Banners in Light Mode */
+html.light .bg-gradient-to-r.from-amber-900\/40 {
+  background-image: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #FFFBEB 100%) !important;
+  border-color: rgba(212, 175, 55, 0.35) !important;
+}
+
+html.light .bg-gradient-to-br.from-amber-900\/40 {
+  background-image: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #FFFBEB 100%) !important;
+  border-color: rgba(212, 175, 55, 0.35) !important;
+}
+
+/* Ensure luxury gold buttons keep their gold gradient background and black text */
+html.light a.bg-gradient-to-r.from-amber-400,
+html.light button.bg-gradient-to-r.from-amber-400,
+html.light .gold-gradient-bg {
+  background-image: linear-gradient(135deg, #D4AF37 0%, #F3E5AB 50%, #B8860B 100%) !important;
+  color: #000000 !important;
+}
+
+html.light .bg-black\/40,
+html.light .bg-black\/50,
+html.light .bg-black\/60,
+html.light .bg-black\/70,
+html.light .bg-black\/80,
+html.light .bg-black\/85,
+html.light .bg-black\/90,
+html.light .bg-slate-900 {
+  background-color: #F8FAFC !important;
+  border-color: rgba(212, 175, 55, 0.2) !important;
+}
+
+html.light .divide-gray-800>* {
+  border-color: #E2E8F0 !important;
+}
+
+html.light .border-gray-800,
+html.light .border-gray-700 {
+  border-color: #E2E8F0 !important;
+}
+
+/* Form Inputs & Selects in Light Theme */
+html.light input,
+html.light select,
+html.light textarea {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #CBD5E1 !important;
+}
+
+html.light input:focus,
+html.light select:focus,
+html.light textarea:focus {
+  border-color: #D4AF37 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2) !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* Tables in Light Theme */
+html.light table {
+  background-color: #FFFFFF !important;
+  color: #334155 !important;
+}
+
+html.light thead {
+  background-color: #F8FAFC !important;
+  color: #997A15 !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+}
+
+html.light tbody tr {
+  border-color: #E2E8F0 !important;
+}
+
+html.light tbody tr:hover {
+  background-color: #FFFBEB !important;
+}
+
+/* Hero Overlay in Light Theme */
+html.light .hero-overlay-dark {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.9) 75%, #FFFFFF 100%) !important;
+}
+
+/* Gold Gradient Text in Light Mode (richer contrast for white bg) */
+html.light .gold-gradient-text {
+  background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #8C6D15 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Unified Pure Black Footer (SAME IN BOTH THEMES)
+   User Requirement: Footer background pure black in both themes with uniform brand styling */
+footer,
+html.light footer,
+html:not(.dark) footer,
+body.light footer {
+  background-color: #000000 !important;
+  background: #000000 !important;
+  border-top: 1px solid rgba(245, 158, 11, 0.25) !important;
+  color: #94A3B8 !important;
+}
+
+footer h4,
+html.light footer h4,
+html:not(.dark) footer h4,
+body.light footer h4 {
+  color: #FFFFFF !important;
+}
+
+footer p,
+html.light footer p,
+html:not(.dark) footer p {
+  color: #94A3B8 !important;
+}
+
+footer a,
+html.light footer a,
+html:not(.dark) footer a,
+body.light footer a {
+  color: #94A3B8 !important;
+}
+
+footer a:hover,
+html.light footer a:hover,
+html:not(.dark) footer a:hover,
+body.light footer a:hover {
+  color: #FBBF24 !important;
+}
+
+footer .text-white,
+html.light footer .text-white,
+html:not(.dark) footer .text-white {
+  color: #FFFFFF !important;
+}
+
+/* Modals in Light Theme */
+html.light #reservationModal>div,
+html.light .glass-dark.border-amber-500\/40 {
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Ensure Theme Toggle & RTL buttons match dark navbar in both themes */
+.theme-toggle-btn,
+.rtl-toggle-btn,
+html.light .theme-toggle-btn,
+html.light .rtl-toggle-btn,
+html:not(.dark) .theme-toggle-btn,
+html:not(.dark) .rtl-toggle-btn {
+  background: #111622 !important;
+  border: 1.5px solid #F59E0B !important;
+  color: #FBBF24 !important;
+  box-shadow: 0 2px 12px rgba(245, 158, 11, 0.25) !important;
+}
+
+.theme-toggle-btn i,
+.rtl-toggle-btn i,
+html.light .theme-toggle-btn i,
+html.light .rtl-toggle-btn i,
+html:not(.dark) .theme-toggle-btn i,
+html:not(.dark) .rtl-toggle-btn i {
+  color: #FBBF24 !important;
+}
+
+/* Final Guard: Header & Footer backgrounds are ALWAYS 100% solid pure black (#000000) in both themes */
+header,
+header.sticky,
+html.light header,
+html.light header.sticky,
+html:not(.dark) header,
+body.light header,
+html.dark header,
+.dark header {
+  background-color: #000000 !important;
+  background: #000000 !important;
+}
+
+footer,
+html.light footer,
+html:not(.dark) footer,
+body.light footer,
+html.dark footer,
+.dark footer {
+  background-color: #000000 !important;
+  background: #000000 !important;
+}
+
+/* Ensure AURA SKY is ALWAYS 100% visible pure white in header & footer */
+header .font-display,
+footer .font-display,
+html.light header .font-display,
+html.light footer .font-display {
+  color: #FFFFFF !important;
+}
+
+/* ===================================================================
+   HEADER & NAVBAR TEXT VISIBILITY LOCK (100% VISIBLE IN BOTH THEMES)
+   User Requirement: Text must be crisp, bright, and clearly visible against the pure black header
+   =================================================================== */
+header nav a,
+header nav a.text-gray-300,
+header nav a.text-white,
+header nav button,
+header nav a:not(.nav-active):not(.active) span,
+header nav button:not(.nav-active):not(.active) span,
+header a.text-gray-300,
+header a.text-white,
+header .text-gray-300,
+header .text-gray-400,
+html.light header nav a:not(.nav-active):not(.active),
+html.light header nav a.text-gray-300,
+html.light header nav a.text-white,
+html.light header nav button:not(.nav-active):not(.active),
+html.light header a.text-gray-300,
+html.light header a.text-white,
+html.light header .text-gray-300,
+html.light header .text-gray-400,
+body.light header nav a:not(.nav-active):not(.active),
+body.light header nav button:not(.nav-active):not(.active),
+body.light header a.text-gray-300,
+body.light header .text-gray-300,
+html:not(.dark) header nav a:not(.nav-active):not(.active),
+html:not(.dark) header a.text-gray-300 {
+  color: #FFFFFF !important;
+  /* Pure radiant white - 100% visible on black navbar */
+  font-weight: 500 !important;
+  transition: color 0.2s ease !important;
+}
+
+/* Header Active & Dropdown Trigger */
+header nav a.text-amber-400,
+header nav button.text-amber-400,
+header nav a.active,
+header .text-amber-400,
+header .text-amber-300,
+header .text-gold-400,
+html.light header nav a.text-amber-400,
+html.light header nav button.text-amber-400,
+html.light header .text-amber-400,
+html.light header .text-amber-300,
+html.light header .text-gold-400,
+body.light header nav a.text-amber-400,
+body.light header nav button.text-amber-400,
+body.light header .text-amber-400,
+body.light header .text-amber-300,
+html:not(.dark) header nav a.text-amber-400,
+html:not(.dark) header .text-amber-400 {
+  color: #FBBF24 !important;
+  /* Radiant bright gold - 100% visible on black navbar */
+  font-weight: 600 !important;
+}
+
+/* Header Hover State */
+header nav a:hover,
+header nav button:hover,
+html.light header nav a:hover,
+html.light header nav button:hover,
+body.light header nav a:hover,
+body.light header nav button:hover {
+  color: #FCD34D !important;
+  /* Golden glow hover */
+}
+
+/* Header Brand Logo: Pure White Title + Radiant Gold Subtext */
+header .font-display,
+header .text-white,
+html.light header .font-display,
+html.light header .text-white,
+body.light header .font-display,
+body.light header .text-white {
+  color: #FFFFFF !important;
+}
+
+/* Dropdown Menu Items */
+.dropdown-menu a,
+.glass-dropdown-dark a,
+html.light .dropdown-menu a,
+html.light .glass-dropdown-dark a,
+#mobileMenu a,
+html.light #mobileMenu a {
+  color: #FFFFFF !important;
+}
+
+.dropdown-menu a:hover,
+#mobileMenu a:hover,
+html.light .dropdown-menu a:hover,
+html.light #mobileMenu a:hover {
+  color: #FBBF24 !important;
+}
+
+/* ===================================================================
+   FOOTER TEXT VISIBILITY LOCK (100% VISIBLE IN BOTH THEMES)
+   User Requirement: Footer text, links, and headings must be bright and readable on black
+   =================================================================== */
+footer p,
+footer div,
+footer span,
+footer li,
+footer a,
+footer .text-gray-400,
+footer .text-gray-300,
+footer .text-gray-500,
+html.light footer p,
+html.light footer div,
+html.light footer span,
+html.light footer li,
+html.light footer a,
+html.light footer .text-gray-400,
+html.light footer .text-gray-300,
+html.light footer .text-gray-500,
+body.light footer p,
+body.light footer a,
+body.light footer .text-gray-400,
+html:not(.dark) footer p,
+html:not(.dark) footer a {
+  color: #CBD5E1 !important;
+  /* Bright crisp silver - WCAG AAA compliant on black */
+}
+
+footer a:hover,
+html.light footer a:hover,
+body.light footer a:hover,
+html:not(.dark) footer a:hover {
+  color: #FBBF24 !important;
+  /* Radiant gold hover */
+}
+
+footer h4,
+footer .text-white,
+footer .font-display,
+html.light footer h4,
+html.light footer .text-white,
+html.light footer .font-display,
+body.light footer h4,
+body.light footer .text-white,
+body.light footer .font-display {
+  color: #FFFFFF !important;
+  /* Pure crisp white for section headings */
+}
+
+footer .text-amber-400,
+footer .text-amber-300,
+footer i.text-amber-400,
+html.light footer .text-amber-400,
+html.light footer .text-amber-300,
+html.light footer i.text-amber-400,
+body.light footer .text-amber-400,
+body.light footer .text-amber-300,
+body.light footer i.text-amber-400 {
+  color: #FBBF24 !important;
+  /* Bright luminous gold */
+}
+
+
+/* ===================================================================
+   AllergiQ-Inspired Luxury Footer Icon System & Dynamic Functionality
+   =================================================================== */
+
+/* 1. Footer Brand Icon Glow & Scale */
+footer .group:hover .w-10 {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.45);
+}
+
+/* 2. AllergiQ-Style Squircle Social Buttons */
+.footer-social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer-social-btn i {
+  color: #ffffff !important;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.footer-social-btn:hover {
+  background: #f59e0b !important;
+  border-color: #f59e0b !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.5) !important;
+}
+
+.footer-social-btn:hover i {
+  color: #000000 !important;
+  transform: scale(1.1);
+}
+
+/* 3. AllergiQ-Style Credential / Quality Badges */
+.footer-credential-pill {
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #E2E8F0 !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.footer-credential-pill:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #FBBF24 !important;
+}
+
+/* 4. Footer Interactive Link Chevron Slide */
+.footer-nav-link {
+  display: inline-flex;
+  align-items: center;
+  color: #CBD5E1 !important;
+  text-decoration: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-nav-link i {
+  font-size: 0.65rem;
+  margin-right: 6px;
+  color: #FBBF24 !important;
+  transition: transform 0.22s ease;
+}
+
+.footer-nav-link:hover {
+  color: #FBBF24 !important;
+  padding-left: 6px;
+}
+
+.footer-nav-link:hover i {
+  transform: translateX(2px);
+}
+
+[dir="rtl"] .footer-nav-link:hover {
+  padding-left: 0;
+  padding-right: 6px;
+}
+
+[dir="rtl"] .footer-nav-link i {
+  margin-right: 0;
+  margin-left: 6px;
+  transform: scaleX(-1);
+}
+
+/* 5. Footer Contact Items */
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #CBD5E1 !important;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-contact-item a {
+  color: #CBD5E1 !important;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-contact-item a:hover {
+  color: #FBBF24 !important;
+}
+
+/* 6. AllergiQ-Style Newsletter Box */
+.footer-newsletter-box {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 100%;
+  margin-top: 8px;
+}
+
+.footer-newsletter-box input {
+  background: transparent;
+  border: none;
+  padding: 8px 12px;
+  color: #FFFFFF !important;
+  font-size: 0.8rem;
+  flex: 1;
+  min-width: 0;
+  outline: none;
+}
+
+.footer-newsletter-box input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.footer-newsletter-box button {
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  border: none;
+  color: #000000 !important;
+  font-weight: 700;
+  padding: 0 14px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.footer-newsletter-box button:hover {
+  opacity: 0.95;
+  background: linear-gradient(135deg, #FBBF24, #F59E0B);
+}
+
+/* 7. Floating Back-to-Top Button */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #000000;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #FBBF24 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 12px rgba(245, 158, 11, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.back-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+  background: #F59E0B;
+  border-color: #F59E0B;
+  color: #000000 !important;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(245, 158, 11, 0.5);
+}
+
+.back-to-top-btn:hover i {
+  color: #000000 !important;
+  transform: translateY(-2px);
+}
+
+.back-to-top-btn i {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+[dir="rtl"] .back-to-top-btn {
+  right: auto;
+  left: 24px;
+}
+
+
+/* 8. Global Footer Legal Modal Aesthetics in Both Themes */
+#footerLegalModal {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Dark Theme (Default) */
+#footerLegalModal .modal-legal-card {
+  background: #0B0F19 !important;
+  background-color: #0B0F19 !important;
+  border: 1px solid rgba(245, 158, 11, 0.4) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85) !important;
+}
+
+#footerLegalModal h3,
+#footerLegalModal h4,
+#footerLegalModal h5,
+#footerLegalModal .modal-legal-title {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+#footerLegalModal p {
+  color: #CBD5E1 !important;
+}
+
+#footerLegalModal .modal-alert-box {
+  background: rgba(245, 158, 11, 0.12) !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+  color: #FCD34D !important;
+}
+
+#footerLegalModal .modal-alert-box strong {
+  color: #FFFFFF !important;
+}
+
+#footerLegalModal a {
+  color: #FBBF24 !important;
+}
+
+#footerLegalModal a:hover {
+  text-decoration: underline;
+}
+
+#footerLegalModal .modal-close-btn {
+  color: #94A3B8 !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+#footerLegalModal .modal-close-btn:hover {
+  color: #FFFFFF !important;
+  background: rgba(255, 255, 255, 0.16) !important;
+}
+
+/* Light Theme Overrides */
+html.light #footerLegalModal .modal-legal-card,
+html:not(.dark) #footerLegalModal .modal-legal-card,
+body.light #footerLegalModal .modal-legal-card {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  border: 1px solid rgba(212, 175, 55, 0.4) !important;
+  color: #0F172A !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25) !important;
+}
+
+html.light #footerLegalModal h3,
+html.light #footerLegalModal h4,
+html.light #footerLegalModal h5,
+html.light #footerLegalModal .modal-legal-title,
+html:not(.dark) #footerLegalModal h3,
+html:not(.dark) #footerLegalModal h4,
+html:not(.dark) #footerLegalModal h5,
+html:not(.dark) #footerLegalModal .modal-legal-title,
+body.light #footerLegalModal h3,
+body.light #footerLegalModal h4,
+body.light #footerLegalModal h5,
+body.light #footerLegalModal .modal-legal-title {
+  color: #0F172A !important;
+  font-weight: 700 !important;
+}
+
+html.light #footerLegalModal p,
+html:not(.dark) #footerLegalModal p,
+body.light #footerLegalModal p {
+  color: #334155 !important;
+}
+
+html.light #footerLegalModal .modal-alert-box,
+html:not(.dark) #footerLegalModal .modal-alert-box,
+body.light #footerLegalModal .modal-alert-box {
+  background-color: #FEF3C7 !important;
+  border: 1px solid #F59E0B !important;
+  color: #78350F !important;
+}
+
+html.light #footerLegalModal .modal-alert-box strong,
+html:not(.dark) #footerLegalModal .modal-alert-box strong,
+body.light #footerLegalModal .modal-alert-box strong {
+  color: #78350F !important;
+}
+
+html.light #footerLegalModal a,
+html:not(.dark) #footerLegalModal a,
+body.light #footerLegalModal a {
+  color: #D97706 !important;
+}
+
+html.light #footerLegalModal .border-gray-800,
+html:not(.dark) #footerLegalModal .border-gray-800,
+body.light #footerLegalModal .border-gray-800 {
+  border-color: #E2E8F0 !important;
+}
+
+html.light #footerLegalModal .modal-close-btn,
+html:not(.dark) #footerLegalModal .modal-close-btn,
+body.light #footerLegalModal .modal-close-btn {
+  color: #475569 !important;
+  background: #F1F5F9 !important;
+}
+
+html.light #footerLegalModal .modal-close-btn:hover,
+html:not(.dark) #footerLegalModal .modal-close-btn:hover,
+body.light #footerLegalModal .modal-close-btn:hover {
+  color: #0F172A !important;
+  background: #E2E8F0 !important;
+}
+
+
+/* ===================================================================
+   9. Universal Toast Notification High-Contrast Styles (Both Themes)
+   =================================================================== */
+#toastContainer {
+  z-index: 99999 !important;
+  pointer-events: none;
+}
+
+#toastContainer .toast-box,
+#toastContainer>div,
+html.light #toastContainer .toast-box,
+html.light #toastContainer>div,
+body.light #toastContainer .toast-box,
+body.light #toastContainer>div {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  border-radius: 14px !important;
+  pointer-events: auto !important;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.9), 0 0 25px rgba(245, 158, 11, 0.25) !important;
+}
+
+#toastContainer h4,
+#toastContainer .toast-title,
+html.light #toastContainer h4,
+html.light #toastContainer .toast-title,
+body.light #toastContainer h4,
+body.light #toastContainer .toast-title,
+html:not(.dark) #toastContainer h4,
+html:not(.dark) #toastContainer .toast-title {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+  letter-spacing: 0.02em !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+#toastContainer p,
+#toastContainer .toast-desc,
+html.light #toastContainer p,
+html.light #toastContainer .toast-desc,
+body.light #toastContainer p,
+body.light #toastContainer .toast-desc,
+html:not(.dark) #toastContainer p,
+html:not(.dark) #toastContainer .toast-desc {
+  color: #E2E8F0 !important;
+  font-size: 0.8rem !important;
+  line-height: 1.45 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+#toastContainer button,
+#toastContainer .toast-close,
+html.light #toastContainer button,
+html.light #toastContainer .toast-close,
+body.light #toastContainer button,
+body.light #toastContainer .toast-close {
+  color: #94A3B8 !important;
+}
+
+#toastContainer button:hover,
+#toastContainer .toast-close:hover {
+  color: #FFFFFF !important;
+}
+
+
+/* ===================================================================
+   10. Universal Unified Hover Color Across Both Themes (#FBBF24 / Gold)
+   =================================================================== */
+a:not(.text-black):not(.bg-amber-500):not(.bg-amber-400):not(.bg-gradient-to-r):hover,
+nav a:hover,
+nav button:hover,
+.hover\:text-amber-400:hover,
+.hover\:text-amber-300:hover,
+html.light a:not(.text-black):not(.bg-amber-500):not(.bg-amber-400):not(.bg-gradient-to-r):hover,
+html.light nav a:hover,
+html.light nav button:hover,
+html.light .hover\:text-amber-400:hover,
+html.light .hover\:text-amber-300:hover,
+html:not(.dark) a:not(.text-black):not(.bg-amber-500):not(.bg-amber-400):not(.bg-gradient-to-r):hover,
+html:not(.dark) nav a:hover,
+html:not(.dark) nav button:hover,
+html:not(.dark) .hover\:text-amber-400:hover,
+html:not(.dark) .hover\:text-amber-300:hover,
+body.light a:not(.text-black):not(.bg-amber-500):not(.bg-amber-400):not(.bg-gradient-to-r):hover,
+body.light nav a:hover,
+body.light nav button:hover,
+body.light .hover\:text-amber-400:hover,
+body.light .hover\:text-amber-300:hover,
+#footerLegalModal a:hover,
+html.light #footerLegalModal a:hover,
+body.light #footerLegalModal a:hover {
+  color: #FBBF24 !important;
+  /* Identical Radiant Gold Hover for links & nav items in both Light and Dark themes */
+}
+
+/* ===================================================================
+   11. Universal High-Contrast CTA Buttons Hover Lock (Pure Black on Gold)
+   Ensures 3-Step Reservation CTA & Action Buttons are 100% visible on hover
+   =================================================================== */
+a.bg-amber-500,
+a.bg-amber-500:hover,
+a.bg-amber-500:hover *,
+a.bg-amber-400,
+a.bg-amber-400:hover,
+a.bg-amber-400:hover *,
+a.text-black,
+a.text-black:hover,
+a.text-black:hover *,
+button.bg-amber-500,
+button.bg-amber-500:hover,
+button.bg-amber-500:hover *,
+button.text-black,
+button.text-black:hover,
+button.text-black:hover *,
+button[data-next-step],
+button[data-next-step]:hover,
+button[data-open-reservation],
+button[data-open-reservation]:hover,
+button[type="submit"],
+button[type="submit"]:hover,
+.btn-primary,
+.btn-primary:hover,
+.bg-amber-500,
+.bg-amber-500:hover,
+.bg-amber-400,
+.bg-amber-400:hover,
+.bg-gold-500,
+.bg-gold-500:hover,
+.bg-gradient-to-r,
+.bg-gradient-to-r:hover,
+a.bg-gradient-to-r,
+a.bg-gradient-to-r:hover,
+a.bg-gradient-to-r:hover *,
+.footer-newsletter-box button,
+.footer-newsletter-box button:hover,
+html.light a.bg-amber-500,
+html.light a.bg-amber-500:hover,
+html.light a.bg-amber-500:hover *,
+html.light a.bg-amber-400,
+html.light a.bg-amber-400:hover,
+html.light a.bg-amber-400:hover *,
+html.light a.text-black,
+html.light a.text-black:hover,
+html.light a.text-black:hover *,
+html:not(.dark) a.bg-amber-500,
+html:not(.dark) a.bg-amber-500:hover,
+html:not(.dark) a.bg-amber-500:hover *,
+html:not(.dark) a.bg-amber-400,
+html:not(.dark) a.bg-amber-400:hover,
+html:not(.dark) a.bg-amber-400:hover *,
+html:not(.dark) a.text-black,
+html:not(.dark) a.text-black:hover,
+html:not(.dark) a.text-black:hover *,
+body.light a.bg-amber-500,
+body.light a.bg-amber-500:hover,
+body.light a.bg-amber-500:hover *,
+body.light a.bg-amber-400,
+body.light a.bg-amber-400:hover,
+body.light a.bg-amber-400:hover *,
+body.light a.text-black,
+body.light a.text-black:hover,
+body.light a.text-black:hover *,
+#reservationModal button[data-next-step],
+#reservationModal button[data-next-step]:hover,
+#reservationModal button[type="submit"],
+#reservationModal button[type="submit"]:hover,
+html.light #reservationModal button[data-next-step],
+html.light #reservationModal button[data-next-step]:hover,
+html.light #reservationModal button[type="submit"],
+html.light #reservationModal button[type="submit"]:hover,
+html:not(.dark) #reservationModal button[data-next-step],
+html:not(.dark) #reservationModal button[data-next-step]:hover,
+html:not(.dark) #reservationModal button[type="submit"],
+html:not(.dark) #reservationModal button[type="submit"]:hover,
+body.light #reservationModal button[data-next-step],
+body.light #reservationModal button[data-next-step]:hover,
+body.light #reservationModal button[type="submit"],
+body.light #reservationModal button[type="submit"]:hover {
+  color: #000000 !important; /* Bold, solid black text - 100% visible on gold */
+  fill: #000000 !important;
+  font-weight: 700 !important;
+}
+
+/* 3-Step Modal Back Button */
+#reservationModal button[data-prev-step] {
+  color: #D1D5DB !important;
+  border: 1px solid #374151 !important;
+  background: transparent !important;
+}
+#reservationModal button[data-prev-step]:hover {
+  color: #FFFFFF !important;
+  border-color: #FBBF24 !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+html.light #reservationModal button[data-prev-step] {
+  color: #475569 !important;
+  border: 1px solid #CBD5E1 !important;
+  background: #F8FAFC !important;
+}
+html.light #reservationModal button[data-prev-step]:hover {
+  color: #0F172A !important;
+  border-color: #94A3B8 !important;
+  background: #E2E8F0 !important;
+}
+
+/* Floating Back-to-Top Button Hover */
+.back-to-top-btn:hover,
+.back-to-top-btn:hover i {
+  color: #000000 !important;
+  background-color: #F59E0B !important;
+}
+
+/* Footer Social Squircle Hover */
+.footer-social-btn:hover,
+.footer-social-btn:hover i {
+  color: #000000 !important;
+  background-color: #F59E0B !important;
+  border-color: #F59E0B !important;
+}
+
+/* ===================================================================
+   RESERVATION MODAL & STEP INDICATOR CONTRAST (BOTH THEMES)
+   Ensures step labels (Time & Date, Seating Zone, Confirmation) and
+   all form inputs & calendar icons are 100% visible in Dark & Light themes.
+   =================================================================== */
+
+/* Step Indicators (Base & Dark Theme) */
+.step-indicator {
+  transition: all 0.25s ease;
+}
+
+/* Inactive Step Indicator (Dark Theme): Bright legible silver/slate, high contrast */
+.step-indicator,
+.step-indicator.text-gray-500,
+html.dark .step-indicator.text-gray-500,
+.dark .step-indicator.text-gray-500,
+body:not(.light) .step-indicator.text-gray-500 {
+  color: #CBD5E1 !important; /* Bright silver text (contrast ratio > 8:1) */
+}
+
+.step-indicator span:first-child,
+.step-indicator.text-gray-500 span:first-child,
+html.dark .step-indicator.text-gray-500 span:first-child,
+.dark .step-indicator.text-gray-500 span:first-child {
+  border: 1.5px solid #64748B !important;
+  color: #E2E8F0 !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Active Step Indicator (Dark Theme): Glowing Radiant Gold */
+.step-indicator.text-amber-400,
+.step-indicator.active,
+html.dark .step-indicator.text-amber-400,
+.dark .step-indicator.text-amber-400 {
+  color: #FBBF24 !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.4) !important;
+}
+
+.step-indicator.text-amber-400 span:first-child,
+.step-indicator.active span:first-child,
+html.dark .step-indicator.text-amber-400 span:first-child,
+.dark .step-indicator.text-amber-400 span:first-child {
+  border: 2px solid #F59E0B !important;
+  color: #FBBF24 !important;
+  background: rgba(245, 158, 11, 0.18) !important;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.35) !important;
+}
+
+/* Step Indicators (Light Theme) */
+html.light .step-indicator.text-gray-500,
+body.light .step-indicator.text-gray-500,
+html:not(.dark) .step-indicator.text-gray-500 {
+  color: #334155 !important; /* Deep charcoal slate (contrast ratio > 7:1) */
+}
+
+html.light .step-indicator.text-gray-500 span:first-child,
+body.light .step-indicator.text-gray-500 span:first-child,
+html:not(.dark) .step-indicator.text-gray-500 span:first-child {
+  border: 1.5px solid #94A3B8 !important;
+  color: #1E293B !important;
+  background: #F1F5F9 !important;
+}
+
+html.light .step-indicator.text-amber-400,
+html.light .step-indicator.active,
+body.light .step-indicator.text-amber-400,
+html:not(.dark) .step-indicator.text-amber-400 {
+  color: #B45309 !important; /* Rich amber with 7:1 contrast on white */
+  font-weight: 700 !important;
+}
+
+html.light .step-indicator.text-amber-400 span:first-child,
+html.light .step-indicator.active span:first-child,
+body.light .step-indicator.text-amber-400 span:first-child,
+html:not(.dark) .step-indicator.text-amber-400 span:first-child {
+  border: 2px solid #D97706 !important;
+  color: #B45309 !important;
+  background: rgba(217, 119, 6, 0.12) !important;
+}
+
+/* Connecting Divider Line */
+#reservationModal .w-12.h-\[1px\],
+.step-indicator + .w-12 {
+  background-color: #475569 !important;
+}
+
+html.light #reservationModal .w-12.h-\[1px\],
+html.light .step-indicator + .w-12 {
+  background-color: #CBD5E1 !important;
+}
+
+/* ===================================================================
+   DATE PICKER CALENDAR ICON (VIBRANT & VISIBLE IN BOTH THEMES)
+   =================================================================== */
+input[type="date"] {
+  color-scheme: dark;
+}
+
+html.light input[type="date"],
+body.light input[type="date"] {
+  color-scheme: light;
+}
+
+/* WebKit / Chromium Calendar Picker Indicator Icon */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer !important;
+  padding: 4px !important;
+  border-radius: 6px !important;
+  opacity: 1 !important;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  /* Glowing radiant gold calendar icon in dark theme */
+  filter: invert(78%) sepia(85%) saturate(1400%) hue-rotate(355deg) brightness(1.2) drop-shadow(0 0 3px rgba(245, 158, 11, 0.5)) !important;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  transform: scale(1.15) !important;
+  filter: invert(88%) sepia(90%) saturate(1600%) hue-rotate(355deg) brightness(1.35) drop-shadow(0 0 6px rgba(245, 158, 11, 0.75)) !important;
+}
+
+/* In Light Theme: Deep rich amber calendar icon for crystal clarity */
+html.light input[type="date"]::-webkit-calendar-picker-indicator,
+body.light input[type="date"]::-webkit-calendar-picker-indicator,
+html:not(.dark) input[type="date"]:not(.bg-slate-900)::-webkit-calendar-picker-indicator {
+  filter: invert(35%) sepia(85%) saturate(1800%) hue-rotate(15deg) brightness(0.85) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15)) !important;
+}
+
+/* Form Input & Label Visibility across Reservation Modal */
+#reservationModal label {
+  color: #E2E8F0 !important;
+}
+
+html.light #reservationModal label {
+  color: #0F172A !important;
+}
+
+/* In Light Theme, ensure inputs have white bg with dark text */
+html.light #reservationModal input:not([type="radio"]):not([type="checkbox"]),
+html.light #reservationModal select,
+html.light #reservationModal textarea {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+html.light #reservationModal input:not([type="radio"]):not([type="checkbox"]):focus,
+html.light #reservationModal select:focus,
+html.light #reservationModal textarea:focus {
+  border-color: #D97706 !important;
+  box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.2) !important;
+}
+
+/* In Dark Theme, ensure inputs are deep navy with bright white text */
+#reservationModal input:not([type="radio"]):not([type="checkbox"]),
+#reservationModal select,
+#reservationModal textarea {
+  background-color: #0B0F17 !important;
+  border-color: #334155 !important;
+  color: #FFFFFF !important;
+}
+
+#reservationModal input:not([type="radio"]):not([type="checkbox"]):focus,
+#reservationModal select:focus,
+#reservationModal textarea:focus {
+  border-color: #F59E0B !important;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.25) !important;
+}
+
+/* Time Slot Pills in Step 1 */
+#reservationModal [name="reserve_time"] + div {
+  background-color: #0B0F17 !important;
+  border-color: #334155 !important;
+  color: #E2E8F0 !important;
+}
+
+#reservationModal [name="reserve_time"]:checked + div {
+  border-color: #F59E0B !important;
+  background-color: rgba(245, 158, 11, 0.15) !important;
+  color: #FBBF24 !important;
+}
+
+html.light #reservationModal [name="reserve_time"] + div {
+  background-color: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
+  color: #1E293B !important;
+}
+
+html.light #reservationModal [name="reserve_time"]:checked + div {
+  border-color: #D97706 !important;
+  background-color: rgba(217, 119, 6, 0.12) !important;
+  color: #B45309 !important;
+}
+
+/* Seating Area Cards in Step 2 */
+#reservationModal [name="seating_area"] + div {
+  background-color: #0B0F17 !important;
+  border-color: #334155 !important;
+}
+
+#reservationModal [name="seating_area"] + div .text-white {
+  color: #FFFFFF !important;
+}
+
+#reservationModal [name="seating_area"] + div p {
+  color: #94A3B8 !important;
+}
+
+#reservationModal [name="seating_area"]:checked + div {
+  border-color: #F59E0B !important;
+  background-color: rgba(245, 158, 11, 0.15) !important;
+}
+
+html.light #reservationModal [name="seating_area"] + div {
+  background-color: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
+}
+
+html.light #reservationModal [name="seating_area"] + div .text-white {
+  color: #0F172A !important;
+}
+
+html.light #reservationModal [name="seating_area"] + div p {
+  color: #475569 !important;
+}
+
+html.light #reservationModal [name="seating_area"]:checked + div {
+  border-color: #D97706 !important;
+  background-color: rgba(217, 119, 6, 0.12) !important;
+}
+
+/* ===================================================================
+   GAP BETWEEN FOOTER AND PRECEDING CONTENT SECTION IN ALL PAGES
+   Provides generous luxury breathing room between the CTA/content sections
+   and the black footer across all viewports.
+   =================================================================== */
+footer {
+  margin-top: 2.75rem !important; /* Refined luxury separation gap in all pages */
+  position: relative;
+  z-index: 10;
+}
+
+/* Ensure the pre-footer call-to-action sections have balanced bottom padding */
+section:has(+ footer),
+section:has(+ * + footer),
+section:has(+ * + * + footer),
+main > section:last-of-type,
+.pre-footer-section {
+  padding-bottom: 3.5rem !important;
+}
+
+@media (max-width: 768px) {
+  footer {
+    margin-top: 2rem !important; /* 32px separation gap on mobile */
+  }
+
+  section:has(+ footer),
+  section:has(+ * + footer),
+  section:has(+ * + * + footer),
+  main > section:last-of-type,
+  .pre-footer-section {
+    padding-bottom: 2.5rem !important;
+  }
+}
+
+/* ===================================================================
+   LUXURY RESERVATION BANNER BOX CARD (BOTH THEMES)
+   =================================================================== */
+.reservation-banner-box {
+  background: linear-gradient(135deg, rgba(30, 20, 10, 0.9) 0%, rgba(11, 15, 23, 0.95) 50%, rgba(30, 20, 10, 0.9) 100%) !important;
+  border: 1.5px solid rgba(245, 158, 11, 0.35) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 0 35px rgba(245, 158, 11, 0.15) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reservation-banner-box:hover {
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.75), 0 0 45px rgba(245, 158, 11, 0.22) !important;
+}
+
+/* Light Theme: Warm luminous gold/cream box with soft gold border & rich contrast */
+html.light .reservation-banner-box,
+body.light .reservation-banner-box,
+html:not(.dark) .reservation-banner-box {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 55%, #FFFBEB 100%) !important;
+  border: 1.5px solid rgba(217, 119, 6, 0.35) !important;
+  box-shadow: 0 20px 45px rgba(217, 119, 6, 0.14), 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light .reservation-banner-box h2,
+body.light .reservation-banner-box h2 {
+  color: #0F172A !important;
+}
+
+html.light .reservation-banner-box p,
+body.light .reservation-banner-box p {
+  color: #334155 !important;
+}
+
+html.light .reservation-banner-box span.text-amber-400 {
+  background-color: rgba(217, 119, 6, 0.12) !important;
+  border-color: rgba(217, 119, 6, 0.3) !important;
+  color: #B45309 !important;
+}
+
+html.light .reservation-banner-box a.border-amber-400\/40 {
+  background-color: #FFFFFF !important;
+  color: #B45309 !important;
+  border: 1.5px solid #D97706 !important;
+}
+
+html.light .reservation-banner-box a.border-amber-400\/40:hover {
+  background-color: #F8FAFC !important;
+  border-color: #B45309 !important;
+  color: #78350F !important;
+}
+
+/* ===================================================================
+   PRESS & ACCOLADE LOGO BADGE CARDS (BOTH THEMES)
+   =================================================================== */
+.press-logo-card {
+  height: 96px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.press-logo-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(245, 158, 11, 0.5) !important;
+  box-shadow: 0 12px 30px -5px rgba(245, 158, 11, 0.22);
+}
+
+/* Dark Theme */
+html.dark .press-logo-card,
+body.dark .press-logo-card,
+html:not(.light) .press-logo-card {
+  background: rgba(11, 15, 23, 0.85) !important;
+  border: 1px solid rgba(245, 158, 11, 0.25) !important;
+}
+
+/* Light Theme: Clean luxury ivory-white card with crisp charcoal/gold logos */
+html.light .press-logo-card,
+body.light .press-logo-card,
+html:not(.dark) .press-logo-card {
+  background: #FFFFFF !important;
+  border: 1.5px solid rgba(226, 232, 240, 0.95) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03) !important;
+}
+html.light .press-logo-card:hover,
+body.light .press-logo-card:hover,
+html:not(.dark) .press-logo-card:hover {
+  border-color: #D97706 !important;
+  box-shadow: 0 10px 25px rgba(217, 119, 6, 0.16) !important;
+}
+
+/* Adapt typography cleanly in Light mode while keeping red & gold vibrant */
+.press-logo-card .press-logo-title {
+  color: #FFFFFF !important;
+  transition: color 0.3s ease;
+}
+
+.press-logo-card:hover .press-logo-title {
+  color: #F59E0B !important;
+}
+
+html.light .press-logo-card text.fill-white,
+body.light .press-logo-card text.fill-white,
+html:not(.dark) .press-logo-card text.fill-white {
+  fill: #0F172A !important;
+}
+
+html.light .press-logo-card .press-logo-title,
+body.light .press-logo-card .press-logo-title,
+html:not(.dark) .press-logo-card .press-logo-title {
+  color: #0F172A !important;
+}
+
+/* ===================================================================
+   TIMELINE ALIGNMENT & BIDI STABILITY (BOTH LTR & RTL THEMES)
+   Fixes vertical center line collapsing to right side in RTL mode
+   and tightens compact spacing across both themes.
+   =================================================================== */
+.timeline-timeline-wrapper {
+  position: relative;
+  margin-top: 1.5rem;
+}
+
+/* Continuous Centered Amber Guide Line (Locked precisely to center) */
+.timeline-timeline-wrapper::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  right: auto !important;
+  width: 2px !important;
+  background-color: rgba(245, 158, 11, 0.35) !important;
+  transform: translateX(-50%) !important;
+  z-index: 1 !important;
+}
+
+/* RTL Mode: Strictly lock center guide line to 50% and override browser right:0 bias */
+[dir="rtl"] .timeline-timeline-wrapper::before,
+html[dir="rtl"] .timeline-timeline-wrapper::before,
+body[dir="rtl"] .timeline-timeline-wrapper::before {
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+}
+
+/* Timeline Step Spacing & Compact Sizing */
+.timeline-step-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  width: 100%;
+}
+
+.timeline-step-col {
+  flex: 0 0 44% !important;
+  width: 44% !important;
+  max-width: 44% !important;
+  min-width: 44% !important;
+  box-sizing: border-box;
+}
+
+.timeline-step-left {
+  padding-right: 1.5rem;
+  text-align: right;
+}
+
+.timeline-step-right {
+  padding-left: 1.5rem;
+  text-align: left;
+}
+
+/* In RTL Mode, adjust text alignment and directional padding */
+[dir="rtl"] .timeline-step-left,
+html[dir="rtl"] .timeline-step-left,
+body[dir="rtl"] .timeline-step-left {
+  padding-right: 0 !important;
+  padding-left: 1.5rem !important;
+  text-align: left !important;
+}
+
+[dir="rtl"] .timeline-step-right,
+html[dir="rtl"] .timeline-step-right,
+body[dir="rtl"] .timeline-step-right {
+  padding-left: 0 !important;
+  padding-right: 1.5rem !important;
+  text-align: right !important;
+}
+
+/* Timeline Center Number Node */
+.timeline-step-node {
+  flex: 0 0 2.25rem !important;
+  width: 2.25rem !important;
+  height: 2.25rem !important;
+  border-radius: 9999px;
+  background-color: #F59E0B !important;
+  color: #000000 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  z-index: 10;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.45);
+  flex-shrink: 0;
+  margin: 0 auto !important;
+}
+
+/* Light Theme Support for Timeline */
+html.light .timeline-step-item h3,
+html:not(.dark) .timeline-step-item h3,
+body.light .timeline-step-item h3 {
+  color: #0F172A !important;
+}
+
+html.light .timeline-step-item p,
+html:not(.dark) .timeline-step-item p,
+body.light .timeline-step-item p {
+  color: #4B5563 !important;
+}
+
+/* Mobile & Small Screens Adaptation */
+@media (max-width: 640px) {
+  .timeline-step-col {
+    flex: 0 0 42% !important;
+    width: 42% !important;
+    max-width: 42% !important;
+    min-width: 42% !important;
+  }
+  .timeline-step-left {
+    padding-right: 0.75rem !important;
+  }
+  .timeline-step-right {
+    padding-left: 0.75rem !important;
+  }
+  [dir="rtl"] .timeline-step-left,
+  html[dir="rtl"] .timeline-step-left,
+  body[dir="rtl"] .timeline-step-left {
+    padding-left: 0.75rem !important;
+    padding-right: 0 !important;
+  }
+  [dir="rtl"] .timeline-step-right,
+  html[dir="rtl"] .timeline-step-right,
+  body[dir="rtl"] .timeline-step-right {
+    padding-right: 0.75rem !important;
+    padding-left: 0 !important;
+  }
+}
+
+
+/* ==========================================================================
+   ALLERGIQ REFERENCE: MINIMAL AUTHENTICATION PAGES (.auth-page)
+   Clean, focused, centered luxury portal architecture
+   ========================================================================== */
+.auth-page {
+  min-height: 100vh;
+  background-color: #07090E;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+  color: #FFFFFF;
+}
+
+html.light .auth-page,
+html:not(.dark) .auth-page,
+body.light.auth-page {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+.auth-ambient-orb-1,
+.auth-ambient-orb-2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+}
+
+.auth-ambient-orb-1 {
+  width: 500px;
+  height: 500px;
+  top: -120px;
+  right: -120px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.28) 0%, rgba(212, 175, 55, 0.08) 70%, transparent 100%);
+}
+
+.auth-ambient-orb-2 {
+  width: 450px;
+  height: 450px;
+  bottom: -100px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.22) 0%, rgba(245, 158, 11, 0.06) 70%, transparent 100%);
+}
+
+.auth-topbar {
+  position: relative;
+  z-index: 20;
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 576px) {
+  .auth-topbar {
+    padding: 1rem 1.25rem;
+  }
+}
+
+.auth-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #94A3B8;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.auth-back-link:hover {
+  color: #F59E0B !important;
+  transform: translateX(-2px);
+}
+
+[dir="rtl"] .auth-back-link:hover {
+  transform: translateX(2px);
+}
+
+.auth-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem 3rem;
+  position: relative;
+  z-index: 10;
+}
+
+.auth-container-centered {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.auth-card-centered {
+  background: #0F1420;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 1.5rem;
+  padding: 2.25rem 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 35px rgba(245, 158, 11, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+html.light .auth-card-centered,
+html:not(.dark) .auth-card-centered {
+  background: #FFFFFF !important;
+  border-color: rgba(245, 158, 11, 0.3) !important;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08), 0 0 25px rgba(245, 158, 11, 0.08) !important;
+}
+
+@media (max-width: 576px) {
+  .auth-card-centered {
+    padding: 1.75rem 1.25rem;
+    border-radius: 1.25rem;
+  }
+}
+
+.auth-brand-header {
+  background: #07090E;
+  border: 1px solid rgba(245, 158, 11, 0.22);
+  border-radius: 1rem;
+  padding: 1.5rem 1.25rem 1.25rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.auth-brand-header #authHeaderTitle {
+  color: #FFFFFF !important;
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.auth-brand-header #authHeaderSub {
+  color: #94A3B8 !important;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Segmented Tab Switcher (Customer vs Admin) */
+.auth-tabs {
+  display: flex;
+  background: rgba(7, 9, 14, 0.7);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 9999px;
+  padding: 4px;
+  margin-bottom: 1.5rem;
+}
+
+html.light .auth-tabs,
+html:not(.dark) .auth-tabs {
+  background: #F1F5F9 !important;
+  border-color: #CBD5E1 !important;
+}
+
+.auth-tab-btn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: #94A3B8;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+
+.auth-tab-btn:hover {
+  color: #FFFFFF;
+}
+
+html.light .auth-tab-btn:hover {
+  color: #0F172A;
+}
+
+.auth-tab-btn.active {
+  background: #F59E0B !important;
+  color: #000000 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+}
+
+/* Input Icon Group */
+.input-icon-group {
+  position: relative;
+}
+
+.input-icon-group .input-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1rem;
+  color: #94A3B8;
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+
+[dir="rtl"] .input-icon-group .input-icon {
+  left: auto;
+  right: 1rem;
+}
+
+.input-icon-group input {
+  width: 100%;
+  height: 48px;
+  padding-left: 2.75rem;
+  padding-right: 1rem;
+  background-color: #07090E;
+  border: 1px solid #334155;
+  border-radius: 0.75rem;
+  color: #FFFFFF;
+  font-size: 0.875rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+html.light .input-icon-group input,
+html:not(.dark) .input-icon-group input {
+  background-color: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+.input-icon-group input:focus {
+  outline: none;
+  border-color: #F59E0B;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
+[dir="rtl"] .input-icon-group input {
+  padding-left: 1rem;
+  padding-right: 2.75rem;
+}
+
+.input-icon-group.has-toggle input {
+  padding-right: 2.75rem;
+}
+
+[dir="rtl"] .input-icon-group.has-toggle input {
+  padding-right: 2.75rem;
+  padding-left: 2.75rem;
+}
+
+.pw-toggle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0.85rem;
+  background: transparent;
+  border: none;
+  color: #94A3B8;
+  cursor: pointer;
+  padding: 0.35rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+}
+
+[dir="rtl"] .pw-toggle {
+  right: auto;
+  left: 0.85rem;
+}
+
+.pw-toggle:hover {
+  color: #F59E0B;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #64748B;
+  font-size: 0.72rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 1.5rem 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html.light .auth-divider::before,
+html.light .auth-divider::after {
+  border-bottom-color: #E2E8F0 !important;
+}
+
+.auth-divider::before { margin-right: 0.75rem; }
+.auth-divider::after { margin-left: 0.75rem; }
+
+[dir="rtl"] .auth-divider::before { margin-right: 0; margin-left: 0.75rem; }
+[dir="rtl"] .auth-divider::after { margin-left: 0; margin-right: 0.75rem; }
+
+.btn-social-full {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid #334155;
+  color: #FFFFFF;
+  border-radius: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  transition: all 0.2s ease;
+  width: 100%;
+  cursor: pointer;
+}
+
+html.light .btn-social-full {
+  background: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+.btn-social-full:hover {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: #F59E0B;
+  color: #F59E0B;
+  transform: translateY(-1px);
+}
+
+.auth-footnote {
+  text-align: center;
+  font-size: 0.8125rem;
+  color: #94A3B8;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html.light .auth-footnote {
+  border-top-color: #E2E8F0 !important;
+}
+
+.auth-footnote a {
+  color: #F59E0B;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.auth-footnote a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   ALLERGIQ REFERENCE: PROFESSIONAL SAAS DASHBOARD (.dashboard-wrapper)
+   True enterprise web application structure with sidebar & sticky topbar
+   ========================================================================== */
+.dashboard-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background-color: #07090E;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+html.light .dashboard-wrapper,
+html:not(.dark) .dashboard-wrapper {
+  background-color: #F8FAFC !important;
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+  width: 280px;
+  background-color: #0B0E17;
+  border-right: 1px solid rgba(245, 158, 11, 0.15);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+html.light .dashboard-sidebar,
+html:not(.dark) .dashboard-sidebar {
+  background-color: #FFFFFF !important;
+  border-right-color: #E2E8F0 !important;
+}
+
+[dir="rtl"] .dashboard-sidebar {
+  left: auto;
+  right: 0;
+  border-right: none;
+  border-left: 1px solid rgba(245, 158, 11, 0.15);
+}
+
+html.light[dir="rtl"] .dashboard-sidebar {
+  border-left-color: #E2E8F0 !important;
+}
+
+.dashboard-sidebar-header {
+  height: 80px;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 1.25rem;
+  background-color: #07090E;
+  border-bottom: 1px solid rgba(245, 158, 11, 0.15);
+  box-sizing: border-box;
+}
+
+html.light .dashboard-sidebar-header {
+  background-color: #000000 !important;
+}
+
+.dashboard-sidebar-body {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1.5rem 1rem;
+}
+
+.dashboard-sidebar-footer {
+  padding: 1.25rem 1.25rem;
+  border-top: 1px solid rgba(245, 158, 11, 0.15);
+  background-color: #07090E;
+}
+
+html.light .dashboard-sidebar-footer {
+  background-color: #F8FAFC !important;
+  border-top-color: #E2E8F0 !important;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu-header {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #F59E0B;
+  letter-spacing: 0.08em;
+  padding: 0.75rem 0.75rem 0.35rem;
+}
+
+html.light .sidebar-menu-header {
+  color: #B45309 !important;
+}
+
+.sidebar-menu-item {
+  margin-bottom: 0.35rem;
+}
+
+.sidebar-menu-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.7rem 1rem;
+  color: #94A3B8;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+html.light .sidebar-menu-link {
+  color: #475569 !important;
+}
+
+.sidebar-menu-link i {
+  font-size: 1.1rem;
+  width: 22px;
+  text-align: center;
+}
+
+.sidebar-menu-link:hover {
+  color: #F59E0B;
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.sidebar-menu-link.active {
+  color: #000000 !important;
+  background-color: #F59E0B !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+}
+
+.sidebar-menu-link.active i,
+.sidebar-menu-link.active span {
+  color: #000000 !important;
+}
+
+.sidebar-menu-link .badge {
+  margin-left: auto;
+  font-size: 0.68rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 9999px;
+  font-weight: 700;
+}
+
+[dir="rtl"] .sidebar-menu-link .badge {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Dashboard Main Content Area */
+.dashboard-main {
+  flex-grow: 1;
+  margin-left: 280px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  max-width: calc(100% - 280px);
+  overflow-x: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[dir="rtl"] .dashboard-main {
+  margin-left: 0;
+  margin-right: 280px;
+}
+
+.dashboard-topbar {
+  min-height: 80px;
+  background-color: rgba(7, 9, 14, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+html.light .dashboard-topbar,
+html:not(.dark) .dashboard-topbar {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-bottom-color: #E2E8F0 !important;
+}
+
+@media (max-width: 768px) {
+  .dashboard-topbar {
+    padding: 0.75rem 1rem;
+  }
+}
+
+.dashboard-content {
+  padding: 2rem;
+  flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+  .dashboard-content {
+    padding: 1.25rem 1rem;
+  }
+}
+
+/* KPI Cards */
+.kpi-card {
+  background-color: #0F1420;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+html.light .kpi-card,
+html:not(.dark) .kpi-card {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important;
+}
+
+.kpi-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.35);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.kpi-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.kpi-icon.primary { background-color: rgba(245, 158, 11, 0.15); color: #F59E0B; }
+.kpi-icon.success { background-color: rgba(16, 185, 129, 0.15); color: #10B981; }
+.kpi-icon.accent { background-color: rgba(168, 85, 247, 0.15); color: #A855F7; }
+.kpi-icon.warning { background-color: rgba(234, 179, 8, 0.15); color: #EAB308; }
+
+.kpi-value {
+  font-size: 1.85rem;
+  font-weight: 800;
+  font-family: 'Cinzel', serif;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+html.light .kpi-value {
+  color: #0F172A !important;
+}
+
+.kpi-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.2rem 0.55rem;
+}
+
+.kpi-trend.up { background-color: rgba(16, 185, 129, 0.15); color: #10B981; }
+.kpi-trend.down { background-color: rgba(239, 68, 68, 0.15); color: #EF4444; }
+
+/* Quick Navigation Shortcuts */
+.dashboard-shortcut {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  width: 100%;
+  height: 100%;
+  padding: 1.1rem;
+  border: 1px solid rgba(245, 158, 11, 0.18);
+  border-radius: 1rem;
+  background-color: #0F1420;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+html.light .dashboard-shortcut,
+html:not(.dark) .dashboard-shortcut {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  color: #0F172A !important;
+}
+
+.dashboard-shortcut:hover {
+  transform: translateY(-3px);
+  border-color: #F59E0B;
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.15);
+}
+
+.dashboard-shortcut .kpi-icon {
+  width: 42px;
+  height: 42px;
+  font-size: 1.1rem;
+}
+
+.dashboard-shortcut .shortcut-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #FFFFFF;
+  margin-bottom: 0.25rem;
+}
+
+html.light .dashboard-shortcut .shortcut-title {
+  color: #0F172A !important;
+}
+
+.dashboard-shortcut .shortcut-desc {
+  font-size: 0.78rem;
+  color: #94A3B8;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Mobile Sidebar Backdrop & Responsive */
+.dashboard-sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 1035;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.dashboard-sidebar-backdrop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 991px) {
+  .dashboard-sidebar {
+    transform: translateX(-100%);
+  }
+  [dir="rtl"] .dashboard-sidebar {
+    transform: translateX(100%);
+    left: auto;
+    right: 0;
+  }
+  .dashboard-sidebar.show {
+    transform: translateX(0) !important;
+  }
+  .dashboard-main {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+  }
+}
+
+
+/* ===================================================================
+   12. Card Headings Line-Lock & Uniform Action Links Styling
+   Ensures card headings end on the exact same line with unified colors
+   =================================================================== */
+article h3 {
+  min-height: 3.5rem;
+  line-height: 1.75rem;
+}
+
+/* Card Action Links & Author Names have Identical Theme Color */
+article .text-amber-400,
+article a.text-amber-400,
+article span.text-amber-400 {
+  color: #F59E0B !important;
+}
+
+html.light article .text-amber-400,
+html.light article a.text-amber-400,
+html.light article span.text-amber-400,
+html:not(.dark) article .text-amber-400,
+html:not(.dark) article a.text-amber-400,
+html:not(.dark) article span.text-amber-400,
+body.light article .text-amber-400,
+body.light article a.text-amber-400,
+body.light article span.text-amber-400 {
+  color: #B45309 !important; /* Rich amber with 7:1 contrast on white in light mode */
+}
+
+
+/* ===================================================================
+   13. Universal Brand Logo & Subcontent Lock Across All Themes & Pages
+   Guarantee: Logo (AURA SKY + Rooftop & Lounge) looks 100% identical
+   in Dark Theme, Light Theme, Header, Footer, Login, Register, & Dashboard
+   =================================================================== */
+
+/* Logo Text Title (AURA SKY) - Always Crisp Pure White Across All Themes */
+header .font-display,
+footer .font-display,
+.auth-brand-header .font-display,
+.dashboard-sidebar-header .font-display,
+header a span.font-display,
+footer a span.font-display,
+.auth-brand-header a span.font-display,
+.dashboard-sidebar-header a span.font-display,
+html.light header .font-display,
+html.light footer .font-display,
+html.light .auth-brand-header .font-display,
+html.light .dashboard-sidebar-header .font-display,
+html.light header a span.font-display,
+html.light footer a span.font-display,
+html.light .auth-brand-header a span.font-display,
+html.light .dashboard-sidebar-header a span.font-display,
+html:not(.dark) header .font-display,
+html:not(.dark) footer .font-display,
+html:not(.dark) .auth-brand-header .font-display,
+html:not(.dark) .dashboard-sidebar-header .font-display,
+html:not(.dark) header a span.font-display,
+html:not(.dark) footer a span.font-display,
+html:not(.dark) .auth-brand-header a span.font-display,
+html:not(.dark) .dashboard-sidebar-header a span.font-display,
+body.light header .font-display,
+body.light footer .font-display,
+body.light .auth-brand-header .font-display,
+body.light .dashboard-sidebar-header .font-display {
+  color: #FFFFFF !important;
+  font-family: 'Cinzel', serif !important;
+  font-weight: 700 !important;
+}
+
+/* Logo Subcontent ("Rooftop & Lounge") - Always Radiant Gold in Both Themes */
+header a span.tracking-\[0\.25em\],
+footer a span.tracking-\[0\.25em\],
+.auth-brand-header a div.tracking-\[0\.25em\],
+.auth-brand-header a span.tracking-\[0\.25em\],
+.dashboard-sidebar-header a span.tracking-\[0\.25em\],
+header .text-amber-400.tracking-\[0\.25em\],
+footer .text-amber-400.tracking-\[0\.25em\],
+.auth-brand-header .text-amber-400.tracking-\[0\.25em\],
+.dashboard-sidebar-header .text-amber-400.tracking-\[0\.25em\],
+html.light header a span.tracking-\[0\.25em\],
+html.light footer a span.tracking-\[0\.25em\],
+html.light .auth-brand-header a div.tracking-\[0\.25em\],
+html.light .auth-brand-header a span.tracking-\[0\.25em\],
+html.light .dashboard-sidebar-header a span.tracking-\[0\.25em\],
+html:not(.dark) header a span.tracking-\[0\.25em\],
+html:not(.dark) footer a span.tracking-\[0\.25em\],
+html:not(.dark) .auth-brand-header a div.tracking-\[0\.25em\],
+html:not(.dark) .auth-brand-header a span.tracking-\[0\.25em\],
+html:not(.dark) .dashboard-sidebar-header a span.tracking-\[0\.25em\],
+body.light header a span.tracking-\[0\.25em\],
+body.light footer a span.tracking-\[0\.25em\],
+body.light .auth-brand-header a div.tracking-\[0\.25em\],
+body.light .auth-brand-header a span.tracking-\[0\.25em\],
+body.light .dashboard-sidebar-header a span.tracking-\[0\.25em\],
+html.light .auth-brand-header .text-amber-400,
+html:not(.dark) .auth-brand-header .text-amber-400,
+body.light .auth-brand-header .text-amber-400 {
+  color: #FBBF24 !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.25em !important;
+}
+
+/* Logo Squircle Badge - Consistent Gold Martini Glass Icon */
+.auth-brand-header .fa-martini-glass-citrus,
+.dashboard-sidebar-header .fa-martini-glass-citrus,
+header .fa-martini-glass-citrus,
+footer .fa-martini-glass-citrus,
+html.light .auth-brand-header .fa-martini-glass-citrus,
+html.light .dashboard-sidebar-header .fa-martini-glass-citrus,
+html.light header .fa-martini-glass-citrus,
+html.light footer .fa-martini-glass-citrus,
+html:not(.dark) .auth-brand-header .fa-martini-glass-citrus,
+html:not(.dark) .dashboard-sidebar-header .fa-martini-glass-citrus,
+html:not(.dark) header .fa-martini-glass-citrus,
+html:not(.dark) footer .fa-martini-glass-citrus {
+  color: #FBBF24 !important;
+}
+
+/* Auth Brand Header Container in Light Theme - Maintain Deep Luxury Tone */
+html.light .auth-brand-header,
+html:not(.dark) .auth-brand-header,
+body.light .auth-brand-header {
+  background: #07090E !important;
+  border-color: rgba(245, 158, 11, 0.25) !important;
+}
+html.light .auth-brand-header #authHeaderTitle,
+html:not(.dark) .auth-brand-header #authHeaderTitle {
+  color: #FFFFFF !important;
+}
+html.light .auth-brand-header #authHeaderSub,
+html:not(.dark) .auth-brand-header #authHeaderSub {
+  color: #94A3B8 !important;
+}
+
+/* ===================================================================
+   14. MAP DIRECTIONS CTA BUTTON IMMUNITY (BOTH THEMES & ON HOVER)
+   Fixes CTA text turning invisible/gold-on-gold when hovered in light mode
+   =================================================================== */
+.map-directions-btn,
+.map-directions-btn:hover,
+.map-directions-btn:focus,
+.map-directions-btn:active,
+.map-directions-btn *,
+.map-directions-btn:hover *,
+.map-directions-btn:focus *,
+.map-directions-btn:active *,
+html.light .map-directions-btn,
+html.light .map-directions-btn:hover,
+html.light .map-directions-btn *,
+html.light .map-directions-btn:hover *,
+html:not(.dark) .map-directions-btn,
+html:not(.dark) .map-directions-btn:hover,
+html:not(.dark) .map-directions-btn *,
+html:not(.dark) .map-directions-btn:hover *,
+body.light .map-directions-btn,
+body.light .map-directions-btn:hover,
+body.light .map-directions-btn *,
+body.light .map-directions-btn:hover * {
+  color: #000000 !important;
+  fill: #000000 !important;
+}
+.map-directions-btn:hover,
+html.light .map-directions-btn:hover,
+html:not(.dark) .map-directions-btn:hover {
+  background-color: #FBBF24 !important;
+}
+
+/* ===================================================================
+   15. PRESS LOGO CARD ACCURACY (MICHELIN RED & GOLD ICONS)
+   =================================================================== */
+.press-logo-card rect[fill="#DC2626"],
+html.light .press-logo-card rect[fill="#DC2626"],
+html:not(.dark) .press-logo-card rect[fill="#DC2626"],
+body.light .press-logo-card rect[fill="#DC2626"] {
+  fill: #DC2626 !important;
+}
+
+/* ===================================================================
+   16. DASHBOARD SIDEBAR HEADER BRANDING IMMUNITY (DARK & LIGHT)
+   Guarantees AURA SKY logo is 100% identical in both themes
+   =================================================================== */
+.dashboard-sidebar-header,
+html.light .dashboard-sidebar-header,
+html:not(.dark) .dashboard-sidebar-header,
+body.light .dashboard-sidebar-header {
+  background: #07090E !important;
+  background-color: #07090E !important;
+  border-bottom: 1px solid rgba(245, 158, 11, 0.25) !important;
+}
+.dashboard-sidebar-header .font-display,
+.dashboard-sidebar-header a span.font-display,
+html.light .dashboard-sidebar-header .font-display,
+html:not(.dark) .dashboard-sidebar-header .font-display {
+  color: #FFFFFF !important;
+  font-family: 'Cinzel', serif !important;
+  font-weight: 700 !important;
+}
+.dashboard-sidebar-header .text-amber-400,
+html.light .dashboard-sidebar-header .text-amber-400,
+html:not(.dark) .dashboard-sidebar-header .text-amber-400 {
+  color: #FBBF24 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.25em !important;
+  text-transform: uppercase !important;
+}
+.dashboard-sidebar-header .fa-martini-glass-citrus,
+html.light .dashboard-sidebar-header .fa-martini-glass-citrus {
+  color: #FBBF24 !important;
+}
+
+/* ===================================================================
+   17. COMPLETE LIGHT THEME ADAPTATION FOR ZINC & CHARCOAL CARDS
+   Converts all dark zinc/charcoal card containers, sections, and grids
+   into crisp, high-contrast pure white cards with deep slate typography
+   =================================================================== */
+
+/* All zinc and dark container cards forced to pure white with gold-tinted borders in Light Mode */
+html.light div[class*="bg-zinc-"]:not(header *):not(footer *),
+html:not(.dark) div[class*="bg-zinc-"]:not(header *):not(footer *),
+body.light div[class*="bg-zinc-"]:not(header *):not(footer *),
+html.light article[class*="bg-zinc-"]:not(header *):not(footer *),
+html:not(.dark) article[class*="bg-zinc-"]:not(header *):not(footer *),
+body.light article[class*="bg-zinc-"]:not(header *):not(footer *),
+html.light details[class*="bg-zinc-"]:not(header *):not(footer *),
+html:not(.dark) details[class*="bg-zinc-"]:not(header *):not(footer *),
+body.light details[class*="bg-zinc-"]:not(header *):not(footer *),
+html.light div[class*="bg-gray-9"]:not(header *):not(footer *),
+html:not(.dark) div[class*="bg-gray-9"]:not(header *):not(footer *),
+body.light div[class*="bg-gray-9"]:not(header *):not(footer *),
+html.light article[class*="bg-gray-9"]:not(header *):not(footer *),
+html:not(.dark) article[class*="bg-gray-9"]:not(header *):not(footer *),
+body.light article[class*="bg-gray-9"]:not(header *):not(footer *),
+html.light .bg-zinc-900,
+html.light .bg-zinc-950,
+html.light .bg-zinc-800,
+html:not(.dark) .bg-zinc-900,
+html:not(.dark) .bg-zinc-950,
+html:not(.dark) .bg-zinc-800,
+body.light .bg-zinc-900,
+body.light .bg-zinc-950,
+body.light .bg-zinc-800 {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  border-color: rgba(212, 175, 55, 0.25) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05) !important;
+  color: #0F172A !important;
+}
+
+/* Zinc Section Backgrounds converted to clean soft-daylight tone */
+html.light section[class*="bg-zinc-"],
+html:not(.dark) section[class*="bg-zinc-"],
+body.light section[class*="bg-zinc-"],
+html.light section.bg-zinc-950/90,
+html:not(.dark) section.bg-zinc-950/90,
+body.light section.bg-zinc-950/90 {
+  background-color: #F8FAFC !important;
+  background-image: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%) !important;
+}
+
+/* Zinc Gradients converted to daylight stops */
+html.light .from-zinc-950,
+html.light .from-zinc-900,
+html:not(.dark) .from-zinc-950,
+html:not(.dark) .from-zinc-900,
+body.light .from-zinc-950,
+body.light .from-zinc-900 {
+  --tw-gradient-from: #FFFFFF var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgba(255, 255, 255, 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+html.light .via-zinc-950,
+html.light .via-zinc-900,
+html:not(.dark) .via-zinc-950,
+html:not(.dark) .via-zinc-900,
+body.light .via-zinc-950,
+body.light .via-zinc-900 {
+  --tw-gradient-stops: var(--tw-gradient-from), #F8FAFC var(--tw-gradient-via-position), var(--tw-gradient-to) !important;
+}
+
+html.light .to-zinc-950,
+html.light .to-zinc-900,
+html:not(.dark) .to-zinc-950,
+html:not(.dark) .to-zinc-900,
+body.light .to-zinc-950,
+body.light .to-zinc-900 {
+  --tw-gradient-to: #FFFFFF var(--tw-gradient-to-position) !important;
+}
+
+/* Zinc Filter Pills & Tags */
+html.light a[class*="bg-zinc-"],
+html.light button[class*="bg-zinc-"],
+html.light span[class*="bg-zinc-"],
+html:not(.dark) a[class*="bg-zinc-"],
+html:not(.dark) button[class*="bg-zinc-"],
+html:not(.dark) span[class*="bg-zinc-"],
+body.light a[class*="bg-zinc-"],
+body.light button[class*="bg-zinc-"],
+body.light span[class*="bg-zinc-"] {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border-color: rgba(212, 175, 55, 0.3) !important;
+}
+
+html.light a[class*="bg-zinc-"]:hover,
+html.light button[class*="bg-zinc-"]:hover,
+html:not(.dark) a[class*="bg-zinc-"]:hover,
+html:not(.dark) button[class*="bg-zinc-"]:hover,
+body.light a[class*="bg-zinc-"]:hover,
+body.light button[class*="bg-zinc-"]:hover {
+  background-color: #FEF3C7 !important;
+  border-color: #F59E0B !important;
+  color: #B45309 !important;
+}
+
+/* Ensure headings & paragraphs inside any card container have optimal contrast */
+html.light div[class*="bg-zinc-"] h2,
+html.light div[class*="bg-zinc-"] h3,
+html.light div[class*="bg-zinc-"] h4,
+html:not(.dark) div[class*="bg-zinc-"] h2,
+html:not(.dark) div[class*="bg-zinc-"] h3,
+html:not(.dark) div[class*="bg-zinc-"] h4,
+body.light div[class*="bg-zinc-"] h2,
+body.light div[class*="bg-zinc-"] h3,
+body.light div[class*="bg-zinc-"] h4 {
+  color: #0F172A !important;
+}
+
+html.light div[class*="bg-zinc-"] p,
+html:not(.dark) div[class*="bg-zinc-"] p,
+body.light div[class*="bg-zinc-"] p {
+  color: #334155 !important;
+}
+
+html.light div[class*="bg-zinc-"] a.text-amber-400,
+html:not(.dark) div[class*="bg-zinc-"] a.text-amber-400,
+body.light div[class*="bg-zinc-"] a.text-amber-400 {
+  color: #B45309 !important;
+}
+html.light div[class*="bg-zinc-"] a.text-amber-400:hover,
+html:not(.dark) div[class*="bg-zinc-"] a.text-amber-400:hover,
+body.light div[class*="bg-zinc-"] a.text-amber-400:hover {
+  color: #D97706 !important;
+}
+
+/* ===================================================================
+   18. AUTH BRAND HEADER LOGO IMMUNITY (LOGIN & REGISTER)
+   Guarantees AURA SKY text is 100% pure white (#FFFFFF) in both themes
+   =================================================================== */
+.auth-brand-header .font-display,
+.auth-brand-header a span.font-display,
+.auth-brand-header a .font-display,
+html.light .auth-brand-header .font-display,
+html.light .auth-brand-header a span.font-display,
+html.light .auth-brand-header a .font-display,
+html:not(.dark) .auth-brand-header .font-display,
+html:not(.dark) .auth-brand-header a span.font-display,
+html:not(.dark) .auth-brand-header a .font-display,
+body.light .auth-brand-header .font-display,
+body.light .auth-brand-header a span.font-display,
+body.light .auth-brand-header a .font-display,
+#main .auth-brand-header span.font-display,
+#main .auth-brand-header a span.font-display,
+html.light #main .auth-brand-header span.font-display,
+html.light #main .auth-brand-header a span.font-display,
+html:not(.dark) #main .auth-brand-header span.font-display,
+html:not(.dark) #main .auth-brand-header a span.font-display,
+body.light #main .auth-brand-header span.font-display,
+body.light #main .auth-brand-header a span.font-display {
+  color: #FFFFFF !important;
+  font-family: 'Cinzel', serif !important;
+  font-weight: 700 !important;
+}
+
+.auth-brand-header .text-amber-400,
+.auth-brand-header a div.text-amber-400,
+html.light .auth-brand-header .text-amber-400,
+html.light .auth-brand-header a div.text-amber-400,
+html:not(.dark) .auth-brand-header .text-amber-400,
+html:not(.dark) .auth-brand-header a div.text-amber-400,
+body.light .auth-brand-header .text-amber-400,
+body.light .auth-brand-header a div.text-amber-400 {
+  color: #FBBF24 !important;
+  letter-spacing: 0.25em !important;
+}
+
+/* ===================================================================
+   19. DASHBOARD NOTIFICATION BUTTON & DROPDOWN IMMUNITY (BOTH THEMES)
+   Prevents notification button from turning white on black header
+   Prevents notification dropdown content from white-on-white collision
+   =================================================================== */
+.notification-btn,
+.notification-btn:hover,
+html.light .notification-btn,
+html.light .notification-btn:hover,
+html:not(.dark) .notification-btn,
+html:not(.dark) .notification-btn:hover,
+body.light .notification-btn,
+body.light .notification-btn:hover {
+  background: #111827 !important;
+  background-color: #111827 !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+  color: #FCD34D !important;
+}
+
+.notification-btn i,
+.notification-btn:hover i,
+html.light .notification-btn i,
+html.light .notification-btn:hover i,
+html:not(.dark) .notification-btn i,
+html:not(.dark) .notification-btn:hover i {
+  color: #FCD34D !important;
+}
+
+.notification-btn:hover,
+html.light .notification-btn:hover,
+html:not(.dark) .notification-btn:hover {
+  background: #1B2234 !important;
+  border-color: #FBBF24 !important;
+}
+
+/* Notification Dropdown Container: Obsidian black-tie dropdown matching black topbar */
+#notificationDropdown,
+html.light #notificationDropdown,
+html:not(.dark) #notificationDropdown,
+body.light #notificationDropdown {
+  background: #0B0F17 !important;
+  background-color: #0B0F17 !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8) !important;
+  color: #FFFFFF !important;
+}
+
+#notificationDropdown span.text-white,
+#notificationDropdown span.font-bold,
+#notificationDropdown span.font-semibold,
+html.light #notificationDropdown span.text-white,
+html.light #notificationDropdown span.font-bold,
+html.light #notificationDropdown span.font-semibold,
+html:not(.dark) #notificationDropdown span.text-white,
+html:not(.dark) #notificationDropdown span.font-bold,
+html:not(.dark) #notificationDropdown span.font-semibold {
+  color: #FFFFFF !important;
+}
+
+#notificationDropdown .bg-black/40,
+html.light #notificationDropdown .bg-black/40,
+html:not(.dark) #notificationDropdown .bg-black/40,
+body.light #notificationDropdown .bg-black/40 {
+  background-color: #111827 !important;
+  background: #111827 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+#notificationDropdown span.text-gray-400,
+html.light #notificationDropdown span.text-gray-400,
+html:not(.dark) #notificationDropdown span.text-gray-400 {
+  color: #94A3B8 !important;
+}
+
+#notificationDropdown span.text-amber-400,
+html.light #notificationDropdown span.text-amber-400,
+html:not(.dark) #notificationDropdown span.text-amber-400 {
+  color: #F59E0B !important;
+}
+
+/* Dashboard Sidebar Logo Text Absolute Lock */
+aside.dashboard-sidebar .dashboard-sidebar-header,
+aside.dashboard-sidebar .dashboard-sidebar-header *,
+html.light aside.dashboard-sidebar .dashboard-sidebar-header,
+html:not(.dark) aside.dashboard-sidebar .dashboard-sidebar-header,
+body.light aside.dashboard-sidebar .dashboard-sidebar-header {
+  background-color: #07090E !important;
+}
+
+aside.dashboard-sidebar .dashboard-sidebar-header span.font-display,
+aside.dashboard-sidebar .dashboard-sidebar-header a span.font-display,
+html.light aside.dashboard-sidebar .dashboard-sidebar-header span.font-display,
+html:not(.dark) aside.dashboard-sidebar .dashboard-sidebar-header span.font-display,
+body.light aside.dashboard-sidebar .dashboard-sidebar-header span.font-display {
+  color: #FFFFFF !important;
+  font-family: 'Cinzel', serif !important;
+  font-weight: 700 !important;
+}
+
+aside.dashboard-sidebar .dashboard-sidebar-header span.tracking-[0.25em],
+html.light aside.dashboard-sidebar .dashboard-sidebar-header span.tracking-[0.25em],
+html:not(.dark) aside.dashboard-sidebar .dashboard-sidebar-header span.tracking-[0.25em],
+body.light aside.dashboard-sidebar .dashboard-sidebar-header span.tracking-[0.25em] {
+  color: #FBBF24 !important;
+  letter-spacing: 0.25em !important;
+}
+
+/* ===================================================================
+   20. LOGIN AUTHENTICATION BANNERS (DARK & LIGHT THEMES)
+   Guarantees 100% visible, high-contrast text in both themes
+   =================================================================== */
+@keyframes authShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.animate-shake {
+  animation: authShake 0.45s ease-in-out;
+}
+
+/* --- DARK THEME SUCCESS BANNER --- */
+.success-banner-box,
+html.dark .success-banner-box,
+body.dark .success-banner-box {
+  background: rgba(6, 78, 59, 0.45) !important;
+  background-color: rgba(6, 78, 59, 0.45) !important;
+  border: 1px solid rgba(16, 185, 129, 0.5) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 185, 129, 0.15) !important;
+}
+.success-banner-icon-box {
+  background-color: rgba(16, 185, 129, 0.2) !important;
+  border: 1px solid rgba(16, 185, 129, 0.4) !important;
+  color: #34D399 !important;
+}
+.success-banner-title {
+  color: #FFFFFF !important;
+}
+.success-banner-pulse {
+  background-color: #34D399 !important;
+}
+.success-banner-badge {
+  background-color: rgba(16, 185, 129, 0.25) !important;
+  color: #6EE7B7 !important;
+  border: 1px solid rgba(16, 185, 129, 0.4) !important;
+}
+.success-banner-desc {
+  color: #E2E8F0 !important;
+}
+.success-banner-name {
+  color: #FBBF24 !important;
+}
+.success-banner-tier {
+  color: #34D399 !important;
+}
+.success-banner-footer {
+  border-color: rgba(16, 185, 129, 0.25) !important;
+}
+.success-banner-token-label {
+  color: #CBD5E1 !important;
+}
+.success-banner-shield {
+  color: #34D399 !important;
+}
+.success-banner-token-code {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  color: #6EE7B7 !important;
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
+}
+.success-banner-logout-btn {
+  background-color: rgba(245, 158, 11, 0.15) !important;
+  border: 1px solid rgba(245, 158, 11, 0.4) !important;
+  color: #FBBF24 !important;
+}
+.success-banner-logout-btn:hover {
+  background-color: rgba(245, 158, 11, 0.3) !important;
+  color: #FFFFFF !important;
+}
+
+/* --- LIGHT THEME SUCCESS BANNER (CRISP, DEEP CONTRAST - 100% VISIBLE) --- */
+html.light .success-banner-box,
+html:not(.dark) .success-banner-box,
+body.light .success-banner-box {
+  background: #F0FDF4 !important;
+  background-color: #F0FDF4 !important;
+  border: 1.5px solid #16A34A !important;
+  box-shadow: 0 10px 25px rgba(22, 163, 74, 0.15), 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+html.light .success-banner-icon-box,
+html:not(.dark) .success-banner-icon-box,
+body.light .success-banner-icon-box {
+  background-color: #DCFCE7 !important;
+  border: 1.5px solid #22C55E !important;
+  color: #15803D !important;
+}
+html.light .success-banner-title,
+html:not(.dark) .success-banner-title,
+body.light .success-banner-title {
+  color: #14532D !important; /* Deep dark forest green - 12:1 WCAG AAA contrast */
+  font-weight: 800 !important;
+}
+html.light .success-banner-pulse,
+html:not(.dark) .success-banner-pulse,
+body.light .success-banner-pulse {
+  background-color: #16A34A !important;
+}
+html.light .success-banner-badge,
+html:not(.dark) .success-banner-badge,
+body.light .success-banner-badge {
+  background-color: #DCFCE7 !important;
+  color: #14532D !important; /* Bold readable dark green */
+  border: 1.5px solid #16A34A !important;
+  font-weight: 800 !important;
+}
+html.light .success-banner-desc,
+html:not(.dark) .success-banner-desc,
+body.light .success-banner-desc {
+  color: #1F2937 !important; /* Deep charcoal */
+  font-weight: 500 !important;
+}
+html.light .success-banner-name,
+html:not(.dark) .success-banner-name,
+body.light .success-banner-name {
+  color: #B45309 !important; /* Deep royal gold */
+}
+html.light .success-banner-tier,
+html:not(.dark) .success-banner-tier,
+body.light .success-banner-tier {
+  color: #15803D !important; /* Deep emerald */
+  font-weight: 700 !important;
+}
+html.light .success-banner-footer,
+html:not(.dark) .success-banner-footer,
+body.light .success-banner-footer {
+  border-color: #BBF7D0 !important;
+}
+html.light .success-banner-token-label,
+html:not(.dark) .success-banner-token-label,
+body.light .success-banner-token-label {
+  color: #374151 !important;
+  font-weight: 600 !important;
+}
+html.light .success-banner-shield,
+html:not(.dark) .success-banner-shield,
+body.light .success-banner-shield {
+  color: #16A34A !important;
+}
+html.light .success-banner-token-code,
+html:not(.dark) .success-banner-token-code,
+body.light .success-banner-token-code {
+  background-color: #DCFCE7 !important;
+  color: #14532D !important;
+  border: 1px solid #86EFAC !important;
+  font-weight: 800 !important;
+}
+html.light .success-banner-logout-btn,
+html:not(.dark) .success-banner-logout-btn,
+body.light .success-banner-logout-btn {
+  background-color: #FEF3C7 !important;
+  border: 1.5px solid #F59E0B !important;
+  color: #92400E !important;
+}
+html.light .success-banner-logout-btn:hover,
+html:not(.dark) .success-banner-logout-btn:hover,
+body.light .success-banner-logout-btn:hover {
+  background-color: #FDE68A !important;
+  color: #78350F !important;
+}
+
+/* --- ERROR BANNER (DARK & LIGHT) --- */
+.error-banner-box {
+  background: rgba(136, 19, 55, 0.45) !important;
+  border: 1px solid rgba(244, 63, 94, 0.5) !important;
+}
+.error-banner-icon, .error-banner-close {
+  color: #FB7185 !important;
+}
+.error-banner-title {
+  color: #FECDD3 !important;
+}
+.error-banner-message {
+  color: #FFE4E6 !important;
+}
+
+html.light .error-banner-box,
+html:not(.dark) .error-banner-box,
+body.light .error-banner-box {
+  background-color: #FEF2F2 !important;
+  border: 1.5px solid #EF4444 !important;
+  box-shadow: 0 10px 25px rgba(239, 68, 68, 0.12) !important;
+}
+html.light .error-banner-icon,
+html:not(.dark) .error-banner-icon,
+body.light .error-banner-icon {
+  color: #DC2626 !important;
+}
+html.light .error-banner-title,
+html:not(.dark) .error-banner-title,
+body.light .error-banner-title {
+  color: #991B1B !important;
+}
+html.light .error-banner-message,
+html:not(.dark) .error-banner-message,
+body.light .error-banner-message {
+  color: #7F1D1D !important;
+}
+html.light .error-banner-close,
+html:not(.dark) .error-banner-close,
+body.light .error-banner-close {
+  color: #991B1B !important;
+}
+
+/* ===================================================================
+   21. CREATE ACCOUNT MODAL (CUSTOMER VS ADMIN) IN LIGHT THEME
+   =================================================================== */
+html.light #createAccountModal .glass-dark,
+html:not(.dark) #createAccountModal .glass-dark,
+body.light #createAccountModal .glass-dark,
+html.light #forgotModal .glass-dark,
+html:not(.dark) #forgotModal .glass-dark,
+body.light #forgotModal .glass-dark {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border-color: rgba(212, 175, 55, 0.35) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+}
+
+html.light #createAccountModal h3,
+html:not(.dark) #createAccountModal h3,
+body.light #createAccountModal h3,
+html.light #forgotModal h3,
+html:not(.dark) #forgotModal h3,
+body.light #forgotModal h3 {
+  color: #0F172A !important;
+}
+
+html.light #createAccountModal label,
+html:not(.dark) #createAccountModal label,
+body.light #createAccountModal label,
+html.light #forgotModal label,
+html:not(.dark) #forgotModal label,
+body.light #forgotModal label {
+  color: #334155 !important;
+}
+
+html.light #createAccountModal input,
+html.light #createAccountModal select,
+html:not(.dark) #createAccountModal input,
+html:not(.dark) #createAccountModal select,
+body.light #createAccountModal input,
+body.light #createAccountModal select,
+html.light #forgotModal input,
+html:not(.dark) #forgotModal input,
+body.light #forgotModal input {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #CBD5E1 !important;
+}
+
+html.light #createAccountModal .bg-black/60,
+html:not(.dark) #createAccountModal .bg-black/60,
+body.light #createAccountModal .bg-black/60 {
+  background-color: #F1F5F9 !important;
+  border-color: #CBD5E1 !important;
+}
+
+/* 22. CREATE ACCOUNT & FORGOT MODAL LIGHT THEME CONTRAST ENHANCEMENTS */
+html.light #createAccountModal #createModalSub,
+html:not(.dark) #createAccountModal #createModalSub,
+body.light #createAccountModal #createModalSub,
+html.light #forgotModal p,
+html:not(.dark) #forgotModal p,
+body.light #forgotModal p {
+  color: #475569 !important;
+}
+
+html.light #createAccountModal button.text-gray-400,
+html:not(.dark) #createAccountModal button.text-gray-400,
+body.light #createAccountModal button.text-gray-400 {
+  color: #64748B !important;
+}
+
+html.light #createAccountModal button.bg-amber-500,
+html:not(.dark) #createAccountModal button.bg-amber-500,
+body.light #createAccountModal button.bg-amber-500 {
+  background-color: #D4AF37 !important;
+  color: #000000 !important;
+}
+
+html.light #createAccountModal #adminAccountForm .bg-red-500\/10,
+html:not(.dark) #createAccountModal #adminAccountForm .bg-red-500\/10,
+body.light #createAccountModal #adminAccountForm .bg-red-500\/10 {
+  background-color: #FEF2F2 !important;
+  border-color: #FECACA !important;
+  color: #991B1B !important;
+}
+
+/* 23. HIGH CONTRAST SOCIAL AUTH BUTTONS (APPLE & GOOGLE) */
+.auth-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.85rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+/* Dark Theme Social Button Styling */
+html.dark .auth-social-btn,
+body.dark .auth-social-btn,
+.auth-social-btn {
+  background-color: #111827 !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.35) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5) !important;
+}
+
+html.dark .auth-social-btn .apple-icon-path,
+body.dark .auth-social-btn .apple-icon-path,
+.auth-social-btn .apple-icon-path {
+  fill: #FFFFFF !important;
+}
+
+html.dark .auth-social-btn .social-text,
+body.dark .auth-social-btn .social-text,
+.auth-social-btn .social-text {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+html.dark .auth-social-btn:hover,
+body.dark .auth-social-btn:hover,
+.auth-social-btn:hover {
+  background-color: #1F2937 !important;
+  border-color: #F59E0B !important;
+  color: #FBBF24 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.25) !important;
+}
+
+html.dark .auth-social-btn:hover .apple-icon-path,
+body.dark .auth-social-btn:hover .apple-icon-path,
+.auth-social-btn:hover .apple-icon-path {
+  fill: #FBBF24 !important;
+}
+
+/* Light Theme Social Button Styling (100% High Contrast) */
+html.light .auth-social-btn,
+html:not(.dark) .auth-social-btn,
+body.light .auth-social-btn {
+  background-color: #FFFFFF !important;
+  border: 1.5px solid #CBD5E1 !important;
+  color: #0F172A !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08) !important;
+}
+
+html.light .auth-social-btn .apple-icon-path,
+html:not(.dark) .auth-social-btn .apple-icon-path,
+body.light .auth-social-btn .apple-icon-path {
+  fill: #0F172A !important;
+}
+
+html.light .auth-social-btn .social-text,
+html:not(.dark) .auth-social-btn .social-text,
+body.light .auth-social-btn .social-text {
+  color: #0F172A !important;
+  font-weight: 700 !important;
+}
+
+html.light .auth-social-btn:hover,
+html:not(.dark) .auth-social-btn:hover,
+body.light .auth-social-btn:hover {
+  background-color: #F8FAFC !important;
+  border-color: #D4AF37 !important;
+  color: #B45309 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2) !important;
+}
+
+html.light .auth-social-btn:hover .apple-icon-path,
+html:not(.dark) .auth-social-btn:hover .apple-icon-path,
+body.light .auth-social-btn:hover .apple-icon-path {
+  fill: #B45309 !important;
+}
+
+/* Light Theme Auth Divider Text Contrast */
+html.light .auth-divider,
+html:not(.dark) .auth-divider,
+body.light .auth-divider {
+  color: #334155 !important;
+}
+
+html.light .auth-divider span,
+html:not(.dark) .auth-divider span,
+body.light .auth-divider span {
+  color: #1E293B !important;
+  font-weight: 800 !important;
+}
+
+/* 24. CONTACT HERO OVERLAY (GUARANTEES IMAGE VISIBILITY IN BOTH THEMES) */
+.contact-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+html.dark .contact-hero-overlay,
+body.dark .contact-hero-overlay,
+.contact-hero-overlay {
+  background: rgba(0, 0, 0, 0.4) !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+html.light .contact-hero-overlay,
+html:not(.dark) .contact-hero-overlay,
+body.light .contact-hero-overlay {
+  background: rgba(0, 0, 0, 0.3) !important;
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 25. CONTACT HERO BOX (HIGH CONTRAST & MAXIMUM LEGIBILITY IN BOTH THEMES) */
+.contact-hero-box {
+  background: rgba(15, 20, 32, 0.82) !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 35px rgba(212, 175, 55, 0.15) !important;
+}
+
+.contact-hero-box .contact-hero-badge {
+  background: rgba(245, 158, 11, 0.15) !important;
+  border: 1px solid rgba(245, 158, 11, 0.4) !important;
+  color: #FCD34D !important;
+}
+
+.contact-hero-box .contact-hero-title {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6) !important;
+}
+
+.contact-hero-box .contact-hero-desc {
+  color: #E2E8F0 !important;
+}
+
+/* Light Theme: Frosted White Luxury Card with Deep Charcoal Text */
+html.light .contact-hero-box,
+html:not(.dark) .contact-hero-box,
+body.light .contact-hero-box {
+  background: rgba(255, 255, 255, 0.94) !important;
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.45) !important;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.2), 0 0 30px rgba(212, 175, 55, 0.18) !important;
+}
+
+html.light .contact-hero-box .contact-hero-badge,
+html:not(.dark) .contact-hero-box .contact-hero-badge,
+body.light .contact-hero-box .contact-hero-badge {
+  background: #FEF3C7 !important;
+  border: 1px solid #F59E0B !important;
+  color: #92400E !important;
+}
+
+html.light .contact-hero-box .contact-hero-title,
+html:not(.dark) .contact-hero-box .contact-hero-title,
+body.light .contact-hero-box .contact-hero-title {
+  color: #0F172A !important;
+  text-shadow: none !important;
+}
+
+html.light .contact-hero-box .contact-hero-desc,
+html:not(.dark) .contact-hero-box .contact-hero-desc,
+body.light .contact-hero-box .contact-hero-desc {
+  color: #334155 !important;
+  text-shadow: none !important;
+}
+
+/* 26. BLOG CARD STYLING: NO TITLE HOVER COLOR, UNIFIED LINK & BADGE COLORS IN BOTH THEMES */
+/* Remove hover color on headings */
+article h3,
+article h3 a,
+.blog-card h3,
+.blog-card h3 a {
+  transition: none !important;
+}
+
+html.dark article h3,
+html.dark article h3 a,
+html.dark article h3 a:hover,
+html.dark .blog-card h3,
+html.dark .blog-card h3 a,
+html.dark .blog-card h3 a:hover {
+  color: #FFFFFF !important;
+}
+
+html.light article h3,
+html.light article h3 a,
+html.light article h3 a:hover,
+html:not(.dark) article h3,
+html:not(.dark) article h3 a,
+html:not(.dark) article h3 a:hover,
+body.light article h3,
+body.light article h3 a,
+body.light article h3 a:hover {
+  color: #0F172A !important;
+}
+
+/* Identical Gold Color for Author & Link in BOTH Themes */
+.blog-card-link,
+.blog-card-author,
+article .blog-card-link,
+article .blog-card-author,
+html.light .blog-card-link,
+html.light .blog-card-author,
+html.dark .blog-card-link,
+html.dark .blog-card-author,
+html:not(.dark) .blog-card-link,
+html:not(.dark) .blog-card-author,
+body.light .blog-card-link,
+body.light .blog-card-author,
+body.dark .blog-card-link,
+body.dark .blog-card-author {
+  color: #D4AF37 !important;
+}
+
+.blog-card-link:hover,
+article .blog-card-link:hover,
+html.light .blog-card-link:hover,
+html.dark .blog-card-link:hover {
+  color: #E5C468 !important;
+  text-decoration: underline !important;
+}
+
+/* Category Badges (Batches): IDENTICAL COLOR IN BOTH THEMES */
+.card-category-badge,
+span.card-category-badge,
+html.light .card-category-badge,
+html.dark .card-category-badge,
+html:not(.dark) .card-category-badge,
+body.light .card-category-badge,
+body.dark .card-category-badge {
+  background-color: rgba(7, 9, 14, 0.88) !important;
+  background: rgba(7, 9, 14, 0.88) !important;
+  color: #FBBF24 !important;
+  border: 1px solid rgba(212, 175, 55, 0.45) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35) !important;
+}
+
+
+/* 27. FAQ ACCORDION STYLING FOR LIGHT MODE AND RTL */
+html.light details[class*="bg-zinc-"],
+html:not(.dark) details[class*="bg-zinc-"],
+body.light details[class*="bg-zinc-"] {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
+  border-color: rgba(212, 175, 55, 0.3) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light details summary,
+html:not(.dark) details summary,
+body.light details summary {
+  color: #0F172A !important;
+}
+
+html.light details summary:hover,
+html:not(.dark) details summary:hover,
+body.light details summary:hover {
+  color: #B45309 !important;
+}
+
+html.light details .border-gray-800,
+html:not(.dark) details .border-gray-800,
+body.light details .border-gray-800 {
+  border-color: rgba(212, 175, 55, 0.2) !important;
+}
+
+html.light details div,
+html:not(.dark) details div,
+body.light details div {
+  color: #334155 !important;
+}
+
+/* RTL Accordion Alignment */
+html[dir="rtl"] details summary {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+html[dir="rtl"] details summary span.flex {
+  text-align: right !important;
+}
+
+html[dir="rtl"] details div {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+
+/* 28. PREVENT SHIFT IN RTL TOGGLE FOR FAQ SECTION */
+#faqSection,
+#faqSection *,
+.no-rtl-shift,
+.no-rtl-shift *,
+html[dir="rtl"] #faqSection,
+html[dir="rtl"] #faqSection *,
+html[dir="rtl"] .no-rtl-shift,
+html[dir="rtl"] .no-rtl-shift * {
+  direction: ltr !important;
+}
+
+#faqSection .text-center,
+#faqSection .text-center *,
+.no-rtl-shift.text-center,
+.no-rtl-shift.text-center *,
+html[dir="rtl"] #faqSection .text-center,
+html[dir="rtl"] #faqSection .text-center *,
+html[dir="rtl"] .no-rtl-shift.text-center,
+html[dir="rtl"] .no-rtl-shift.text-center * {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* FAQ Header & Subcontent: Fixed Centered in BOTH LTR and RTL */
+.faq-header-center,
+.faq-header-center *,
+#faqSection .faq-header-center,
+#faqSection .faq-header-center *,
+html[dir="rtl"] .faq-header-center,
+html[dir="rtl"] .faq-header-center *,
+html[dir="rtl"] #faqSection .faq-header-center,
+html[dir="rtl"] #faqSection .faq-header-center * {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* FAQ Questions & Answers: Change Accurately in RTL Toggle */
+html[dir="rtl"] #faqSection details {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+html[dir="rtl"] #faqSection details summary {
+  direction: rtl !important;
+  text-align: right !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+}
+
+html[dir="rtl"] #faqSection details summary span.flex {
+  direction: rtl !important;
+  text-align: right !important;
+  flex-direction: row !important;
+  gap: 0.75rem !important;
+}
+
+html[dir="rtl"] #faqSection details summary span.flex i {
+  margin-right: 0 !important;
+  margin-left: 0.25rem !important;
+}
+
+html[dir="rtl"] #faqSection details div {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+
+/* 29. BLOG DETAILS ARTICLE STYLING FOR LIGHT & DARK THEMES */
+html.light #articleTitle,
+html:not(.dark) #articleTitle,
+body.light #articleTitle {
+  color: #0F172A !important;
+}
+
+html.light #articleBody p,
+html:not(.dark) #articleBody p,
+body.light #articleBody p {
+  color: #334155 !important;
+}
+
+html.light #articleBody h3,
+html.light #articleBody h4,
+html:not(.dark) #articleBody h3,
+html:not(.dark) #articleBody h4,
+body.light #articleBody h3,
+body.light #articleBody h4 {
+  color: #0F172A !important;
+}
+
+html.light #authorName,
+html:not(.dark) #authorName,
+body.light #authorName {
+  color: #0F172A !important;
+}
+
+html.light #authorBio,
+html:not(.dark) #authorBio,
+body.light #authorBio {
+  color: #475569 !important;
+}
+
+
+/* 30. SKYLINE GAZETTE BOX CONTAINER (LUXURY BOX REDESIGN) */
+.skyline-gazette-box {
+  background: linear-gradient(145deg, rgba(15, 20, 32, 0.92), rgba(7, 9, 14, 0.96)) !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 35px rgba(212, 175, 55, 0.12) !important;
+}
+
+.skyline-gazette-box .gazette-badge {
+  background: rgba(245, 158, 11, 0.12) !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+  color: #FCD34D !important;
+}
+
+.skyline-gazette-box .gazette-title {
+  color: #FFFFFF !important;
+}
+
+.skyline-gazette-box .gazette-desc {
+  color: #CBD5E1 !important;
+}
+
+.skyline-gazette-box .gazette-perks span {
+  background: rgba(245, 158, 11, 0.08) !important;
+  border: 1px solid rgba(245, 158, 11, 0.25) !important;
+  color: #E2E8F0 !important;
+}
+
+.skyline-gazette-box .gazette-form {
+  background: rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid rgba(212, 175, 55, 0.25) !important;
+}
+
+.skyline-gazette-box .gazette-input {
+  background: rgba(0, 0, 0, 0.7) !important;
+  border: 1px solid rgba(212, 175, 55, 0.2) !important;
+  color: #FFFFFF !important;
+}
+
+.skyline-gazette-box .gazette-input::placeholder {
+  color: #64748B !important;
+}
+
+.skyline-gazette-box .gazette-input:focus {
+  border-color: #F59E0B !important;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2) !important;
+}
+
+.skyline-gazette-box .gazette-btn {
+  background: linear-gradient(135deg, #FCD34D 0%, #D4AF37 50%, #B45309 100%) !important;
+  color: #000000 !important;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3) !important;
+}
+
+.skyline-gazette-box .gazette-btn:hover {
+  background: linear-gradient(135deg, #FDE68A 0%, #E5C468 50%, #D97706 100%) !important;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45) !important;
+  transform: translateY(-1px);
+}
+
+.skyline-gazette-box .gazette-btn i {
+  color: #000000 !important;
+}
+
+.skyline-gazette-box .gazette-footer-note {
+  color: #94A3B8 !important;
+}
+
+/* Light Theme Box Container: Pure Frosted White Luxury with Crisp Slate Contrast */
+html.light .skyline-gazette-box,
+html:not(.dark) .skyline-gazette-box,
+body.light .skyline-gazette-box {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.45) !important;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.12), 0 0 35px rgba(212, 175, 55, 0.15) !important;
+}
+
+html.light .skyline-gazette-box .gazette-badge,
+html:not(.dark) .skyline-gazette-box .gazette-badge,
+body.light .skyline-gazette-box .gazette-badge {
+  background: #FEF3C7 !important;
+  border: 1px solid #F59E0B !important;
+  color: #92400E !important;
+}
+
+html.light .skyline-gazette-box .gazette-title,
+html:not(.dark) .skyline-gazette-box .gazette-title,
+body.light .skyline-gazette-box .gazette-title {
+  color: #0F172A !important;
+}
+
+html.light .skyline-gazette-box .gazette-desc,
+html:not(.dark) .skyline-gazette-box .gazette-desc,
+body.light .skyline-gazette-box .gazette-desc {
+  color: #475569 !important;
+}
+
+html.light .skyline-gazette-box .gazette-perks span,
+html:not(.dark) .skyline-gazette-box .gazette-perks span,
+body.light .skyline-gazette-box .gazette-perks span {
+  background: #F8FAFC !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  color: #334155 !important;
+}
+
+html.light .skyline-gazette-box .gazette-form,
+html:not(.dark) .skyline-gazette-box .gazette-form,
+body.light .skyline-gazette-box .gazette-form {
+  background: #F1F5F9 !important;
+  border: 1px solid rgba(212, 175, 55, 0.3) !important;
+}
+
+html.light .skyline-gazette-box .gazette-input,
+html:not(.dark) .skyline-gazette-box .gazette-input,
+body.light .skyline-gazette-box .gazette-input {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  color: #0F172A !important;
+}
+
+html.light .skyline-gazette-box .gazette-input::placeholder,
+html:not(.dark) .skyline-gazette-box .gazette-input::placeholder,
+body.light .skyline-gazette-box .gazette-input::placeholder {
+  color: #94A3B8 !important;
+}
+
+html.light .skyline-gazette-box .gazette-footer-note,
+html:not(.dark) .skyline-gazette-box .gazette-footer-note,
+body.light .skyline-gazette-box .gazette-footer-note {
+  color: #64748B !important;
+}
+
+/* RTL Support for Gazette Input Icon & Padding */
+html[dir="rtl"] .gazette-input-icon {
+  left: auto !important;
+  right: 1rem !important;
+}
+
+html[dir="rtl"] .gazette-input {
+  padding-left: 1rem !important;
+  padding-right: 2.5rem !important;
+  text-align: right !important;
+}
+
+
+/* 31. MINIMAL BLOG DETAILS LIGHT MODE & ARTICLE TYPOGRAPHY */
+html.light article h1,
+html.light article h2,
+html.light article h3,
+html.light article h4,
+html.light article h5,
+html:not(.dark) article h1,
+html:not(.dark) article h2,
+html:not(.dark) article h3,
+html:not(.dark) article h4,
+html:not(.dark) article h5,
+body.light article h1,
+body.light article h2,
+body.light article h3,
+body.light article h4,
+body.light article h5 {
+  color: #0F172A !important;
+}
+
+html.light article p,
+html:not(.dark) article p,
+body.light article p {
+  color: #334155 !important;
+}
+
+html.light article .text-gray-300,
+html:not(.dark) article .text-gray-300,
+body.light article .text-gray-300 {
+  color: #334155 !important;
+}
+
+html.light article .text-gray-200,
+html:not(.dark) article .text-gray-200,
+body.light article .text-gray-200 {
+  color: #1E293B !important;
+}
+
+html.light article input,
+html.light article textarea,
+html:not(.dark) article input,
+html:not(.dark) article textarea,
+body.light article input,
+body.light article textarea {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border-color: rgba(212, 175, 55, 0.4) !important;
+}
+
+html.light article input::placeholder,
+html.light article textarea::placeholder,
+html:not(.dark) article input::placeholder,
+html:not(.dark) article textarea::placeholder,
+body.light article input::placeholder,
+body.light article textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+html.light aside input,
+html:not(.dark) aside input,
+body.light aside input {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border-color: rgba(212, 175, 55, 0.4) !important;
+}
+
+
+/* 32. CONTACT & BLOG HERO BOX FORM CONTROLS (LIGHT THEME & RTL) */
+html.light .contact-hero-box input,
+html:not(.dark) .contact-hero-box input,
+body.light .contact-hero-box input,
+html.light .contact-hero-box select,
+html:not(.dark) .contact-hero-box select,
+body.light .contact-hero-box select {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border-color: rgba(212, 175, 55, 0.45) !important;
+}
+
+html.light .contact-hero-box input::placeholder,
+html:not(.dark) .contact-hero-box input::placeholder,
+body.light .contact-hero-box input::placeholder {
+  color: #94A3B8 !important;
+}
+
+html[dir="rtl"] .contact-hero-box .fa-magnifying-glass {
+  left: auto !important;
+  right: 1rem !important;
+}
+
+html[dir="rtl"] .contact-hero-box input {
+  padding-left: 1rem !important;
+  padding-right: 2.75rem !important;
+  text-align: right !important;
+}
+
+/* ===================================================================
+   33. Curated Topics & Gazette Search Working System
+   =================================================================== */
+.topic-pill {
+  cursor: pointer;
+  user-select: none;
+  font-family: inherit;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.topic-pill:hover {
+  transform: translateY(-1px);
+}
+
+.topic-pill.active {
+  border-color: #D4AF37 !important;
+  background: rgba(212, 175, 55, 0.22) !important;
+  color: #FBBF24 !important;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.25) !important;
+  font-weight: 700 !important;
+}
+
+/* Light Mode Curated Topics & Search Widgets */
+html.light .topic-pill,
+html:not(.dark) .topic-pill,
+body.light .topic-pill {
+  background: #F1F5F9 !important;
+  border-color: #CBD5E1 !important;
+  color: #334155 !important;
+}
+
+html.light .topic-pill:hover,
+html:not(.dark) .topic-pill:hover,
+body.light .topic-pill:hover {
+  border-color: #D4AF37 !important;
+  color: #B45309 !important;
+  background: #FFFBEB !important;
+}
+
+html.light .topic-pill.active,
+html:not(.dark) .topic-pill.active,
+body.light .topic-pill.active {
+  background: rgba(212, 175, 55, 0.18) !important;
+  border-color: #D4AF37 !important;
+  color: #92400E !important;
+  font-weight: 700 !important;
+}
+
+html.light .curated-topic-pill,
+html:not(.dark) .curated-topic-pill,
+body.light .curated-topic-pill {
+  background: #F8FAFC !important;
+  border-color: #E2E8F0 !important;
+  color: #334155 !important;
+}
+
+html.light .curated-topic-pill:hover,
+html:not(.dark) .curated-topic-pill:hover,
+body.light .curated-topic-pill:hover {
+  border-color: #D4AF37 !important;
+  color: #B45309 !important;
+  background: #FEF3C7 !important;
+}
+
+/* Gazette Live Search Dropdown */
+#gazette-search-results-dropdown {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+html.light #gazette-search-results-dropdown,
+html:not(.dark) #gazette-search-results-dropdown,
+body.light #gazette-search-results-dropdown {
+  background: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.light #gazette-search-results-dropdown a:hover,
+html:not(.dark) #gazette-search-results-dropdown a:hover,
+body.light #gazette-search-results-dropdown a:hover {
+  background: #F8FAFC !important;
+}
+
+html.light #gazette-search-results-dropdown h5,
+html:not(.dark) #gazette-search-results-dropdown h5,
+body.light #gazette-search-results-dropdown h5 {
+  color: #0F172A !important;
+}
+
+/* Status Banner */
+html.light #blog-filter-status,
+html:not(.dark) #blog-filter-status,
+body.light #blog-filter-status {
+  background: #FFFBEB !important;
+  border-color: #FDE68A !important;
+  color: #92400E !important;
+}
+
+html.light #blog-no-results,
+html:not(.dark) #blog-no-results,
+body.light #blog-no-results {
+  background: #F8FAFC !important;
+  border-color: #E2E8F0 !important;
+}
+
+html.light #blog-no-results h3,
+html:not(.dark) #blog-no-results h3,
+body.light #blog-no-results h3 {
+  color: #0F172A !important;
+}
+
+/* RTL Support */
+html[dir="rtl"] #curated-topics-bar {
+  direction: rtl !important;
+}
+
+html[dir="rtl"] .gazette-search-widget form input {
+  padding-left: 2.25rem !important;
+  padding-right: 0.875rem !important;
+  text-align: right !important;
+}
+
+html[dir="rtl"] .gazette-search-widget form button {
+  right: auto !important;
+  left: 0.75rem !important;
+}
+
+html[dir="rtl"] #gazette-search-results-dropdown a {
+  text-align: right !important;
+}
+
+/* ===================================================================
+   34. Crystal-Clear Gallery Cards (Zero Blur, Zero Fogging in Dark & Light)
+   =================================================================== */
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.gallery-card img {
+  filter: none !important;
+  -webkit-filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.gallery-card:hover img {
+  filter: none !important;
+  -webkit-filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transform: scale(1.05) !important;
+}
+
+.gallery-card-scrim {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.35) 65%, transparent 100%) !important;
+  pointer-events: none;
+}
+
+html.light .gallery-card-scrim,
+html:not(.dark) .gallery-card-scrim,
+body.light .gallery-card-scrim {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.35) 65%, transparent 100%) !important;
+}
+
+.gallery-info-badge,
+html.light .gallery-info-badge,
+html:not(.dark) .gallery-info-badge,
+body.light .gallery-info-badge,
+.gallery-card .gallery-info-badge {
+  background: rgba(10, 10, 14, 0.92) !important;
+  background-color: rgba(10, 10, 14, 0.92) !important;
+  border: 1px solid rgba(212, 175, 55, 0.45) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.gallery-info-badge h4,
+html.light .gallery-info-badge h4,
+html:not(.dark) .gallery-info-badge h4,
+body.light .gallery-info-badge h4,
+.gallery-card h4,
+html.light .gallery-card h4,
+html:not(.dark) .gallery-card h4,
+body.light .gallery-card h4,
+.gallery-card .gallery-info-badge h4,
+html.light .gallery-card .gallery-info-badge h4 {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95) !important;
+}
+
+.gallery-info-badge span,
+html.light .gallery-info-badge span,
+html:not(.dark) .gallery-info-badge span,
+body.light .gallery-info-badge span,
+.gallery-card span,
+html.light .gallery-card span,
+.gallery-card .gallery-info-badge span,
+html.light .gallery-card .gallery-info-badge span {
+  color: #FBBF24 !important;
+  -webkit-text-fill-color: #FBBF24 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* ===================================================================
+   35. Omakase Plating Card Scrim & Text Legibility (Menu Extra Section 1)
+   =================================================================== */
+.omakase-plating-scrim,
+html.light .omakase-plating-scrim,
+html:not(.dark) .omakase-plating-scrim,
+body.light .omakase-plating-scrim {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.45) 45%, transparent 80%) !important;
+  pointer-events: none;
+}
+
+.omakase-plating-card h4,
+html.light .omakase-plating-card h4,
+html:not(.dark) .omakase-plating-card h4,
+body.light .omakase-plating-card h4 {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95) !important;
+}
+
+.omakase-plating-card p,
+html.light .omakase-plating-card p,
+html:not(.dark) .omakase-plating-card p,
+body.light .omakase-plating-card p {
+  color: #E2E8F0 !important;
+  -webkit-text-fill-color: #E2E8F0 !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* ===================================================================
+   36. Universal Filter Buttons & CTA Hover Legibility
+   Ensures active pills (.bg-amber-500) ALWAYS keep bold black text on hover,
+   and inactive pills have high contrast in both Light and Dark themes.
+   =================================================================== */
+/* Active CTA & Filter Buttons (Solid Black text on Gold at all times, including hover) */
+.bg-amber-500,
+.bg-amber-500:hover,
+.bg-amber-500:hover *,
+.bg-amber-500:focus,
+.bg-amber-500:active,
+.bg-amber-400,
+.bg-amber-400:hover,
+.bg-amber-400:hover *,
+.bg-amber-400:focus,
+.bg-amber-400:active,
+button.bg-amber-500,
+button.bg-amber-500:hover,
+button.bg-amber-500:hover *,
+button.bg-amber-400,
+button.bg-amber-400:hover,
+button.bg-amber-400:hover *,
+a.bg-amber-500,
+a.bg-amber-500:hover,
+a.bg-amber-500:hover *,
+[data-menu-filter].bg-amber-500,
+[data-menu-filter].bg-amber-500:hover,
+[data-menu-filter].bg-amber-500:hover *,
+[data-gallery-filter].bg-amber-500,
+[data-gallery-filter].bg-amber-500:hover,
+[data-gallery-filter].bg-amber-500:hover *,
+[data-event-filter].bg-amber-500,
+[data-event-filter].bg-amber-500:hover,
+[data-event-filter].bg-amber-500:hover *,
+html.light .bg-amber-500,
+html.light .bg-amber-500:hover,
+html.light .bg-amber-500:hover *,
+html.light button.bg-amber-500,
+html.light button.bg-amber-500:hover,
+html.light button.bg-amber-500:hover *,
+html.light a.bg-amber-500,
+html.light a.bg-amber-500:hover,
+html.light a.bg-amber-500:hover *,
+html.light [data-menu-filter].bg-amber-500,
+html.light [data-menu-filter].bg-amber-500:hover,
+html.light [data-menu-filter].bg-amber-500:hover *,
+html.light [data-gallery-filter].bg-amber-500,
+html.light [data-gallery-filter].bg-amber-500:hover,
+html.light [data-gallery-filter].bg-amber-500:hover *,
+html.light [data-event-filter].bg-amber-500,
+html.light [data-event-filter].bg-amber-500:hover,
+html.light [data-event-filter].bg-amber-500:hover *,
+html:not(.dark) .bg-amber-500,
+html:not(.dark) .bg-amber-500:hover,
+html:not(.dark) .bg-amber-500:hover *,
+html:not(.dark) button.bg-amber-500,
+html:not(.dark) button.bg-amber-500:hover,
+html:not(.dark) button.bg-amber-500:hover *,
+html:not(.dark) a.bg-amber-500,
+html:not(.dark) a.bg-amber-500:hover,
+html:not(.dark) a.bg-amber-500:hover *,
+html:not(.dark) [data-menu-filter].bg-amber-500,
+html:not(.dark) [data-menu-filter].bg-amber-500:hover,
+html:not(.dark) [data-menu-filter].bg-amber-500:hover *,
+html:not(.dark) [data-gallery-filter].bg-amber-500,
+html:not(.dark) [data-gallery-filter].bg-amber-500:hover,
+html:not(.dark) [data-gallery-filter].bg-amber-500:hover *,
+html:not(.dark) [data-event-filter].bg-amber-500,
+html:not(.dark) [data-event-filter].bg-amber-500:hover,
+html:not(.dark) [data-event-filter].bg-amber-500:hover *,
+body.light .bg-amber-500,
+body.light .bg-amber-500:hover,
+body.light .bg-amber-500:hover *,
+body.light button.bg-amber-500,
+body.light button.bg-amber-500:hover,
+body.light button.bg-amber-500:hover *,
+body.light a.bg-amber-500,
+body.light a.bg-amber-500:hover,
+body.light a.bg-amber-500:hover *,
+body.light [data-menu-filter].bg-amber-500,
+body.light [data-menu-filter].bg-amber-500:hover,
+body.light [data-menu-filter].bg-amber-500:hover *,
+body.light [data-gallery-filter].bg-amber-500,
+body.light [data-gallery-filter].bg-amber-500:hover,
+body.light [data-gallery-filter].bg-amber-500:hover *,
+body.light [data-event-filter].bg-amber-500,
+body.light [data-event-filter].bg-amber-500:hover,
+body.light [data-event-filter].bg-amber-500:hover * {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  fill: #000000 !important;
+  text-shadow: none !important;
+}
+
+/* Inactive Filter Pills in Light Theme: Crisp slate text on white */
+html.light [data-menu-filter]:not(.bg-amber-500),
+html:not(.dark) [data-menu-filter]:not(.bg-amber-500),
+body.light [data-menu-filter]:not(.bg-amber-500),
+html.light [data-gallery-filter]:not(.bg-amber-500),
+html:not(.dark) [data-gallery-filter]:not(.bg-amber-500),
+body.light [data-gallery-filter]:not(.bg-amber-500),
+html.light [data-event-filter]:not(.bg-amber-500),
+html:not(.dark) [data-event-filter]:not(.bg-amber-500),
+body.light [data-event-filter]:not(.bg-amber-500) {
+  background-color: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #1E293B !important;
+  -webkit-text-fill-color: #1E293B !important;
+}
+
+/* Inactive Filter Pills on Hover in Light Theme: rich dark amber on soft golden pill */
+html.light [data-menu-filter]:not(.bg-amber-500):hover,
+html:not(.dark) [data-menu-filter]:not(.bg-amber-500):hover,
+body.light [data-menu-filter]:not(.bg-amber-500):hover,
+html.light [data-gallery-filter]:not(.bg-amber-500):hover,
+html:not(.dark) [data-gallery-filter]:not(.bg-amber-500):hover,
+body.light [data-gallery-filter]:not(.bg-amber-500):hover,
+html.light [data-event-filter]:not(.bg-amber-500):hover,
+html:not(.dark) [data-event-filter]:not(.bg-amber-500):hover,
+body.light [data-event-filter]:not(.bg-amber-500):hover {
+  background-color: #FEF3C7 !important;
+  border-color: #D97706 !important;
+  color: #92400E !important;
+  -webkit-text-fill-color: #92400E !important;
+}
+
+/* Inactive Filter Pills on Hover in Dark Theme: crisp white text with amber border */
+html.dark [data-menu-filter]:not(.bg-amber-500):hover,
+html.dark [data-gallery-filter]:not(.bg-amber-500):hover,
+html.dark [data-event-filter]:not(.bg-amber-500):hover,
+[data-menu-filter]:not(.bg-amber-500):hover,
+[data-gallery-filter]:not(.bg-amber-500):hover,
+[data-event-filter]:not(.bg-amber-500):hover {
+  border-color: #F59E0B !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+
+
+/* ===================================================================
+   Section 38: Luxury Active Page Navigation Highlight System
+   =================================================================== */
+
+/* Top-level active navbar pills ONLY (strictly excludes dropdown-menu links) */
+header nav > a.nav-active,
+header nav > a.active,
+header nav .dropdown-group.active > button,
+header nav .dropdown-group > button.nav-active,
+header nav .dropdown-group > button.active {
+  color: #F59E0B !important;
+  background: rgba(245, 158, 11, 0.15) !important;
+  border: 1px solid rgba(245, 158, 11, 0.45) !important;
+  border-radius: 9999px !important;
+  padding: 0.35rem 0.9rem !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.25) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.35rem !important;
+  position: relative !important;
+  line-height: 1.25 !important;
+}
+
+/* Explicitly enforce text color on active text spans, icons, and children in dark mode */
+header nav > a.nav-active,
+header nav > a.nav-active span,
+header nav > a.nav-active i,
+header nav > a.nav-active *,
+header nav > a.active,
+header nav > a.active span,
+header nav > a.active i,
+header nav > a.active *,
+header nav .dropdown-group.active > button,
+header nav .dropdown-group.active > button span,
+header nav .dropdown-group.active > button i,
+header nav .dropdown-group.active > button *,
+header nav .dropdown-group > button.nav-active,
+header nav .dropdown-group > button.nav-active span,
+header nav .dropdown-group > button.nav-active i,
+header nav .dropdown-group > button.nav-active *,
+header nav .dropdown-group > button.active,
+header nav .dropdown-group > button.active span,
+header nav .dropdown-group > button.active i,
+header nav .dropdown-group > button.active * {
+  color: #F59E0B !important;
+  font-weight: 700 !important;
+}
+
+/* Glowing gold indicator dot for active page */
+header nav > a.nav-active::before,
+header nav > a.active::before,
+header nav .dropdown-group.active > button::before,
+header nav .dropdown-group > button.nav-active::before,
+header nav .dropdown-group > button.active::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50% !important;
+  background-color: #F59E0B !important;
+  margin-right: 4px !important;
+  box-shadow: 0 0 6px #F59E0B !important;
+  flex-shrink: 0 !important;
+}
+
+html[dir="rtl"] header nav > a.nav-active::before,
+html[dir="rtl"] header nav > a.active::before,
+html[dir="rtl"] header nav .dropdown-group.active > button::before,
+html[dir="rtl"] header nav .dropdown-group > button.nav-active::before,
+html[dir="rtl"] header nav .dropdown-group > button.active::before {
+  margin-right: 0 !important;
+  margin-left: 4px !important;
+}
+
+/* Light mode luxury active highlight pill with dark, high-contrast readable text */
+html.light header nav > a.nav-active,
+html.light header nav > a.active,
+html.light header nav .dropdown-group.active > button,
+html.light header nav .dropdown-group > button.nav-active,
+html.light header nav .dropdown-group > button.active,
+body.light header nav > a.nav-active,
+body.light header nav > a.active,
+body.light header nav .dropdown-group.active > button,
+body.light header nav .dropdown-group > button.nav-active,
+body.light header nav .dropdown-group > button.active {
+  color: #78350F !important;
+  background: #FEF3C7 !important;
+  border: 1px solid #F59E0B !important;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.25) !important;
+}
+
+html.light header nav > a.nav-active span,
+html.light header nav > a.nav-active i,
+html.light header nav > a.nav-active *,
+html.light header nav > a.active span,
+html.light header nav > a.active i,
+html.light header nav > a.active *,
+html.light header nav .dropdown-group.active > button span,
+html.light header nav .dropdown-group.active > button i,
+html.light header nav .dropdown-group.active > button *,
+html.light header nav .dropdown-group > button.nav-active span,
+html.light header nav .dropdown-group > button.nav-active i,
+html.light header nav .dropdown-group > button.nav-active *,
+html.light header nav .dropdown-group > button.active span,
+html.light header nav .dropdown-group > button.active i,
+html.light header nav .dropdown-group > button.active *,
+body.light header nav > a.nav-active span,
+body.light header nav > a.nav-active i,
+body.light header nav > a.nav-active *,
+body.light header nav > a.active span,
+body.light header nav > a.active i,
+body.light header nav > a.active *,
+body.light header nav .dropdown-group.active > button span,
+body.light header nav .dropdown-group.active > button i,
+body.light header nav .dropdown-group.active > button *,
+body.light header nav .dropdown-group > button.nav-active span,
+body.light header nav .dropdown-group > button.nav-active i,
+body.light header nav .dropdown-group > button.nav-active *,
+body.light header nav .dropdown-group > button.active span,
+body.light header nav .dropdown-group > button.active i,
+body.light header nav .dropdown-group > button.active * {
+  color: #78350F !important;
+  font-weight: 700 !important;
+}
+
+html.light header nav > a.nav-active::before,
+html.light header nav > a.active::before,
+html.light header nav .dropdown-group.active > button::before,
+html.light header nav .dropdown-group > button.nav-active::before,
+html.light header nav .dropdown-group > button.active::before,
+body.light header nav > a.nav-active::before,
+body.light header nav > a.active::before,
+body.light header nav .dropdown-group.active > button::before,
+body.light header nav .dropdown-group > button.nav-active::before,
+body.light header nav .dropdown-group > button.active::before {
+  background-color: #D97706 !important;
+  box-shadow: 0 0 5px #D97706 !important;
+}
+
+/* ===================================================================
+   DROPDOWN MENU ITEMS: RESET & ALIGNMENT STABILITY
+   Ensures dropdown items are ALWAYS vertical block cards inside .dropdown-menu
+   =================================================================== */
+.dropdown-menu .dropdown-link,
+.dropdown-menu a,
+header nav .dropdown-menu a,
+header nav .dropdown-menu .dropdown-link,
+header nav .dropdown-menu .dropdown-link.nav-active,
+header nav .dropdown-menu .dropdown-link.active {
+  display: block !important;
+  width: 100% !important;
+  border-radius: 0.5rem !important;
+  padding: 0.625rem 1rem !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  white-space: normal !important;
+  line-height: 1.4 !important;
+  text-align: left !important;
+  background: transparent !important;
+}
+
+html[dir="rtl"] .dropdown-menu .dropdown-link,
+html[dir="rtl"] .dropdown-menu a,
+html[dir="rtl"] header nav .dropdown-menu a,
+html[dir="rtl"] header nav .dropdown-menu .dropdown-link {
+  text-align: right !important;
+}
+
+.dropdown-menu .dropdown-link::before,
+.dropdown-menu a::before,
+header nav .dropdown-menu a::before,
+header nav .dropdown-menu .dropdown-link::before,
+header nav .dropdown-menu .dropdown-link.nav-active::before,
+header nav .dropdown-menu .dropdown-link.active::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Active Dropdown Item: Clean highlight bar on side, no pill */
+.dropdown-menu .dropdown-link.active,
+.dropdown-menu .dropdown-link.nav-active,
+header nav .dropdown-menu .dropdown-link.active,
+header nav .dropdown-menu .dropdown-link.nav-active {
+  background: rgba(245, 158, 11, 0.12) !important;
+  border-left: 3px solid #F59E0B !important;
+  border-radius: 0 0.5rem 0.5rem 0 !important;
+}
+
+html[dir="rtl"] .dropdown-menu .dropdown-link.active,
+html[dir="rtl"] .dropdown-menu .dropdown-link.nav-active,
+html[dir="rtl"] header nav .dropdown-menu .dropdown-link.active,
+html[dir="rtl"] header nav .dropdown-menu .dropdown-link.nav-active {
+  border-left: none !important;
+  border-right: 3px solid #F59E0B !important;
+  border-radius: 0.5rem 0 0 0.5rem !important;
+}
+
+.dropdown-menu .dropdown-link.active .dropdown-item-title,
+.dropdown-menu .dropdown-link.nav-active .dropdown-item-title {
+  color: #F59E0B !important;
+  font-weight: 700 !important;
+}
+
+.dropdown-menu .dropdown-link.active .dropdown-item-sub,
+.dropdown-menu .dropdown-link.nav-active .dropdown-item-sub {
+  color: #9CA3AF !important;
+}
+
+.dropdown-menu .dropdown-link:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Mobile Drawer Active Page Highlight */
+#mobileMenu a.nav-active,
+#mobileMenu a.active {
+  color: #F59E0B !important;
+  background: rgba(245, 158, 11, 0.14) !important;
+  border-left: 3px solid #F59E0B !important;
+  padding-left: 0.85rem !important;
+  font-weight: 700 !important;
+  border-radius: 0 0.5rem 0.5rem 0 !important;
+}
+
+html[dir="rtl"] #mobileMenu a.nav-active,
+html[dir="rtl"] #mobileMenu a.active {
+  border-left: none !important;
+  border-right: 3px solid #F59E0B !important;
+  padding-left: 0.5rem !important;
+  padding-right: 0.85rem !important;
+  border-radius: 0.5rem 0 0 0.5rem !important;
+}
+
+html.light #mobileMenu a.nav-active,
+html.light #mobileMenu a.active,
+html:not(.dark) #mobileMenu a.nav-active,
+html:not(.dark) #mobileMenu a.active {
+  color: #92400E !important;
+  background: #FEF3C7 !important;
+  border-left-color: #D97706 !important;
+}
+
+
+/* ===================================================================
+   Section 39: Permanent Light-Mode Image Clarity & Anti-Blur Scrim Fix
+   =================================================================== */
+html.light .rounded-3xl > div[class*="absolute"][class*="bg-gradient-to-t"],
+html.light .rounded-2xl > div[class*="absolute"][class*="bg-gradient-to-t"],
+html.light .rounded-xl > div[class*="absolute"][class*="bg-gradient-to-t"],
+html.light div[class*="overflow-hidden"] > div[class*="absolute"][class*="bg-gradient-to-t"],
+html.light div:has(> img) > div[class*="absolute"][class*="bg-gradient"],
+html:not(.dark) .rounded-3xl > div[class*="absolute"][class*="bg-gradient-to-t"],
+html:not(.dark) .rounded-2xl > div[class*="absolute"][class*="bg-gradient-to-t"],
+html:not(.dark) .rounded-xl > div[class*="absolute"][class*="bg-gradient-to-t"],
+html:not(.dark) div[class*="overflow-hidden"] > div[class*="absolute"][class*="bg-gradient-to-t"],
+html:not(.dark) div:has(> img) > div[class*="absolute"][class*="bg-gradient"] {
+  --tw-gradient-from: rgba(0, 0, 0, 0.85) var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgba(0, 0, 0, 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+/* Ensure all images render with crisp clarity and no CSS filters in both themes */
+html.light img,
+html:not(.dark) img,
+body.light img,
+img {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+/* ===================================================================
+   Section 40: Permanent Image Overlay Text Visibility & Contrast Lock
+   Guarantees all text positioned inside absolute overlays over photos
+   maintains pure crisp white and bright gold typography in both light and dark themes.
+   =================================================================== */
+.relative > .absolute h1,
+.relative > .absolute h2,
+.relative > .absolute h3,
+.relative > .absolute h4,
+.relative > .absolute h5,
+.relative > .absolute h6,
+.relative > .absolute .text-white,
+html.light .relative > .absolute h1,
+html.light .relative > .absolute h2,
+html.light .relative > .absolute h3,
+html.light .relative > .absolute h4,
+html.light .relative > .absolute h5,
+html.light .relative > .absolute h6,
+html.light .relative > .absolute .text-white,
+body.light .relative > .absolute h1,
+body.light .relative > .absolute h2,
+body.light .relative > .absolute h3,
+body.light .relative > .absolute h4,
+body.light .relative > .absolute h5,
+body.light .relative > .absolute h6,
+body.light .relative > .absolute .text-white,
+html:not(.dark) .relative > .absolute h1,
+html:not(.dark) .relative > .absolute h2,
+html:not(.dark) .relative > .absolute h3,
+html:not(.dark) .relative > .absolute h4,
+html:not(.dark) .relative > .absolute h5,
+html:not(.dark) .relative > .absolute h6,
+html:not(.dark) .relative > .absolute .text-white {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.relative > .absolute p,
+html.light .relative > .absolute p,
+body.light .relative > .absolute p,
+html:not(.dark) .relative > .absolute p,
+.relative > .absolute p.text-gray-300,
+.relative > .absolute p.text-gray-200 {
+  color: #E2E8F0 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.relative > .absolute span[class*="text-amber"],
+html.light .relative > .absolute span[class*="text-amber"],
+body.light .relative > .absolute span[class*="text-amber"],
+html:not(.dark) .relative > .absolute span[class*="text-amber"],
+.relative > .absolute span.text-amber-400,
+.relative > .absolute span.text-amber-300 {
+  color: #FBBF24 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* ===================================================================
+   Section 41: Floating Image Badge Frosted Glass & Text Clarity Lock
+   Overlays situated over dark photographs must ALWAYS maintain
+   luxury obsidian glass styling with high-contrast radiant gold and white text.
+   =================================================================== */
+div[class*="absolute"] > div.glass-dark,
+div[class*="absolute"].glass-dark,
+html.light div[class*="absolute"] > div.glass-dark,
+html.light div[class*="absolute"].glass-dark,
+body.light div[class*="absolute"] > div.glass-dark,
+body.light div[class*="absolute"].glass-dark,
+html:not(.dark) div[class*="absolute"] > div.glass-dark,
+html:not(.dark) div[class*="absolute"].glass-dark {
+  background: rgba(11, 15, 23, 0.9) !important;
+  background-color: rgba(11, 15, 23, 0.9) !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+}
+
+div[class*="absolute"] > div.glass-dark *,
+html.light div[class*="absolute"] > div.glass-dark *,
+body.light div[class*="absolute"] > div.glass-dark *,
+html:not(.dark) div[class*="absolute"] > div.glass-dark * {
+  text-shadow: none !important;
+}
+
+div[class*="absolute"] > div.glass-dark span[class*="text-amber"],
+html.light div[class*="absolute"] > div.glass-dark span[class*="text-amber"],
+body.light div[class*="absolute"] > div.glass-dark span[class*="text-amber"],
+html:not(.dark) div[class*="absolute"] > div.glass-dark span[class*="text-amber"] {
+  color: #FBBF24 !important;
+  font-weight: 700 !important;
+}
+
+div[class*="absolute"] > div.glass-dark .text-white,
+div[class*="absolute"] > div.glass-dark h3,
+div[class*="absolute"] > div.glass-dark h4,
+html.light div[class*="absolute"] > div.glass-dark .text-white,
+html.light div[class*="absolute"] > div.glass-dark h3,
+html.light div[class*="absolute"] > div.glass-dark h4,
+body.light div[class*="absolute"] > div.glass-dark .text-white,
+body.light div[class*="absolute"] > div.glass-dark h3,
+body.light div[class*="absolute"] > div.glass-dark h4,
+html:not(.dark) div[class*="absolute"] > div.glass-dark .text-white,
+html:not(.dark) div[class*="absolute"] > div.glass-dark h3,
+html:not(.dark) div[class*="absolute"] > div.glass-dark h4 {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+div[class*="absolute"] > div.glass-dark .text-gray-400,
+div[class*="absolute"] > div.glass-dark .text-gray-300,
+html.light div[class*="absolute"] > div.glass-dark .text-gray-400,
+html.light div[class*="absolute"] > div.glass-dark .text-gray-300,
+body.light div[class*="absolute"] > div.glass-dark .text-gray-400,
+body.light div[class*="absolute"] > div.glass-dark .text-gray-300,
+html:not(.dark) div[class*="absolute"] > div.glass-dark .text-gray-400,
+html:not(.dark) div[class*="absolute"] > div.glass-dark .text-gray-300 {
+  color: #94A3B8 !important;
+}
+
+div[class*="absolute"] > div.glass-dark .bg-amber-500,
+html.light div[class*="absolute"] > div.glass-dark .bg-amber-500,
+body.light div[class*="absolute"] > div.glass-dark .bg-amber-500,
+html:not(.dark) div[class*="absolute"] > div.glass-dark .bg-amber-500 {
+  background-color: #F59E0B !important;
+  color: #000000 !important;
+  font-weight: 800 !important;
+}
+
+/* ===================================================================
+   Section 42: Nightlife & Live Music Events Cards Image Overlay Text Lock
+   Guarantees that event cards, residency cards, and hero overlays always
+   display pure white titles and radiant gold timestamps/badges over photo backgrounds.
+   =================================================================== */
+.relative > .absolute h3,
+.relative > .absolute h3.text-white,
+.relative .absolute h3,
+.relative .absolute h3.text-white,
+html.light .relative > .absolute h3,
+html.light .relative > .absolute h3.text-white,
+html.light .relative .absolute h3,
+html.light .relative .absolute h3.text-white,
+html.light div.relative div.absolute h3,
+html.light div.relative div.absolute h3.text-white,
+html.light :not(header):not(footer) div.relative div.absolute h3,
+html.light :not(header):not(footer) div.relative div.absolute h3.text-white,
+html:not(.dark) :not(header):not(footer) div.relative div.absolute h3,
+html:not(.dark) :not(header):not(footer) div.relative div.absolute h3.text-white,
+body.light :not(header):not(footer) div.relative div.absolute h3,
+body.light :not(header):not(footer) div.relative div.absolute h3.text-white {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.85) !important;
+}
+
+.relative > .absolute span[class*="text-amber"],
+.relative .absolute span[class*="text-amber"],
+html.light .relative > .absolute span[class*="text-amber"],
+html.light .relative .absolute span[class*="text-amber"],
+html:not(.dark) :not(header):not(footer) div.relative div.absolute span[class*="text-amber"],
+body.light :not(header):not(footer) div.relative div.absolute span[class*="text-amber"] {
+  color: #FBBF24 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+}
+

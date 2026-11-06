@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>VIP Guest Registration | AURA SKY Rooftop & Lounge</title>
+  <meta name="description" content="Register for an AURA SKY VIP Guest Membership to unlock priority skyline reservations, loyalty points, and exclusive event invitations.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: { 300: '#F5E6B8', 400: '#E5C468', 500: '#D4AF37', 600: '#B89222' },
+            midnight: '#07090E',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            display: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css?v=96">
+</head>
+<body class="auth-page">
+
+  <!-- Ambient Glow Orbs -->
+  <div class="auth-ambient-orb-1" aria-hidden="true"></div>
+  <div class="auth-ambient-orb-2" aria-hidden="true"></div>
+
+  <!-- Minimal Top Bar Controls (AllergiQ Reference Architecture) -->
+  <header class="auth-topbar flex justify-end items-center">
+    <div class="flex items-center gap-2">
+      <button class="theme-toggle-btn w-9 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center justify-center text-sm" aria-label="Toggle Theme">
+        <i class="theme-toggle-icon fa-solid fa-moon"></i>
+      </button>
+      <button class="rtl-toggle-btn px-2.5 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center gap-1.5 text-xs font-semibold" aria-label="Toggle RTL Mode">
+        <i class="fa-solid fa-globe text-xs"></i>
+        <span class="rtl-toggle-label">LTR</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Centered Register Container Section -->
+  <main class="auth-main" id="main">
+    <div class="auth-container-centered" style="max-width: 520px;">
+      <div class="auth-card-centered">
+
+        <!-- Centered Brand Logo & Header -->
+        <div class="auth-brand-header">
+          <a class="inline-flex items-center gap-3 mb-3 text-decoration-none group" href="index.html">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0">
+              <div class="w-full h-full bg-black rounded-[10px] flex items-center justify-center">
+                <i class="fa-solid fa-martini-glass-citrus text-amber-400 text-base group-hover:rotate-12 transition duration-300"></i>
+              </div>
+            </div>
+            <div class="text-left">
+              <span class="font-display text-xl font-bold tracking-widest text-white group-hover:text-amber-400 transition leading-none block" style="color: #FFFFFF !important; font-family: 'Cinzel', serif !important;">AURA SKY</span>
+              <div class="text-[9px] uppercase tracking-[0.25em] text-amber-400 font-semibold mt-1" style="color: #FBBF24 !important; letter-spacing: 0.25em !important;">Rooftop &amp; Lounge</div>
+            </div>
+          </a>
+          <h1 id="authHeaderTitle">VIP Guest Keycard</h1>
+          <p id="authHeaderSub">Create your account to unlock 500 welcome Aura points &amp; priority terrace bookings.</p>
+        </div>
+
+        <!-- Registration Form -->
+        <form id="vipRegisterForm" onsubmit="handleRegistrationSubmit(event)" class="space-y-4 text-xs">
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-gray-300 font-semibold mb-1.5">First Name <span class="text-amber-400">*</span></label>
+              <div class="input-icon-group">
+                <i class="fa-solid fa-user input-icon"></i>
+                <input type="text" required placeholder="Elena" value="Elena">
+              </div>
+            </div>
+            <div>
+              <label class="block text-gray-300 font-semibold mb-1.5">Last Name <span class="text-amber-400">*</span></label>
+              <div class="input-icon-group">
+                <i class="fa-solid fa-user input-icon"></i>
+                <input type="text" required placeholder="Rostova" value="Rostova">
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-gray-300 font-semibold mb-1.5">Email Address <span class="text-amber-400">*</span></label>
+            <div class="input-icon-group">
+              <i class="fa-solid fa-envelope input-icon"></i>
+              <input type="email" required placeholder="elena.vip@gmail.com" value="elena.vip@gmail.com">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-gray-300 font-semibold mb-1.5">Create Password <span class="text-amber-400">*</span></label>
+              <div class="input-icon-group">
+                <i class="fa-solid fa-lock input-icon"></i>
+                <input type="password" required placeholder="••••••••••••" value="Secret123!">
+              </div>
+            </div>
+            <div>
+              <label class="block text-gray-300 font-semibold mb-1.5">Phone Number <span class="text-amber-400">*</span></label>
+              <div class="input-icon-group">
+                <i class="fa-solid fa-phone input-icon"></i>
+                <input type="tel" required placeholder="+1 (800) 555-0199" value="+1 (800) 555-0199">
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-1">
+            <label class="flex items-start gap-2 cursor-pointer text-gray-300 text-[11px] leading-relaxed">
+              <input type="checkbox" required checked class="w-4 h-4 rounded bg-slate-900 border-gray-700 text-amber-500 focus:ring-0 mt-0.5">
+              <span>I agree to the <a href="about.html" class="text-amber-400 hover:underline">Membership Terms</a> and 54th Floor <a href="contact.html" class="text-amber-400 hover:underline">Smart Casual Dress Code</a>.</span>
+            </label>
+          </div>
+
+          <button type="submit" class="w-full py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold uppercase tracking-wider text-xs shadow-lg shadow-amber-500/30 hover:scale-[1.01] active:scale-[0.99] transition" style="color: #000000 !important;">
+            Activate VIP Keycard
+          </button>
+        </form>
+
+        <!-- Divider -->
+        <div class="auth-divider">
+          <span>Or Sign Up With</span>
+        </div>
+
+        <!-- Social Logins -->
+        <div class="grid grid-cols-2 gap-3 mb-4">
+          <button type="button" onclick="showToast('Apple Authentication', 'Authenticated via Apple ID.', 'success'); setTimeout(() => window.location.href='dashboard-guest.html', 800);" class="btn-social-full">
+            <i class="fa-brands fa-apple text-base"></i>
+            <span>Apple ID</span>
+          </button>
+          <button type="button" onclick="showToast('Google Authentication', 'Authenticated via Google account.', 'success'); setTimeout(() => window.location.href='dashboard-guest.html', 800);" class="btn-social-full">
+            <i class="fa-brands fa-google text-sm text-amber-400"></i>
+            <span>Google</span>
+          </button>
+        </div>
+
+        <!-- Login Switch Prompt -->
+        <div class="text-center pt-2 text-xs text-gray-400">
+          Already have a VIP account?
+          <a href="login.html" class="text-amber-400 font-bold hover:underline block mt-1">
+            Sign In to Portal &rarr;
+          </a>
+        </div>
+
+        <!-- Footnote -->
+        <div class="auth-footnote">
+          <span>AURA SKY • 54th Floor Penthouse • Grand Metropolis Tower</span>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+    <script src="assets/js/main.js?v=96"></script>
+  <script>
+    function handleRegistrationSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('vipRegisterForm');
+      const inputs = form.querySelectorAll('input');
+      const firstName = inputs[0]?.value.trim() || 'Valued';
+      const lastName = inputs[1]?.value.trim() || 'Guest';
+      const email = inputs[2]?.value.trim().toLowerCase() || 'guest@aurasky.com';
+      const password = inputs[3]?.value.trim() || 'secret123';
+      const phone = inputs[4]?.value.trim() || '';
+
+      const newUser = {
+        name: firstName + ' ' + lastName,
+        email: email,
+        password: password,
+        keycard: 'vip-' + Math.floor(1000 + Math.random() * 9000),
+        role: 'guest',
+        tier: 'VIP Penthouse Member • Keycard #AK-' + Math.floor(1000 + Math.random() * 9000),
+        phone: phone
+      };
+
+      try {
+        const existing = JSON.parse(localStorage.getItem('aura_registered_users') || '[]');
+        // Check if email already registered, if so update password
+        const idx = existing.findIndex(u => u.email === email);
+        if (idx >= 0) {
+          existing[idx] = newUser;
+        } else {
+          existing.push(newUser);
+        }
+        localStorage.setItem('aura_registered_users', JSON.stringify(existing));
+      } catch(err) {}
+
+      showToast('Account Registered!', 'Welcome ' + newUser.name + '! You can now log in with your credentials on the login page.', 'success');
+      setTimeout(() => {
+        window.location.href = 'login.html';
+      }, 1200);
+    }
+  </script>
+</body>
+</html>

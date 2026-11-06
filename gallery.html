@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skyline Gallery | AURA SKY Rooftop & Lounge</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <meta name="description" content="Immerse in visual moments from AURA SKY: panoramic cityscapes, Michelin-level plating, liquid nitrogen mixology, and vibrant nightlife.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: { 300: '#F5E6B8', 400: '#E5C468', 500: '#D4AF37', 600: '#B89222' },
+            midnight: '#07090E',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            display: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=96">
+</head>
+<body class="bg-white text-slate-900 dark:bg-[#07090E] dark:text-slate-100 transition-colors duration-300">
+
+  <!-- Main Navigation Header -->
+  <header class="sticky top-0 z-40 bg-black border-b border-amber-500/20 shadow-lg shadow-black/50" style="background-color: #000000 !important; background: #000000 !important;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0">
+            <div class="w-full h-full bg-black rounded-[10px] flex items-center justify-center">
+              <i class="fa-solid fa-martini-glass-citrus text-amber-400 text-base group-hover:rotate-12 transition duration-300"></i>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display text-xl font-bold tracking-widest text-white group-hover:text-amber-400 transition leading-none">AURA SKY</span>
+            <span class="text-[9px] uppercase tracking-[0.25em] text-amber-400 font-semibold mt-1">Rooftop & Lounge</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium whitespace-nowrap">
+          <!-- Home (Dropdown) -->
+          <div class="relative dropdown-group">
+            <button class="flex items-center gap-1.5 text-white hover:text-amber-400 py-2 focus:outline-none transition whitespace-nowrap font-medium">
+              <span>Home</span>
+              <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
+            </button>
+            <div class="dropdown-menu absolute top-full left-0 w-60 py-2 mt-2 rounded-xl shadow-2xl z-50">
+              <a href="index.html" class="dropdown-link  block px-4 py-2.5 text-xs">
+                <div class="dropdown-item-title font-bold text-white hover:text-amber-400">Home 1 - Skyline Dining</div>
+                <div class="dropdown-item-sub text-[10px] text-gray-400">Panoramic Rooftop Restaurant</div>
+              </a>
+              <a href="index-2.html" class="dropdown-link  block px-4 py-2.5 text-xs">
+                <div class="dropdown-item-title font-bold text-white hover:text-amber-400">Home 2 - Sunset Lounge</div>
+                <div class="dropdown-item-sub text-[10px] text-gray-400">Craft Cocktails & DJ Club</div>
+              </a>
+            </div>
+          </div>
+
+          <a href="about.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">About</a>
+          <a href="menu.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Menu</a>
+          <a href="events.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Events & Live Music</a>
+          <a href="gallery.html" class="whitespace-nowrap text-amber-400 font-semibold nav-active active">Gallery</a>
+          <a href="blog.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Blog</a>
+          <a href="contact.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Contact</a>
+          <a href="dashboard-guest.html" class="whitespace-nowrap text-white hover:text-amber-400 transition ">
+            Dashboard
+          </a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <button class="theme-toggle-btn w-9 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center justify-center text-sm" aria-label="Toggle Theme">
+            <i class="theme-toggle-icon fa-solid fa-moon"></i>
+          </button>
+          <button class="rtl-toggle-btn px-2.5 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center gap-1.5 text-xs font-semibold" aria-label="Toggle RTL Mode">
+            <i class="fa-solid fa-globe text-xs"></i>
+            <span class="rtl-toggle-label">LTR</span>
+          </button>
+          <a href="login.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-amber-400 via-gold-500 to-amber-500 text-black shadow-lg shadow-amber-500/25 hover:scale-[1.02] active:scale-[0.98] transition">
+            <i class="fa-solid fa-user-lock"></i>
+            <span>Login Portal</span>
+          </a>
+          <button id="mobileMenuBtn" class="lg:hidden w-10 h-10 rounded-lg border border-amber-500/30 bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-[#07090E] border-b border-amber-500/20 px-6 py-6">
+      <div class="flex flex-col gap-4 text-sm font-medium">
+        <div class="border-b border-gray-800 pb-2">
+          <button id="mobileHomeDropdownBtn" class="w-full flex justify-between items-center text-gray-300 py-1 font-semibold">
+            <span>Home</span>
+            <i class="fa-solid fa-chevron-down text-xs"></i>
+          </button>
+          <div id="mobileHomeDropdownMenu" class="hidden pl-4 pt-2 flex flex-col gap-2">
+            <a href="index.html" class="text-gray-300 hover:text-amber-400 text-xs py-1">Home 1 - Skyline Dining</a>
+            <a href="index-2.html" class="text-gray-300 hover:text-amber-400 text-xs py-1">Home 2 - Sunset Lounge</a>
+          </div>
+        </div>
+        <a href="about.html" class="text-white hover:text-amber-400 py-1">About</a>
+        <a href="menu.html" class="text-white hover:text-amber-400 py-1">Menu</a>
+        <a href="events.html" class="whitespace-nowrap text-white hover:text-amber-400 py-1">Events & Live Music</a>
+        <a href="gallery.html" class="text-amber-400 font-bold py-1">Gallery</a>
+        <a href="blog.html" class="text-white hover:text-amber-400 py-1">Blog</a>
+        <a href="contact.html" class="text-white hover:text-amber-400 py-1">Contact</a>
+        <a href="dashboard-guest.html" class="text-white hover:text-amber-400 py-1 ">
+          Dashboard
+        </a>
+        <a href="login.html" class="text-amber-400 py-2 border-t border-gray-800  font-semibold">
+          <i class="fa-solid fa-user-lock"></i> Guest Login Portal
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner (Matching Blog Page Hero Center Container with Custom Background) -->
+  <section
+    class="relative min-h-[92vh] flex items-center justify-center py-20 bg-black border-b border-amber-500/15 text-center overflow-hidden">
+    <!-- Hero Background Image -->
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1621275471769-e6aa344546d5?auto=format&fit=crop&w=1920&q=85"
+        alt="AURA SKY Visual Journey Atmosphere"
+        class="w-full h-full object-cover object-center scale-100">
+      <div class="contact-hero-overlay"></div>
+    </div>
+    <div class="relative z-10 w-full max-w-3xl mx-auto px-4">
+      <div class="contact-hero-box p-8 sm:p-12 rounded-3xl text-center transition-all duration-300">
+        <span
+          class="contact-hero-badge inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 transition">
+          <i class="fa-solid fa-camera mr-1.5 text-amber-400"></i> Visual Journey Above The Clouds
+        </span>
+        <h1 class="contact-hero-title font-serif text-3xl sm:text-5xl lg:text-6xl font-bold mb-4">
+          The Skyline <span class="gold-gradient-text font-display italic font-normal">Photo Gallery</span>
+        </h1>
+        <p class="contact-hero-desc text-sm sm:text-base max-w-xl mx-auto leading-relaxed mb-8">
+          Click any photograph to view in high-resolution lightbox. Explore our panoramic terrace, dining room, VIP cabanas, and nightlife events.
+        </p>
+
+        <!-- Gallery Filters inside Center Container Box -->
+        <div class="flex flex-wrap items-center justify-center gap-2">
+          <button data-gallery-filter="all" class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500 text-black transition shadow-md">All Views</button>
+          <button data-gallery-filter="skyline" class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-gray-400 hover:text-amber-400 bg-zinc-900/80 border border-gray-700/80 transition">Skyline Views</button>
+          <button data-gallery-filter="culinary" class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-gray-400 hover:text-amber-400 bg-zinc-900/80 border border-gray-700/80 transition">Culinary</button>
+          <button data-gallery-filter="cocktails" class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-gray-400 hover:text-amber-400 bg-zinc-900/80 border border-gray-700/80 transition">Cocktails</button>
+          <button data-gallery-filter="nightlife" class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-gray-400 hover:text-amber-400 bg-zinc-900/80 border border-gray-700/80 transition">Nightlife &amp; DJs</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Photo 1: Skyline -->
+        <div class="gallery-card relative h-80 rounded-2xl overflow-hidden cursor-pointer group border border-amber-500/20" data-category="skyline" data-title="Panoramic 54th Floor Terrace Sunset">
+          <img src="assets/images/gallery/terrace-sunset-31769337.jpg" alt="Sunset dining terrace overlooking the city skyline" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <div class="gallery-card-scrim absolute inset-x-0 bottom-0 pt-16 pb-4 px-4 flex items-end transition duration-300">
+            <div class="gallery-info-badge w-full p-3 rounded-xl" style="background: rgba(10, 10, 14, 0.92) !important; background-color: rgba(10, 10, 14, 0.92) !important; border: 1px solid rgba(212, 175, 55, 0.45) !important;">
+              <span class="text-[10px] text-amber-400 uppercase font-bold tracking-wider block mb-0.5" style="color: #FBBF24 !important; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Terrace Edge</span>
+              <h4 class="font-serif text-sm sm:text-base font-bold text-white leading-snug" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important; text-shadow: 0 2px 8px rgba(0,0,0,0.95);">Panoramic 54th Floor Sunset</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 2: Culinary -->
+        <div class="gallery-card relative h-80 rounded-2xl overflow-hidden cursor-pointer group border border-amber-500/20" data-category="culinary" data-title="Miyazaki Wagyu A5 &amp; Winter Truffle">
+          <img src="assets/images/gallery/wagyu-plating-11118539.jpg" alt="Haute cuisine Wagyu beef plated with winter truffle" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <div class="gallery-card-scrim absolute inset-x-0 bottom-0 pt-16 pb-4 px-4 flex items-end transition duration-300">
+            <div class="gallery-info-badge w-full p-3 rounded-xl" style="background: rgba(10, 10, 14, 0.92) !important; background-color: rgba(10, 10, 14, 0.92) !important; border: 1px solid rgba(212, 175, 55, 0.45) !important;">
+              <span class="text-[10px] text-amber-400 uppercase font-bold tracking-wider block mb-0.5" style="color: #FBBF24 !important; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Culinary Art</span>
+              <h4 class="font-serif text-sm sm:text-base font-bold text-white leading-snug" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important; text-shadow: 0 2px 8px rgba(0,0,0,0.95);">Miyazaki Wagyu A5 &amp; Winter Truffle</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 3: Cocktails -->
+        <div class="gallery-card relative h-80 rounded-2xl overflow-hidden cursor-pointer group border border-amber-500/20" data-category="cocktails" data-title="Celestial 24k Gold Flake Martini">
+          <img src="assets/images/gallery/gold-cocktail-36189461.jpg" alt="Signature gold-flake cocktail in an elegant bar setting" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <div class="gallery-card-scrim absolute inset-x-0 bottom-0 pt-16 pb-4 px-4 flex items-end transition duration-300">
+            <div class="gallery-info-badge w-full p-3 rounded-xl" style="background: rgba(10, 10, 14, 0.92) !important; background-color: rgba(10, 10, 14, 0.92) !important; border: 1px solid rgba(212, 175, 55, 0.45) !important;">
+              <span class="text-[10px] text-amber-400 uppercase font-bold tracking-wider block mb-0.5" style="color: #FBBF24 !important; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Signature Mixology</span>
+              <h4 class="font-serif text-sm sm:text-base font-bold text-white leading-snug" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important; text-shadow: 0 2px 8px rgba(0,0,0,0.95);">Celestial 24k Gold Flake Martini</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 4: Nightlife -->
+        <div class="gallery-card relative h-80 rounded-2xl overflow-hidden cursor-pointer group border border-amber-500/20" data-category="nightlife" data-title="Friday Skyline DJ Sessions">
+          <img src="assets/images/gallery/rooftop-dj-33679596.jpg" alt="DJ and guests at a rooftop sunset party" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <div class="gallery-card-scrim absolute inset-x-0 bottom-0 pt-16 pb-4 px-4 flex items-end transition duration-300">
+            <div class="gallery-info-badge w-full p-3 rounded-xl" style="background: rgba(10, 10, 14, 0.92) !important; background-color: rgba(10, 10, 14, 0.92) !important; border: 1px solid rgba(212, 175, 55, 0.45) !important;">
+              <span class="text-[10px] text-amber-400 uppercase font-bold tracking-wider block mb-0.5" style="color: #FBBF24 !important; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Nightlife</span>
+              <h4 class="font-serif text-sm sm:text-base font-bold text-white leading-snug" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important; text-shadow: 0 2px 8px rgba(0,0,0,0.95);">Friday Skyline DJ Sessions</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 5: Skyline -->
+        <div class="gallery-card relative h-80 rounded-2xl overflow-hidden cursor-pointer group border border-amber-500/20" data-category="skyline" data-title="Midnight Skyline from Lounge Bar">
+          <img src="assets/images/gallery/midnight-skyline-36869274.jpg" alt="Night city skyline seen from the rooftop lounge bar" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <div class="gallery-card-scrim absolute inset-x-0 bottom-0 pt-16 pb-4 px-4 flex items-end transition duration-300">
+            <div class="gallery-info-badge w-full p-3 rounded-xl" style="background: rgba(10, 10, 14, 0.92) !important; background-color: rgba(10, 10, 14, 0.92) !important; border: 1px solid rgba(212, 175, 55, 0.45) !important;">
+              <span class="text-[10px] text-amber-400 uppercase font-bold tracking-wider block mb-0.5" style="color: #FBBF24 !important; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">City Lights</span>
+              <h4 class="font-serif text-sm sm:text-base font-bold text-white leading-snug" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important; text-shadow: 0 2px 8px rgba(0,0,0,0.95);">Midnight Skyline from Lounge Bar</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 6: Culinary -->
+        <div class="gallery-card relative h-80 rounded-2xl overflow-hidden cursor-pointer group border border-amber-500/20" data-category="culinary" data-title="Hokkaido Scallop Crudo &amp; Caviar">
+          <img src="assets/images/gallery/scallop-crudo-32525175.jpg" alt="Gourmet seafood crudo plated on marble" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <div class="gallery-card-scrim absolute inset-x-0 bottom-0 pt-16 pb-4 px-4 flex items-end transition duration-300">
+            <div class="gallery-info-badge w-full p-3 rounded-xl" style="background: rgba(10, 10, 14, 0.92) !important; background-color: rgba(10, 10, 14, 0.92) !important; border: 1px solid rgba(212, 175, 55, 0.45) !important;">
+              <span class="text-[10px] text-amber-400 uppercase font-bold tracking-wider block mb-0.5" style="color: #FBBF24 !important; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Raw Bar</span>
+              <h4 class="font-serif text-sm sm:text-base font-bold text-white leading-snug" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important; text-shadow: 0 2px 8px rgba(0,0,0,0.95);">Hokkaido Scallop Crudo &amp; Caviar</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 7: Cocktails -->
+        <div class="gallery-card relative h-80 rounded-2xl overflow-hidden cursor-pointer group border border-amber-500/20" data-category="cocktails" data-title="Obsidian Hickory Wood Smoke Infusion">
+          <img src="assets/images/gallery/smoked-cocktail-17541202.jpg" alt="Smoked cocktail served in a darkly lit lounge bar" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <div class="gallery-card-scrim absolute inset-x-0 bottom-0 pt-16 pb-4 px-4 flex items-end transition duration-300">
+            <div class="gallery-info-badge w-full p-3 rounded-xl" style="background: rgba(10, 10, 14, 0.92) !important; background-color: rgba(10, 10, 14, 0.92) !important; border: 1px solid rgba(212, 175, 55, 0.45) !important;">
+              <span class="text-[10px] text-amber-400 uppercase font-bold tracking-wider block mb-0.5" style="color: #FBBF24 !important; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Mixology Lab</span>
+              <h4 class="font-serif text-sm sm:text-base font-bold text-white leading-snug" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important; text-shadow: 0 2px 8px rgba(0,0,0,0.95);">Obsidian Hickory Wood Smoke Infusion</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 8: Skyline / VIP Cabana -->
+        <div class="gallery-card relative h-80 rounded-2xl overflow-hidden cursor-pointer group border border-amber-500/20" data-category="skyline" data-title="Penthouse Skyline Cabana Suite">
+          <img src="assets/images/gallery/skyline-cabana-35598463.jpg" alt="Chic rooftop cabana lounge overlooking the city skyline" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <div class="gallery-card-scrim absolute inset-x-0 bottom-0 pt-16 pb-4 px-4 flex items-end transition duration-300">
+            <div class="gallery-info-badge w-full p-3 rounded-xl" style="background: rgba(10, 10, 14, 0.92) !important; background-color: rgba(10, 10, 14, 0.92) !important; border: 1px solid rgba(212, 175, 55, 0.45) !important;">
+              <span class="text-[10px] text-amber-400 uppercase font-bold tracking-wider block mb-0.5" style="color: #FBBF24 !important; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">VIP Cabana</span>
+              <h4 class="font-serif text-sm sm:text-base font-bold text-white leading-snug" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important; text-shadow: 0 2px 8px rgba(0,0,0,0.95);">Penthouse Skyline Cabana Suite</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo 9: Nightlife / Live Music -->
+        <div class="gallery-card relative h-80 rounded-2xl overflow-hidden cursor-pointer group border border-amber-500/20" data-category="nightlife" data-title="The Skyline Acoustic Jazz Trio">
+          <img src="assets/images/gallery/jazz-trio-9002797.jpg" alt="Jazz vocalist and saxophonist performing live in the lounge" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <div class="gallery-card-scrim absolute inset-x-0 bottom-0 pt-16 pb-4 px-4 flex items-end transition duration-300">
+            <div class="gallery-info-badge w-full p-3 rounded-xl" style="background: rgba(10, 10, 14, 0.92) !important; background-color: rgba(10, 10, 14, 0.92) !important; border: 1px solid rgba(212, 175, 55, 0.45) !important;">
+              <span class="text-[10px] text-amber-400 uppercase font-bold tracking-wider block mb-0.5" style="color: #FBBF24 !important; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Live Music</span>
+              <h4 class="font-serif text-sm sm:text-base font-bold text-white leading-snug" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important; text-shadow: 0 2px 8px rgba(0,0,0,0.95);">The Skyline Acoustic Jazz Trio</h4>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Extra Section 1: Virtual 360° Skydeck Interactive Panoramic Preview -->
+  <section class="py-20 bg-gradient-to-b from-black via-zinc-950 to-black border-t border-amber-500/20 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30 uppercase tracking-widest inline-block mb-3">
+          <i class="fa-solid fa-compass mr-1 text-amber-400"></i> Interactive Preview
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
+          Virtual 360° <span class="gold-gradient-text">Skydeck Navigator</span>
+        </h2>
+        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+          Preview our three signature vantage zones before your arrival. Select a viewpoint below to explore high-altitude dining and twilight lounge sightlines.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="bg-zinc-900/80 border border-amber-500/20 rounded-2xl p-6 hover:border-amber-400 transition shadow group">
+          <div class="relative rounded-xl overflow-hidden mb-4 h-48 border border-amber-500/20">
+            <img src="assets/images/gallery/rooftop-garden-3204577.jpg" alt="Rooftop garden dining terrace at night with city views" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/80 text-[10px] text-amber-400 border border-amber-500/30 font-bold uppercase">South Vista</span>
+          </div>
+          <h3 class="text-white font-serif text-lg font-bold mb-1 group-hover:text-amber-400 transition">South Dining Pavilion</h3>
+          <p class="text-gray-400 text-xs">Floor-to-ceiling glass banquettes with unobstructed 54-story views of illuminated city spires.</p>
+        </div>
+
+        <div class="bg-zinc-900/80 border border-amber-500/30 rounded-2xl p-6 hover:border-amber-400 transition shadow-xl relative ring-1 ring-amber-500/20 group">
+          <span class="absolute -top-3 right-6 bg-gradient-to-r from-amber-500 to-amber-600 text-black text-[10px] font-black uppercase tracking-wider px-3 py-0.5 rounded-full shadow">Sunset Prime</span>
+          <div class="relative rounded-xl overflow-hidden mb-4 h-48 border border-amber-500/20">
+            <img src="assets/images/gallery/terrace-dubai-4765862.jpg" alt="Open-air terrace restaurant with skyline views at golden hour" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/80 text-[10px] text-amber-400 border border-amber-500/30 font-bold uppercase">West Horizon</span>
+          </div>
+          <h3 class="text-white font-serif text-lg font-bold mb-1 group-hover:text-amber-400 transition">West Cantilever Terrace</h3>
+          <p class="text-gray-400 text-xs">Suspended open-air lounge with firetables, deep leather banquettes, and golden hour sunset sightlines.</p>
+        </div>
+
+        <div class="bg-zinc-900/80 border border-amber-500/20 rounded-2xl p-6 hover:border-amber-400 transition shadow group">
+          <div class="relative rounded-xl overflow-hidden mb-4 h-48 border border-amber-500/20">
+            <img src="assets/images/gallery/wine-cellar-35501239.jpg" alt="Luxurious walk-in glass wine cellar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-black/80 text-[10px] text-amber-400 border border-amber-500/30 font-bold uppercase">Vault Center</span>
+          </div>
+          <h3 class="text-white font-serif text-lg font-bold mb-1 group-hover:text-amber-400 transition">The Walk-In Glass Cellar</h3>
+          <p class="text-gray-400 text-xs">Illuminated temperature-controlled wine room holding over 1,400 vintage champagnes and Bordeaux Grand Crus.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Extra Section 2: VIP Skyline Social Community Wall (#AuraSky54) -->
+  <section class="py-20 bg-zinc-950/90 border-t border-amber-500/15 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30 uppercase tracking-widest inline-block mb-3">
+          <i class="fa-brands fa-instagram mr-1 text-amber-400"></i> Social Community
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
+          Tagged by the <span class="gold-gradient-text">Skyline Community</span>
+        </h2>
+        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+          Moments captured by visionary guests, artists, and culinarians at 820 feet. Tag <span class="text-amber-400 font-bold">#AuraSky54</span> to be featured in our monthly curations.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="bg-zinc-900/80 border border-amber-500/20 rounded-2xl p-6 hover:border-amber-400 transition">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=160&h=160&q=80" 
+                 alt="Elena Voyage Profile Avatar" 
+                 class="w-10 h-10 rounded-full object-cover border-2 border-amber-500/40 shadow-sm shrink-0">
+            <div>
+              <h4 class="text-white text-xs font-bold">@elena_voyage <i class="fa-solid fa-circle-check text-amber-400 text-[10px]"></i></h4>
+              <span class="text-gray-500 text-[10px]">Verified Guest • Sunset Terrace</span>
+            </div>
+          </div>
+          <p class="text-gray-300 text-xs leading-relaxed italic">
+            &ldquo;The twilight hamachi crudo accompanied by live sax at 820 feet is simply unbeatable. Watching the city light up from the cantilever terrace was transcendental.&rdquo;
+          </p>
+        </div>
+
+        <div class="bg-zinc-900/80 border border-amber-500/30 rounded-2xl p-6 hover:border-amber-400 transition relative ring-1 ring-amber-500/20">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=160&h=160&q=80" 
+                 alt="Marcus Architect Profile Avatar" 
+                 class="w-10 h-10 rounded-full object-cover border-2 border-amber-500/40 shadow-sm shrink-0">
+            <div>
+              <h4 class="text-white text-xs font-bold">@marcus_architect <i class="fa-solid fa-circle-check text-amber-400 text-[10px]"></i></h4>
+              <span class="text-gray-500 text-[10px]">Verified Guest • Dining Room</span>
+            </div>
+          </div>
+          <p class="text-gray-300 text-xs leading-relaxed italic">
+            &ldquo;As an architect, the motorized acoustic glass canopy retracting in 45 seconds during golden hour was pure engineering genius. Absolute masterpiece of design.&rdquo;
+          </p>
+        </div>
+
+        <div class="bg-zinc-900/80 border border-amber-500/20 rounded-2xl p-6 hover:border-amber-400 transition">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=160&h=160&q=80" 
+                 alt="Clara Haute Style Profile Avatar" 
+                 class="w-10 h-10 rounded-full object-cover border-2 border-amber-500/40 shadow-sm shrink-0">
+            <div>
+              <h4 class="text-white text-xs font-bold">@clara_hautestyle <i class="fa-solid fa-circle-check text-amber-400 text-[10px]"></i></h4>
+              <span class="text-gray-500 text-[10px]">Verified Guest • Cocktail Lounge</span>
+            </div>
+          </div>
+          <p class="text-gray-300 text-xs leading-relaxed italic">
+            &ldquo;Hands down the best clarified martini in the world. Sophia’s centrifuge science is next level, and the skyline backdrop is endlessly photogenic.&rdquo;
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Extra Section 3: Behind the Curtains (Art of Kitchen & Bar Lab Prep) -->
+  <section class="py-20 bg-black/90 border-t border-amber-500/20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30 uppercase tracking-widest inline-block mb-3">
+          <i class="fa-solid fa-clock mr-1 text-amber-400"></i> The Daily Craft
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
+          Behind the Curtains: <span class="gold-gradient-text">The Pre-Sunset Ritual</span>
+        </h2>
+        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+          Before our express elevators welcome the first guest at 5:00 PM, four hours of meticulous culinary chemistry and sommelier calibrations take place.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="bg-zinc-900/80 border border-amber-500/20 rounded-2xl p-8 hover:border-amber-400 transition shadow">
+          <span class="text-xs font-mono text-amber-400 font-bold block mb-2">3:30 PM • THE BAR LAB</span>
+          <h3 class="text-white font-serif text-lg font-bold mb-2">4,000 RPM Centrifugal Spin</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Sophia Leclerc clarifies 60 liters of fresh bergamot and yuzu fruit juices into crystal-clear diamond essences, leaving zero sediment while intensifying aromatics.
+          </p>
+        </div>
+
+        <div class="bg-zinc-900/80 border border-amber-500/30 rounded-2xl p-8 hover:border-amber-400 transition shadow relative ring-1 ring-amber-500/20">
+          <span class="text-xs font-mono text-amber-400 font-bold block mb-2">4:15 PM • THE GLASS CELLAR</span>
+          <h3 class="text-white font-serif text-lg font-bold mb-2">Grand Cru Vault Decanting</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Antoine Dubois retrieves vintage Bordeaux and Burgundy allocations, transferring them to hand-blown Austrian crystal decanters at calibrated aerations.
+          </p>
+        </div>
+
+        <div class="bg-zinc-900/80 border border-amber-500/20 rounded-2xl p-8 hover:border-amber-400 transition shadow">
+          <span class="text-xs font-mono text-amber-400 font-bold block mb-2">4:45 PM • THE KITCHEN HEARTH</span>
+          <h3 class="text-white font-serif text-lg font-bold mb-2">Binchotan White Oak Ignition</h3>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Japanese Kishu binchotan charcoal coals are brought to 1,000°C smokeless embers, ready to sear A5 Miyazaki Wagyu and sea urchin skewers on open flame.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Lightbox Modal -->
+  <div id="galleryLightbox" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/90 backdrop-blur-xl">
+    <button id="lightboxClose" class="absolute top-6 right-6 text-gray-400 hover:text-white text-2xl z-10">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="max-w-4xl max-h-[85vh] flex flex-col items-center">
+      <img id="lightboxImg" src="" alt="Gallery Preview" class="max-h-[75vh] w-auto rounded-2xl object-contain shadow-2xl border border-amber-500/30">
+      <h4 id="lightboxTitle" class="font-serif text-lg font-bold text-white mt-4 text-center"></h4>
+    </div>
+  </div>
+
+  <!-- Universal Footer -->
+    <!-- Main Footer (Pure Black in Both Themes) -->
+    <footer class="bg-black text-gray-400 text-xs border-t border-amber-500/20 pt-16 pb-12" style="background-color: #000000 !important; background: #000000 !important;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-gray-800">
+        
+        <!-- Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <a href="index.html" class="flex items-center gap-3 group">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0">
+              <div class="w-full h-full bg-black rounded-[10px] flex items-center justify-center">
+                <i class="fa-solid fa-martini-glass-citrus text-amber-400 text-base group-hover:rotate-12 transition duration-300"></i>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-display text-xl font-bold tracking-widest text-white group-hover:text-amber-400 transition leading-none">AURA SKY</span>
+              <span class="text-[9px] uppercase tracking-[0.25em] text-amber-400 font-semibold mt-1">Rooftop & Lounge</span>
+            </div>
+          </a>
+          <p class="text-gray-400 max-w-sm leading-relaxed text-xs">
+            Elevated dining, Michelin-trained craftsmanship, and panoramic skyline vistas from the 54th floor penthouse of the Grand Metropolis Tower.
+          </p>
+          <!-- Credential Badges -->
+          <div class="flex flex-wrap gap-2 pt-1">
+            <span class="footer-credential-pill"><i class="fa-solid fa-award text-amber-400"></i> Michelin Star Guide 2026</span>
+            <span class="footer-credential-pill"><i class="fa-solid fa-shield-halved text-emerald-400"></i> 54th Fl Penthouse Reserve</span>
+          </div>
+          <!-- Contact Items with Clickable Links -->
+          <div class="space-y-1.5 text-xs pt-1">
+            <div class="footer-contact-item"><i class="fa-solid fa-location-dot text-amber-400"></i> <a href="contact.html">5400 Skyline Blvd, Penthouse Level, Metropolis</a></div>
+            <div class="footer-contact-item"><i class="fa-solid fa-phone text-amber-400"></i> <a href="tel:+18005552872">+1 (800) 555-AURA (2872)</a></div>
+            <div class="footer-contact-item"><i class="fa-solid fa-envelope text-amber-400"></i> <a href="mailto:concierge@auraskyrooftop.com">concierge@auraskyrooftop.com</a></div>
+          </div>
+          <!-- Squircle Social Buttons with Hover Glow -->
+          <div class="flex gap-2 pt-2">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="Twitter / X" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="YouTube Channel" title="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links with Chevrons & Hover Slide -->
+        <div>
+          <h4 class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-amber-400 pl-2">Navigation</h4>
+          <ul class="space-y-2.5">
+            <li><a href="about.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> About Our Sky Lounge</a></li>
+            <li><a href="menu.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Culinary & Mixology Menu</a></li>
+            <li><a href="events.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Nightlife & DJ Lineups</a></li>
+            <li><a href="gallery.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Panoramic Photo Gallery</a></li>
+            <li><a href="pricing.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> VIP Cabanas & Bottle Service</a></li>
+            <li><a href="contact.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Location & Directions</a></li>
+          </ul>
+        </div>
+
+        <!-- Services & Private Dining -->
+        <div>
+          <h4 class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-amber-400 pl-2">Experiences</h4>
+          <ul class="space-y-2.5">
+            <li><a href="service-details.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Penthouse VIP Cabanas</a></li>
+            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Sunset Romantic Dinners</a></li>
+            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Private Corporate Buyouts</a></li>
+            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Mixology Masterclasses</a></li>
+            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Skyline Wedding Receptions</a></li>
+            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Sommelier Wine Tastings</a></li>
+          </ul>
+        </div>
+
+        <!-- Portals & VIP Dispatch -->
+        <div>
+          <h4 class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-amber-400 pl-2">Portals & System</h4>
+          <ul class="space-y-2.5">
+            <li><a href="dashboard-guest.html" class="footer-nav-link text-amber-300 font-semibold"><i class="fa-solid fa-user mr-1 text-xs"></i> Guest Dashboard</a></li>
+            <li><a href="dashboard-admin.html" class="footer-nav-link text-emerald-400 font-semibold"><i class="fa-solid fa-chart-line mr-1 text-xs"></i> Admin Dashboard</a></li>
+            <li><a href="login.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Login / VIP Portal</a></li>
+            <li><a href="register.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Create Account</a></li>
+            <li><a href="coming-soon.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Coming Soon / Maintenance</a></li>
+            <li><a href="404.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> 404 Error Page</a></li>
+          </ul>
+          <!-- Newsletter Dispatch -->
+          <div class="mt-4 pt-3 border-t border-gray-800">
+            <span class="text-[11px] font-semibold text-white uppercase tracking-wider block mb-1">VIP Skyline Dispatch</span>
+            <form class="footer-newsletter-box" onsubmit="event.preventDefault(); showToast('VIP Subscription Confirmed', 'You are on the VIP priority guest list.', 'success'); this.reset();">
+              <input type="email" placeholder="vip.guest@gmail.com" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" required aria-label="Email address">
+              <button type="submit">Join</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright & Legal with Interactive Modals -->
+      <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-gray-500">
+        <div>
+          &copy; 2026 AURA SKY Rooftop & Lounge. All Rights Reserved. Crafted for ThemeForest & TemplateMonster.
+        </div>
+        <div class="flex flex-wrap gap-4 sm:gap-6">
+          <a href="#privacyPolicy" class="hover:text-amber-400 transition cursor-pointer">Privacy Policy</a>
+          <a href="#termsOfService" class="hover:text-amber-400 transition cursor-pointer">Terms of Service</a>
+          <a href="#dressCode" class="hover:text-amber-400 transition cursor-pointer">Dress Code Policy</a>
+          <a href="#sitemap" class="hover:text-amber-400 transition cursor-pointer">Sitemap</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Universal Reservation Modal -->
+  <div id="reservationModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="relative w-full max-w-2xl rounded-2xl glass-dark border border-amber-500/40 p-6 sm:p-8 shadow-2xl text-left">
+      <button data-close-modal class="absolute top-5 right-5 text-gray-400 hover:text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
+      <div class="mb-6">
+        <span class="text-xs uppercase font-bold text-amber-400 tracking-wider">AURA SKY • 54th Floor</span>
+        <h3 class="font-serif text-2xl font-bold text-white mt-1">Reserve Your Skyline Table</h3>
+      </div>
+      <form id="reservationForm" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-medium text-gray-300 mb-1">Guests</label>
+            <select id="reserveGuests" class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-xs text-white">
+              <option>2 Guests</option><option>4 Guests</option><option>6 Guests</option><option>8+ Cabana</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-300 mb-1">Date</label>
+            <input type="date" id="reserveDate" required class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-xs text-white">
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-medium text-gray-300 mb-1">Full Name <span class="text-amber-400 font-bold">*</span></label>
+            <input type="text" id="reserveName" required placeholder="Guest Name" class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-xs text-white">
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-300 mb-1">Phone Number</label>
+            <input type="tel" id="reservePhone" name="phone" required placeholder="10-digit mobile number" pattern="[0-9]{10}" minlength="10" maxlength="10" inputmode="numeric" title="Please enter a valid 10-digit phone number" class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-xs text-white focus:border-amber-400 focus:outline-none">
+          </div>
+        </div>
+        <div class="pt-4 flex justify-end">
+          <button type="submit" class="px-8 py-3 rounded-lg bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold uppercase tracking-wider transition">
+            Confirm Skyline Reservation
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js?v=96"></script>
+</body>
+</html>
+

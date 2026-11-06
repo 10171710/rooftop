@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>VIP Guest & Staff Portal Login | AURA SKY Rooftop & Lounge</title>
+  <meta name="description" content="Sign in to your AURA SKY guest portal to manage rooftop table reservations, view upcoming event nights, and track VIP rewards.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: { 300: '#F5E6B8', 400: '#E5C468', 500: '#D4AF37', 600: '#B89222' },
+            midnight: '#07090E',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            display: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css?v=96">
+</head>
+<body class="auth-page">
+
+  <!-- Ambient Glow Orbs -->
+  <div class="auth-ambient-orb-1" aria-hidden="true"></div>
+  <div class="auth-ambient-orb-2" aria-hidden="true"></div>
+
+  <!-- Minimal Top Bar Controls (AllergiQ Reference Architecture) -->
+  <header class="auth-topbar flex justify-end items-center">
+    <div class="flex items-center gap-2">
+      <button class="theme-toggle-btn w-9 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center justify-center text-sm" aria-label="Toggle Theme">
+        <i class="theme-toggle-icon fa-solid fa-moon"></i>
+      </button>
+      <button class="rtl-toggle-btn px-2.5 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center gap-1.5 text-xs font-semibold" aria-label="Toggle RTL Mode">
+        <i class="fa-solid fa-globe text-xs"></i>
+        <span class="rtl-toggle-label">LTR</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Centered Login Container Section -->
+  <main class="auth-main" id="main">
+    <div class="auth-container-centered">
+      <div class="auth-card-centered">
+
+        <!-- Centered Brand Logo & Header -->
+        <div class="auth-brand-header">
+          <a class="inline-flex items-center gap-3 mb-3 text-decoration-none group" href="index.html">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0">
+              <div class="w-full h-full bg-black rounded-[10px] flex items-center justify-center">
+                <i class="fa-solid fa-martini-glass-citrus text-amber-400 text-base group-hover:rotate-12 transition duration-300"></i>
+              </div>
+            </div>
+            <div class="text-left">
+              <span class="font-display text-xl font-bold tracking-widest text-white group-hover:text-amber-400 transition leading-none block" style="color: #FFFFFF !important; font-family: 'Cinzel', serif !important;">AURA SKY</span>
+              <div class="text-[9px] uppercase tracking-[0.25em] text-amber-400 font-semibold mt-1" style="color: #FBBF24 !important; letter-spacing: 0.25em !important;">Rooftop &amp; Lounge</div>
+            </div>
+          </a>
+          <h1 id="authHeaderTitle">VIP Guest Login</h1>
+          <p id="authHeaderSub">Sign in to view your skyline reservations, VIP table status &amp; sommelier orders.</p>
+        </div>
+
+        <!-- Segmented Tab Switcher (Customer / Guest Login vs Admin Login) -->
+        <div class="auth-tabs" role="tablist">
+          <button type="button" class="auth-tab-btn active" id="tabCustomerBtn">
+            <i class="fa-solid fa-user-circle"></i>
+            <span>VIP Guest Login</span>
+          </button>
+          <button type="button" class="auth-tab-btn" id="tabAdminBtn">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Admin Login</span>
+          </button>
+        </div>
+
+        <!-- Fast 1-Click Demo Fill Pill -->
+        <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 mb-4 text-center">
+          <div class="flex items-center justify-between text-[11px] mb-1.5 px-0.5">
+            <span class="text-[10px] uppercase font-bold text-amber-400 tracking-wider">
+              <i class="fa-solid fa-bolt mr-1"></i> 1-Click Demo Fill:
+            </span>
+            <span class="text-gray-400 text-[10px]" id="demoHintText">Elena (Guest)</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <button type="button" onclick="loginDemo('guest')" class="py-1.5 px-2 rounded-lg bg-amber-500 hover:bg-amber-400 text-black text-[11px] font-bold transition flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-user text-xs"></i> Elena (Guest)
+            </button>
+            <button type="button" onclick="loginDemo('admin')" class="py-1.5 px-2 rounded-lg border border-amber-500/40 text-amber-300 hover:bg-amber-500/10 text-[11px] font-bold transition flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-chart-line text-xs"></i> Admin Portal
+            </button>
+          </div>
+        </div>
+
+                <!-- Dynamic Authentication Error Banner -->
+        <div id="loginErrorBanner" class="hidden p-3.5 rounded-xl mb-4 shadow-xl text-xs transition-all duration-300 error-banner-box">
+          <div class="flex items-start gap-2.5">
+            <i class="fa-solid fa-circle-exclamation text-base mt-0.5 shrink-0 error-banner-icon"></i>
+            <div class="flex-1 text-left">
+              <span class="font-bold block error-banner-title" id="loginErrorTitle">Authentication Failed</span>
+              <span class="text-[11px] leading-relaxed block mt-0.5 error-banner-message" id="loginErrorMessage">Invalid email or password.</span>
+            </div>
+            <button type="button" onclick="hideLoginError()" class="text-sm error-banner-close">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Login Form -->
+        <form id="portalLoginForm" onsubmit="handleLoginSubmit(event)" class="space-y-4 text-xs">
+          <div>
+            <label class="block text-gray-300 font-semibold mb-1.5" for="loginEmail" id="emailLabel">
+              Email Address or VIP Keycard <span class="text-amber-400">*</span>
+            </label>
+            <div class="input-icon-group">
+              <i class="fa-solid fa-envelope input-icon"></i>
+              <input type="text" id="loginEmail" name="email" required
+                     placeholder="elena@auraskyrooftop.com or VIP-5409" autocomplete="email"
+                     value="elena@auraskyrooftop.com">
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center mb-1.5">
+              <label class="text-gray-300 font-semibold mb-0" for="loginPassword">
+                Security Password <span class="text-amber-400">*</span>
+              </label>
+              <button type="button" onclick="openForgotModal()" class="text-[11px] text-amber-400 hover:underline font-medium">
+                Forgot passcode?
+              </button>
+            </div>
+            <div class="input-icon-group has-toggle">
+              <i class="fa-solid fa-lock input-icon"></i>
+              <input type="password" id="loginPassword" name="password" required
+                     placeholder="••••••••••••" autocomplete="current-password"
+                     value="secret123">
+              <button type="button" class="pw-toggle" id="pwToggleBtn" aria-label="Show password" onclick="togglePasswordVisibility()">
+                <i class="fa-solid fa-eye" id="pwToggleIcon"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between text-[11px] pt-1">
+            <label class="flex items-center gap-2 cursor-pointer text-gray-300">
+              <input type="checkbox" checked class="w-4 h-4 rounded bg-slate-900 border-gray-700 text-amber-500 focus:ring-0">
+              <span>Keep me signed in</span>
+            </label>
+            <span class="text-amber-400/80 text-[10px] flex items-center gap-1">
+              <i class="fa-solid fa-shield-halved text-[9px]"></i> 256-bit SSL
+            </span>
+          </div>
+
+          <button type="submit" id="submitBtn" class="w-full py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold uppercase tracking-wider text-xs shadow-lg shadow-amber-500/30 hover:scale-[1.01] active:scale-[0.99] transition" style="color: #000000 !important;">
+            Sign In to Portal
+          </button>
+        </form>
+
+        <!-- Divider -->
+        <div class="auth-divider">
+          <span>Or Access With</span>
+        </div>
+
+        <!-- Social Logins (100% High Contrast Apple & Google) -->
+        <div class="grid grid-cols-2 gap-3 mb-4">
+          <button type="button" onclick="loginSocial('Apple')" class="auth-social-btn group">
+            <svg class="w-4 h-4 shrink-0 transition" viewBox="0 0 170 170" aria-hidden="true">
+              <path class="apple-icon-path" d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.69-7.8-12-14.28-6.19-9.16-11.05-19.89-14.58-32.18-3.53-12.3-5.3-23.77-5.3-34.42 0-15.54 3.8-28.16 11.41-37.86 7.61-9.7 17.18-14.64 28.71-14.83 4.89 0 10.43 1.25 16.63 3.75 6.2 2.5 10.02 3.8 11.46 3.9 1.85-.22 5.99-1.63 12.42-4.22 6.42-2.6 11.96-3.8 16.63-3.62 10.33.43 18.91 3.91 25.75 10.43 6.84 6.52 11.19 14.56 13.04 24.12-9.35 5.65-13.91 13.48-13.69 23.48.22 8.04 3.26 14.9 9.13 20.57 5.87 5.68 12.77 9.1 20.7 10.25-2.06 6.09-4.56 12.28-7.5 18.57zM119.22 31.74c0-7.17 2.61-13.8 7.82-19.89 5.22-6.09 11.63-10.04 19.24-11.85.87 7.07-1.41 13.86-6.85 20.38-5.43 6.52-11.85 10.33-19.24 11.41-.33-.05-.97-.05-.97-.05z"/>
+            </svg>
+            <span class="social-text">Apple</span>
+          </button>
+          <button type="button" onclick="loginSocial('Google')" class="auth-social-btn group">
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+            <span class="social-text">Google</span>
+          </button>
+        </div>
+
+        <!-- SEPARATE CREATE ACCOUNT SECTION (CUSTOMER vs ADMIN) -->
+        <div class="pt-4 border-t border-gray-800 space-y-2.5 text-center text-xs">
+          <!-- Customer Account Creation Card (Shown on VIP Guest login) -->
+          <div id="customerSignupPrompt" class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-between text-xs transition">
+            <div class="text-left">
+              <span class="block font-semibold text-gray-200">New VIP Guest?</span>
+              <span class="text-[11px] text-gray-400">Join skyline privileges & table reservations</span>
+            </div>
+            <button type="button" onclick="openCreateAccountModal('guest')" class="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 shadow transition" style="color: #000000 !important;">
+              <span>Create Customer Account</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+
+          <!-- Admin Account Creation Card (Shown on Admin login) -->
+          <div id="adminSignupPrompt" class="hidden p-3 rounded-xl bg-slate-800/80 border border-slate-700 flex items-center justify-between text-xs transition">
+            <div class="text-left">
+              <span class="block font-semibold text-gray-200">New Operations Staff?</span>
+              <span class="text-[11px] text-gray-400">Maître d', sommelier, or floor manager badge</span>
+            </div>
+            <button type="button" onclick="openCreateAccountModal('admin')" class="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 shadow transition" style="color: #000000 !important;">
+              <span>Create Admin Account</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+
+          <!-- Direct Sub-Links for Both Portals -->
+          <div class="text-[11px] text-gray-400 pt-1 flex items-center justify-center gap-3">
+            <a href="javascript:void(0)" onclick="openCreateAccountModal('guest')" class="hover:text-amber-400 underline underline-offset-4 decoration-amber-500/40 font-medium">Register VIP Customer</a>
+            <span class="text-gray-600">•</span>
+            <a href="javascript:void(0)" onclick="openCreateAccountModal('admin')" class="hover:text-amber-400 underline underline-offset-4 decoration-amber-500/40 font-medium">Register Staff Admin</a>
+          </div>
+        </div>
+
+      </div> <!-- End auth-card-centered -->
+    </div> <!-- End auth-container-centered -->
+  </main>
+
+  <!-- Forgot Passcode Modal -->
+  <div id="forgotModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="glass-dark border border-amber-500/30 rounded-2xl p-6 max-w-sm w-full relative shadow-2xl">
+      <button type="button" onclick="closeForgotModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="mb-4">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg mb-2">
+          <i class="fa-solid fa-key"></i>
+        </div>
+        <h3 class="font-serif text-xl font-bold text-white">Reset VIP Passcode</h3>
+        <p class="text-xs text-gray-400 mt-1">Enter your registered email address to receive secure reset instructions.</p>
+      </div>
+      <form onsubmit="handleForgotSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Email Address</label>
+          <input type="email" id="forgotEmail" required placeholder="elena@auraskyrooftop.com" class="w-full bg-slate-900 border border-gray-700 rounded-xl py-2.5 px-3 text-xs text-white focus:border-amber-400 focus:outline-none">
+        </div>
+        <button type="submit" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold uppercase tracking-wider text-xs transition" style="color: #000000 !important;">
+          Send Reset Link
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- SEPARATE CREATE ACCOUNT MODAL (CUSTOMER & ADMIN TABS) -->
+  <div id="createAccountModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4 overflow-y-auto">
+    <div class="glass-dark border border-amber-500/30 rounded-2xl p-6 max-w-md w-full relative shadow-2xl my-8">
+      <button type="button" onclick="closeCreateAccountModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="mb-4">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg mb-2">
+          <i id="createModalIcon" class="fa-solid fa-user-plus"></i>
+        </div>
+        <h3 id="createModalTitle" class="font-serif text-xl font-bold text-white">Create Account</h3>
+        <p id="createModalSub" class="text-xs text-gray-400 mt-1">Select your portal account type below.</p>
+      </div>
+
+      <!-- Segmented Tab Switcher Inside Modal -->
+      <div class="grid grid-cols-2 gap-1 p-1 bg-black/60 rounded-xl border border-gray-800 mb-4 text-xs font-semibold">
+        <button type="button" id="modalCustomerTabBtn" onclick="switchCreateAccountTab('guest')" class="py-2 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 bg-amber-500 text-black shadow">
+          <i class="fa-solid fa-user text-xs"></i>
+          <span>Customer Account</span>
+        </button>
+        <button type="button" id="modalAdminTabBtn" onclick="switchCreateAccountTab('admin')" class="py-2 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 text-gray-400 hover:text-white">
+          <i class="fa-solid fa-shield-halved text-xs"></i>
+          <span>Admin / Staff Account</span>
+        </button>
+      </div>
+
+      <!-- Form 1: Customer Account Creation Form -->
+      <form id="customerAccountForm" onsubmit="handleCreateCustomerSubmit(event)" class="space-y-3 text-xs">
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-[11px] font-semibold text-gray-300 mb-1">First Name *</label>
+            <input type="text" id="custFirstName" required placeholder="Elena" class="w-full bg-slate-900 border border-gray-700 rounded-xl py-2 px-3 text-xs text-white focus:border-amber-400 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-[11px] font-semibold text-gray-300 mb-1">Last Name *</label>
+            <input type="text" id="custLastName" required placeholder="Rostova" class="w-full bg-slate-900 border border-gray-700 rounded-xl py-2 px-3 text-xs text-white focus:border-amber-400 focus:outline-none">
+          </div>
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-gray-300 mb-1">VIP Email Address *</label>
+          <input type="email" id="custEmail" required placeholder="elena@example.com" class="w-full bg-slate-900 border border-gray-700 rounded-xl py-2 px-3 text-xs text-white focus:border-amber-400 focus:outline-none">
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-[11px] font-semibold text-gray-300 mb-1">Membership Tier</label>
+            <select id="custTier" class="w-full bg-slate-900 border border-gray-700 rounded-xl py-2 px-3 text-xs text-white focus:border-amber-400 focus:outline-none">
+              <option value="Obsidian VIP Member">Obsidian VIP</option>
+              <option value="Celestial Penthouse Member">Celestial Penthouse</option>
+              <option value="Gold Reserve Member">Gold Reserve</option>
+              <option value="Skyline Club Member">Skyline Club</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[11px] font-semibold text-gray-300 mb-1">Mobile Phone *</label>
+            <input type="tel" id="custPhone" required placeholder="+1 (555) 345-6789" class="w-full bg-slate-900 border border-gray-700 rounded-xl py-2 px-3 text-xs text-white focus:border-amber-400 focus:outline-none">
+          </div>
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-gray-300 mb-1">Passcode / Password *</label>
+          <input type="password" id="custPassword" required minlength="6" placeholder="Choose secure password" class="w-full bg-slate-900 border border-gray-700 rounded-xl py-2 px-3 text-xs text-white focus:border-amber-400 focus:outline-none">
+        </div>
+        <button type="submit" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold uppercase tracking-wider text-xs transition shadow-lg shadow-amber-500/20 mt-2" style="color: #000000 !important;">
+          Register VIP Customer Account
+        </button>
+      </form>
+
+      <!-- Form 2: Admin Account Creation Form -->
+      <form id="adminAccountForm" onsubmit="handleCreateAdminSubmit(event)" class="space-y-3 text-xs hidden">
+        <div class="p-2.5 rounded-lg bg-red-500/10 border border-red-500/20 text-[11px] text-amber-300 mb-2">
+          <i class="fa-solid fa-lock mr-1 text-red-400"></i> Authorized AURA SKY staff & management only.
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-gray-300 mb-1">Full Staff Legal Name *</label>
+          <input type="text" id="adminFullName" required placeholder="Julian Vance" class="w-full bg-slate-900 border border-gray-700 rounded-xl py-2 px-3 text-xs text-white focus:border-amber-400 focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-gray-300 mb-1">Staff Work Email *</label>
+          <input type="email" id="adminEmail" required placeholder="julian.vance@auraskyrooftop.com" class="w-full bg-slate-900 border border-gray-700 rounded-xl py-2 px-3 text-xs text-white focus:border-amber-400 focus:outline-none">
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div>
+            <label class="block text-[11px] font-semibold text-gray-300 mb-1">Role / Department *</label>
+            <select id="adminRoleSelect" class="w-full bg-slate-900 border border-gray-700 rounded-xl py-2 px-3 text-xs text-white focus:border-amber-400 focus:outline-none">
+              <option value="Floor Operations Director">Operations Director</option>
+              <option value="Head Sommelier & Cellar Master">Head Sommelier</option>
+              <option value="Penthouse Maître d'">Penthouse Maître d'</option>
+              <option value="VIP Concierge Manager">VIP Concierge</option>
+              <option value="Executive Head Chef">Executive Head Chef</option>
+              <option value="Skyline Security Chief">Security & Access</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[11px] font-semibold text-gray-300 mb-1">Staff Badge ID *</label>
+            <input type="text" id="adminBadgeId" required placeholder="MGR-02" class="w-full bg-slate-900 border border-gray-700 rounded-xl py-2 px-3 text-xs text-white focus:border-amber-400 focus:outline-none">
+          </div>
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-gray-300 mb-1">Administrative Passcode *</label>
+          <input type="password" id="adminPassword" required minlength="6" placeholder="Manager master passcode" class="w-full bg-slate-900 border border-gray-700 rounded-xl py-2 px-3 text-xs text-white focus:border-amber-400 focus:outline-none">
+        </div>
+        <button type="submit" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold uppercase tracking-wider text-xs transition shadow-lg shadow-amber-500/20 mt-2" style="color: #000000 !important;">
+          Register Admin / Staff Badge
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js?v=96"></script>
+  <script>
+    let currentRole = 'guest';
+
+    const tabCustomerBtn = document.getElementById('tabCustomerBtn');
+    const tabAdminBtn = document.getElementById('tabAdminBtn');
+    const authHeaderTitle = document.getElementById('authHeaderTitle');
+    const authHeaderSub = document.getElementById('authHeaderSub');
+    const emailLabel = document.getElementById('emailLabel');
+    const loginEmail = document.getElementById('loginEmail');
+    const loginPassword = document.getElementById('loginPassword');
+    const submitBtn = document.getElementById('submitBtn');
+    const demoHintText = document.getElementById('demoHintText');
+    const customerSignupPrompt = document.getElementById('customerSignupPrompt');
+    const adminSignupPrompt = document.getElementById('adminSignupPrompt');
+
+    const loginErrorBanner = document.getElementById('loginErrorBanner');
+    const loginErrorTitle = document.getElementById('loginErrorTitle');
+    const loginErrorMessage = document.getElementById('loginErrorMessage');
+
+    // Real Master Credentials Database
+    const DEFAULT_ACCOUNTS = [
+      {
+        name: 'Elena Rostova',
+        email: 'elena@auraskyrooftop.com',
+        password: 'secret123',
+        keycard: 'vip-5409',
+        role: 'guest',
+        tier: 'VIP Obsidian Member • Keycard #VIP-5409',
+        phone: '+1 (555) 234-5678'
+      },
+      {
+        name: 'Julian Vance',
+        email: 'admin@auraskyrooftop.com',
+        password: 'secret123',
+        keycard: 'mgr-01',
+        role: 'admin',
+        tier: 'Floor Operations Director • Badge #MGR-01',
+        badge: 'MGR-01'
+      },
+      {
+        name: 'Antoine Dubois',
+        email: 'sommelier@auraskyrooftop.com',
+        password: 'secret123',
+        keycard: 'somm-03',
+        role: 'admin',
+        tier: 'Head Sommelier • Grand Cru Cellar #03',
+        badge: 'SOMM-03'
+      }
+    ];
+
+    function getAllAccounts() {
+      try {
+        const stored = JSON.parse(localStorage.getItem('aura_registered_users') || '[]');
+        return [...DEFAULT_ACCOUNTS, ...stored];
+      } catch (e) {
+        return DEFAULT_ACCOUNTS;
+      }
+    }
+
+    // Role Switching (VIP Guest vs Admin Portal)
+    function setRole(role) {
+      currentRole = role;
+      hideLoginError();
+
+      if (role === 'guest') {
+        tabCustomerBtn.classList.add('active');
+        tabAdminBtn.classList.remove('active');
+        authHeaderTitle.textContent = 'VIP Guest Login';
+        authHeaderSub.textContent = 'Sign in to view your skyline reservations, VIP table status & sommelier orders.';
+        emailLabel.innerHTML = 'Email Address or VIP Keycard <span class="text-amber-400">*</span>';
+        loginEmail.placeholder = 'elena@auraskyrooftop.com or VIP-5409';
+        loginEmail.value = 'elena@auraskyrooftop.com';
+        loginPassword.value = 'secret123';
+        submitBtn.innerHTML = 'Sign In to VIP Portal';
+        demoHintText.textContent = 'Elena (Guest)';
+        if (customerSignupPrompt) customerSignupPrompt.classList.remove('hidden');
+        if (adminSignupPrompt) adminSignupPrompt.classList.add('hidden');
+      } else {
+        tabAdminBtn.classList.add('active');
+        tabCustomerBtn.classList.remove('active');
+        authHeaderTitle.textContent = 'Operations Admin Portal';
+        authHeaderSub.textContent = "Restricted administrative credentials for maître d', sommeliers, and floor managers.";
+        emailLabel.innerHTML = 'Staff Operational Email or Badge ID <span class="text-amber-400">*</span>';
+        loginEmail.placeholder = 'admin@auraskyrooftop.com or MGR-01';
+        loginEmail.value = 'admin@auraskyrooftop.com';
+        loginPassword.value = 'secret123';
+        submitBtn.innerHTML = 'Sign In to Operations Portal';
+        demoHintText.textContent = 'Floor Operations (Admin)';
+        if (customerSignupPrompt) customerSignupPrompt.classList.add('hidden');
+        if (adminSignupPrompt) adminSignupPrompt.classList.remove('hidden');
+      }
+    }
+
+    if (tabCustomerBtn) tabCustomerBtn.addEventListener('click', () => setRole('guest'));
+    if (tabAdminBtn) tabAdminBtn.addEventListener('click', () => setRole('admin'));
+
+    function togglePasswordVisibility() {
+      const pass = document.getElementById('loginPassword');
+      const icon = document.getElementById('pwToggleIcon');
+      if (pass.type === 'password') {
+        pass.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        pass.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    }
+
+    function showLoginError(title, msg) {
+      
+      if (loginErrorTitle) loginErrorTitle.textContent = title;
+      if (loginErrorMessage) loginErrorMessage.textContent = msg;
+      if (loginErrorBanner) {
+        loginErrorBanner.classList.remove('hidden');
+        loginErrorBanner.classList.add('animate-shake');
+        setTimeout(() => loginErrorBanner.classList.remove('animate-shake'), 600);
+      }
+    }
+
+    function hideLoginError() {
+      if (loginErrorBanner) loginErrorBanner.classList.add('hidden');
+    }
+
+    // banner removed as popup is sufficient
+
+    // REAL AUTHENTICATION VALIDATOR (Zero redirect, stays in place)
+    function handleLoginSubmit(e) {
+      if (e) e.preventDefault();
+      hideLoginError();
+
+      const identifier = loginEmail.value.trim();
+      const password = loginPassword.value;
+
+      if (!identifier) {
+        showLoginError('Missing Identifier', 'Please enter your VIP email address or keycard badge number.');
+        loginEmail.focus();
+        return;
+      }
+
+      if (!password) {
+        showLoginError('Missing Password', 'Please enter your account security passcode.');
+        loginPassword.focus();
+        return;
+      }
+
+      const cleanId = identifier.toLowerCase();
+      const cleanPass = password.trim();
+      const accounts = getAllAccounts();
+
+      // Step 1: Find user record
+      const user = accounts.find(acc => 
+        acc.email.toLowerCase() === cleanId || 
+        (acc.keycard && acc.keycard.toLowerCase() === cleanId)
+      );
+
+      if (!user) {
+        const errorMsg = 'No VIP record or staff profile found matching "' + identifier + '". Please check your credentials or create an account.';
+        showLoginError('Account Not Found', errorMsg);
+        showToast('Authentication Failed', errorMsg, 'warning');
+        return;
+      }
+
+      // Step 2: Verify password
+      if (user.password !== cleanPass) {
+        const passError = 'Invalid password entered. Security verification failed for ' + user.email + '.';
+        showLoginError('Incorrect Passcode', passError);
+        showToast('Access Denied', passError, 'warning');
+        return;
+      }
+
+      // Step 3: SUCCESSFUL REAL AUTHENTICATION
+      const session = {
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        tier: user.tier,
+        token: 'AUTH_VIP_' + Math.random().toString(36).substring(2, 9).toUpperCase(),
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      };
+
+      try {
+        localStorage.setItem('aura_active_session', JSON.stringify(session));
+      } catch (e) {}
+
+      // popup toast is shown directly
+
+      // PROMINENT LOGIN SUCCESS MESSAGE
+      showToast('Login Successful!', 'Welcome back, ' + user.name + ' • Session Verified.', 'success');
+
+      // Visual button feedback
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fa-solid fa-circle-check mr-1.5 text-base"></i> Login Successful!';
+      submitBtn.style.backgroundColor = '#10B981';
+      submitBtn.style.color = '#FFFFFF';
+
+      setTimeout(() => {
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.style.backgroundColor = '';
+        submitBtn.style.color = '#000000';
+      }, 3500);
+
+      // STAYS ON THE SAME PAGE. NO NAVIGATION TO DASHBOARD!
+    }
+
+    function loginDemo(role) {
+      setRole(role);
+      handleLoginSubmit();
+    }
+
+    function loginSocial(provider) {
+      hideLoginError();
+      const session = {
+        name: provider === 'Apple' ? 'Elena Rostova (Apple ID)' : 'Elena Rostova (Google)',
+        email: 'elena@auraskyrooftop.com',
+        role: 'guest',
+        tier: 'VIP Obsidian Member • ' + provider + ' SSO Verified',
+        token: 'SSO_' + provider.toUpperCase() + '_' + Math.random().toString(36).substring(2, 8).toUpperCase(),
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      };
+
+      try {
+        localStorage.setItem('aura_active_session', JSON.stringify(session));
+      } catch (e) {}
+
+      // Just give popup message
+      showToast('Login Successful!', 'Authenticated securely via ' + provider + '. Welcome back!', 'success');
+
+      // Update CTA button to Login Successful!
+      if (submitBtn) {
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fa-solid fa-circle-check mr-1.5 text-base"></i> Login Successful!';
+        submitBtn.style.backgroundColor = '#10B981';
+        submitBtn.style.color = '#FFFFFF';
+        setTimeout(() => {
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.style.backgroundColor = '';
+          submitBtn.style.color = '#000000';
+        }, 3500);
+      }
+    }
+
+    function handleLogout() {
+      try {
+        localStorage.removeItem('aura_active_session');
+      } catch (e) {}
+      
+      showToast('Signed Out', 'You have been safely signed out. You can sign in again.', 'info');
+    }
+
+    // Modal Control: Create Account (Customer vs Admin)
+    function openCreateAccountModal(type) {
+      const modal = document.getElementById('createAccountModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      switchCreateAccountTab(type || 'guest');
+    }
+
+    function closeCreateAccountModal() {
+      const modal = document.getElementById('createAccountModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function switchCreateAccountTab(type) {
+      const custTabBtn = document.getElementById('modalCustomerTabBtn');
+      const adminTabBtn = document.getElementById('modalAdminTabBtn');
+      const custForm = document.getElementById('customerAccountForm');
+      const adminForm = document.getElementById('adminAccountForm');
+      const modalTitle = document.getElementById('createModalTitle');
+      const modalSub = document.getElementById('createModalSub');
+      const modalIcon = document.getElementById('createModalIcon');
+
+      if (type === 'guest') {
+        custTabBtn.className = 'py-2 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 bg-amber-500 text-black shadow';
+        custTabBtn.style.color = '#000000 !important;';
+        adminTabBtn.className = 'py-2 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 text-gray-400 hover:text-white';
+        adminTabBtn.style.color = '';
+        custForm.classList.remove('hidden');
+        adminForm.classList.add('hidden');
+        modalTitle.textContent = 'Create VIP Customer Account';
+        modalSub.textContent = 'Join AURA SKY as a valued VIP Customer to unlock 54th floor terrace privileges.';
+        modalIcon.className = 'fa-solid fa-user';
+      } else {
+        adminTabBtn.className = 'py-2 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 bg-amber-500 text-black shadow';
+        adminTabBtn.style.color = '#000000 !important;';
+        custTabBtn.className = 'py-2 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 text-gray-400 hover:text-white';
+        custTabBtn.style.color = '';
+        adminForm.classList.remove('hidden');
+        custForm.classList.add('hidden');
+        modalTitle.textContent = 'Create Admin / Staff Account';
+        modalSub.textContent = "Register internal maître d', sommelier, or floor operations managerial badge.";
+        modalIcon.className = 'fa-solid fa-shield-halved';
+      }
+    }
+
+    // Handle Create Customer Account Submission
+    function handleCreateCustomerSubmit(e) {
+      e.preventDefault();
+      const firstName = document.getElementById('custFirstName').value.trim();
+      const lastName = document.getElementById('custLastName').value.trim();
+      const email = document.getElementById('custEmail').value.trim().toLowerCase();
+      const password = document.getElementById('custPassword').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const tier = document.getElementById('custTier').value;
+
+      const keycardId = 'vip-' + Math.floor(1000 + Math.random() * 9000);
+      const newCustomer = {
+        name: firstName + ' ' + lastName,
+        email: email,
+        password: password,
+        keycard: keycardId,
+        role: 'guest',
+        tier: tier + ' • Keycard #' + keycardId.toUpperCase(),
+        phone: phone
+      };
+
+      try {
+        const registered = JSON.parse(localStorage.getItem('aura_registered_users') || '[]');
+        const idx = registered.findIndex(u => u.email === email);
+        if (idx >= 0) registered[idx] = newCustomer;
+        else registered.push(newCustomer);
+        localStorage.setItem('aura_registered_users', JSON.stringify(registered));
+      } catch (err) {}
+
+      closeCreateAccountModal();
+
+      // Switch to Customer Login, fill inputs, and automatically authenticate
+      setRole('guest');
+      loginEmail.value = email;
+      loginPassword.value = password;
+
+      showToast('Customer Account Created!', 'Welcome ' + newCustomer.name + '! Your VIP Keycard #' + keycardId.toUpperCase() + ' is ready.', 'success');
+      setTimeout(() => {
+        handleLoginSubmit();
+      }, 500);
+    }
+
+    // Handle Create Admin Account Submission
+    function handleCreateAdminSubmit(e) {
+      e.preventDefault();
+      const fullName = document.getElementById('adminFullName').value.trim();
+      const badgeId = document.getElementById('adminBadgeId').value.trim().toUpperCase();
+      const email = document.getElementById('adminEmail').value.trim().toLowerCase();
+      const password = document.getElementById('adminPassword').value.trim();
+      const roleSelect = document.getElementById('adminRoleSelect').value;
+
+      const newAdmin = {
+        name: fullName,
+        email: email,
+        password: password,
+        keycard: badgeId.toLowerCase(),
+        role: 'admin',
+        tier: roleSelect + ' • Badge #' + badgeId,
+        badge: badgeId
+      };
+
+      try {
+        const registered = JSON.parse(localStorage.getItem('aura_registered_users') || '[]');
+        const idx = registered.findIndex(u => u.email === email);
+        if (idx >= 0) registered[idx] = newAdmin;
+        else registered.push(newAdmin);
+        localStorage.setItem('aura_registered_users', JSON.stringify(registered));
+      } catch (err) {}
+
+      closeCreateAccountModal();
+
+      // Switch to Admin Login, fill inputs, and automatically authenticate
+      setRole('admin');
+      loginEmail.value = email;
+      loginPassword.value = password;
+
+      showToast('Admin Account Created!', 'Staff Badge #' + badgeId + ' activated for ' + fullName + '. Welcome to Operations.', 'success');
+      setTimeout(() => {
+        handleLoginSubmit();
+      }, 500);
+    }
+
+    function openForgotModal() {
+      const m = document.getElementById('forgotModal');
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+
+    function closeForgotModal() {
+      const m = document.getElementById('forgotModal');
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+    }
+
+    function handleForgotSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('forgotEmail').value.trim();
+      closeForgotModal();
+      showToast('Recovery Dispatched', 'Password reset instructions sent to ' + email, 'success');
+    }
+
+    // Check for already active session on load
+    document.addEventListener('DOMContentLoaded', () => {
+      // Session kept in localStorage without intrusive in-page banner
+    });
+  </script>
+</body>
+</html>

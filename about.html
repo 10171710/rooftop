@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | AURA SKY Rooftop Restaurant & Lounge</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <meta name="description"
+    content="Discover the story, Michelin-trained culinary team, and architectural vision behind AURA SKY Rooftop Restaurant & Lounge Bar.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: { 300: '#F5E6B8', 400: '#E5C468', 500: '#D4AF37', 600: '#B89222' },
+            midnight: '#07090E',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            display: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=96">
+</head>
+
+<body class="bg-white text-slate-900 dark:bg-[#07090E] dark:text-slate-100 transition-colors duration-300">
+
+  <!-- Main Navigation Header -->
+  <header class="sticky top-0 z-40 bg-black border-b border-amber-500/20 shadow-lg shadow-black/50"
+    style="background-color: #000000 !important; background: #000000 !important;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div
+            class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0">
+            <div class="w-full h-full bg-black rounded-[10px] flex items-center justify-center">
+              <i
+                class="fa-solid fa-martini-glass-citrus text-amber-400 text-base group-hover:rotate-12 transition duration-300"></i>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <span
+              class="font-display text-xl font-bold tracking-widest text-white group-hover:text-amber-400 transition leading-none">AURA
+              SKY</span>
+            <span class="text-[9px] uppercase tracking-[0.25em] text-amber-400 font-semibold mt-1">Rooftop &
+              Lounge</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium whitespace-nowrap">
+          <!-- Home (Dropdown) -->
+          <div class="relative dropdown-group">
+            <button
+              class="flex items-center gap-1.5 text-white hover:text-amber-400 py-2 focus:outline-none transition whitespace-nowrap font-medium">
+              <span>Home</span>
+              <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
+            </button>
+            <div class="dropdown-menu absolute top-full left-0 w-60 py-2 mt-2 rounded-xl shadow-2xl z-50">
+              <a href="index.html" class="dropdown-link  block px-4 py-2.5 text-xs">
+                <div class="dropdown-item-title font-bold text-white hover:text-amber-400">Home 1 - Skyline Dining</div>
+                <div class="dropdown-item-sub text-[10px] text-gray-400">Panoramic Rooftop Restaurant</div>
+              </a>
+              <a href="index-2.html" class="dropdown-link  block px-4 py-2.5 text-xs">
+                <div class="dropdown-item-title font-bold text-white hover:text-amber-400">Home 2 - Sunset Lounge</div>
+                <div class="dropdown-item-sub text-[10px] text-gray-400">Craft Cocktails & DJ Club</div>
+              </a>
+            </div>
+          </div>
+
+          <a href="about.html" class="whitespace-nowrap text-amber-400 font-semibold nav-active active">About</a>
+          <a href="menu.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Menu</a>
+          <a href="events.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Events & Live
+            Music</a>
+          <a href="gallery.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Gallery</a>
+          <a href="blog.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Blog</a>
+          <a href="contact.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Contact</a>
+          <a href="dashboard-guest.html" class="whitespace-nowrap text-white hover:text-amber-400 transition ">
+            Dashboard
+          </a>
+        </nav>
+
+        <!-- Right Header Actions -->
+        <div class="flex items-center gap-3">
+          <button
+            class="theme-toggle-btn w-9 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center justify-center text-sm"
+            aria-label="Toggle Theme">
+            <i class="theme-toggle-icon fa-solid fa-moon"></i>
+          </button>
+          <button
+            class="rtl-toggle-btn px-2.5 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center gap-1.5 text-xs font-semibold"
+            aria-label="Toggle RTL Mode">
+            <i class="fa-solid fa-globe text-xs"></i>
+            <span class="rtl-toggle-label">LTR</span>
+          </button>
+
+          <!-- Login Portal CTA (Primary Header Action) -->
+          <a href="login.html"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-amber-400 via-gold-500 to-amber-500 text-black shadow-lg shadow-amber-500/25 hover:scale-[1.02] active:scale-[0.98] transition">
+            <i class="fa-solid fa-user-lock"></i>
+            <span>Login Portal</span>
+          </a>
+
+          <button id="mobileMenuBtn"
+            class="lg:hidden w-10 h-10 rounded-lg border border-amber-500/30 bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-[#07090E] border-b border-amber-500/20 px-6 py-6">
+      <div class="flex flex-col gap-4 text-sm font-medium">
+        <div class="border-b border-gray-800 pb-2">
+          <button id="mobileHomeDropdownBtn"
+            class="w-full flex justify-between items-center text-gray-300 py-1 font-semibold">
+            <span>Home</span>
+            <i class="fa-solid fa-chevron-down text-xs"></i>
+          </button>
+          <div id="mobileHomeDropdownMenu" class="hidden pl-4 pt-2 flex flex-col gap-2">
+            <a href="index.html" class="text-gray-300 hover:text-amber-400 text-xs py-1">Home 1 - Skyline Dining</a>
+            <a href="index-2.html" class="text-gray-300 hover:text-amber-400 text-xs py-1">Home 2 - Sunset Lounge</a>
+          </div>
+        </div>
+        <a href="about.html" class="text-amber-400 font-bold py-1">About</a>
+        <a href="menu.html" class="text-white hover:text-amber-400 py-1">Menu</a>
+        <a href="events.html" class="whitespace-nowrap text-white hover:text-amber-400 py-1">Events & Live Music</a>
+        <a href="gallery.html" class="text-white hover:text-amber-400 py-1">Gallery</a>
+        <a href="blog.html" class="text-white hover:text-amber-400 py-1">Blog</a>
+        <a href="contact.html" class="text-white hover:text-amber-400 py-1">Contact</a>
+        <a href="dashboard-guest.html" class="text-white hover:text-amber-400 py-1 ">
+          Dashboard
+        </a>
+        <a href="login.html" class="text-amber-400 py-2 border-t border-gray-800  font-semibold">
+          <i class="fa-solid fa-user-lock"></i> Guest Login Portal
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header Banner (Matching Blog Page Hero Center Container with Custom Background) -->
+  <section
+    class="relative min-h-[92vh] flex items-center justify-center py-20 bg-black border-b border-amber-500/15 text-center overflow-hidden">
+    <!-- Hero Background Image -->
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <img src="assets/images/about/about-hero-1752693922867.jpg"
+        alt="AURA SKY rooftop restaurant and lounge atmosphere"
+        class="w-full h-full object-cover object-center scale-100">
+      <div class="contact-hero-overlay"></div>
+    </div>
+    <div class="relative z-10 w-full max-w-3xl mx-auto px-4">
+      <div class="contact-hero-box p-8 sm:p-12 rounded-3xl text-center transition-all duration-300">
+        <span
+          class="contact-hero-badge inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 transition">
+          <i class="fa-solid fa-champagne-glasses mr-1.5 text-amber-400"></i> Our Heritage &amp; Philosophy
+        </span>
+        <h1 class="contact-hero-title font-serif text-3xl sm:text-5xl lg:text-6xl font-bold mb-4">
+          Suspended Between <span class="gold-gradient-text font-display italic font-normal">Skyline &amp; Starlight</span>
+        </h1>
+        <p class="contact-hero-desc text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+          The story of how an ambitious architectural dream on the 54th floor became one of the world's most sought-after
+          culinary and nightlife destinations.
+        </p>
+
+        <!-- Social Proof & Ratings Row -->
+        <div class="pt-6 mt-6 border-t border-amber-500/20 flex flex-wrap items-center justify-center gap-6 text-xs text-gray-400">
+          <div class="flex items-center -space-x-2">
+            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=300&q=85"
+              alt="Guest" class="w-8 h-8 rounded-full object-cover border-2 border-amber-500/40">
+            <img src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=300&q=85"
+              alt="Guest" class="w-8 h-8 rounded-full object-cover border-2 border-amber-500/40">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=85"
+              alt="Guest" class="w-8 h-8 rounded-full object-cover border-2 border-amber-500/40">
+            <div
+              class="w-8 h-8 rounded-full bg-amber-500/20 border-2 border-amber-500/40 flex items-center justify-center text-[10px] font-bold text-amber-300">
+              +4K</div>
+          </div>
+          <div class="text-left">
+            <div class="flex items-center gap-1 text-amber-400 text-xs font-bold">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <span class="text-white ml-1 font-semibold">4.9 / 5</span>
+            </div>
+            <span class="text-[11px] text-gray-300">Over 45,000+ Sunset Cocktails Served</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story & Vision -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="text-xs font-bold text-amber-400 tracking-widest uppercase block mb-2">Since 2014</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-6">
+            A New Dimension of <br>
+            <span class="gold-gradient-text font-display italic font-normal">Elevated Hospitality</span>
+          </h2>
+          <div class="space-y-4 text-sm text-gray-300 leading-relaxed">
+            <p>
+              When AURA SKY opened its doors atop the Grand Metropolis Tower in 2014, the vision was singular: to create
+              a multisensory sanctuary where urbanites could escape the rush below and indulge in pure gastronomic
+              perfection.
+            </p>
+            <p>
+              Designed by world-renowned interior architects Studio Aurelia, our space combines raw black marble,
+              hand-brushed gold accents, and floor-to-ceiling ultra-clear low-iron acoustic glass balustrades that make
+              guests feel as though they are floating directly over the illuminated metropolis.
+            </p>
+            <p>
+              Our culinary program honors sustainable provenance: line-caught wild seafood, certified Japanese A5 Wagyu,
+              and organic produce harvested from regional boutique farms within 100 miles.
+            </p>
+          </div>
+          <div class="grid grid-cols-3 gap-6 pt-8 border-t border-gray-800 mt-8 text-center">
+            <div>
+              <div class="text-3xl font-bold font-display text-amber-400 stat-counter" data-target="12" data-suffix="+">
+                12+</div>
+              <div class="text-xs text-gray-400 mt-1">Years of Excellence</div>
+            </div>
+            <div>
+              <div class="text-3xl font-bold font-display text-amber-400 stat-counter" data-target="85000"
+                data-suffix="+" data-comma="true">85,000+</div>
+              <div class="text-xs text-gray-400 mt-1">Guests Hosted</div>
+            </div>
+            <div>
+              <div class="text-3xl font-bold font-display text-amber-400 stat-counter" data-target="42">42</div>
+              <div class="text-xs text-gray-400 mt-1">Mixology Awards</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="rounded-3xl overflow-hidden border border-amber-500/20 shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=85"
+              alt="Luxury Lounge Interior" class="w-full h-[480px] object-cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline / History -->
+  <section class="py-14 bg-black/50 border-y border-amber-500/15">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <span class="text-xs uppercase font-bold text-amber-400 tracking-widest block mb-2">Our Evolution</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white">The Skyline Milestones</h2>
+      </div>
+
+      <div class="timeline-timeline-wrapper space-y-6 relative max-w-3xl mx-auto block">
+
+        <!-- Milestone 1 -->
+        <div class="timeline-step-item">
+          <div class="timeline-step-col timeline-step-left">
+            <span class="text-xs font-bold text-amber-400 uppercase">Spring 2014</span>
+            <h3 class="font-serif text-base sm:text-lg font-bold text-white mt-0.5">The Grand Genesis</h3>
+            <p class="text-xs text-gray-400 mt-1 leading-relaxed">Doors open on the 54th floor with 120-seat terrace and
+              sunset tapas program.</p>
+          </div>
+          <div class="timeline-step-node">1</div>
+          <div class="timeline-step-col timeline-step-right"></div>
+        </div>
+
+        <!-- Milestone 2 -->
+        <div class="timeline-step-item">
+          <div class="timeline-step-col timeline-step-left"></div>
+          <div class="timeline-step-node">2</div>
+          <div class="timeline-step-col timeline-step-right">
+            <span class="text-xs font-bold text-amber-400 uppercase">Autumn 2018</span>
+            <h3 class="font-serif text-base sm:text-lg font-bold text-white mt-0.5">Michelin Guide Recommendation</h3>
+            <p class="text-xs text-gray-400 mt-1 leading-relaxed">Honored for innovative dry-aged charcoal grilling and
+              sommelier wine reserves.</p>
+          </div>
+        </div>
+
+        <!-- Milestone 3 -->
+        <div class="timeline-step-item">
+          <div class="timeline-step-col timeline-step-left">
+            <span class="text-xs font-bold text-amber-400 uppercase">Summer 2022</span>
+            <h3 class="font-serif text-base sm:text-lg font-bold text-white mt-0.5">Retractable Glass Deck Expansion
+            </h3>
+            <p class="text-xs text-gray-400 mt-1 leading-relaxed">Addition of heated luxury cabanas and motorized
+              weather-adaptive glass ceiling.</p>
+          </div>
+          <div class="timeline-step-node">3</div>
+          <div class="timeline-step-col timeline-step-right"></div>
+        </div>
+
+        <!-- Milestone 4 -->
+        <div class="timeline-step-item">
+          <div class="timeline-step-col timeline-step-left"></div>
+          <div class="timeline-step-node">4</div>
+          <div class="timeline-step-col timeline-step-right">
+            <span class="text-xs font-bold text-amber-400 uppercase">Present & Beyond</span>
+            <h3 class="font-serif text-base sm:text-lg font-bold text-white mt-0.5">Global Nightlife Landmark</h3>
+            <p class="text-xs text-gray-400 mt-1 leading-relaxed">Hosting international DJ tours, celebrity
+              afterparties, and private dining buyouts.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Culinary Leadership & Team -->
+  <section class="py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs uppercase font-bold text-amber-400 tracking-widest block mb-2">Masters of Craft</span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-4">The Executive Team</h2>
+        <p class="text-gray-400 text-xs sm:text-sm">Passionate artisans dedicated to delivering an unparalleled
+          hospitality standard.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <!-- Chef Julian -->
+        <div class="rounded-2xl glass-dark border border-amber-500/20 overflow-hidden group hover-elevate">
+          <div class="h-72 overflow-hidden">
+            <img src="assets/images/about/team-julian-vance-32224391.jpg"
+              alt="Julian Vance, Executive Chef, in his black chef uniform"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          </div>
+          <div class="p-5 text-center">
+            <h3 class="font-serif text-lg font-bold text-white">Julian Vance</h3>
+            <div class="text-xs text-amber-400 font-semibold mb-2">Executive Chef</div>
+            <p class="text-[11px] text-gray-400 leading-relaxed">Trained at 3-star establishments across Paris and
+              Tokyo. Champion of Nikkei-French.</p>
+          </div>
+        </div>
+
+        <!-- Mixologist Sophia -->
+        <div class="rounded-2xl glass-dark border border-amber-500/20 overflow-hidden group hover-elevate">
+          <div class="h-72 overflow-hidden">
+            <img src="assets/images/about/team-sophia-leclerc-3771101.jpg"
+              alt="Sophia Leclerc, Beverage Director, pouring a cocktail behind the bar"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          </div>
+          <div class="p-5 text-center">
+            <h3 class="font-serif text-lg font-bold text-white">Sophia Leclerc</h3>
+            <div class="text-xs text-amber-400 font-semibold mb-2">Beverage Director & Master Mixologist</div>
+            <p class="text-[11px] text-gray-400 leading-relaxed">Winner of World Class Bartender 2021. Innovator of
+              centrifugal cocktail clarification.</p>
+          </div>
+        </div>
+
+        <!-- Sommelier Antoine -->
+        <div class="rounded-2xl glass-dark border border-amber-500/20 overflow-hidden group hover-elevate">
+          <div class="h-72 overflow-hidden">
+            <img src="assets/images/about/team-antoine-dubois-33344926.jpg"
+              alt="Antoine Dubois, Head Sommelier, smiling in the wine cellar"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          </div>
+          <div class="p-5 text-center">
+            <h3 class="font-serif text-lg font-bold text-white">Antoine Dubois</h3>
+            <div class="text-xs text-amber-400 font-semibold mb-2">Head Sommelier</div>
+            <p class="text-[11px] text-gray-400 leading-relaxed">Master Court certified. Custodian of our 1,400-bottle
+              temperature-controlled cellar.</p>
+          </div>
+        </div>
+
+        <!-- Pastry Chef Clara -->
+        <div class="rounded-2xl glass-dark border border-amber-500/20 overflow-hidden group hover-elevate">
+          <div class="h-72 overflow-hidden">
+            <img src="assets/images/about/team-clara-lindqvist-5964621.jpg"
+              alt="Clara Lindqvist, Executive Pastry Chef, presenting her patisserie"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          </div>
+          <div class="p-5 text-center">
+            <h3 class="font-serif text-lg font-bold text-white">Clara Lindqvist</h3>
+            <div class="text-xs text-amber-400 font-semibold mb-2">Executive Pastry Chef</div>
+            <p class="text-[11px] text-gray-400 leading-relaxed">Renowned for structural confectionery and tableside
+              spun-sugar celestial sculptures.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Extra Section 2: 54th Floor Skydeck by the Numbers: Architectural Anatomy -->
+  <section class="py-20 bg-zinc-950/90 border-t border-amber-500/20 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Visual Architectural Showcase -->
+        <div class="lg:col-span-5 relative">
+          <div class="rounded-3xl overflow-hidden border border-amber-500/30 shadow-2xl relative group">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=90" 
+              alt="AURA SKY High-Altitude Terrace Architecture" 
+              class="w-full h-[420px] object-cover group-hover:scale-105 transition-transform duration-700"
+              style="filter: none !important; -webkit-filter: none !important;">
+            <div class="absolute inset-0 pointer-events-none"
+              style="background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.05) 70%, transparent 100%) !important;"></div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <span class="px-3 py-1 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 uppercase tracking-widest inline-block mb-2">
+                Bioclimatic Engineering
+              </span>
+              <h4 class="font-serif text-xl font-bold" style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">54th Floor Skydeck Anatomy</h4>
+              <p class="text-xs mt-1 leading-relaxed" style="color: #E2E8F0 !important;">Dual-level climate-controlled pavilion with seamless open-air terrace flow.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Key Architecture Numbers & Specifications -->
+        <div class="lg:col-span-7">
+          <span class="text-xs uppercase font-bold text-amber-400 tracking-widest block mb-2">Architectural Blueprint</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-6">
+            Engineered for <span class="gold-gradient-text">Skyline Supremacy</span>
+          </h2>
+          <p class="text-gray-300 text-sm leading-relaxed mb-8">
+            Every millimeter of AURA SKY was conceived to dissolve the boundary between guest comfort and the infinite sky. Our engineering harmonizes high-altitude elements with bespoke luxury hospitality.
+          </p>
+
+          <div class="grid grid-cols-2 gap-6">
+            <div class="bg-zinc-900/90 border border-amber-500/20 rounded-xl p-5 hover:border-amber-400 transition shadow">
+              <div class="font-serif text-3xl sm:text-4xl font-bold text-amber-400 mb-1">820 <span class="text-lg font-sans text-gray-400">FT</span></div>
+              <div class="text-xs uppercase font-bold text-white tracking-wider mb-1">Elevation Above Metropolis</div>
+              <p class="text-gray-400 text-[11px] leading-relaxed">Dedicated high-speed elevator capsule reaches the 54th floor in under 38 seconds.</p>
+            </div>
+
+            <div class="bg-zinc-900/90 border border-amber-500/20 rounded-xl p-5 hover:border-amber-400 transition shadow">
+              <div class="font-serif text-3xl sm:text-4xl font-bold text-amber-400 mb-1">12,000 <span class="text-lg font-sans text-gray-400">SQ FT</span></div>
+              <div class="text-xs uppercase font-bold text-white tracking-wider mb-1">Bi-Level Sky Promenade</div>
+              <p class="text-gray-400 text-[11px] leading-relaxed">Houses an intimate 90-seat fine dining room, sunset raw bar, and 14 VIP cabana suites.</p>
+            </div>
+
+            <div class="bg-zinc-900/90 border border-amber-500/20 rounded-xl p-5 hover:border-amber-400 transition shadow">
+              <div class="font-serif text-3xl sm:text-4xl font-bold text-amber-400 mb-1">1,400 <span class="text-lg font-sans text-gray-400">BOTTLES</span></div>
+              <div class="text-xs uppercase font-bold text-white tracking-wider mb-1">Climate-Stabilized Reserve</div>
+              <p class="text-gray-400 text-[11px] leading-relaxed">Triple-glazed walk-in glass cellar maintained precisely at 12.5°C and 70% relative humidity.</p>
+            </div>
+
+            <div class="bg-zinc-900/90 border border-amber-500/20 rounded-xl p-5 hover:border-amber-400 transition shadow">
+              <div class="font-serif text-3xl sm:text-4xl font-bold text-amber-400 mb-1">45 <span class="text-lg font-sans text-gray-400">SEC</span></div>
+              <div class="text-xs uppercase font-bold text-white tracking-wider mb-1">Retractable Glass Roof</div>
+              <p class="text-gray-400 text-[11px] leading-relaxed">Whisper-quiet motorized acoustic canopy deploys instantly during sudden weather transitions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Press & Accolades (4 Publication Brand Logos with Pixel-Perfect Alignment) -->
+  <section class="py-16 bg-black/60 border-y border-amber-500/15">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-10 text-xs font-bold text-gray-400 uppercase tracking-widest">
+        Featured & Celebrated By
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 items-center">
+
+        <!-- 1. VOGUE GOURMET Logo Card -->
+        <div
+          class="press-logo-card rounded-2xl glass-dark border border-amber-500/15 p-4 flex items-center justify-center h-24 sm:h-28 transition hover-elevate group"
+          dir="ltr" style="direction: ltr !important;">
+          <svg class="h-10 sm:h-12 w-auto max-w-[150px] transition-transform duration-300 group-hover:scale-105"
+            viewBox="0 0 200 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="100" y="30" font-family="'Didot', 'Playfair Display', 'Bodoni MT', 'Times New Roman', serif"
+              font-size="28" font-weight="900" letter-spacing="5" text-anchor="middle" fill="#FFFFFF"
+              class="fill-white dark:fill-white">VOGUE</text>
+            <line x1="32" y1="44" x2="62" y2="44" stroke="#F59E0B" stroke-width="1.2" />
+            <text x="100" y="47" font-family="'Montserrat', 'Arial', sans-serif" font-size="8.5" font-weight="800"
+              letter-spacing="4" fill="#F59E0B" text-anchor="middle">GOURMET</text>
+            <line x1="138" y1="44" x2="168" y2="44" stroke="#F59E0B" stroke-width="1.2" />
+          </svg>
+        </div>
+
+        <!-- 2. MICHELIN GUIDE Logo Card -->
+        <div
+          class="press-logo-card rounded-2xl glass-dark border border-amber-500/15 p-4 flex items-center justify-center h-24 sm:h-28 transition hover-elevate group"
+          dir="ltr" style="direction: ltr !important;">
+          <div class="flex items-center justify-center gap-2.5 transition-transform duration-300 group-hover:scale-105" dir="ltr" style="direction: ltr !important;">
+            <!-- Signature Michelin Red Badge -->
+            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm" style="background-color: #DC2626 !important; direction: ltr !important;">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="2.8" fill="#FFFFFF" />
+                <path d="M12 2 C13.5 6.5 13.5 6.5 18 5.5 C14.5 9.5 14.5 9.5 18.5 13 C14 13.8 14 13.8 14 19 C11.5 15 11.5 15 8 18 C9 14 9 14 5 12.5 C9 10 9 10 7.5 5 C11 6 11 6 12 2 Z" fill="#FFFFFF" />
+              </svg>
+            </div>
+            <!-- Typography -->
+            <div class="flex flex-col text-left leading-none" dir="ltr" style="direction: ltr !important; text-align: left !important;">
+              <span class="press-logo-title font-sans font-black text-lg sm:text-[19px] tracking-[1.5px] leading-tight" style="font-family: 'Helvetica Neue', Arial, sans-serif !important; font-weight: 900 !important; direction: ltr !important; text-align: left !important;">MICHELIN</span>
+              <span class="font-sans font-extrabold text-[8.5px] sm:text-[9px] tracking-[3px] text-amber-500 uppercase mt-1 leading-tight" style="font-family: 'Montserrat', Arial, sans-serif !important; font-weight: 800 !important; direction: ltr !important; text-align: left !important;">GUIDE 2026</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. FORBES TRAVEL GUIDE Logo Card -->
+        <div
+          class="press-logo-card rounded-2xl glass-dark border border-amber-500/15 p-4 flex items-center justify-center h-24 sm:h-28 transition hover-elevate group"
+          dir="ltr" style="direction: ltr !important;">
+          <svg class="h-10 sm:h-12 w-auto max-w-[150px] transition-transform duration-300 group-hover:scale-105"
+            viewBox="0 0 200 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="100" y="22" font-family="'Georgia', 'Times New Roman', serif" font-size="24" font-weight="bold"
+              font-style="italic" letter-spacing="1" text-anchor="middle" fill="#FFFFFF"
+              class="fill-white dark:fill-white">Forbes</text>
+            <!-- 5 Distinct Gold Stars (No overlap) -->
+            <g fill="#F59E0B" transform="translate(100, 31)">
+              <path transform="translate(-32, 0) scale(0.65)"
+                d="M0 -6 L1.8 -1.8 L6.2 -1.8 L2.7 0.8 L4 5.2 L0 2.5 L-4 5.2 L-2.7 0.8 L-6.2 -1.8 L-1.8 -1.8 Z" />
+              <path transform="translate(-16, 0) scale(0.65)"
+                d="M0 -6 L1.8 -1.8 L6.2 -1.8 L2.7 0.8 L4 5.2 L0 2.5 L-4 5.2 L-2.7 0.8 L-6.2 -1.8 L-1.8 -1.8 Z" />
+              <path transform="translate(0, 0) scale(0.65)"
+                d="M0 -6 L1.8 -1.8 L6.2 -1.8 L2.7 0.8 L4 5.2 L0 2.5 L-4 5.2 L-2.7 0.8 L-6.2 -1.8 L-1.8 -1.8 Z" />
+              <path transform="translate(16, 0) scale(0.65)"
+                d="M0 -6 L1.8 -1.8 L6.2 -1.8 L2.7 0.8 L4 5.2 L0 2.5 L-4 5.2 L-2.7 0.8 L-6.2 -1.8 L-1.8 -1.8 Z" />
+              <path transform="translate(32, 0) scale(0.65)"
+                d="M0 -6 L1.8 -1.8 L6.2 -1.8 L2.7 0.8 L4 5.2 L0 2.5 L-4 5.2 L-2.7 0.8 L-6.2 -1.8 L-1.8 -1.8 Z" />
+            </g>
+            <text x="100" y="48" font-family="'Montserrat', 'Arial', sans-serif" font-size="8" font-weight="800"
+              letter-spacing="3" fill="#F59E0B" text-anchor="middle">TRAVEL GUIDE</text>
+          </svg>
+        </div>
+
+        <!-- 4. CONDÉ NAST SKY Logo Card -->
+        <div
+          class="press-logo-card rounded-2xl glass-dark border border-amber-500/15 p-4 flex items-center justify-center h-24 sm:h-28 transition hover-elevate group"
+          dir="ltr" style="direction: ltr !important;">
+          <svg class="h-10 sm:h-12 w-auto max-w-[160px] transition-transform duration-300 group-hover:scale-105"
+            viewBox="0 0 210 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="105" y="26" font-family="'Cinzel', 'Playfair Display', 'Bodoni MT', serif" font-size="19"
+              font-weight="900" letter-spacing="3" text-anchor="middle" fill="#FFFFFF"
+              class="fill-white dark:fill-white">CONDÉ NAST</text>
+            <g transform="translate(105, 42)">
+              <path d="M-52 0 L-42 0 M42 0 L52 0" stroke="#F59E0B" stroke-width="1" />
+              <circle cx="-34" cy="0" r="4.5" stroke="#F59E0B" stroke-width="1" fill="none" />
+              <polygon points="-34,-3 -32,0 -34,3 -36,0" fill="#F59E0B" />
+              <text x="4" y="3" font-family="'Montserrat', 'Arial', sans-serif" font-size="8.5" font-weight="800"
+                letter-spacing="4" fill="#F59E0B" text-anchor="middle">SKY TRAVELER</text>
+            </g>
+          </svg>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Extra Section 3: Frequently Asked Questions & Guest Etiquette -->
+  <section class="py-20 bg-black/80 border-t border-amber-500/15 relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-14">
+        <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30 uppercase tracking-widest inline-block mb-3">
+          <i class="fa-solid fa-circle-question mr-1 text-amber-400"></i> Guest Information
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
+          Frequently Asked <span class="gold-gradient-text">Questions</span>
+        </h2>
+        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+          Everything you need to know about your 54th-floor rooftop restaurant and lounge experience.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- FAQ 1 -->
+        <details class="group bg-zinc-900/80 border border-amber-500/20 rounded-xl p-5 hover:border-amber-400/50 transition">
+          <summary class="flex justify-between items-center cursor-pointer list-none text-white font-bold text-sm sm:text-base select-none">
+            <span class="flex items-center gap-3">
+              <i class="fa-solid fa-vest-patches text-amber-400 text-sm"></i>
+              What is the dress code for the dining room vs twilight lounge?
+            </span>
+            <span class="text-amber-400 transition-transform duration-300 group-open:rotate-180">
+              <i class="fa-solid fa-chevron-down"></i>
+            </span>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-gray-800 text-gray-300 text-xs sm:text-sm leading-relaxed">
+            We observe an elegant evening attire policy. Collared shirts, tailored jackets, and elevated footwear are encouraged. We do not permit athletic wear, flip-flops, beachwear, or distressed apparel after 6:00 PM.
+          </div>
+        </details>
+
+        <!-- FAQ 2 -->
+        <details class="group bg-zinc-900/80 border border-amber-500/20 rounded-xl p-5 hover:border-amber-400/50 transition">
+          <summary class="flex justify-between items-center cursor-pointer list-none text-white font-bold text-sm sm:text-base select-none">
+            <span class="flex items-center gap-3">
+              <i class="fa-solid fa-cloud-showers-heavy text-amber-400 text-sm"></i>
+              What happens if there is sudden rain or inclement weather?
+            </span>
+            <span class="text-amber-400 transition-transform duration-300 group-open:rotate-180">
+              <i class="fa-solid fa-chevron-down"></i>
+            </span>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-gray-800 text-gray-300 text-xs sm:text-sm leading-relaxed">
+            Our 54th-floor terrace is equipped with a German-engineered motorized bioclimatic glass roof that closes within 45 seconds. Guests continue enjoying uninterrupted 360-degree skyline views in climate-controlled warmth regardless of precipitation.
+          </div>
+        </details>
+
+        <!-- FAQ 3 -->
+        <details class="group bg-zinc-900/80 border border-amber-500/20 rounded-xl p-5 hover:border-amber-400/50 transition">
+          <summary class="flex justify-between items-center cursor-pointer list-none text-white font-bold text-sm sm:text-base select-none">
+            <span class="flex items-center gap-3">
+              <i class="fa-solid fa-calendar-check text-amber-400 text-sm"></i>
+              How far in advance should dining and VIP cabana reservations be made?
+            </span>
+            <span class="text-amber-400 transition-transform duration-300 group-open:rotate-180">
+              <i class="fa-solid fa-chevron-down"></i>
+            </span>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-gray-800 text-gray-300 text-xs sm:text-sm leading-relaxed">
+            Standard dining reservations open 30 days in advance at 9:00 AM daily. Private sunset cabanas and chef’s tasting table seatings typically book 2–3 weeks prior. Walk-in guests are welcomed at the Sunset Raw Bar on a space-available basis.
+          </div>
+        </details>
+
+        <!-- FAQ 4 -->
+        <details class="group bg-zinc-900/80 border border-amber-500/20 rounded-xl p-5 hover:border-amber-400/50 transition">
+          <summary class="flex justify-between items-center cursor-pointer list-none text-white font-bold text-sm sm:text-base select-none">
+            <span class="flex items-center gap-3">
+              <i class="fa-solid fa-elevator text-amber-400 text-sm"></i>
+              Where is the private elevator and valet arrival entrance located?
+            </span>
+            <span class="text-amber-400 transition-transform duration-300 group-open:rotate-180">
+              <i class="fa-solid fa-chevron-down"></i>
+            </span>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-gray-800 text-gray-300 text-xs sm:text-sm leading-relaxed">
+            Complimentary white-glove valet is situated at Grand Metropolis Tower Port-Cochère, 5400 Skyline Blvd. Our VIP concierge escorts guests directly to the dedicated express elevator bank in the East Atrium.
+          </div>
+        </details>
+
+        <!-- FAQ 5 -->
+        <details class="group bg-zinc-900/80 border border-amber-500/20 rounded-xl p-5 hover:border-amber-400/50 transition">
+          <summary class="flex justify-between items-center cursor-pointer list-none text-white font-bold text-sm sm:text-base select-none">
+            <span class="flex items-center gap-3">
+              <i class="fa-solid fa-champagne-glasses text-amber-400 text-sm"></i>
+              What age policies apply between dinner and late-night lounge hours?
+            </span>
+            <span class="text-amber-400 transition-transform duration-300 group-open:rotate-180">
+              <i class="fa-solid fa-chevron-down"></i>
+            </span>
+          </summary>
+          <div class="mt-4 pt-4 border-t border-gray-800 text-gray-300 text-xs sm:text-sm leading-relaxed">
+            Guests of all ages are welcome in the fine dining restaurant between 5:00 PM and 9:00 PM. Beginning at 9:00 PM nightly, both the lounge deck and main terrace transition to a strict 21+ adult venue with government photo ID verification at the reception foyer.
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Reservation CTA Banner (Redesigned as Luxury Floating Box Card with Gap to Footer) -->
+  <section class="py-12 relative overflow-hidden my-12 sm:my-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        class="reservation-banner-box relative overflow-hidden rounded-3xl p-8 sm:p-14 lg:p-16 text-center border border-amber-500/35 shadow-2xl bg-gradient-to-br from-amber-950/50 via-[#0B0F17]/90 to-amber-950/50 backdrop-blur-xl">
+
+        <!-- Ambient Decorative Glow Spheres inside the Box -->
+        <div class="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-amber-500/15 blur-3xl pointer-events-none">
+        </div>
+        <div class="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-gold-500/15 blur-3xl pointer-events-none">
+        </div>
+
+        <div class="relative z-10 max-w-3xl mx-auto">
+          <span
+            class="text-amber-400 font-bold uppercase tracking-widest text-xs mb-4 inline-block px-4 py-1 rounded-full border border-amber-500/30 bg-amber-500/10">
+            Reserve Your Skyline Experience
+          </span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-4 leading-tight">
+            Experience AURA SKY Firsthand
+          </h2>
+          <p
+            class="text-gray-300 dark:text-gray-300 light:text-slate-700 text-xs sm:text-sm mb-8 leading-relaxed max-w-2xl mx-auto">
+            Join us 54 floors above the city. Reserve your preferred skyline table, sunset dining, or heated penthouse
+            cabana in just a few clicks.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button data-open-reservation onclick="openReservationModal()"
+              class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-amber-400 via-gold-500 to-amber-600 text-black font-extrabold text-xs uppercase tracking-wider transition hover:scale-105 shadow-xl shadow-amber-500/30 flex items-center justify-center gap-2">
+              <i class="fa-solid fa-calendar-check"></i>
+              <span>Book A Skyline Table</span>
+            </button>
+            <a href="contact.html"
+              class="w-full sm:w-auto px-8 py-4 rounded-xl glass-dark hover:bg-white/10 text-white dark:text-white light:text-amber-900 font-bold text-xs uppercase tracking-wider transition border border-amber-400/40">
+              Contact Concierge
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Universal Footer -->
+  <!-- Main Footer (Pure Black in Both Themes) -->
+  <footer class="bg-black text-gray-400 text-xs border-t border-amber-500/20 pt-16 pb-12 mt-8 sm:mt-12"
+    style="background-color: #000000 !important; background: #000000 !important;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-gray-800">
+
+        <!-- Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <a href="index.html" class="flex items-center gap-3 group">
+            <div
+              class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0">
+              <div class="w-full h-full bg-black rounded-[10px] flex items-center justify-center">
+                <i
+                  class="fa-solid fa-martini-glass-citrus text-amber-400 text-base group-hover:rotate-12 transition duration-300"></i>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <span
+                class="font-display text-xl font-bold tracking-widest text-white group-hover:text-amber-400 transition leading-none">AURA
+                SKY</span>
+              <span class="text-[9px] uppercase tracking-[0.25em] text-amber-400 font-semibold mt-1">Rooftop &
+                Lounge</span>
+            </div>
+          </a>
+          <p class="text-gray-400 max-w-sm leading-relaxed text-xs">
+            Elevated dining, Michelin-trained craftsmanship, and panoramic skyline vistas from the 54th floor penthouse
+            of the Grand Metropolis Tower.
+          </p>
+          <!-- Credential Badges -->
+          <div class="flex flex-wrap gap-2 pt-1">
+            <span class="footer-credential-pill"><i class="fa-solid fa-award text-amber-400"></i> Michelin Star Guide
+              2026</span>
+            <span class="footer-credential-pill"><i class="fa-solid fa-shield-halved text-emerald-400"></i> 54th Fl
+              Penthouse Reserve</span>
+          </div>
+          <!-- Contact Items with Clickable Links -->
+          <div class="space-y-1.5 text-xs pt-1">
+            <div class="footer-contact-item"><i class="fa-solid fa-location-dot text-amber-400"></i> <a
+                href="contact.html">5400 Skyline Blvd, Penthouse Level, Metropolis</a></div>
+            <div class="footer-contact-item"><i class="fa-solid fa-phone text-amber-400"></i> <a
+                href="tel:+18005552872">+1 (800) 555-AURA (2872)</a></div>
+            <div class="footer-contact-item"><i class="fa-solid fa-envelope text-amber-400"></i> <a
+                href="mailto:concierge@auraskyrooftop.com">concierge@auraskyrooftop.com</a></div>
+          </div>
+          <!-- Squircle Social Buttons with Hover Glow -->
+          <div class="flex gap-2 pt-2">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="Facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="Twitter / X" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="YouTube Channel" title="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links with Chevrons & Hover Slide -->
+        <div>
+          <h4
+            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-amber-400 pl-2">
+            Navigation</h4>
+          <ul class="space-y-2.5">
+            <li><a href="about.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> About Our Sky
+                Lounge</a></li>
+            <li><a href="menu.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Culinary &
+                Mixology Menu</a></li>
+            <li><a href="events.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Nightlife & DJ
+                Lineups</a></li>
+            <li><a href="gallery.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Panoramic Photo
+                Gallery</a></li>
+            <li><a href="pricing.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> VIP Cabanas &
+                Bottle Service</a></li>
+            <li><a href="contact.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Location &
+                Directions</a></li>
+          </ul>
+        </div>
+
+        <!-- Services & Private Dining -->
+        <div>
+          <h4
+            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-amber-400 pl-2">
+            Experiences</h4>
+          <ul class="space-y-2.5">
+            <li><a href="service-details.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i>
+                Penthouse VIP Cabanas</a></li>
+            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Sunset
+                Romantic Dinners</a></li>
+            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Private
+                Corporate Buyouts</a></li>
+            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Mixology
+                Masterclasses</a></li>
+            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Skyline
+                Wedding Receptions</a></li>
+            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Sommelier Wine
+                Tastings</a></li>
+          </ul>
+        </div>
+
+        <!-- Portals & VIP Dispatch -->
+        <div>
+          <h4
+            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-amber-400 pl-2">
+            Portals & System</h4>
+          <ul class="space-y-2.5">
+            <li><a href="dashboard-guest.html" class="footer-nav-link text-amber-300 font-semibold"><i
+                  class="fa-solid fa-user mr-1 text-xs"></i> Guest Dashboard</a></li>
+            <li><a href="dashboard-admin.html" class="footer-nav-link text-emerald-400 font-semibold"><i
+                  class="fa-solid fa-chart-line mr-1 text-xs"></i> Admin Dashboard</a></li>
+            <li><a href="login.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Login / VIP
+                Portal</a></li>
+            <li><a href="register.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Create
+                Account</a></li>
+            <li><a href="coming-soon.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Coming Soon
+                / Maintenance</a></li>
+            <li><a href="404.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> 404 Error Page</a>
+            </li>
+          </ul>
+          <!-- Newsletter Dispatch -->
+          <div class="mt-4 pt-3 border-t border-gray-800">
+            <span class="text-[11px] font-semibold text-white uppercase tracking-wider block mb-1">VIP Skyline
+              Dispatch</span>
+            <form class="footer-newsletter-box"
+              onsubmit="event.preventDefault(); showToast('VIP Subscription Confirmed', 'You are on the VIP priority guest list.', 'success'); this.reset();">
+              <input type="email" placeholder="vip.guest@gmail.com"
+                pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" required aria-label="Email address">
+              <button type="submit">Join</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright & Legal with Interactive Modals -->
+      <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-gray-500">
+        <div>
+          &copy; 2026 AURA SKY Rooftop & Lounge. All Rights Reserved. Crafted for ThemeForest & TemplateMonster.
+        </div>
+        <div class="flex flex-wrap gap-4 sm:gap-6">
+          <a href="#privacyPolicy" class="hover:text-amber-400 transition cursor-pointer">Privacy Policy</a>
+          <a href="#termsOfService" class="hover:text-amber-400 transition cursor-pointer">Terms of Service</a>
+          <a href="#dressCode" class="hover:text-amber-400 transition cursor-pointer">Dress Code Policy</a>
+          <a href="#sitemap" class="hover:text-amber-400 transition cursor-pointer">Sitemap</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Universal Reservation Modal -->
+  <div id="reservationModal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div
+      class="relative w-full max-w-2xl rounded-2xl glass-dark border border-amber-500/40 p-6 sm:p-8 shadow-2xl text-left">
+      <button data-close-modal class="absolute top-5 right-5 text-gray-400 hover:text-white text-lg"><i
+          class="fa-solid fa-xmark"></i></button>
+      <div class="mb-6">
+        <span class="text-xs uppercase font-bold text-amber-400 tracking-wider">AURA SKY • 54th Floor</span>
+        <h3 class="font-serif text-2xl font-bold text-white mt-1">Reserve Your Skyline Table</h3>
+      </div>
+      <form id="reservationForm" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-medium text-gray-300 mb-1">Guests</label>
+            <select id="reserveGuests"
+              class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-xs text-white">
+              <option>2 Guests</option>
+              <option>4 Guests</option>
+              <option>6 Guests</option>
+              <option>8+ Cabana</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-300 mb-1">Date</label>
+            <input type="date" id="reserveDate" required
+              class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-xs text-white">
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-medium text-gray-300 mb-1">Full Name <span
+                class="text-amber-400 font-bold">*</span></label>
+            <input type="text" id="reserveName" required placeholder="Guest Name"
+              class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-xs text-white">
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-300 mb-1">Phone Number</label>
+            <input type="tel" id="reservePhone" name="phone" required placeholder="10-digit mobile number"
+              pattern="[0-9]{10}" minlength="10" maxlength="10" inputmode="numeric"
+              title="Please enter a valid 10-digit phone number"
+              class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-xs text-white focus:border-amber-400 focus:outline-none">
+          </div>
+        </div>
+        <div class="pt-4 flex justify-end">
+          <button type="submit"
+            class="px-8 py-3 rounded-lg bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold uppercase tracking-wider transition">
+            Confirm Skyline Reservation
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js?v=96"></script>
+</body>
+
+</html>

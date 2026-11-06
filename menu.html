@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Culinary & Bar Menu | AURA SKY Rooftop Restaurant & Lounge</title>
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <meta name="description"
+    content="Explore the gastronomic menu and artisanal mixology cocktails at AURA SKY 54th Floor Rooftop Restaurant.">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: { 300: '#F5E6B8', 400: '#E5C468', 500: '#D4AF37', 600: '#B89222' },
+            midnight: '#07090E',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            display: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=96">
+</head>
+
+<body class="bg-white text-slate-900 dark:bg-[#07090E] dark:text-slate-100 transition-colors duration-300">
+
+  <!-- Main Navigation Header -->
+  <header class="sticky top-0 z-40 bg-black border-b border-amber-500/20 shadow-lg shadow-black/50"
+    style="background-color: #000000 !important; background: #000000 !important;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div
+            class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0">
+            <div class="w-full h-full bg-black rounded-[10px] flex items-center justify-center">
+              <i
+                class="fa-solid fa-martini-glass-citrus text-amber-400 text-base group-hover:rotate-12 transition duration-300"></i>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <span
+              class="font-display text-xl font-bold tracking-widest text-white group-hover:text-amber-400 transition leading-none">AURA
+              SKY</span>
+            <span class="text-[9px] uppercase tracking-[0.25em] text-amber-400 font-semibold mt-1">Rooftop &
+              Lounge</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium whitespace-nowrap">
+          <!-- Home (Dropdown) -->
+          <div class="relative dropdown-group">
+            <button
+              class="flex items-center gap-1.5 text-white hover:text-amber-400 py-2 focus:outline-none transition whitespace-nowrap font-medium">
+              <span>Home</span>
+              <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
+            </button>
+            <div class="dropdown-menu absolute top-full left-0 w-60 py-2 mt-2 rounded-xl shadow-2xl z-50">
+              <a href="index.html" class="dropdown-link  block px-4 py-2.5 text-xs">
+                <div class="dropdown-item-title font-bold text-white hover:text-amber-400">Home 1 - Skyline Dining</div>
+                <div class="dropdown-item-sub text-[10px] text-gray-400">Panoramic Rooftop Restaurant</div>
+              </a>
+              <a href="index-2.html" class="dropdown-link  block px-4 py-2.5 text-xs">
+                <div class="dropdown-item-title font-bold text-white hover:text-amber-400">Home 2 - Sunset Lounge</div>
+                <div class="dropdown-item-sub text-[10px] text-gray-400">Craft Cocktails & DJ Club</div>
+              </a>
+            </div>
+          </div>
+
+          <a href="about.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">About</a>
+          <a href="menu.html" class="whitespace-nowrap text-amber-400 font-semibold nav-active active">Menu</a>
+          <a href="events.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Events & Live
+            Music</a>
+          <a href="gallery.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Gallery</a>
+          <a href="blog.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Blog</a>
+          <a href="contact.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Contact</a>
+          <a href="dashboard-guest.html" class="whitespace-nowrap text-white hover:text-amber-400 transition ">
+            Dashboard
+          </a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <button
+            class="theme-toggle-btn w-9 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center justify-center text-sm"
+            aria-label="Toggle Theme">
+            <i class="theme-toggle-icon fa-solid fa-moon"></i>
+          </button>
+          <button
+            class="rtl-toggle-btn px-2.5 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center gap-1.5 text-xs font-semibold"
+            aria-label="Toggle RTL Mode">
+            <i class="fa-solid fa-globe text-xs"></i>
+            <span class="rtl-toggle-label">LTR</span>
+          </button>
+          <a href="login.html"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-amber-400 via-gold-500 to-amber-500 text-black shadow-lg shadow-amber-500/25 hover:scale-[1.02] active:scale-[0.98] transition">
+            <i class="fa-solid fa-user-lock"></i>
+            <span>Login Portal</span>
+          </a>
+          <button id="mobileMenuBtn"
+            class="lg:hidden w-10 h-10 rounded-lg border border-amber-500/30 bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-[#07090E] border-b border-amber-500/20 px-6 py-6">
+      <div class="flex flex-col gap-4 text-sm font-medium">
+        <div class="border-b border-gray-800 pb-2">
+          <button id="mobileHomeDropdownBtn"
+            class="w-full flex justify-between items-center text-gray-300 py-1 font-semibold">
+            <span>Home</span>
+            <i class="fa-solid fa-chevron-down text-xs"></i>
+          </button>
+          <div id="mobileHomeDropdownMenu" class="hidden pl-4 pt-2 flex flex-col gap-2">
+            <a href="index.html" class="text-gray-300 hover:text-amber-400 text-xs py-1">Home 1 - Skyline Dining</a>
+            <a href="index-2.html" class="text-gray-300 hover:text-amber-400 text-xs py-1">Home 2 - Sunset Lounge</a>
+          </div>
+        </div>
+        <a href="about.html" class="text-white hover:text-amber-400 py-1">About</a>
+        <a href="menu.html" class="text-amber-400 font-bold py-1">Menu</a>
+        <a href="events.html" class="whitespace-nowrap text-white hover:text-amber-400 py-1">Events & Live Music</a>
+        <a href="gallery.html" class="text-white hover:text-amber-400 py-1">Gallery</a>
+        <a href="blog.html" class="text-white hover:text-amber-400 py-1">Blog</a>
+        <a href="contact.html" class="text-white hover:text-amber-400 py-1">Contact</a>
+        <a href="dashboard-guest.html" class="text-white hover:text-amber-400 py-1 ">
+          Dashboard
+        </a>
+        <a href="login.html" class="text-amber-400 py-2 border-t border-gray-800  font-semibold">
+          <i class="fa-solid fa-user-lock"></i> Guest Login Portal
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner (Matching Blog Page Hero Center Container with Custom Background) -->
+  <section
+    class="relative min-h-[92vh] flex items-center justify-center py-20 bg-black border-b border-amber-500/15 text-center overflow-hidden">
+    <!-- Hero Background Image -->
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <img src="assets/images/menu/menu-hero-1780913363783.jpg" alt="AURA SKY Menu and Cellar Atmosphere"
+        class="w-full h-full object-cover object-center scale-100">
+      <div class="contact-hero-overlay"></div>
+    </div>
+    <div class="relative z-10 w-full max-w-3xl mx-auto px-4">
+      <div class="contact-hero-box p-8 sm:p-12 rounded-3xl text-center transition-all duration-300">
+        <span
+          class="contact-hero-badge inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 transition">
+          <i class="fa-solid fa-utensils mr-1.5 text-amber-400"></i> Haute Cuisine &amp; Mixology
+        </span>
+        <h1 class="contact-hero-title font-serif text-3xl sm:text-5xl lg:text-6xl font-bold mb-4">
+          The Skyline <span class="gold-gradient-text font-display italic font-normal">Menu &amp; Cellar</span>
+        </h1>
+        <p class="contact-hero-desc text-sm sm:text-base max-w-xl mx-auto leading-relaxed mb-8">
+          Crafted daily with seasonal ingredients from artisanal fisheries, private ranches, and our 1,400-bottle
+          rooftop
+          sommelier cellar.
+        </p>
+
+        <!-- Menu Category Filters inside Center Container Box -->
+        <div class="flex flex-wrap items-center justify-center gap-2">
+          <button data-menu-filter="all"
+            class="px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500 text-black border border-amber-500 transition">
+            All Menus
+          </button>
+          <button data-menu-filter="cocktails"
+            class="px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-700 hover:border-amber-400 transition">
+            Craft Cocktails
+          </button>
+          <button data-menu-filter="tapas"
+            class="px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-700 hover:border-amber-400 transition">
+            Tapas &amp; Raw Bar
+          </button>
+          <button data-menu-filter="mains"
+            class="px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-700 hover:border-amber-400 transition">
+            Prime Steaks &amp; Mains
+          </button>
+          <button data-menu-filter="wines"
+            class="px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-700 hover:border-amber-400 transition">
+            Cellar &amp; Champagne
+          </button>
+          <button data-menu-filter="desserts"
+            class="px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider text-gray-400 border border-gray-700 hover:border-amber-400 transition">
+            Desserts &amp; Digestifs
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full Filterable Menu Grid -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- 1: Cocktails -->
+        <div
+          class="menu-item-card rounded-2xl glass-dark border border-amber-500/20 overflow-hidden hover-elevate group"
+          data-category="cocktails">
+          <div class="relative h-60 overflow-hidden">
+            <img src="assets/images/menu/aurora-54-spritz-17755494.jpg"
+              alt="Aurora 54 Spritz cocktail against a sunset city skyline"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span
+              class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold bg-black/80 text-amber-300 border border-amber-500/30">$29</span>
+            <span
+              class="absolute bottom-3 left-3 px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500 text-black">Rooftop
+              Signature</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-lg font-bold text-white mb-1">Aurora 54 Spritz</h3>
+            <p class="text-xs text-gray-400 leading-relaxed mb-4">London dry gin, blood-orange cordial, elderflower tonic,
+              prosecco, and a whisper of rosemary smoke over a single clear ice column.</p>
+            <div class="flex items-center text-xs pt-3 border-t border-gray-800">
+              <span class="text-amber-400 font-semibold inline-flex items-center gap-1.5"><i
+                  class="fa-solid fa-sun mr-1"></i> Sunset Pour</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2: Cocktails -->
+        <div
+          class="menu-item-card rounded-2xl glass-dark border border-amber-500/20 overflow-hidden hover-elevate group"
+          data-category="cocktails">
+          <div class="relative h-60 overflow-hidden">
+            <img src="assets/images/menu/cedar-fig-negroni-29707900.jpg"
+              alt="Cedar and fig negroni cocktail on a marble bar top"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span
+              class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold bg-black/80 text-amber-300 border border-amber-500/30">$27</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-lg font-bold text-white mb-1">Cedar &amp; Fig Negroni</h3>
+            <p class="text-xs text-gray-400 leading-relaxed mb-4">Cedar-aged Campari, fig-infused London dry gin,
+              Antica Formula vermouth, torched orange oils, and a smoked salt rim.</p>
+            <div class="flex items-center text-xs pt-3 border-t border-gray-800">
+              <span class="text-amber-400 font-semibold inline-flex items-center gap-1.5"><i
+                  class="fa-solid fa-fire mr-1"></i> Cedar-Smoked</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3: Tapas -->
+        <div
+          class="menu-item-card rounded-2xl glass-dark border border-amber-500/20 overflow-hidden hover-elevate group"
+          data-category="tapas">
+          <div class="relative h-60 overflow-hidden">
+            <img src="assets/images/menu/charred-octopus-39452706.jpg" alt="Charred octopus plated with saffron aioli"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span
+              class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold bg-black/80 text-amber-300 border border-amber-500/30">$32</span>
+            <span
+              class="absolute bottom-3 left-3 px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500 text-black">Coastal
+              Tapas</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-lg font-bold text-white mb-1">Charred Octopus &amp; Saffron Aioli</h3>
+            <p class="text-xs text-gray-400 leading-relaxed mb-4">Galician octopus charred over binchotan, saffron
+              potato
+              foam, smoked paprika oil, pickled padrón peppers, and lemon ash.</p>
+            <div class="flex items-center text-xs pt-3 border-t border-gray-800">
+              <span class="text-amber-400 font-semibold inline-flex items-center gap-1.5"><i
+                  class="fa-solid fa-fire mr-1"></i> Binchotan Charred</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4: Mains -->
+        <div
+          class="menu-item-card rounded-2xl glass-dark border border-amber-500/20 overflow-hidden hover-elevate group"
+          data-category="mains">
+          <div class="relative h-60 overflow-hidden">
+            <img src="assets/images/menu/binchotan-lamb-36678410.jpg"
+              alt="Binchotan grilled rack of lamb with herb sauce"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span
+              class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold bg-black/80 text-amber-300 border border-amber-500/30">$68</span>
+            <span
+              class="absolute bottom-3 left-3 px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500 text-black">Charcoal
+              Grill</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-lg font-bold text-white mb-1">Binchotan Lamb Rack</h3>
+            <p class="text-xs text-gray-400 leading-relaxed mb-4">Herb-crusted lamb rack seared over Japanese binchotan,
+              smoked aubergine purée, charred spring onions, and pomegranate lamb jus.</p>
+            <div class="flex items-center text-xs pt-3 border-t border-gray-800">
+              <span class="text-amber-400 font-semibold inline-flex items-center gap-1.5"><i
+                  class="fa-solid fa-fire mr-1"></i> Open-Fire Grill</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5: Mains -->
+        <div
+          class="menu-item-card rounded-2xl glass-dark border border-amber-500/20 overflow-hidden hover-elevate group"
+          data-category="mains">
+          <div class="relative h-60 overflow-hidden">
+            <img src="assets/images/menu/saffron-lobster-risotto-28446391.jpg"
+              alt="Saffron lobster risotto on an elegant plate"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span
+              class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold bg-black/80 text-amber-300 border border-amber-500/30">$58</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-lg font-bold text-white mb-1">Saffron Lobster Risotto</h3>
+            <p class="text-xs text-gray-400 leading-relaxed mb-4">Carnaroli rice folded with blue lobster bisque,
+              saffron butter, mascarpone, preserved lemon, and a touch of Espelette pepper.</p>
+            <div class="flex items-center text-xs pt-3 border-t border-gray-800">
+              <span class="text-amber-400 font-semibold inline-flex items-center gap-1.5"><i
+                  class="fa-solid fa-fish mr-1"></i> Lobster Bisque</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6: Wines -->
+        <div
+          class="menu-item-card rounded-2xl glass-dark border border-amber-500/20 overflow-hidden hover-elevate group"
+          data-category="wines">
+          <div class="relative h-60 overflow-hidden">
+            <img src="assets/images/menu/ruinart-champagne-6960140.jpg"
+              alt="Chilled Ruinart Blanc de Blancs champagne bottle in an ice bucket"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span
+              class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold bg-black/80 text-amber-300 border border-amber-500/30">$240</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-lg font-bold text-white mb-1">Ruinart Blanc de Blancs NV</h3>
+            <p class="text-xs text-gray-400 leading-relaxed mb-4">Champagne, France. White peach, jasmine blossom,
+              crushed chalk, and a fine mineral mousse, poured tableside in crystal flutes.</p>
+            <div class="flex items-center text-xs pt-3 border-t border-gray-800">
+              <span class="text-amber-400 font-semibold inline-flex items-center gap-1.5"><i
+                  class="fa-solid fa-champagne-glasses mr-1"></i> 100% Chardonnay</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7: Tapas -->
+        <div
+          class="menu-item-card rounded-2xl glass-dark border border-amber-500/20 overflow-hidden hover-elevate group"
+          data-category="tapas">
+          <div class="relative h-60 overflow-hidden">
+            <img src="assets/images/menu/truffle-burrata-31235428.jpg" alt="Truffle burrata with heirloom tomatoes"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span
+              class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold bg-black/80 text-amber-300 border border-amber-500/30">$26</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-lg font-bold text-white mb-1">Truffle Burrata &amp; Heirloom Tomato</h3>
+            <p class="text-xs text-gray-400 leading-relaxed mb-4">Puglian burrata, black truffle honey, heirloom
+              tomatoes, basil oil, toasted sourdough, and aged balsamic pearls.</p>
+            <div class="flex items-center text-xs pt-3 border-t border-gray-800">
+              <span class="text-amber-400 font-semibold inline-flex items-center gap-1.5"><i
+                  class="fa-solid fa-leaf mr-1"></i> Vegetarian</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8: Desserts -->
+        <div
+          class="menu-item-card rounded-2xl glass-dark border border-amber-500/20 overflow-hidden hover-elevate group"
+          data-category="desserts">
+          <div class="relative h-60 overflow-hidden">
+            <img src="assets/images/menu/basque-cheesecake-32517227.jpg"
+              alt="Salted honey Basque cheesecake slice with berry jam"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span
+              class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold bg-black/80 text-amber-300 border border-amber-500/30">$20</span>
+            <span
+              class="absolute bottom-3 left-3 px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-500 text-black">Pastry
+              Atelier</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-lg font-bold text-white mb-1">Salted Honey Basque Cheesecake</h3>
+            <p class="text-xs text-gray-400 leading-relaxed mb-4">Burnt Basque cheesecake with wild rooftop honey,
+              Maldon sea salt, candied lemon, and vanilla bean cream.</p>
+            <div class="flex items-center text-xs pt-3 border-t border-gray-800">
+              <span class="text-amber-400 font-semibold inline-flex items-center gap-1.5"><i
+                  class="fa-solid fa-cake-candles mr-1"></i> Burnt Basque</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9: Cocktails -->
+        <div
+          class="menu-item-card rounded-2xl glass-dark border border-amber-500/20 overflow-hidden hover-elevate group"
+          data-category="cocktails">
+          <div class="relative h-60 overflow-hidden">
+            <img src="assets/images/menu/pomegranate-fizz-5947020.jpg"
+              alt="Pomegranate and basil fizz cocktail with rosemary"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <span
+              class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold bg-black/80 text-amber-300 border border-amber-500/30">$23</span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-lg font-bold text-white mb-1">Pomegranate &amp; Basil Fizz</h3>
+            <p class="text-xs text-gray-400 leading-relaxed mb-4">Pomegranate shrub, basil-infused vodka, fresh lime,
+              soda, and rosemary, finished with pomegranate seeds.</p>
+            <div class="flex items-center text-xs pt-3 border-t border-gray-800">
+              <span class="text-amber-400 font-semibold inline-flex items-center gap-1.5"><i
+                  class="fa-solid fa-seedling mr-1"></i> Garden Fresh</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Bar -->
+      <div
+        class="mt-16 p-8 rounded-2xl glass-dark border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 class="font-serif text-xl font-bold text-white">Looking for the Complete Seasonal PDF Menu?</h3>
+          <p class="text-xs text-gray-400 mt-1">Download the 32-page full cellar reserves, spirit bottle service list,
+            and dessert selection.</p>
+        </div>
+        <div class="flex gap-4">
+          <button onclick="showToast('PDF Dispatched', 'Complete AURA SKY menu PDF downloading...', 'info')"
+            class="px-6 py-3 rounded-xl border border-amber-500/40 text-amber-300 hover:bg-amber-500 hover:text-black font-bold text-xs uppercase tracking-wider transition">
+            <i class="fa-solid fa-file-pdf mr-1.5"></i> Download PDF
+          </button>
+          <button data-open-reservation
+            class="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs uppercase tracking-wider transition"
+            style="color: #000000 !important;">
+            Reserve Tasting Table
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Extra Section 1: The Grand Omakase & Chef's Tasting Journey -->
+  <section
+    class="py-20 bg-gradient-to-b from-black via-zinc-950 to-black border-t border-amber-500/20 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Visual Plating Showcase -->
+        <div class="lg:col-span-5 relative">
+          <div class="rounded-3xl overflow-hidden border border-amber-500/30 shadow-2xl relative group">
+            <img src="https://images.unsplash.com/photo-1703518338012-8e18dd10a8fa?auto=format&fit=crop&w=1200&q=85"
+              alt="Nightly 7-Course Flight - The Skyline Tasting Journey"
+              class="w-full h-[480px] object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="omakase-plating-scrim absolute inset-0 pointer-events-none"
+              style="background: linear-gradient(to top, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.45) 45%, transparent 75%) !important;">
+            </div>
+            <div class="omakase-plating-card absolute bottom-6 left-6 right-6 z-10">
+              <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest inline-block mb-2"
+                style="background: rgba(245, 158, 11, 0.2) !important; color: #FCD34D !important; border: 1px solid rgba(245, 158, 11, 0.5) !important;">
+                <i class="fa-solid fa-utensils mr-1 text-amber-400"></i> Nightly 7-Course Flight
+              </span>
+              <h4 class="font-serif text-xl sm:text-2xl font-bold"
+                style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);">
+                The Skyline Tasting Journey</h4>
+              <p class="text-xs sm:text-sm mt-1 leading-relaxed"
+                style="color: #E2E8F0 !important; -webkit-text-fill-color: #E2E8F0 !important; text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);">
+                Curated tableside progression with Grand Cru vintage champagne &amp;
+                terroir pairings.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Tasting Highlights -->
+        <div class="lg:col-span-7">
+          <span class="text-xs uppercase font-bold text-amber-400 tracking-widest block mb-2">Haute Gastronomy</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
+            The 7-Course <span class="gold-gradient-text">Skyline Omakase</span>
+          </h2>
+          <p class="text-gray-300 text-sm leading-relaxed mb-8">
+            Experience our Michelin-pedigree signature tasting menu. Every course is plated live before you, harmonizing
+            French classical reductions with Japanese umami precision.
+          </p>
+
+          <div class="space-y-4 mb-8">
+            <div
+              class="bg-zinc-900/80 border border-amber-500/20 rounded-xl p-4 flex items-center justify-between hover:border-amber-400 transition">
+              <div class="flex items-center gap-4">
+                <span
+                  class="w-8 h-8 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-bold text-xs flex items-center justify-center shrink-0">I</span>
+                <div>
+                  <h4 class="text-white font-bold text-sm">Hokkaido Sea Urchin & Royal Oscietra Caviar</h4>
+                  <p class="text-gray-400 text-xs">Warm toasted nori brioche, yuzu crème fraîche, smoked sea salt.</p>
+                </div>
+              </div>
+              <span class="text-amber-400 text-xs font-mono shrink-0 hidden sm:inline-block">Krug Grande Cuvée</span>
+            </div>
+
+            <div
+              class="bg-zinc-900/80 border border-amber-500/20 rounded-xl p-4 flex items-center justify-between hover:border-amber-400 transition">
+              <div class="flex items-center gap-4">
+                <span
+                  class="w-8 h-8 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-bold text-xs flex items-center justify-center shrink-0">III</span>
+                <div>
+                  <h4 class="text-white font-bold text-sm">Line-Caught Hamachi Crudo & Bergamot Mist</h4>
+                  <p class="text-gray-400 text-xs">Compressed white peach, fermented shiso leaf, cold-pressed olive oil.
+                  </p>
+                </div>
+              </div>
+              <span class="text-amber-400 text-xs font-mono shrink-0 hidden sm:inline-block">Puligny-Montrachet
+                2020</span>
+            </div>
+
+            <div
+              class="bg-zinc-900/80 border border-amber-500/20 rounded-xl p-4 flex items-center justify-between hover:border-amber-400 transition">
+              <div class="flex items-center gap-4">
+                <span
+                  class="w-8 h-8 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-bold text-xs flex items-center justify-center shrink-0">V</span>
+                <div>
+                  <h4 class="text-white font-bold text-sm">Miyazaki A5 Wagyu Tenderloin on Binchotan Charcoal</h4>
+                  <p class="text-gray-400 text-xs">Black winter truffle bone marrow jus, roasted sunchoke purée.</p>
+                </div>
+              </div>
+              <span class="text-amber-400 text-xs font-mono shrink-0 hidden sm:inline-block">Château Margaux 2012</span>
+            </div>
+
+            <div
+              class="bg-zinc-900/80 border border-amber-500/20 rounded-xl p-4 flex items-center justify-between hover:border-amber-400 transition">
+              <div class="flex items-center gap-4">
+                <span
+                  class="w-8 h-8 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-bold text-xs flex items-center justify-center shrink-0">VII</span>
+                <div>
+                  <h4 class="text-white font-bold text-sm">Celestial Smoked Dark Chocolate Orb</h4>
+                  <p class="text-gray-400 text-xs">24K edible gold leaf, spun isomalt galaxy, warm single-origin cacao
+                    pour.</p>
+                </div>
+              </div>
+              <span class="text-amber-400 text-xs font-mono shrink-0 hidden sm:inline-block">Château d’Yquem 2015</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <button data-open-reservation
+              class="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs uppercase tracking-wider transition shadow-lg shadow-amber-500/20"
+              style="color: #000000 !important;">
+              Reserve Tasting Flight ($265/pp)
+            </button>
+            <span class="text-gray-400 text-xs">Limited to 28 seatings per evening</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Extra Section 2: Dietary Inclusivity & Dedicated Allergy-Safe Kitchen -->
+  <section class="py-20 bg-zinc-950/90 border-t border-amber-500/15 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span
+          class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30 uppercase tracking-widest inline-block mb-3">
+          <i class="fa-solid fa-plate-wheat mr-1 text-amber-400"></i> Culinary Wellness
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
+          Dietary Excellence & <span class="gold-gradient-text">Allergen Safety</span>
+        </h2>
+        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+          High-altitude luxury dining should be effortless for every guest. Our kitchen features separate
+          allergen-quarantined preparation zones and bespoke customized tasting flights.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <div
+          class="bg-zinc-900/80 border border-amber-500/20 rounded-2xl p-8 hover:border-amber-400 transition shadow group">
+          <div class="relative h-44 rounded-xl overflow-hidden border border-amber-500/20 mb-6">
+            <img src="assets/images/menu/dietary-vegan-32434586.jpg"
+              alt="Plant-based fine dining plate with seasonal vegetables"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+              style="filter: none !important; -webkit-filter: none !important;">
+          </div>
+          <h3 class="text-white font-serif text-lg font-bold mb-2">Vegan Haute Gastronomy</h3>
+          <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4">
+            A full 5-course plant-based tasting journey honoring seasonal botanicals, wild morels, fermented cashew
+            truffle cremas, and cold-pressed cold-smoked oils.
+          </p>
+          <span class="text-amber-400 text-xs font-semibold inline-flex items-center gap-1.5">
+            <i class="fa-solid fa-check text-[10px]"></i> 100% Dairy & Animal Free
+          </span>
+        </div>
+
+        <div
+          class="bg-zinc-900/80 border border-amber-500/30 rounded-2xl p-8 hover:border-amber-400 transition shadow relative ring-1 ring-amber-500/20 group">
+          <span
+            class="absolute -top-3 right-6 bg-gradient-to-r from-amber-500 to-amber-600 text-black text-[10px] font-black uppercase tracking-wider px-3 py-0.5 rounded-full shadow">Certified
+            Protocol</span>
+          <div class="relative h-44 rounded-xl overflow-hidden border border-amber-500/20 mb-6">
+            <img src="assets/images/menu/dietary-celiac-5507626.jpg"
+              alt="Gluten-free pasta plated for celiac-safe dining"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+              style="filter: none !important; -webkit-filter: none !important;">
+          </div>
+          <h3 class="text-white font-serif text-lg font-bold mb-2">Dedicated Celiac Station</h3>
+          <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4">
+            Dedicated induction burners, sanitized prep knives, separate fryers, and imported Italian gluten-free flours
+            guarantee zero airborne cross-contamination.
+          </p>
+          <span class="text-amber-400 text-xs font-semibold inline-flex items-center gap-1.5">
+            <i class="fa-solid fa-shield-halved text-[10px]"></i> Zero Cross-Contact Lab
+          </span>
+        </div>
+
+        <div
+          class="bg-zinc-900/80 border border-amber-500/20 rounded-2xl p-8 hover:border-amber-400 transition shadow group">
+          <div class="relative h-44 rounded-xl overflow-hidden border border-amber-500/20 mb-6">
+            <img src="assets/images/menu/dietary-zero-proof-38579069.jpg"
+              alt="Botanical zero-proof mocktail with floral garnish"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+              style="filter: none !important; -webkit-filter: none !important;">
+          </div>
+          <h3 class="text-white font-serif text-lg font-bold mb-2">Zero-Proof Botanical Flights</h3>
+          <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-4">
+            Non-alcoholic mixology crafted with house-distilled botanicals, clarified rare teas, and cold-pressed citrus
+            hydrosols designed to rival Grand Cru wines.
+          </p>
+          <span class="text-amber-400 text-xs font-semibold inline-flex items-center gap-1.5">
+            <i class="fa-solid fa-sparkles text-[10px]"></i> 0.0% ABV Artisanal Pairings
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Extra Section 3: The Private Chef's Glass Table & Cellar Buyout Experience -->
+  <section class="py-20 bg-black/90 border-t border-amber-500/20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div
+        class="bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border border-amber-500/30 rounded-3xl p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-10 shadow-2xl">
+        <div class="max-w-2xl">
+          <span
+            class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30 uppercase tracking-widest inline-block mb-3">
+            <i class="fa-solid fa-crown mr-1 text-amber-400"></i> The Ultimate Dining Reservation
+          </span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
+            The Private Chef's <span class="gold-gradient-text">Glass Table</span>
+          </h2>
+          <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+            Suspended over the north cantilevered terrace, our 12-seat private table offers direct sightlines into Chef
+            Antoine Dubois' open kitchen, accompanied by private sommelier cellar tours and custom engraved keepsake
+            menus.
+          </p>
+          <div class="flex flex-wrap items-center gap-6 text-xs text-gray-300">
+            <span class="inline-flex items-center gap-2"><i class="fa-solid fa-user-group text-amber-400"></i> Up to 12
+              Guests</span>
+            <span class="inline-flex items-center gap-2"><i class="fa-solid fa-wine-glass text-amber-400"></i> Sommelier
+              Cellar Vault Tour</span>
+            <span class="inline-flex items-center gap-2"><i class="fa-solid fa-sparkles text-amber-400"></i> Tableside
+              Binchotan Cooking</span>
+          </div>
+        </div>
+
+        <div class="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-4 w-full sm:w-auto">
+          <button data-open-reservation
+            class="px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs uppercase tracking-wider transition text-center shadow-xl shadow-amber-500/20"
+            style="color: #000000 !important;">
+            Inquire Private Table
+          </button>
+          <a href="contact.html"
+            class="px-8 py-4 rounded-xl border border-amber-500/40 text-amber-400 hover:bg-amber-500/10 font-bold text-xs uppercase tracking-wider transition text-center">
+            VIP Event Concierge
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Universal Footer -->
+  <!-- Main Footer (Pure Black in Both Themes) -->
+  <footer class="bg-black text-gray-400 text-xs border-t border-amber-500/20 pt-16 pb-12"
+    style="background-color: #000000 !important; background: #000000 !important;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-gray-800">
+
+        <!-- Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <a href="index.html" class="flex items-center gap-3 group">
+            <div
+              class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0">
+              <div class="w-full h-full bg-black rounded-[10px] flex items-center justify-center">
+                <i
+                  class="fa-solid fa-martini-glass-citrus text-amber-400 text-base group-hover:rotate-12 transition duration-300"></i>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <span
+                class="font-display text-xl font-bold tracking-widest text-white group-hover:text-amber-400 transition leading-none">AURA
+                SKY</span>
+              <span class="text-[9px] uppercase tracking-[0.25em] text-amber-400 font-semibold mt-1">Rooftop &
+                Lounge</span>
+            </div>
+          </a>
+          <p class="text-gray-400 max-w-sm leading-relaxed text-xs">
+            Elevated dining, Michelin-trained craftsmanship, and panoramic skyline vistas from the 54th floor penthouse
+            of the Grand Metropolis Tower.
+          </p>
+          <!-- Credential Badges -->
+          <div class="flex flex-wrap gap-2 pt-1">
+            <span class="footer-credential-pill"><i class="fa-solid fa-award text-amber-400"></i> Michelin Star Guide
+              2026</span>
+            <span class="footer-credential-pill"><i class="fa-solid fa-shield-halved text-emerald-400"></i> 54th Fl
+              Penthouse Reserve</span>
+          </div>
+          <!-- Contact Items with Clickable Links -->
+          <div class="space-y-1.5 text-xs pt-1">
+            <div class="footer-contact-item"><i class="fa-solid fa-location-dot text-amber-400"></i> <a
+                href="contact.html">5400 Skyline Blvd, Penthouse Level, Metropolis</a></div>
+            <div class="footer-contact-item"><i class="fa-solid fa-phone text-amber-400"></i> <a
+                href="tel:+18005552872">+1 (800) 555-AURA (2872)</a></div>
+            <div class="footer-contact-item"><i class="fa-solid fa-envelope text-amber-400"></i> <a
+                href="mailto:concierge@auraskyrooftop.com">concierge@auraskyrooftop.com</a></div>
+          </div>
+          <!-- Squircle Social Buttons with Hover Glow -->
+          <div class="flex gap-2 pt-2">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="Facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="Twitter / X" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="YouTube Channel" title="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links with Chevrons & Hover Slide -->
+        <div>
+          <h4
+            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-amber-400 pl-2">
+            Navigation</h4>
+          <ul class="space-y-2.5">
+            <li><a href="about.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> About Our Sky
+                Lounge</a></li>
+            <li><a href="menu.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Culinary &
+                Mixology Menu</a></li>
+            <li><a href="events.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Nightlife & DJ
+                Lineups</a></li>
+            <li><a href="gallery.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Panoramic Photo
+                Gallery</a></li>
+            <li><a href="pricing.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> VIP Cabanas &
+                Bottle Service</a></li>
+            <li><a href="contact.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Location &
+                Directions</a></li>
+          </ul>
+        </div>
+
+        <!-- Services & Private Dining -->
+        <div>
+          <h4
+            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-amber-400 pl-2">
+            Experiences</h4>
+          <ul class="space-y-2.5">
+            <li><a href="service-details.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i>
+                Penthouse VIP Cabanas</a></li>
+            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Sunset
+                Romantic Dinners</a></li>
+            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Private
+                Corporate Buyouts</a></li>
+            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Mixology
+                Masterclasses</a></li>
+            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Skyline
+                Wedding Receptions</a></li>
+            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Sommelier Wine
+                Tastings</a></li>
+          </ul>
+        </div>
+
+        <!-- Portals & VIP Dispatch -->
+        <div>
+          <h4
+            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-amber-400 pl-2">
+            Portals & System</h4>
+          <ul class="space-y-2.5">
+            <li><a href="dashboard-guest.html" class="footer-nav-link text-amber-300 font-semibold"><i
+                  class="fa-solid fa-user mr-1 text-xs"></i> Guest Dashboard</a></li>
+            <li><a href="dashboard-admin.html" class="footer-nav-link text-emerald-400 font-semibold"><i
+                  class="fa-solid fa-chart-line mr-1 text-xs"></i> Admin Dashboard</a></li>
+            <li><a href="login.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Login / VIP
+                Portal</a></li>
+            <li><a href="register.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Create
+                Account</a></li>
+            <li><a href="coming-soon.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Coming Soon
+                / Maintenance</a></li>
+            <li><a href="404.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> 404 Error Page</a>
+            </li>
+          </ul>
+          <!-- Newsletter Dispatch -->
+          <div class="mt-4 pt-3 border-t border-gray-800">
+            <span class="text-[11px] font-semibold text-white uppercase tracking-wider block mb-1">VIP Skyline
+              Dispatch</span>
+            <form class="footer-newsletter-box"
+              onsubmit="event.preventDefault(); showToast('VIP Subscription Confirmed', 'You are on the VIP priority guest list.', 'success'); this.reset();">
+              <input type="email" placeholder="vip.guest@gmail.com"
+                pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" required aria-label="Email address">
+              <button type="submit">Join</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright & Legal with Interactive Modals -->
+      <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-gray-500">
+        <div>
+          &copy; 2026 AURA SKY Rooftop & Lounge. All Rights Reserved. Crafted for ThemeForest & TemplateMonster.
+        </div>
+        <div class="flex flex-wrap gap-4 sm:gap-6">
+          <a href="#privacyPolicy" class="hover:text-amber-400 transition cursor-pointer">Privacy Policy</a>
+          <a href="#termsOfService" class="hover:text-amber-400 transition cursor-pointer">Terms of Service</a>
+          <a href="#dressCode" class="hover:text-amber-400 transition cursor-pointer">Dress Code Policy</a>
+          <a href="#sitemap" class="hover:text-amber-400 transition cursor-pointer">Sitemap</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Universal Reservation Modal -->
+  <div id="reservationModal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div
+      class="relative w-full max-w-2xl rounded-2xl glass-dark border border-amber-500/40 p-6 sm:p-8 shadow-2xl text-left">
+      <button data-close-modal class="absolute top-5 right-5 text-gray-400 hover:text-white text-lg"><i
+          class="fa-solid fa-xmark"></i></button>
+      <div class="mb-6">
+        <span class="text-xs uppercase font-bold text-amber-400 tracking-wider">AURA SKY • 54th Floor</span>
+        <h3 class="font-serif text-2xl font-bold text-white mt-1">Reserve Your Skyline Table</h3>
+      </div>
+      <form id="reservationForm" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-medium text-gray-300 mb-1">Guests</label>
+            <select id="reserveGuests"
+              class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-xs text-white">
+              <option>2 Guests</option>
+              <option>4 Guests</option>
+              <option>6 Guests</option>
+              <option>8+ Cabana</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-300 mb-1">Date</label>
+            <input type="date" id="reserveDate" required
+              class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-xs text-white">
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-medium text-gray-300 mb-1">Full Name <span
+                class="text-amber-400 font-bold">*</span></label>
+            <input type="text" id="reserveName" required placeholder="Guest Name"
+              class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-xs text-white">
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-300 mb-1">Phone Number</label>
+            <input type="tel" id="reservePhone" name="phone" required placeholder="10-digit mobile number"
+              pattern="[0-9]{10}" minlength="10" maxlength="10" inputmode="numeric"
+              title="Please enter a valid 10-digit phone number"
+              class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-xs text-white focus:border-amber-400 focus:outline-none">
+          </div>
+        </div>
+        <div class="pt-4 flex justify-end">
+          <button type="submit"
+            class="px-8 py-3 rounded-lg bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold uppercase tracking-wider transition">
+            Confirm Skyline Reservation
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js?v=96"></script>
+</body>
+
+</html>

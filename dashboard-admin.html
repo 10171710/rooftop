@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Staff Operations Control | AURA SKY Rooftop & Lounge</title>
+  <meta name="description"
+    content="AURA SKY Rooftop Operations Management: Live table occupancy, reservation dispatch, cellar inventory, and VIP guest registry.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: { 300: '#F5E6B8', 400: '#E5C468', 500: '#D4AF37', 600: '#B89222' },
+            midnight: '#07090E',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            display: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css?v=96">
+</head>
+
+<body class="bg-[#07090E] text-slate-100 font-sans antialiased">
+
+  <div class="dashboard-wrapper">
+
+    <!-- =======================================================================
+         ADMIN DASHBOARD SIDEBAR (AllergiQ Reference Architecture)
+         ======================================================================= -->
+    <aside class="dashboard-sidebar" id="dashboardSidebar">
+      <!-- Sidebar Header -->
+      <div class="dashboard-sidebar-header" style="background-color: #07090E !important; background: #07090E !important; border-bottom: 1px solid rgba(245, 158, 11, 0.25) !important;">
+        <a class="flex items-center gap-3 group text-decoration-none" href="index.html">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0">
+            <div class="w-full h-full bg-black rounded-[10px] flex items-center justify-center">
+              <i class="fa-solid fa-martini-glass-citrus text-amber-400 text-base group-hover:rotate-12 transition duration-300" style="color: #FBBF24 !important;"></i>
+            </div>
+          </div>
+          <div class="flex flex-col text-left">
+            <span class="font-display text-lg font-bold tracking-widest text-white group-hover:text-amber-400 transition leading-none" style="color: #FFFFFF !important; font-family: 'Cinzel', serif !important;">AURA SKY</span>
+            <span class="text-[9px] uppercase tracking-[0.25em] text-amber-400 font-semibold mt-1" style="color: #FBBF24 !important; letter-spacing: 0.25em !important;">Rooftop &amp; Lounge</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Sidebar Menu Body -->
+      <div class="dashboard-sidebar-body">
+        <div class="sidebar-menu-header">Floor &amp; Operations</div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-menu-item">
+            <a href="dashboard-admin.html" class="sidebar-menu-link active">
+              <i class="fa-solid fa-chart-pie"></i>
+              <span>Live Floor Overview</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a href="#reservationsDispatch" class="sidebar-menu-link">
+              <i class="fa-solid fa-list-check"></i>
+              <span>Reservation Dispatch</span>
+              <span class="badge bg-amber-500 text-black">14 Active</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a href="#cellarInventory" class="sidebar-menu-link">
+              <i class="fa-solid fa-wine-bottle"></i>
+              <span>Cellar Inventory</span>
+              <span class="badge bg-emerald-500 text-white">84 Out</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a href="#staffRoster" class="sidebar-menu-link">
+              <i class="fa-solid fa-users"></i>
+              <span>Staff Stations</span>
+              <span class="badge bg-purple-500 text-white">On Duty</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="sidebar-menu-header mt-4">Analytics &amp; System</div>
+        <ul class="sidebar-menu">
+          <li class="sidebar-menu-item">
+            <a href="dashboard-guest.html" class="sidebar-menu-link">
+              <i class="fa-solid fa-user text-amber-400"></i>
+              <span>View Guest Portal</span>
+              <span class="badge bg-amber-500/20 text-amber-300">VIP</span>
+            </a>
+          </li>
+          <li class="sidebar-menu-item">
+            <a href="menu.html" class="sidebar-menu-link">
+              <i class="fa-solid fa-utensils"></i>
+              <span>Live Menu Pricing</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Sidebar Footer (Admin Profile) -->
+      <div class="dashboard-sidebar-footer">
+        <div class="flex items-center gap-3">
+          <div class="relative shrink-0">
+            <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=150&q=80"
+              alt="Julian Vance" class="w-10 h-10 rounded-full object-cover border border-amber-400 shadow-md">
+            <span
+              class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-black"></span>
+          </div>
+          <div class="overflow-hidden min-w-0">
+            <div class="font-bold text-white text-xs truncate">Julian Vance</div>
+            <span class="text-[10px] text-emerald-400 block truncate font-medium">General Director • MGR-01</span>
+          </div>
+          <a href="login.html?role=admin" class="text-gray-400 hover:text-red-400 ml-auto transition text-sm p-1.5"
+            title="Sign Out">
+            <i class="fa-solid fa-arrow-right-from-bracket rtl-flip"></i>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Mobile Sidebar Backdrop Overlay -->
+    <div class="dashboard-sidebar-backdrop" id="sidebarBackdrop" onclick="toggleMobileSidebar()"></div>
+
+    <!-- =======================================================================
+         ADMIN DASHBOARD MAIN AREA
+         ======================================================================= -->
+    <main class="dashboard-main">
+
+      <!-- Sticky Topbar (AllergiQ Reference Architecture) -->
+      <header class="dashboard-topbar">
+        <div class="flex items-center gap-3">
+          <!-- Mobile Sidebar Toggle -->
+          <button type="button"
+            class="lg:hidden w-10 h-10 rounded-xl bg-slate-900 border border-gray-700 text-amber-400 flex items-center justify-center text-base hover:bg-slate-800 transition"
+            id="sidebarToggleBtn" onclick="toggleMobileSidebar()" aria-label="Toggle Sidebar Navigation">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div>
+            <h1 class="font-serif text-lg sm:text-xl font-bold text-white mb-0 leading-tight">
+              Floor Operations Control
+            </h1>
+            <p class="text-xs text-gray-400 mb-0 hidden sm:block">
+              Grand Metropolis Tower • 54th Floor Skydeck &amp; Terrace • Live Status
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <!-- Add Reservation Action -->
+          <button type="button" onclick="openNewBookingModal()"
+            class="px-3.5 sm:px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold uppercase tracking-wider transition shadow-md shadow-amber-500/20 inline-flex items-center gap-1.5"
+            style="color: #000000 !important;">
+            <i class="fa-solid fa-plus text-xs" style="color: #000000 !important;"></i>
+            <span class="hidden sm:inline" style="color: #000000 !important;">New Booking</span>
+          </button>
+
+          <!-- Notification Dropdown -->
+          <div class="relative">
+            <button type="button" onclick="toggleNotificationDropdown()" class="notification-btn w-9 h-9 rounded-xl flex items-center justify-center text-sm transition relative" aria-label="Notifications" style="background: #111827 !important; background-color: #111827 !important; border: 1px solid rgba(245, 158, 11, 0.3) !important; color: #FCD34D !important;">
+              <i class="fa-solid fa-bell" style="color: #FCD34D !important;"></i>
+              <span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-amber-500 text-black font-bold text-[9px] flex items-center justify-center" style="background-color: #F59E0B !important; color: #000000 !important;">2</span>
+            </button>
+            <div id="notificationDropdown" class="hidden absolute right-0 mt-2 w-72 rounded-xl bg-[#0B0F17] border border-amber-500/30 shadow-2xl p-3 z-50 text-xs" style="background-color: #0B0F17 !important; border: 1px solid rgba(245, 158, 11, 0.35) !important;">
+              <div class="flex justify-between items-center pb-2 border-b border-gray-800 mb-2">
+                <span class="font-bold text-white text-[11px] uppercase tracking-wider" style="color: #FFFFFF !important;">VIP Notifications</span>
+                <span class="text-[10px] text-amber-400 font-semibold cursor-pointer" onclick="this.parentElement.parentElement.classList.add('hidden')" style="color: #F59E0B !important;">Clear</span>
+              </div>
+              <div class="space-y-2">
+                <div class="p-2 rounded-lg bg-[#111827] border border-gray-800" style="background-color: #111827 !important; border: 1px solid rgba(255, 255, 255, 0.08) !important;">
+                  <span class="font-semibold text-white block" style="color: #FFFFFF !important;">Table #104 Confirmed</span>
+                  <span class="text-[10px] text-gray-400" style="color: #94A3B8 !important;">Friday, Nov 6 at 8:30 PM with Pierre D.</span>
+                </div>
+                <div class="p-2 rounded-lg bg-[#111827] border border-gray-800" style="background-color: #111827 !important; border: 1px solid rgba(255, 255, 255, 0.08) !important;">
+                  <span class="font-semibold text-white block" style="color: #FFFFFF !important;">+180 Aura Points Credited</span>
+                  <span class="text-[10px] text-gray-400" style="color: #94A3B8 !important;">Added from vintage sommelier pairing.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Theme Toggle -->
+          <button
+            class="theme-toggle-btn w-9 h-9 rounded-xl border border-gray-700 bg-slate-900 text-amber-400 hover:bg-slate-800 transition flex items-center justify-center text-sm"
+            aria-label="Toggle Theme">
+            <i class="theme-toggle-icon fa-solid fa-moon"></i>
+          </button>
+
+          <!-- RTL Toggle -->
+          <button
+            class="rtl-toggle-btn px-2.5 h-9 rounded-xl border border-gray-700 bg-slate-900 text-amber-400 hover:bg-slate-800 transition flex items-center gap-1.5 text-xs font-semibold"
+            aria-label="Toggle RTL Mode">
+            <i class="fa-solid fa-globe text-xs"></i>
+            <span class="rtl-toggle-label">LTR</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Dashboard Content -->
+      <div class="dashboard-content">
+
+        <!-- Row of 4 KPI Stat Cards (AllergiQ kpi-card pattern) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 mb-8">
+
+          <!-- KPI 1: Covers -->
+          <div class="kpi-card">
+            <div class="flex items-center justify-between mb-3">
+              <div class="kpi-icon primary">
+                <i class="fa-solid fa-chair"></i>
+              </div>
+              <span class="kpi-trend up">
+                <i class="fa-solid fa-arrow-trend-up"></i> 97% Full
+              </span>
+            </div>
+            <div class="kpi-value">214 / 220</div>
+            <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mt-1">Tonight's Skyline Covers
+            </div>
+            <p class="text-[11px] text-gray-400 mt-3 pt-2 border-t border-gray-800 mb-0">
+              Only <span class="text-amber-400 font-bold">6 seats remaining</span> on terrace
+            </p>
+          </div>
+
+          <!-- KPI 2: Revenue -->
+          <div class="kpi-card">
+            <div class="flex items-center justify-between mb-3">
+              <div class="kpi-icon success">
+                <i class="fa-solid fa-dollar-sign"></i>
+              </div>
+              <span class="kpi-trend up">
+                <i class="fa-solid fa-arrow-trend-up"></i> +14.2%
+              </span>
+            </div>
+            <div class="kpi-value">$28,450</div>
+            <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mt-1">Evening Gross Pacing</div>
+            <p class="text-[11px] text-gray-400 mt-3 pt-2 border-t border-gray-800 mb-0">
+              Average check: <span class="text-emerald-400 font-bold">$132.90 per guest</span>
+            </p>
+          </div>
+
+          <!-- KPI 3: VIP Cabanas -->
+          <div class="kpi-card">
+            <div class="flex items-center justify-between mb-3">
+              <div class="kpi-icon accent">
+                <i class="fa-solid fa-gem"></i>
+              </div>
+              <span class="kpi-trend up">
+                <i class="fa-solid fa-check-double"></i> 100% Sold
+              </span>
+            </div>
+            <div class="kpi-value">6 of 6 Cabanas</div>
+            <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mt-1">VIP Heated Sky Cabanas</div>
+            <p class="text-[11px] text-gray-400 mt-3 pt-2 border-t border-gray-800 mb-0">
+              All 6 private suites locked with bottle minimums
+            </p>
+          </div>
+
+          <!-- KPI 4: Cellar Dispatches -->
+          <div class="kpi-card">
+            <div class="flex items-center justify-between mb-3">
+              <div class="kpi-icon warning">
+                <i class="fa-solid fa-wine-bottle"></i>
+              </div>
+              <span class="kpi-trend up">
+                <i class="fa-solid fa-award"></i> 84 Bottles
+              </span>
+            </div>
+            <div class="kpi-value">84 Dispatched</div>
+            <div class="text-xs text-gray-400 font-semibold uppercase tracking-wider mt-1">1,400-Bottle Cellar Orders
+            </div>
+            <p class="text-[11px] text-gray-400 mt-3 pt-2 border-t border-gray-800 mb-0">
+              Lead: <span class="text-amber-400 font-bold">Dom Pérignon Brut 2013</span>
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-10">
+
+          <!-- Left 2 Cols: Live Floor Dispatch Table -->
+          <div class="lg:col-span-2 space-y-6" id="reservationsDispatch">
+
+            <div class="p-6 rounded-2xl glass-dark border border-amber-500/20 space-y-4">
+              <div class="flex justify-between items-center pb-3 border-b border-gray-800">
+                <div class="flex items-center gap-2">
+                  <div
+                    class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-sm">
+                    <i class="fa-solid fa-list-check"></i>
+                  </div>
+                  <div>
+                    <h2 class="font-serif text-lg font-bold text-white mb-0">Live Table Dispatch &amp; Occupancy</h2>
+                    <span class="text-[11px] text-gray-400">Current floor seating status across terrace &amp;
+                      penthouse</span>
+                  </div>
+                </div>
+                <span
+                  class="px-2.5 py-1 text-[10px] rounded-full bg-emerald-500/10 text-emerald-400 font-bold border border-emerald-500/30">
+                  Floor 97% Active
+                </span>
+              </div>
+
+              <!-- Dispatch Table -->
+              <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs text-gray-300">
+                  <thead class="text-[10px] uppercase font-bold text-gray-400 border-b border-gray-800 bg-black/40">
+                    <tr>
+                      <th class="py-2.5 px-3">Table</th>
+                      <th class="py-2.5 px-3">VIP Guest</th>
+                      <th class="py-2.5 px-3">Guests</th>
+                      <th class="py-2.5 px-3">Time</th>
+                      <th class="py-2.5 px-3">Sommelier Order</th>
+                      <th class="py-2.5 px-3">Status</th>
+                      <th class="py-2.5 px-3 text-right">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-800/80">
+                    <tr class="hover:bg-slate-900/50 transition">
+                      <td class="py-3 px-3 font-mono font-bold text-amber-400">#104</td>
+                      <td class="py-3 px-3 font-semibold text-white">Elena Rostova (Obsidian)</td>
+                      <td class="py-3 px-3">4 Guests</td>
+                      <td class="py-3 px-3">8:30 PM</td>
+                      <td class="py-3 px-3 text-gray-400">Dom Pérignon Brut 2013</td>
+                      <td class="py-3 px-3">
+                        <span
+                          class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/15 text-amber-300 border border-amber-500/30">
+                          Arriving Soon
+                        </span>
+                      </td>
+                      <td class="py-3 px-3 text-right">
+                        <button type="button"
+                          onclick="showToast('Butler Alerted', 'Pierre D. dispatched to welcome Elena.', 'success')"
+                          class="px-2 py-1 rounded bg-slate-800 hover:bg-amber-500 hover:text-black font-semibold text-[11px] transition">
+                          Seat Table
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-slate-900/50 transition">
+                      <td class="py-3 px-3 font-mono font-bold text-amber-400">Cabana #02</td>
+                      <td class="py-3 px-3 font-semibold text-white">Marcus Vance (Gold VIP)</td>
+                      <td class="py-3 px-3">8 Guests</td>
+                      <td class="py-3 px-3">10:00 PM</td>
+                      <td class="py-3 px-3 text-gray-400">Clase Azul Reposado Locker</td>
+                      <td class="py-3 px-3">
+                        <span
+                          class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                          Seated Active
+                        </span>
+                      </td>
+                      <td class="py-3 px-3 text-right">
+                        <button type="button"
+                          onclick="showToast('Service Active', 'Cabana host serving 2nd course.', 'info')"
+                          class="px-2 py-1 rounded bg-slate-800 hover:bg-amber-500 hover:text-black font-semibold text-[11px] transition">
+                          View Order
+                        </button>
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-slate-900/50 transition">
+                      <td class="py-3 px-3 font-mono font-bold text-amber-400">#108</td>
+                      <td class="py-3 px-3 font-semibold text-white">Sophie Dubois</td>
+                      <td class="py-3 px-3">2 Guests</td>
+                      <td class="py-3 px-3">9:00 PM</td>
+                      <td class="py-3 px-3 text-gray-400">Chablis Grand Cru 2018</td>
+                      <td class="py-3 px-3">
+                        <span
+                          class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-500/15 text-blue-400 border border-blue-500/30">
+                          Reserved
+                        </span>
+                      </td>
+                      <td class="py-3 px-3 text-right">
+                        <button type="button"
+                          onclick="showToast('Status Updated', 'Table #108 set with candles.', 'info')"
+                          class="px-2 py-1 rounded bg-slate-800 hover:bg-amber-500 hover:text-black font-semibold text-[11px] transition">
+                          Table Ready
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Wine & Cellar Stock Alerts -->
+            <div class="p-6 rounded-2xl glass-dark border border-amber-500/20" id="cellarInventory">
+              <div class="flex justify-between items-center pb-3 border-b border-gray-800 mb-4">
+                <div class="flex items-center gap-2">
+                  <div
+                    class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-sm">
+                    <i class="fa-solid fa-wine-bottle"></i>
+                  </div>
+                  <h3 class="font-serif text-lg font-bold text-white mb-0">1,400-Bottle Cellar Live Stock</h3>
+                </div>
+                <button type="button"
+                  onclick="showToast('Inventory Synced', 'Sommelier reserve inventory is up to date.', 'success')"
+                  class="text-xs text-amber-400 font-semibold hover:underline">
+                  Sync Stock
+                </button>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                <div class="p-3 rounded-xl bg-black/40 border border-gray-800">
+                  <span class="text-gray-400 block text-[10px]">Dom Pérignon Brut 2013</span>
+                  <div class="flex justify-between items-baseline mt-1">
+                    <span class="text-lg font-bold text-white font-mono">18</span>
+                    <span class="text-[10px] text-emerald-400 font-bold">Stable</span>
+                  </div>
+                </div>
+                <div class="p-3 rounded-xl bg-black/40 border border-gray-800">
+                  <span class="text-gray-400 block text-[10px]">Château Margaux 2015</span>
+                  <div class="flex justify-between items-baseline mt-1">
+                    <span class="text-lg font-bold text-amber-400 font-mono">3</span>
+                    <span class="text-[10px] text-red-400 font-bold">Low Reserve</span>
+                  </div>
+                </div>
+                <div class="p-3 rounded-xl bg-black/40 border border-gray-800">
+                  <span class="text-gray-400 block text-[10px]">Krug Clos d'Ambonnay</span>
+                  <div class="flex justify-between items-baseline mt-1">
+                    <span class="text-lg font-bold text-white font-mono">6</span>
+                    <span class="text-[10px] text-emerald-400 font-bold">Locked Vault</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right 1 Col: Staff Stations & Nightlife Lines -->
+          <div class="space-y-6" id="staffRoster">
+
+            <div class="p-6 rounded-2xl glass-dark border border-amber-500/20 space-y-4">
+              <div class="flex justify-between items-center pb-2 border-b border-gray-800">
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-user-shield text-amber-400 text-sm"></i>
+                  <h3 class="font-serif text-base font-bold text-white mb-0">Staff Stations On-Duty</h3>
+                </div>
+                <span class="text-xs text-emerald-400 font-semibold">Live Floor</span>
+              </div>
+
+              <div class="space-y-3">
+                <div class="flex items-center gap-3 p-2.5 rounded-xl bg-black/40 border border-gray-800">
+                  <img
+                    src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=100&q=80"
+                    alt="Julian" class="w-9 h-9 rounded-full object-cover border border-amber-400">
+                  <div class="min-w-0">
+                    <span class="font-bold text-white text-xs block truncate">Julian Vance</span>
+                    <span class="text-[10px] text-amber-400">Executive Chef • Charcoal Pass</span>
+                  </div>
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 ml-auto shrink-0"></span>
+                </div>
+
+                <div class="flex items-center gap-3 p-2.5 rounded-xl bg-black/40 border border-gray-800">
+                  <img
+                    src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=100&q=80"
+                    alt="Sophia" class="w-9 h-9 rounded-full object-cover border border-amber-400">
+                  <div class="min-w-0">
+                    <span class="font-bold text-white text-xs block truncate">Sophia Leclerc</span>
+                    <span class="text-[10px] text-amber-400">Beverage Director • Main Bar</span>
+                  </div>
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 ml-auto shrink-0"></span>
+                </div>
+
+                <div class="flex items-center gap-3 p-2.5 rounded-xl bg-black/40 border border-gray-800">
+                  <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
+                    alt="Antoine" class="w-9 h-9 rounded-full object-cover border border-amber-400">
+                  <div class="min-w-0">
+                    <span class="font-bold text-white text-xs block truncate">Antoine Dubois</span>
+                    <span class="text-[10px] text-amber-400">Head Sommelier • Cellar 54</span>
+                  </div>
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 ml-auto shrink-0"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Action Shortcuts -->
+            <div class="p-6 rounded-2xl glass-dark border border-gray-800 space-y-3">
+              <h4 class="font-serif text-base font-bold text-white mb-2 pb-2 border-b border-gray-800">
+                Staff Quick Actions
+              </h4>
+              <div class="space-y-2">
+                <button type="button"
+                  onclick="showToast('Table Release Broadcast', 'Notification pushed to waitlist guests.', 'info')"
+                  class="w-full py-2.5 px-3 rounded-xl bg-slate-900 border border-gray-700 hover:border-amber-400 text-left text-xs text-white font-medium flex items-center justify-between transition">
+                  <span>Release Unclaimed Tables</span>
+                  <i class="fa-solid fa-arrow-right text-[10px] text-amber-400"></i>
+                </button>
+                <button type="button"
+                  onclick="showToast('Door List Synced', 'Fast-track guest list sent to elevator reception.', 'success')"
+                  class="w-full py-2.5 px-3 rounded-xl bg-slate-900 border border-gray-700 hover:border-amber-400 text-left text-xs text-white font-medium flex items-center justify-between transition">
+                  <span>Sync Elevator Door Scanner</span>
+                  <i class="fa-solid fa-arrow-right text-[10px] text-amber-400"></i>
+                </button>
+                <button type="button"
+                  onclick="showToast('End of Night Report', 'Daily revenue summary prepared for GM.', 'info')"
+                  class="w-full py-2.5 px-3 rounded-xl bg-slate-900 border border-gray-700 hover:border-amber-400 text-left text-xs text-white font-medium flex items-center justify-between transition">
+                  <span>Export Nightly Shift Summary</span>
+                  <i class="fa-solid fa-arrow-right text-[10px] text-amber-400"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Quick Access Shortcuts Grid (Exact AllergiQ .dashboard-shortcut Architecture) -->
+        <div class="mb-4">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-serif text-lg font-bold text-white mb-0">Operations Shortcuts</h3>
+            <span class="text-xs text-gray-400">1-Click Staff Utilities</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <a href="dashboard-guest.html" class="dashboard-shortcut">
+              <div class="kpi-icon primary">
+                <i class="fa-solid fa-user-check"></i>
+              </div>
+              <div class="min-w-0">
+                <div class="shortcut-title">Guest Portal View</div>
+                <p class="shortcut-desc">Inspect portal from VIP guest perspective</p>
+              </div>
+              <i class="fa-solid fa-arrow-right ml-auto self-center text-gray-400 text-xs rtl-flip"></i>
+            </a>
+
+            <a href="menu.html" class="dashboard-shortcut">
+              <div class="kpi-icon accent">
+                <i class="fa-solid fa-book-open"></i>
+              </div>
+              <div class="min-w-0">
+                <div class="shortcut-title">Live Menu &amp; Specials</div>
+                <p class="shortcut-desc">A5 Wagyu &amp; Nikkei grill listings</p>
+              </div>
+              <i class="fa-solid fa-arrow-right ml-auto self-center text-gray-400 text-xs rtl-flip"></i>
+            </a>
+
+            <a href="events.html" class="dashboard-shortcut">
+              <div class="kpi-icon success">
+                <i class="fa-solid fa-calendar-days"></i>
+              </div>
+              <div class="min-w-0">
+                <div class="shortcut-title">Event RSVP Schedule</div>
+                <p class="shortcut-desc">VIP fast-track entries &amp; DJ rosters</p>
+              </div>
+              <i class="fa-solid fa-arrow-right ml-auto self-center text-gray-400 text-xs rtl-flip"></i>
+            </a>
+
+            <a href="pricing.html" class="dashboard-shortcut">
+              <div class="kpi-icon warning">
+                <i class="fa-solid fa-champagne-glasses"></i>
+              </div>
+              <div class="min-w-0">
+                <div class="shortcut-title">Cabana Bottle Tiers</div>
+                <p class="shortcut-desc">Minimum spend rates &amp; buyout terms</p>
+              </div>
+              <i class="fa-solid fa-arrow-right ml-auto self-center text-gray-400 text-xs rtl-flip"></i>
+            </a>
+
+            <a href="contact.html" class="dashboard-shortcut">
+              <div class="kpi-icon primary">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div class="min-w-0">
+                <div class="shortcut-title">Concierge Desk Direct</div>
+                <p class="shortcut-desc">Valet dispatch &amp; elevator lobby security</p>
+              </div>
+              <i class="fa-solid fa-arrow-right ml-auto self-center text-gray-400 text-xs rtl-flip"></i>
+            </a>
+
+            <a href="index.html" class="dashboard-shortcut">
+              <div class="kpi-icon accent">
+                <i class="fa-solid fa-globe"></i>
+              </div>
+              <div class="min-w-0">
+                <div class="shortcut-title">Public Website</div>
+                <p class="shortcut-desc">View live customer rooftop landing page</p>
+              </div>
+              <i class="fa-solid fa-arrow-right ml-auto self-center text-gray-400 text-xs rtl-flip"></i>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- New Booking Modal -->
+  <div id="newBookingModal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="relative w-full max-w-lg rounded-2xl glass-dark border border-amber-500/40 p-6 shadow-2xl text-left">
+      <button type="button" onclick="closeNewBookingModal()"
+        class="absolute top-5 right-5 text-gray-400 hover:text-white text-lg">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="mb-4">
+        <h3 class="font-serif text-xl font-bold text-white">Manual Table Reservation</h3>
+        <p class="text-xs text-gray-400">Direct maître d' table assignment on the 54th floor.</p>
+      </div>
+      <form
+        onsubmit="event.preventDefault(); showToast('Table Assigned', 'VIP Table assigned and butler Pierre alerted.', 'success'); closeNewBookingModal();"
+        class="space-y-3 text-xs">
+        <div>
+          <label class="block text-gray-300 font-semibold mb-1">Guest Full Name</label>
+          <input type="text" required placeholder="e.g. Lord Alexander Wright"
+            class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-white">
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-gray-300 font-semibold mb-1">Table #</label>
+            <input type="text" required placeholder="Table #104"
+              class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-white">
+          </div>
+          <div>
+            <label class="block text-gray-300 font-semibold mb-1">Guests</label>
+            <select class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-white">
+              <option>2 Guests</option>
+              <option>4 Guests</option>
+              <option>6 Guests</option>
+              <option>8+ Cabana</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="block text-gray-300 font-semibold mb-1">Assigned Station Host</label>
+          <select class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-white">
+            <option>Pierre D. (Terrace Front Row)</option>
+            <option>Claire M. (Penthouse Center)</option>
+            <option>Jean-Luc B. (Gold Cabanas)</option>
+          </select>
+        </div>
+        <div class="flex justify-end gap-2 pt-2">
+          <button type="button" onclick="closeNewBookingModal()"
+            class="px-3.5 py-2 rounded-lg border border-gray-700 text-gray-300">Cancel</button>
+          <button type="submit"
+            class="px-5 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 text-black font-bold uppercase tracking-wider"
+            style="color: #000000 !important;">Save Table</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js?v=96"></script>
+  <script>
+    function toggleMobileSidebar() {
+      const sidebar = document.getElementById('dashboardSidebar');
+      const backdrop = document.getElementById('sidebarBackdrop');
+      sidebar.classList.toggle('show');
+      backdrop.classList.toggle('show');
+    }
+
+    function toggleNotificationDropdown() {
+      const dd = document.getElementById('notificationDropdown');
+      dd.classList.toggle('hidden');
+    }
+
+    function openNewBookingModal() {
+      const modal = document.getElementById('newBookingModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeNewBookingModal() {
+      const modal = document.getElementById('newBookingModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Close notification dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      const dd = document.getElementById('notificationDropdown');
+      const btn = e.target.closest('[aria-label=\"Notifications\"]');
+      if (dd && !dd.contains(e.target) && !btn) {
+        dd.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+
+</html>

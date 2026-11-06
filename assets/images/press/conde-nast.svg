@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 56" width="210" height="56" fill="none">
+  <!-- CONDÉ NAST Serif Wordmark -->
+  <text x="105" y="26" font-family="'Cinzel', 'Playfair Display', 'Bodoni MT', serif" font-size="19" font-weight="900" letter-spacing="3" fill="#FFFFFF" class="fill-white" text-anchor="middle">CONDÉ NAST</text>
+  <!-- Compass Star & SKY TRAVELER Subtitle -->
+  <g transform="translate(105, 42)">
+    <path d="M-52 0 L-42 0 M42 0 L52 0" stroke="#F59E0B" stroke-width="1"/>
+    <circle cx="-34" cy="0" r="4.5" stroke="#F59E0B" stroke-width="1" fill="none"/>
+    <polygon points="-34,-3 -32,0 -34,3 -36,0" fill="#F59E0B"/>
+    <text x="4" y="3" font-family="'Montserrat', 'Arial', sans-serif" font-size="8.5" font-weight="800" letter-spacing="4" fill="#F59E0B" text-anchor="middle">SKY TRAVELER</text>
+  </g>
+</svg>
