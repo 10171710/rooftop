@@ -52,7 +52,7 @@
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <!-- Custom Styling -->
-  <link rel="stylesheet" href="assets/css/style.css?v=95">
+  <link rel="stylesheet" href="assets/css/style.css?v=101">
 </head>
 
 <body class="bg-white text-slate-900 dark:bg-[#07090E] dark:text-slate-100 transition-colors duration-300">
@@ -60,24 +60,22 @@
   <!-- Main Navigation Header -->
   <header class="sticky top-0 z-40 bg-black border-b border-amber-500/20 shadow-lg shadow-black/50"
     style="background-color: #000000 !important; background: #000000 !important;">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
+    <div class="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
 
         <!-- Brand Logo -->
-        <a href="index.html" class="flex items-center gap-3 group">
+        <a href="index.html" class="flex items-center gap-1.5 sm:gap-3 group shrink-0 brand-logo">
           <div
-            class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0">
-            <div class="w-full h-full bg-black rounded-[10px] flex items-center justify-center">
+            class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0 brand-logo-icon">
+            <div class="w-full h-full bg-black rounded-[7px] sm:rounded-[10px] flex items-center justify-center">
               <i
-                class="fa-solid fa-martini-glass-citrus text-amber-400 text-base group-hover:rotate-12 transition duration-300"></i>
+                class="fa-solid fa-martini-glass-citrus text-amber-400 text-xs sm:text-base group-hover:rotate-12 transition duration-300"></i>
             </div>
           </div>
-          <div class="flex flex-col">
+          <div class="flex flex-col whitespace-nowrap brand-logo-text">
             <span
-              class="font-display text-xl font-bold tracking-widest text-white group-hover:text-amber-400 transition leading-none">AURA
-              SKY</span>
-            <span class="text-[9px] uppercase tracking-[0.25em] text-amber-400 font-semibold mt-1">Rooftop &
-              Lounge</span>
+              class="brand-logo-name font-display text-sm sm:text-base md:text-xl font-bold tracking-wider sm:tracking-widest text-white group-hover:text-amber-400 transition leading-none whitespace-nowrap">AURA SKY</span>
+            <span class="brand-logo-sub text-[7px] sm:text-[8px] md:text-[9px] uppercase tracking-[0.16em] sm:tracking-[0.25em] text-amber-400 font-semibold mt-0.5 sm:mt-1 whitespace-nowrap">Rooftop &amp; Lounge</span>
           </div>
         </a>
 
@@ -125,33 +123,35 @@
         </nav>
 
         <!-- Right Header Actions: Theme Toggle, RTL Toggle, Login Portal CTA -->
-        <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1 sm:gap-2 md:gap-3 shrink-0 header-actions">
 
           <!-- Theme Toggle Icon -->
           <button
-            class="theme-toggle-btn w-9 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center justify-center text-sm"
+            class="theme-toggle-btn w-8 h-8 sm:w-9 sm:h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center justify-center text-xs sm:text-sm shrink-0"
             aria-label="Toggle Theme">
             <i class="theme-toggle-icon fa-solid fa-moon"></i>
           </button>
 
           <!-- RTL Toggle Icon -->
           <button
-            class="rtl-toggle-btn px-2.5 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center gap-1.5 text-xs font-semibold"
+            class="rtl-toggle-btn px-1.5 sm:px-2.5 h-8 sm:h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center gap-1 text-[11px] sm:text-xs font-semibold shrink-0"
             aria-label="Toggle RTL Mode">
             <i class="fa-solid fa-globe text-xs"></i>
-            <span class="rtl-toggle-label">LTR</span>
+            <span class="rtl-toggle-label hidden min-[380px]:inline">LTR</span>
           </button>
 
           <!-- Login Portal CTA (Primary Header Action) -->
           <a href="login.html"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-amber-400 via-gold-500 to-amber-500 text-black shadow-lg shadow-amber-500/25 hover:scale-[1.02] active:scale-[0.98] transition">
+            class="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3.5 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-amber-400 via-gold-500 to-amber-500 text-black shadow-lg shadow-amber-500/25 hover:scale-[1.02] active:scale-[0.98] transition shrink-0"
+            style="color: #000000 !important;">
             <i class="fa-solid fa-user-lock"></i>
-            <span>Login Portal</span>
+            <span class="hidden sm:inline">Login Portal</span>
+            <span class="sm:hidden">Login</span>
           </a>
 
           <!-- Mobile Hamburger Menu Button -->
           <button id="mobileMenuBtn"
-            class="lg:hidden w-10 h-10 rounded-lg border border-amber-500/30 bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg focus:outline-none">
+            class="lg:hidden w-8 h-8 sm:w-10 sm:h-10 rounded-lg border border-amber-500/30 bg-amber-500/10 text-amber-400 flex items-center justify-center text-base sm:text-lg focus:outline-none shrink-0">
             <i class="fa-solid fa-bars"></i>
           </button>
         </div>
@@ -192,7 +192,7 @@
   </header>
 
   <!-- Hero Section with Skyline Backdrop -->
-  <section class="relative min-h-[92vh] flex items-end justify-center overflow-hidden">
+  <section class="relative min-h-[88vh] sm:min-h-[92vh] flex flex-col justify-end items-center overflow-hidden pt-20 sm:pt-28 pb-8 sm:pb-12">
     <!-- Background Image with Overlay -->
     <div class="absolute inset-0 z-0">
       <img src="https://images.pexels.com/photos/31491021/pexels-photo-31491021.jpeg"
@@ -202,47 +202,52 @@
     </div>
 
     <!-- Hero Content Container -->
-    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-6 pb-10 lg:pt-16">
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-4 sm:pt-6 pb-6 sm:pb-10 lg:pt-16 w-full">
 
-      <!-- Top Badge -->
-      <div
-        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-400/30 bg-amber-500/10 text-amber-300 text-xs font-semibold uppercase tracking-widest mb-6 animate-float">
-        <i class="fa-solid fa-crown text-amber-400 text-xs"></i>
-        <span>54th Floor • 360° Panoramic Skyline</span>
-      </div>
+      <!-- Hero Card Box (Consistent with about, menu, events, contact, gallery, blog) -->
+      <div class="contact-hero-box p-6 sm:p-10 md:p-12 rounded-3xl text-center transition-all duration-300 mb-8 sm:mb-10">
 
-      <!-- Main Headline -->
-      <h1
-        class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white dark:text-white light:text-slate-900 leading-[1.1] mb-6">
-        Elevated Haute Cuisine <br>
-        <span class="gold-gradient-text font-display italic font-bold">Above The Clouds</span>
-      </h1>
+        <!-- Top Badge -->
+        <span
+          class="contact-hero-badge inline-block px-3.5 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-widest mb-4 sm:mb-6 transition">
+          <i class="fa-solid fa-crown mr-1.5 text-amber-400"></i> 54th Floor • 360° Panoramic Skyline
+        </span>
 
-      <!-- Subheadline -->
-      <p
-        class="max-w-2xl mx-auto text-base sm:text-lg font-bold text-gray-200 dark:text-gray-200 light:text-gray-900 leading-relaxed mb-10 drop-shadow-sm">
-        Perched atop the metropolis skyline, AURA SKY blends Michelin-inspired culinary artistry, rare vintage cellar
-        reserves, and sunset mixology with unobstructed city views.&lrm;
-      </p>
+        <!-- Main Headline -->
+        <h1
+          class="contact-hero-title font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 sm:mb-6 leading-[1.12]">
+          Elevated Haute Cuisine <br>
+          <span class="gold-gradient-text font-display italic font-bold">Above The Clouds</span>
+        </h1>
 
-      <!-- Action Buttons -->
-      <div class="flex flex-wrap justify-center items-center gap-4 mb-14">
-        <button data-open-reservation
-          class="px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider bg-gradient-to-r from-amber-400 via-gold-500 to-amber-500 text-black shadow-xl shadow-amber-500/30 hover:shadow-amber-500/50 hover:scale-105 active:scale-95 transition flex items-center gap-2">
-          <i class="fa-solid fa-calendar-check text-base"></i>
-          <span>Reserve A Skyline Table</span>
-        </button>
-        <a href="menu.html"
-          class="px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider border border-amber-400/40 bg-black/40 hover:bg-amber-500/10 text-amber-300 hover:border-amber-400 backdrop-blur-md transition flex items-center gap-2">
-          <i class="fa-solid fa-book-open"></i>
-          <span>Explore Tasting Menu</span>
-        </a>
+        <!-- Subheadline -->
+        <p
+          class="contact-hero-desc text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-8">
+          Perched atop the metropolis skyline, AURA SKY blends Michelin-inspired culinary artistry, rare vintage cellar
+          reserves, and sunset mixology with unobstructed city views.&lrm;
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto">
+          <button data-open-reservation
+            class="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider bg-gradient-to-r from-amber-400 via-gold-500 to-amber-500 text-black shadow-xl shadow-amber-500/30 hover:shadow-amber-500/50 hover:scale-105 active:scale-95 transition flex items-center justify-center gap-2"
+            style="color: #000000 !important;">
+            <i class="fa-solid fa-calendar-check text-base"></i>
+            <span>Reserve A Skyline Table</span>
+          </button>
+          <a href="menu.html"
+            class="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider border border-amber-400/40 bg-black/40 hover:bg-amber-500/10 text-amber-300 hover:border-amber-400 backdrop-blur-md transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-book-open"></i>
+            <span>Explore Tasting Menu</span>
+          </a>
+        </div>
+
       </div>
 
       <!-- Quick Reservation Bar (Hero Floating Widget) -->
       <div
         class="max-w-4xl mx-auto glass-dark dark:glass-dark light:glass-light rounded-2xl p-4 sm:p-5 shadow-2xl border border-amber-500/25">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-center text-left">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 items-center text-left">
 
           <!-- Guests -->
           <div class="p-3 bg-black/40 dark:bg-black/40 light:bg-gray-100 rounded-xl border border-amber-500/15">
@@ -286,7 +291,7 @@
 
           <!-- Submit Button -->
           <button data-open-reservation
-            class="h-full py-3.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-amber-500 hover:bg-amber-400 text-black flex items-center justify-center gap-2 transition shadow-lg shadow-amber-500/20">
+            class="w-full py-3.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider bg-amber-500 hover:bg-amber-400 text-black flex items-center justify-center gap-2 transition shadow-lg shadow-amber-500/20">
             <i class="fa-solid fa-magnifying-glass"></i>
             <span>Check Tables</span>
           </button>
@@ -298,7 +303,7 @@
   </section>
 
   <!-- Key Skyline Experience Highlights (4 Metrics) -->
-  <section class="mt-[10vh] py-12 border-y border-amber-500/15 bg-black/50 dark:bg-black/50 light:bg-white">
+  <section class="mt-0 sm:mt-6 lg:mt-[4vh] py-12 border-y border-amber-500/15 bg-black/50 dark:bg-black/50 light:bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center divide-x-0 lg:divide-x divide-amber-500/15">
 
@@ -1649,7 +1654,7 @@
   </div>
 
   <!-- Main JavaScript File -->
-  <script src="assets/js/main.js?v=95"></script>
+  <script src="assets/js/main.js?v=101"></script>
 </body>
 
 </html>

@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="assets/css/style.css?v=96">
+  <link rel="stylesheet" href="assets/css/style.css?v=101">
 </head>
 <body class="auth-page">
 
@@ -71,8 +71,8 @@
               </div>
             </div>
             <div class="text-left">
-              <span class="font-display text-xl font-bold tracking-widest text-white group-hover:text-amber-400 transition leading-none block" style="color: #FFFFFF !important; font-family: 'Cinzel', serif !important;">AURA SKY</span>
-              <div class="text-[9px] uppercase tracking-[0.25em] text-amber-400 font-semibold mt-1" style="color: #FBBF24 !important; letter-spacing: 0.25em !important;">Rooftop &amp; Lounge</div>
+              <span class="font-display text-xl font-bold tracking-widest text-white group-hover:text-amber-400 transition leading-none block whitespace-nowrap brand-logo-name" style="color: #FFFFFF !important; font-family: 'Cinzel', serif !important;">AURA SKY</span>
+              <div class="text-[9px] uppercase tracking-[0.25em] text-amber-400 font-semibold mt-1 whitespace-nowrap brand-logo-sub" style="color: #FBBF24 !important; letter-spacing: 0.25em !important;">Rooftop &amp; Lounge</div>
             </div>
           </a>
           <h1 id="authHeaderTitle">VIP Guest Login</h1>
@@ -315,7 +315,12 @@
           </div>
           <div>
             <label class="block text-[11px] font-semibold text-gray-300 mb-1">Mobile Phone *</label>
-            <input type="tel" id="custPhone" required placeholder="+1 (555) 345-6789" class="w-full bg-slate-900 border border-gray-700 rounded-xl py-2 px-3 text-xs text-white focus:border-amber-400 focus:outline-none">
+            <input type="tel" id="custPhone" required placeholder="+1 (555) 345-6789"
+              inputmode="tel"
+              pattern="[0-9+\-()\s]{7,25}"
+              oninput="this.value = this.value.replace(/[^0-9+\-()\s]/g, '')"
+              onkeypress="return /[0-9+\-()\s]/.test(event.key)"
+              class="w-full bg-slate-900 border border-gray-700 rounded-xl py-2 px-3 text-xs text-white focus:border-amber-400 focus:outline-none">
           </div>
         </div>
         <div>
@@ -369,7 +374,7 @@
   </div>
 
   <!-- Scripts -->
-  <script src="assets/js/main.js?v=96"></script>
+  <script src="assets/js/main.js?v=101"></script>
   <script>
     let currentRole = 'guest';
 
@@ -676,6 +681,12 @@
       const password = document.getElementById('custPassword').value.trim();
       const phone = document.getElementById('custPhone').value.trim();
       const tier = document.getElementById('custTier').value;
+
+      const digitsOnly = phone.replace(/[^0-9]/g, '');
+      if (digitsOnly.length < 7 || /[a-zA-Z]/.test(phone)) {
+        showToast('Invalid Phone Number', 'Please enter a valid numeric phone number (minimum 7 digits).', 'error');
+        return;
+      }
 
       const keycardId = 'vip-' + Math.floor(1000 + Math.random() * 9000);
       const newCustomer = {

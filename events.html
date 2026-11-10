@@ -32,7 +32,7 @@
     }
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=96">
+  <link rel="stylesheet" href="assets/css/style.css?v=101">
 </head>
 
 <body class="bg-white text-slate-900 dark:bg-[#07090E] dark:text-slate-100 transition-colors duration-300">
@@ -40,22 +40,21 @@
   <!-- Main Navigation Header -->
   <header class="sticky top-0 z-40 bg-black border-b border-amber-500/20 shadow-lg shadow-black/50"
     style="background-color: #000000 !important; background: #000000 !important;">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
-        <a href="index.html" class="flex items-center gap-3 group">
+    <div class="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <!-- Brand Logo -->
+        <a href="index.html" class="flex items-center gap-1.5 sm:gap-3 group shrink-0 brand-logo">
           <div
-            class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0">
-            <div class="w-full h-full bg-black rounded-[10px] flex items-center justify-center">
+            class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0 brand-logo-icon">
+            <div class="w-full h-full bg-black rounded-[7px] sm:rounded-[10px] flex items-center justify-center">
               <i
-                class="fa-solid fa-martini-glass-citrus text-amber-400 text-base group-hover:rotate-12 transition duration-300"></i>
+                class="fa-solid fa-martini-glass-citrus text-amber-400 text-xs sm:text-base group-hover:rotate-12 transition duration-300"></i>
             </div>
           </div>
-          <div class="flex flex-col">
+          <div class="flex flex-col whitespace-nowrap brand-logo-text">
             <span
-              class="font-display text-xl font-bold tracking-widest text-white group-hover:text-amber-400 transition leading-none">AURA
-              SKY</span>
-            <span class="text-[9px] uppercase tracking-[0.25em] text-amber-400 font-semibold mt-1">Rooftop &
-              Lounge</span>
+              class="brand-logo-name font-display text-sm sm:text-base md:text-xl font-bold tracking-wider sm:tracking-widest text-white group-hover:text-amber-400 transition leading-none whitespace-nowrap">AURA SKY</span>
+            <span class="brand-logo-sub text-[7px] sm:text-[8px] md:text-[9px] uppercase tracking-[0.16em] sm:tracking-[0.25em] text-amber-400 font-semibold mt-0.5 sm:mt-1 whitespace-nowrap">Rooftop &amp; Lounge</span>
           </div>
         </a>
 
@@ -91,25 +90,36 @@
           </a>
         </nav>
 
-        <div class="flex items-center gap-3">
+        <!-- Right Header Actions: Theme Toggle, RTL Toggle, Login Portal CTA -->
+        <div class="flex items-center gap-1 sm:gap-2 md:gap-3 shrink-0 header-actions">
+
+          <!-- Theme Toggle Icon -->
           <button
-            class="theme-toggle-btn w-9 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center justify-center text-sm"
+            class="theme-toggle-btn w-8 h-8 sm:w-9 sm:h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center justify-center text-xs sm:text-sm shrink-0"
             aria-label="Toggle Theme">
             <i class="theme-toggle-icon fa-solid fa-moon"></i>
           </button>
+
+          <!-- RTL Toggle Icon -->
           <button
-            class="rtl-toggle-btn px-2.5 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center gap-1.5 text-xs font-semibold"
+            class="rtl-toggle-btn px-1.5 sm:px-2.5 h-8 sm:h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center gap-1 text-[11px] sm:text-xs font-semibold shrink-0"
             aria-label="Toggle RTL Mode">
             <i class="fa-solid fa-globe text-xs"></i>
-            <span class="rtl-toggle-label">LTR</span>
+            <span class="rtl-toggle-label hidden min-[380px]:inline">LTR</span>
           </button>
+
+          <!-- Login Portal CTA (Primary Header Action) -->
           <a href="login.html"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-amber-400 via-gold-500 to-amber-500 text-black shadow-lg shadow-amber-500/25 hover:scale-[1.02] active:scale-[0.98] transition">
+            class="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3.5 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-amber-400 via-gold-500 to-amber-500 text-black shadow-lg shadow-amber-500/25 hover:scale-[1.02] active:scale-[0.98] transition shrink-0"
+            style="color: #000000 !important;">
             <i class="fa-solid fa-user-lock"></i>
-            <span>Login Portal</span>
+            <span class="hidden sm:inline">Login Portal</span>
+            <span class="sm:hidden">Login</span>
           </a>
+
+          <!-- Mobile Hamburger Menu Button -->
           <button id="mobileMenuBtn"
-            class="lg:hidden w-10 h-10 rounded-lg border border-amber-500/30 bg-amber-500/10 text-amber-400 flex items-center justify-center text-lg">
+            class="lg:hidden w-8 h-8 sm:w-10 sm:h-10 rounded-lg border border-amber-500/30 bg-amber-500/10 text-amber-400 flex items-center justify-center text-base sm:text-lg focus:outline-none shrink-0">
             <i class="fa-solid fa-bars"></i>
           </button>
         </div>
@@ -589,16 +599,16 @@
           </div>
         </div>
 
-        <div class="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-4 w-full sm:w-auto">
+        <div class="shrink-0 flex flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto justify-start sm:justify-end">
           <a href="contact.html"
-            class="px-8 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs uppercase tracking-wider transition text-center shadow-xl shadow-amber-500/20"
+            class="whitespace-nowrap px-5 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-bold text-[11px] sm:text-xs uppercase tracking-wider transition text-center shadow-xl shadow-amber-500/20"
             style="color: #000000 !important;">
             Inquire Full Buyout
           </a>
-          <button onclick="showToast('Lookbook Sent', 'Event deck lookbook sent to your inbox.', 'info')"
-            class="px-8 py-4 rounded-xl border border-amber-500/40 text-amber-400 hover:bg-amber-500/10 font-bold text-xs uppercase tracking-wider transition text-center">
-            Download Event Deck
-          </button>
+          <a href="assets/docs/aura-sky-events-deck.pdf" download="AURA_SKY_Private_Events_Deck.pdf" onclick="showToast('Deck Downloaded', 'AURA SKY Private Events Deck downloaded successfully.', 'success')"
+            class="menu-pdf-download-btn whitespace-nowrap px-5 sm:px-8 py-3.5 sm:py-4 rounded-xl border border-amber-500/40 text-amber-400 hover:bg-amber-500 hover:text-black focus:bg-amber-500 focus:text-black active:bg-amber-500 active:text-black font-bold text-[11px] sm:text-xs uppercase tracking-wider transition text-center inline-block">
+            <i class="fa-solid fa-file-arrow-down mr-1.5"></i> Download Event Deck
+          </a>
         </div>
       </div>
 
@@ -885,7 +895,7 @@
     </div>
   </div>
 
-  <script src="assets/js/main.js?v=96"></script>
+  <script src="assets/js/main.js?v=101"></script>
 </body>
 
 </html>

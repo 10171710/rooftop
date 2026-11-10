@@ -30,7 +30,7 @@
     }
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=96">
+  <link rel="stylesheet" href="assets/css/style.css?v=101">
 </head>
 <body class="bg-white text-slate-900 dark:bg-[#07090E] dark:text-slate-100 min-h-screen flex flex-col justify-between relative overflow-x-hidden">
 
@@ -42,24 +42,28 @@
   </div>
 
   <!-- Header -->
-  <header class="sticky top-0 z-40 w-full bg-black border-b border-amber-500/20 shadow-lg shadow-black/50 px-4 sm:px-8 py-4 flex justify-between items-center" style="background-color: #000000 !important; background: #000000 !important;">
-    <a href="index.html" class="flex items-center gap-3 group">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0">
-            <div class="w-full h-full bg-black rounded-[10px] flex items-center justify-center">
-              <i class="fa-solid fa-martini-glass-citrus text-amber-400 text-base group-hover:rotate-12 transition duration-300"></i>
+  <header class="sticky top-0 z-40 w-full bg-black border-b border-amber-500/20 shadow-lg shadow-black/50 px-2.5 sm:px-8 py-3 sm:py-4 flex justify-between items-center" style="background-color: #000000 !important; background: #000000 !important;">
+    <!-- Brand Logo -->
+        <a href="index.html" class="flex items-center gap-1.5 sm:gap-3 group shrink-0 brand-logo">
+          <div
+            class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0 brand-logo-icon">
+            <div class="w-full h-full bg-black rounded-[7px] sm:rounded-[10px] flex items-center justify-center">
+              <i
+                class="fa-solid fa-martini-glass-citrus text-amber-400 text-xs sm:text-base group-hover:rotate-12 transition duration-300"></i>
             </div>
           </div>
-          <div class="flex flex-col">
-            <span class="font-display text-xl font-bold tracking-widest text-white group-hover:text-amber-400 transition leading-none">AURA SKY</span>
-            <span class="text-[9px] uppercase tracking-[0.25em] text-amber-400 font-semibold mt-1">Rooftop & Lounge</span>
+          <div class="flex flex-col whitespace-nowrap brand-logo-text">
+            <span
+              class="brand-logo-name font-display text-sm sm:text-base md:text-xl font-bold tracking-wider sm:tracking-widest text-white group-hover:text-amber-400 transition leading-none whitespace-nowrap">AURA SKY</span>
+            <span class="brand-logo-sub text-[7px] sm:text-[8px] md:text-[9px] uppercase tracking-[0.16em] sm:tracking-[0.25em] text-amber-400 font-semibold mt-0.5 sm:mt-1 whitespace-nowrap">Rooftop &amp; Lounge</span>
           </div>
         </a>
 
-    <div class="flex items-center gap-3">
-      <button class="theme-toggle-btn w-9 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center justify-center text-sm" aria-label="Toggle Theme">
+    <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+      <button class="theme-toggle-btn w-8 h-8 sm:w-9 sm:h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center justify-center text-sm" aria-label="Toggle Theme">
         <i class="theme-toggle-icon fa-solid fa-moon"></i>
       </button>
-      <button class="rtl-toggle-btn px-2.5 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center gap-1.5 text-xs font-semibold" aria-label="Toggle RTL Mode">
+      <button class="rtl-toggle-btn px-1.5 sm:px-2.5 h-8 sm:h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center gap-1.5 text-xs font-semibold" aria-label="Toggle RTL Mode">
         <i class="fa-solid fa-globe text-xs"></i>
         <span class="rtl-toggle-label">LTR</span>
       </button>
@@ -159,7 +163,7 @@
     <div>&copy; 2026 AURA SKY Rooftop & Lounge. All Rights Reserved.</div>
   </footer>
 
-  <script src="assets/js/main.js?v=96"></script>
+  <script src="assets/js/main.js?v=101"></script>
 </body>
 </html>
 
