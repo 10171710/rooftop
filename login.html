@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="assets/css/style.css?v=101">
+  <link rel="stylesheet" href="assets/css/style.css?v=114">
 </head>
 <body class="auth-page">
 
@@ -45,15 +45,123 @@
   <div class="auth-ambient-orb-2" aria-hidden="true"></div>
 
   <!-- Minimal Top Bar Controls (AllergiQ Reference Architecture) -->
-  <header class="auth-topbar flex justify-end items-center">
-    <div class="flex items-center gap-2">
-      <button class="theme-toggle-btn w-9 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center justify-center text-sm" aria-label="Toggle Theme">
-        <i class="theme-toggle-icon fa-solid fa-moon"></i>
-      </button>
-      <button class="rtl-toggle-btn px-2.5 h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center gap-1.5 text-xs font-semibold" aria-label="Toggle RTL Mode">
-        <i class="fa-solid fa-globe text-xs"></i>
-        <span class="rtl-toggle-label">LTR</span>
-      </button>
+    <!-- Main Navigation Header -->
+  <header class="sticky top-0 z-40 bg-black border-b border-amber-500/20 shadow-lg shadow-black/50"
+    style="background-color: #000000 !important; background: #000000 !important;">
+    <div class="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <!-- Brand Logo -->
+        <a href="index.html" class="flex items-center gap-1.5 sm:gap-3 group shrink-0 brand-logo">
+          <div
+            class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0 brand-logo-icon">
+            <div class="w-full h-full bg-black rounded-[7px] sm:rounded-[10px] flex items-center justify-center">
+              <i
+                class="fa-solid fa-martini-glass-citrus text-amber-400 text-xs sm:text-base group-hover:rotate-12 transition duration-300"></i>
+            </div>
+          </div>
+          <div class="flex flex-col whitespace-nowrap brand-logo-text">
+            <span
+              class="brand-logo-name font-display text-sm sm:text-base md:text-xl font-bold tracking-wider sm:tracking-widest text-white group-hover:text-amber-400 transition leading-none whitespace-nowrap">AURA SKY</span>
+            <span class="brand-logo-sub text-[7px] sm:text-[8px] md:text-[9px] uppercase tracking-[0.16em] sm:tracking-[0.25em] text-amber-400 font-semibold mt-0.5 sm:mt-1 whitespace-nowrap">Rooftop &amp; Lounge</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium whitespace-nowrap">
+          <!-- Home (Dropdown) -->
+          <div class="relative dropdown-group">
+            <button
+              class="flex items-center gap-1.5 text-white hover:text-amber-400 py-2 focus:outline-none transition whitespace-nowrap font-medium">
+              <span>Home</span>
+              <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
+            </button>
+            <div class="dropdown-menu absolute top-full left-0 w-60 py-2 mt-2 rounded-xl shadow-2xl z-50">
+              <a href="index.html" class="dropdown-link  block px-4 py-2.5 text-xs">
+                <div class="dropdown-item-title font-bold text-white hover:text-amber-400">Home 1 - Skyline Dining</div>
+                <div class="dropdown-item-sub text-[10px] text-gray-400">Panoramic Rooftop Restaurant</div>
+              </a>
+              <a href="index-2.html" class="dropdown-link  block px-4 py-2.5 text-xs">
+                <div class="dropdown-item-title font-bold text-white hover:text-amber-400">Home 2 - Sunset Lounge</div>
+                <div class="dropdown-item-sub text-[10px] text-gray-400">Craft Cocktails & DJ Club</div>
+              </a>
+            </div>
+          </div>
+
+          <a href="about.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">About</a>
+          <a href="menu.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Menu</a>
+          <a href="events.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Events & Live
+            Music</a>
+          <a href="gallery.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Gallery</a>
+          <a href="blog.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Blog</a>
+          <a href="contact.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Contact</a>
+          <a href="dashboard-guest.html" class="whitespace-nowrap text-white hover:text-amber-400 transition ">
+            Dashboard
+          </a>
+        </nav>
+
+        <!-- Right Header Actions: Theme Toggle, RTL Toggle, Login Portal CTA -->
+        <div class="flex items-center gap-1 sm:gap-2 md:gap-3 shrink-0 header-actions">
+
+          <!-- Theme Toggle Icon -->
+          <button
+            class="theme-toggle-btn w-8 h-8 sm:w-9 sm:h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center justify-center text-xs sm:text-sm shrink-0"
+            aria-label="Toggle Theme">
+            <i class="theme-toggle-icon fa-solid fa-moon"></i>
+          </button>
+
+          <!-- RTL Toggle Icon -->
+          <button
+            class="rtl-toggle-btn px-1.5 sm:px-2.5 h-8 sm:h-9 rounded-lg border border-amber-500/20 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 transition flex items-center gap-1 text-[11px] sm:text-xs font-semibold shrink-0"
+            aria-label="Toggle RTL Mode">
+            <i class="fa-solid fa-globe text-xs"></i>
+            <span class="rtl-toggle-label hidden min-[380px]:inline">LTR</span>
+          </button>
+
+          <!-- Login Portal CTA (Primary Header Action) -->
+          <a href="login.html"
+            class="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3.5 py-1.5 sm:py-2 rounded-lg text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-amber-400 via-gold-500 to-amber-500 text-black shadow-lg shadow-amber-500/25 hover:scale-[1.02] active:scale-[0.98] transition shrink-0"
+            style="color: #000000 !important;">
+            <i class="fa-solid fa-user-lock"></i>
+            <span class="hidden sm:inline">Login Portal</span>
+            <span class="sm:hidden">Login</span>
+          </a>
+
+          <!-- Mobile Hamburger Menu Button -->
+          <button id="mobileMenuBtn"
+            class="lg:hidden w-8 h-8 sm:w-10 sm:h-10 rounded-lg border border-amber-500/30 bg-amber-500/10 text-amber-400 flex items-center justify-center text-base sm:text-lg focus:outline-none shrink-0">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-[#07090E] border-b border-amber-500/20 px-6 py-6">
+      <div class="flex flex-col gap-4 text-sm font-medium">
+        <div class="border-b border-gray-800 pb-2">
+          <button id="mobileHomeDropdownBtn"
+            class="w-full flex justify-between items-center text-gray-300 py-1 font-semibold">
+            <span>Home</span>
+            <i class="fa-solid fa-chevron-down text-xs"></i>
+          </button>
+          <div id="mobileHomeDropdownMenu" class="hidden pl-4 pt-2 flex flex-col gap-2">
+            <a href="index.html" class="text-gray-300 hover:text-amber-400 text-xs py-1">Home 1 - Skyline Dining</a>
+            <a href="index-2.html" class="text-gray-300 hover:text-amber-400 text-xs py-1">Home 2 - Sunset Lounge</a>
+          </div>
+        </div>
+        <a href="about.html" class="text-white hover:text-amber-400 py-1">About</a>
+        <a href="menu.html" class="text-white hover:text-amber-400 py-1">Menu</a>
+        <a href="events.html" class="whitespace-nowrap text-white hover:text-amber-400 py-1">Events & Live Music</a>
+        <a href="gallery.html" class="text-white hover:text-amber-400 py-1">Gallery</a>
+        <a href="blog.html" class="text-white hover:text-amber-400 py-1">Blog</a>
+        <a href="contact.html" class="text-white hover:text-amber-400 py-1">Contact</a>
+        <a href="dashboard-guest.html" class="text-white hover:text-amber-400 py-1 ">
+          Dashboard
+        </a>
+        <a href="login.html" class="text-amber-400 py-2 border-t border-gray-800  font-semibold">
+          <i class="fa-solid fa-user-lock"></i> Guest Login Portal
+        </a>
+      </div>
     </div>
   </header>
 
@@ -292,11 +400,11 @@
         <div class="grid grid-cols-2 gap-2">
           <div>
             <label class="block text-[11px] font-semibold text-gray-300 mb-1">First Name *</label>
-            <input type="text" id="custFirstName" required placeholder="Elena" class="w-full bg-slate-900 border border-gray-700 rounded-xl py-2 px-3 text-xs text-white focus:border-amber-400 focus:outline-none">
+            <input minlength="2" data-full-name title="This name field is mandatory and must contain at least 2 characters" type="text" id="custFirstName" required placeholder="Elena" class="w-full bg-slate-900 border border-gray-700 rounded-xl py-2 px-3 text-xs text-white focus:border-amber-400 focus:outline-none">
           </div>
           <div>
             <label class="block text-[11px] font-semibold text-gray-300 mb-1">Last Name *</label>
-            <input type="text" id="custLastName" required placeholder="Rostova" class="w-full bg-slate-900 border border-gray-700 rounded-xl py-2 px-3 text-xs text-white focus:border-amber-400 focus:outline-none">
+            <input minlength="2" data-full-name title="This name field is mandatory and must contain at least 2 characters" type="text" id="custLastName" required placeholder="Rostova" class="w-full bg-slate-900 border border-gray-700 rounded-xl py-2 px-3 text-xs text-white focus:border-amber-400 focus:outline-none">
           </div>
         </div>
         <div>
@@ -339,7 +447,7 @@
         </div>
         <div>
           <label class="block text-[11px] font-semibold text-gray-300 mb-1">Full Staff Legal Name *</label>
-          <input type="text" id="adminFullName" required placeholder="Julian Vance" class="w-full bg-slate-900 border border-gray-700 rounded-xl py-2 px-3 text-xs text-white focus:border-amber-400 focus:outline-none">
+          <input minlength="2" data-full-name title="This name field is mandatory and must contain at least 2 characters" type="text" id="adminFullName" required placeholder="Julian Vance" class="w-full bg-slate-900 border border-gray-700 rounded-xl py-2 px-3 text-xs text-white focus:border-amber-400 focus:outline-none">
         </div>
         <div>
           <label class="block text-[11px] font-semibold text-gray-300 mb-1">Staff Work Email *</label>
@@ -374,7 +482,7 @@
   </div>
 
   <!-- Scripts -->
-  <script src="assets/js/main.js?v=101"></script>
+  <script src="assets/js/main.js?v=113"></script>
   <script>
     let currentRole = 'guest';
 

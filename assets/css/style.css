@@ -103,25 +103,75 @@ html[dir="rtl"] .fa-caret-left {
 }
 
 /* RTL Margin & Padding Alignment */
-html[dir="rtl"] .mr-1 { margin-right: 0 !important; margin-left: 0.25rem !important; }
-html[dir="rtl"] .mr-1\.5 { margin-right: 0 !important; margin-left: 0.375rem !important; }
-html[dir="rtl"] .mr-2 { margin-right: 0 !important; margin-left: 0.5rem !important; }
-html[dir="rtl"] .mr-2\.5 { margin-right: 0 !important; margin-left: 0.625rem !important; }
-html[dir="rtl"] .mr-3 { margin-right: 0 !important; margin-left: 0.75rem !important; }
-html[dir="rtl"] .mr-4 { margin-right: 0 !important; margin-left: 1rem !important; }
-html[dir="rtl"] .mr-6 { margin-right: 0 !important; margin-left: 1.5rem !important; }
+html[dir="rtl"] .mr-1 {
+  margin-right: 0 !important;
+  margin-left: 0.25rem !important;
+}
 
-html[dir="rtl"] .ml-1 { margin-left: 0 !important; margin-right: 0.25rem !important; }
-html[dir="rtl"] .ml-1\.5 { margin-left: 0 !important; margin-right: 0.375rem !important; }
-html[dir="rtl"] .ml-2 { margin-left: 0 !important; margin-right: 0.5rem !important; }
-html[dir="rtl"] .ml-2\.5 { margin-left: 0 !important; margin-right: 0.625rem !important; }
-html[dir="rtl"] .ml-3 { margin-left: 0 !important; margin-right: 0.75rem !important; }
-html[dir="rtl"] .ml-4 { margin-left: 0 !important; margin-right: 1rem !important; }
+html[dir="rtl"] .mr-1\.5 {
+  margin-right: 0 !important;
+  margin-left: 0.375rem !important;
+}
+
+html[dir="rtl"] .mr-2 {
+  margin-right: 0 !important;
+  margin-left: 0.5rem !important;
+}
+
+html[dir="rtl"] .mr-2\.5 {
+  margin-right: 0 !important;
+  margin-left: 0.625rem !important;
+}
+
+html[dir="rtl"] .mr-3 {
+  margin-right: 0 !important;
+  margin-left: 0.75rem !important;
+}
+
+html[dir="rtl"] .mr-4 {
+  margin-right: 0 !important;
+  margin-left: 1rem !important;
+}
+
+html[dir="rtl"] .mr-6 {
+  margin-right: 0 !important;
+  margin-left: 1.5rem !important;
+}
+
+html[dir="rtl"] .ml-1 {
+  margin-left: 0 !important;
+  margin-right: 0.25rem !important;
+}
+
+html[dir="rtl"] .ml-1\.5 {
+  margin-left: 0 !important;
+  margin-right: 0.375rem !important;
+}
+
+html[dir="rtl"] .ml-2 {
+  margin-left: 0 !important;
+  margin-right: 0.5rem !important;
+}
+
+html[dir="rtl"] .ml-2\.5 {
+  margin-left: 0 !important;
+  margin-right: 0.625rem !important;
+}
+
+html[dir="rtl"] .ml-3 {
+  margin-left: 0 !important;
+  margin-right: 0.75rem !important;
+}
+
+html[dir="rtl"] .ml-4 {
+  margin-left: 0 !important;
+  margin-right: 1rem !important;
+}
 
 /* Floating Badges pinned to corners flip position in RTL */
 html[dir="rtl"] .brand-shoots-badge,
-html[dir="rtl"] [class*="rounded-2xl"] > .absolute.top-3.right-3,
-html[dir="rtl"] [class*="rounded-2xl"] > .absolute.top-4.right-4 {
+html[dir="rtl"] [class*="rounded-2xl"]>.absolute.top-3.right-3,
+html[dir="rtl"] [class*="rounded-2xl"]>.absolute.top-4.right-4 {
   right: auto !important;
   left: 0.75rem !important;
 }
@@ -726,6 +776,11 @@ body.light .gold-gradient-text {
   background: linear-gradient(135deg, #78350F 0%, #B45309 45%, #92400E 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
+}
+
+/* Headline font weight stays identical in dark and light themes.
+   Keeps the light-theme weight so switching themes never reflows headings. */
+.gold-gradient-text {
   font-weight: 700 !important;
 }
 
@@ -1877,7 +1932,8 @@ body.light #reservationModal button[data-next-step],
 body.light #reservationModal button[data-next-step]:hover,
 body.light #reservationModal button[type="submit"],
 body.light #reservationModal button[type="submit"]:hover {
-  color: #000000 !important; /* Bold, solid black text - 100% visible on gold */
+  color: #000000 !important;
+  /* Bold, solid black text - 100% visible on gold */
   fill: #000000 !important;
   font-weight: 700 !important;
 }
@@ -1888,16 +1944,19 @@ body.light #reservationModal button[type="submit"]:hover {
   border: 1px solid #374151 !important;
   background: transparent !important;
 }
+
 #reservationModal button[data-prev-step]:hover {
   color: #FFFFFF !important;
   border-color: #FBBF24 !important;
   background: rgba(255, 255, 255, 0.05) !important;
 }
+
 html.light #reservationModal button[data-prev-step] {
   color: #475569 !important;
   border: 1px solid #CBD5E1 !important;
   background: #F8FAFC !important;
 }
+
 html.light #reservationModal button[data-prev-step]:hover {
   color: #0F172A !important;
   border-color: #94A3B8 !important;
@@ -1936,7 +1995,8 @@ html.light #reservationModal button[data-prev-step]:hover {
 html.dark .step-indicator.text-gray-500,
 .dark .step-indicator.text-gray-500,
 body:not(.light) .step-indicator.text-gray-500 {
-  color: #CBD5E1 !important; /* Bright silver text (contrast ratio > 8:1) */
+  color: #CBD5E1 !important;
+  /* Bright silver text (contrast ratio > 8:1) */
 }
 
 .step-indicator span:first-child,
@@ -1972,7 +2032,8 @@ html.dark .step-indicator.text-amber-400 span:first-child,
 html.light .step-indicator.text-gray-500,
 body.light .step-indicator.text-gray-500,
 html:not(.dark) .step-indicator.text-gray-500 {
-  color: #334155 !important; /* Deep charcoal slate (contrast ratio > 7:1) */
+  color: #334155 !important;
+  /* Deep charcoal slate (contrast ratio > 7:1) */
 }
 
 html.light .step-indicator.text-gray-500 span:first-child,
@@ -1987,7 +2048,8 @@ html.light .step-indicator.text-amber-400,
 html.light .step-indicator.active,
 body.light .step-indicator.text-amber-400,
 html:not(.dark) .step-indicator.text-amber-400 {
-  color: #B45309 !important; /* Rich amber with 7:1 contrast on white */
+  color: #B45309 !important;
+  /* Rich amber with 7:1 contrast on white */
   font-weight: 700 !important;
 }
 
@@ -2002,12 +2064,12 @@ html:not(.dark) .step-indicator.text-amber-400 span:first-child {
 
 /* Connecting Divider Line */
 #reservationModal .w-12.h-\[1px\],
-.step-indicator + .w-12 {
+.step-indicator+.w-12 {
   background-color: #475569 !important;
 }
 
 html.light #reservationModal .w-12.h-\[1px\],
-html.light .step-indicator + .w-12 {
+html.light .step-indicator+.w-12 {
   background-color: #CBD5E1 !important;
 }
 
@@ -2088,63 +2150,63 @@ html.light #reservationModal textarea:focus {
 }
 
 /* Time Slot Pills in Step 1 */
-#reservationModal [name="reserve_time"] + div {
+#reservationModal [name="reserve_time"]+div {
   background-color: #0B0F17 !important;
   border-color: #334155 !important;
   color: #E2E8F0 !important;
 }
 
-#reservationModal [name="reserve_time"]:checked + div {
+#reservationModal [name="reserve_time"]:checked+div {
   border-color: #F59E0B !important;
   background-color: rgba(245, 158, 11, 0.15) !important;
   color: #FBBF24 !important;
 }
 
-html.light #reservationModal [name="reserve_time"] + div {
+html.light #reservationModal [name="reserve_time"]+div {
   background-color: #F8FAFC !important;
   border-color: #CBD5E1 !important;
   color: #1E293B !important;
 }
 
-html.light #reservationModal [name="reserve_time"]:checked + div {
+html.light #reservationModal [name="reserve_time"]:checked+div {
   border-color: #D97706 !important;
   background-color: rgba(217, 119, 6, 0.12) !important;
   color: #B45309 !important;
 }
 
 /* Seating Area Cards in Step 2 */
-#reservationModal [name="seating_area"] + div {
+#reservationModal [name="seating_area"]+div {
   background-color: #0B0F17 !important;
   border-color: #334155 !important;
 }
 
-#reservationModal [name="seating_area"] + div .text-white {
+#reservationModal [name="seating_area"]+div .text-white {
   color: #FFFFFF !important;
 }
 
-#reservationModal [name="seating_area"] + div p {
+#reservationModal [name="seating_area"]+div p {
   color: #94A3B8 !important;
 }
 
-#reservationModal [name="seating_area"]:checked + div {
+#reservationModal [name="seating_area"]:checked+div {
   border-color: #F59E0B !important;
   background-color: rgba(245, 158, 11, 0.15) !important;
 }
 
-html.light #reservationModal [name="seating_area"] + div {
+html.light #reservationModal [name="seating_area"]+div {
   background-color: #F8FAFC !important;
   border-color: #CBD5E1 !important;
 }
 
-html.light #reservationModal [name="seating_area"] + div .text-white {
+html.light #reservationModal [name="seating_area"]+div .text-white {
   color: #0F172A !important;
 }
 
-html.light #reservationModal [name="seating_area"] + div p {
+html.light #reservationModal [name="seating_area"]+div p {
   color: #475569 !important;
 }
 
-html.light #reservationModal [name="seating_area"]:checked + div {
+html.light #reservationModal [name="seating_area"]:checked+div {
   border-color: #D97706 !important;
   background-color: rgba(217, 119, 6, 0.12) !important;
 }
@@ -2155,7 +2217,8 @@ html.light #reservationModal [name="seating_area"]:checked + div {
    and the black footer across all viewports.
    =================================================================== */
 footer {
-  margin-top: 2.75rem !important; /* Refined luxury separation gap in all pages */
+  margin-top: 2.75rem !important;
+  /* Refined luxury separation gap in all pages */
   position: relative;
   z-index: 10;
 }
@@ -2164,20 +2227,21 @@ footer {
 section:has(+ footer),
 section:has(+ * + footer),
 section:has(+ * + * + footer),
-main > section:last-of-type,
+main>section:last-of-type,
 .pre-footer-section {
   padding-bottom: 3.5rem !important;
 }
 
 @media (max-width: 768px) {
   footer {
-    margin-top: 2rem !important; /* 32px separation gap on mobile */
+    margin-top: 2rem !important;
+    /* 32px separation gap on mobile */
   }
 
   section:has(+ footer),
   section:has(+ * + footer),
   section:has(+ * + * + footer),
-  main > section:last-of-type,
+  main>section:last-of-type,
   .pre-footer-section {
     padding-bottom: 2.5rem !important;
   }
@@ -2244,6 +2308,7 @@ html.light .reservation-banner-box a.border-amber-400\/40:hover {
   justify-content: center !important;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
 }
+
 .press-logo-card:hover {
   transform: translateY(-3px);
   border-color: rgba(245, 158, 11, 0.5) !important;
@@ -2266,6 +2331,7 @@ html:not(.dark) .press-logo-card {
   border: 1.5px solid rgba(226, 232, 240, 0.95) !important;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03) !important;
 }
+
 html.light .press-logo-card:hover,
 body.light .press-logo-card:hover,
 html:not(.dark) .press-logo-card:hover {
@@ -2373,6 +2439,29 @@ body[dir="rtl"] .timeline-step-right {
   text-align: right !important;
 }
 
+/* RTL Mode: the global RTL heading/paragraph rule forces `text-align: right`
+   on every h3/p. Re-assert each timeline column's alignment on its children so
+   all text hugs the centre guide line in both directions. */
+html[dir="rtl"] #skyline-milestones .timeline-step-left h3,
+html[dir="rtl"] #skyline-milestones .timeline-step-left p,
+body[dir="rtl"] #skyline-milestones .timeline-step-left h3,
+body[dir="rtl"] #skyline-milestones .timeline-step-left p {
+  text-align: left !important;
+}
+
+html[dir="rtl"] #skyline-milestones .timeline-step-right h3,
+html[dir="rtl"] #skyline-milestones .timeline-step-right p,
+body[dir="rtl"] #skyline-milestones .timeline-step-right h3,
+body[dir="rtl"] #skyline-milestones .timeline-step-right p {
+  text-align: right !important;
+}
+
+/* Prevent long milestone words from spilling outside the narrow columns */
+.timeline-step-col {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
 /* Timeline Center Number Node */
 .timeline-step-node {
   flex: 0 0 2.25rem !important;
@@ -2413,18 +2502,22 @@ body.light .timeline-step-item p {
     max-width: 42% !important;
     min-width: 42% !important;
   }
+
   .timeline-step-left {
     padding-right: 0.75rem !important;
   }
+
   .timeline-step-right {
     padding-left: 0.75rem !important;
   }
+
   [dir="rtl"] .timeline-step-left,
   html[dir="rtl"] .timeline-step-left,
   body[dir="rtl"] .timeline-step-left {
     padding-left: 0.75rem !important;
     padding-right: 0 !important;
   }
+
   [dir="rtl"] .timeline-step-right,
   html[dir="rtl"] .timeline-step-right,
   body[dir="rtl"] .timeline-step-right {
@@ -2444,7 +2537,7 @@ body.light .timeline-step-item p {
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow-x: hidden;
+  overflow-x: clip;
   color: #FFFFFF;
 }
 
@@ -2738,11 +2831,23 @@ html.light .auth-divider::after {
   border-bottom-color: #E2E8F0 !important;
 }
 
-.auth-divider::before { margin-right: 0.75rem; }
-.auth-divider::after { margin-left: 0.75rem; }
+.auth-divider::before {
+  margin-right: 0.75rem;
+}
 
-[dir="rtl"] .auth-divider::before { margin-right: 0; margin-left: 0.75rem; }
-[dir="rtl"] .auth-divider::after { margin-left: 0; margin-right: 0.75rem; }
+.auth-divider::after {
+  margin-left: 0.75rem;
+}
+
+[dir="rtl"] .auth-divider::before {
+  margin-right: 0;
+  margin-left: 0.75rem;
+}
+
+[dir="rtl"] .auth-divider::after {
+  margin-left: 0;
+  margin-right: 0.75rem;
+}
 
 .btn-social-full {
   background: rgba(255, 255, 255, 0.04);
@@ -3046,10 +3151,25 @@ html:not(.dark) .kpi-card {
   flex-shrink: 0;
 }
 
-.kpi-icon.primary { background-color: rgba(245, 158, 11, 0.15); color: #F59E0B; }
-.kpi-icon.success { background-color: rgba(16, 185, 129, 0.15); color: #10B981; }
-.kpi-icon.accent { background-color: rgba(168, 85, 247, 0.15); color: #A855F7; }
-.kpi-icon.warning { background-color: rgba(234, 179, 8, 0.15); color: #EAB308; }
+.kpi-icon.primary {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #F59E0B;
+}
+
+.kpi-icon.success {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #10B981;
+}
+
+.kpi-icon.accent {
+  background-color: rgba(168, 85, 247, 0.15);
+  color: #A855F7;
+}
+
+.kpi-icon.warning {
+  background-color: rgba(234, 179, 8, 0.15);
+  color: #EAB308;
+}
 
 .kpi-value {
   font-size: 1.85rem;
@@ -3073,8 +3193,15 @@ html.light .kpi-value {
   padding: 0.2rem 0.55rem;
 }
 
-.kpi-trend.up { background-color: rgba(16, 185, 129, 0.15); color: #10B981; }
-.kpi-trend.down { background-color: rgba(239, 68, 68, 0.15); color: #EF4444; }
+.kpi-trend.up {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #10B981;
+}
+
+.kpi-trend.down {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #EF4444;
+}
 
 /* Quick Navigation Shortcuts */
 .dashboard-shortcut {
@@ -3151,14 +3278,17 @@ html.light .dashboard-shortcut .shortcut-title {
   .dashboard-sidebar {
     transform: translateX(-100%);
   }
+
   [dir="rtl"] .dashboard-sidebar {
     transform: translateX(100%);
     left: auto;
     right: 0;
   }
+
   .dashboard-sidebar.show {
     transform: translateX(0) !important;
   }
+
   .dashboard-main {
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -3192,7 +3322,8 @@ html:not(.dark) article span.text-amber-400,
 body.light article .text-amber-400,
 body.light article a.text-amber-400,
 body.light article span.text-amber-400 {
-  color: #B45309 !important; /* Rich amber with 7:1 contrast on white in light mode */
+  color: #B45309 !important;
+  /* Rich amber with 7:1 contrast on white in light mode */
 }
 
 
@@ -3293,10 +3424,12 @@ body.light .auth-brand-header {
   background: #07090E !important;
   border-color: rgba(245, 158, 11, 0.25) !important;
 }
+
 html.light .auth-brand-header #authHeaderTitle,
 html:not(.dark) .auth-brand-header #authHeaderTitle {
   color: #FFFFFF !important;
 }
+
 html.light .auth-brand-header #authHeaderSub,
 html:not(.dark) .auth-brand-header #authHeaderSub {
   color: #94A3B8 !important;
@@ -3329,6 +3462,7 @@ body.light .map-directions-btn:hover * {
   color: #000000 !important;
   fill: #000000 !important;
 }
+
 .map-directions-btn:hover,
 html.light .map-directions-btn:hover,
 html:not(.dark) .map-directions-btn:hover {
@@ -3357,6 +3491,7 @@ body.light .dashboard-sidebar-header {
   background-color: #07090E !important;
   border-bottom: 1px solid rgba(245, 158, 11, 0.25) !important;
 }
+
 .dashboard-sidebar-header .font-display,
 .dashboard-sidebar-header a span.font-display,
 html.light .dashboard-sidebar-header .font-display,
@@ -3365,6 +3500,7 @@ html:not(.dark) .dashboard-sidebar-header .font-display {
   font-family: 'Cinzel', serif !important;
   font-weight: 700 !important;
 }
+
 .dashboard-sidebar-header .text-amber-400,
 html.light .dashboard-sidebar-header .text-amber-400,
 html:not(.dark) .dashboard-sidebar-header .text-amber-400 {
@@ -3373,6 +3509,7 @@ html:not(.dark) .dashboard-sidebar-header .text-amber-400 {
   letter-spacing: 0.25em !important;
   text-transform: uppercase !important;
 }
+
 .dashboard-sidebar-header .fa-martini-glass-citrus,
 html.light .dashboard-sidebar-header .fa-martini-glass-citrus {
   color: #FBBF24 !important;
@@ -3507,6 +3644,7 @@ html:not(.dark) div[class*="bg-zinc-"] a.text-amber-400,
 body.light div[class*="bg-zinc-"] a.text-amber-400 {
   color: #B45309 !important;
 }
+
 html.light div[class*="bg-zinc-"] a.text-amber-400:hover,
 html:not(.dark) div[class*="bg-zinc-"] a.text-amber-400:hover,
 body.light div[class*="bg-zinc-"] a.text-amber-400:hover {
@@ -3666,9 +3804,21 @@ body.light aside.dashboard-sidebar .dashboard-sidebar-header span.tracking-[0.25
    Guarantees 100% visible, high-contrast text in both themes
    =================================================================== */
 @keyframes authShake {
-  0%, 100% { transform: translateX(0); }
-  20%, 60% { transform: translateX(-6px); }
-  40%, 80% { transform: translateX(6px); }
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20%,
+  60% {
+    transform: translateX(-6px);
+  }
+
+  40%,
+  80% {
+    transform: translateX(6px);
+  }
 }
 
 .animate-shake {
@@ -3684,50 +3834,63 @@ body.dark .success-banner-box {
   border: 1px solid rgba(16, 185, 129, 0.5) !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 185, 129, 0.15) !important;
 }
+
 .success-banner-icon-box {
   background-color: rgba(16, 185, 129, 0.2) !important;
   border: 1px solid rgba(16, 185, 129, 0.4) !important;
   color: #34D399 !important;
 }
+
 .success-banner-title {
   color: #FFFFFF !important;
 }
+
 .success-banner-pulse {
   background-color: #34D399 !important;
 }
+
 .success-banner-badge {
   background-color: rgba(16, 185, 129, 0.25) !important;
   color: #6EE7B7 !important;
   border: 1px solid rgba(16, 185, 129, 0.4) !important;
 }
+
 .success-banner-desc {
   color: #E2E8F0 !important;
 }
+
 .success-banner-name {
   color: #FBBF24 !important;
 }
+
 .success-banner-tier {
   color: #34D399 !important;
 }
+
 .success-banner-footer {
   border-color: rgba(16, 185, 129, 0.25) !important;
 }
+
 .success-banner-token-label {
   color: #CBD5E1 !important;
 }
+
 .success-banner-shield {
   color: #34D399 !important;
 }
+
 .success-banner-token-code {
   background-color: rgba(0, 0, 0, 0.5) !important;
   color: #6EE7B7 !important;
   border: 1px solid rgba(16, 185, 129, 0.3) !important;
 }
+
 .success-banner-logout-btn {
   background-color: rgba(245, 158, 11, 0.15) !important;
   border: 1px solid rgba(245, 158, 11, 0.4) !important;
   color: #FBBF24 !important;
 }
+
 .success-banner-logout-btn:hover {
   background-color: rgba(245, 158, 11, 0.3) !important;
   color: #FFFFFF !important;
@@ -3742,6 +3905,7 @@ body.light .success-banner-box {
   border: 1.5px solid #16A34A !important;
   box-shadow: 0 10px 25px rgba(22, 163, 74, 0.15), 0 1px 3px rgba(0, 0, 0, 0.05) !important;
 }
+
 html.light .success-banner-icon-box,
 html:not(.dark) .success-banner-icon-box,
 body.light .success-banner-icon-box {
@@ -3749,58 +3913,73 @@ body.light .success-banner-icon-box {
   border: 1.5px solid #22C55E !important;
   color: #15803D !important;
 }
+
 html.light .success-banner-title,
 html:not(.dark) .success-banner-title,
 body.light .success-banner-title {
-  color: #14532D !important; /* Deep dark forest green - 12:1 WCAG AAA contrast */
+  color: #14532D !important;
+  /* Deep dark forest green - 12:1 WCAG AAA contrast */
   font-weight: 800 !important;
 }
+
 html.light .success-banner-pulse,
 html:not(.dark) .success-banner-pulse,
 body.light .success-banner-pulse {
   background-color: #16A34A !important;
 }
+
 html.light .success-banner-badge,
 html:not(.dark) .success-banner-badge,
 body.light .success-banner-badge {
   background-color: #DCFCE7 !important;
-  color: #14532D !important; /* Bold readable dark green */
+  color: #14532D !important;
+  /* Bold readable dark green */
   border: 1.5px solid #16A34A !important;
   font-weight: 800 !important;
 }
+
 html.light .success-banner-desc,
 html:not(.dark) .success-banner-desc,
 body.light .success-banner-desc {
-  color: #1F2937 !important; /* Deep charcoal */
+  color: #1F2937 !important;
+  /* Deep charcoal */
   font-weight: 500 !important;
 }
+
 html.light .success-banner-name,
 html:not(.dark) .success-banner-name,
 body.light .success-banner-name {
-  color: #B45309 !important; /* Deep royal gold */
+  color: #B45309 !important;
+  /* Deep royal gold */
 }
+
 html.light .success-banner-tier,
 html:not(.dark) .success-banner-tier,
 body.light .success-banner-tier {
-  color: #15803D !important; /* Deep emerald */
+  color: #15803D !important;
+  /* Deep emerald */
   font-weight: 700 !important;
 }
+
 html.light .success-banner-footer,
 html:not(.dark) .success-banner-footer,
 body.light .success-banner-footer {
   border-color: #BBF7D0 !important;
 }
+
 html.light .success-banner-token-label,
 html:not(.dark) .success-banner-token-label,
 body.light .success-banner-token-label {
   color: #374151 !important;
   font-weight: 600 !important;
 }
+
 html.light .success-banner-shield,
 html:not(.dark) .success-banner-shield,
 body.light .success-banner-shield {
   color: #16A34A !important;
 }
+
 html.light .success-banner-token-code,
 html:not(.dark) .success-banner-token-code,
 body.light .success-banner-token-code {
@@ -3809,6 +3988,7 @@ body.light .success-banner-token-code {
   border: 1px solid #86EFAC !important;
   font-weight: 800 !important;
 }
+
 html.light .success-banner-logout-btn,
 html:not(.dark) .success-banner-logout-btn,
 body.light .success-banner-logout-btn {
@@ -3816,6 +3996,7 @@ body.light .success-banner-logout-btn {
   border: 1.5px solid #F59E0B !important;
   color: #92400E !important;
 }
+
 html.light .success-banner-logout-btn:hover,
 html:not(.dark) .success-banner-logout-btn:hover,
 body.light .success-banner-logout-btn:hover {
@@ -3828,12 +4009,16 @@ body.light .success-banner-logout-btn:hover {
   background: rgba(136, 19, 55, 0.45) !important;
   border: 1px solid rgba(244, 63, 94, 0.5) !important;
 }
-.error-banner-icon, .error-banner-close {
+
+.error-banner-icon,
+.error-banner-close {
   color: #FB7185 !important;
 }
+
 .error-banner-title {
   color: #FECDD3 !important;
 }
+
 .error-banner-message {
   color: #FFE4E6 !important;
 }
@@ -3845,21 +4030,25 @@ body.light .error-banner-box {
   border: 1.5px solid #EF4444 !important;
   box-shadow: 0 10px 25px rgba(239, 68, 68, 0.12) !important;
 }
+
 html.light .error-banner-icon,
 html:not(.dark) .error-banner-icon,
 body.light .error-banner-icon {
   color: #DC2626 !important;
 }
+
 html.light .error-banner-title,
 html:not(.dark) .error-banner-title,
 body.light .error-banner-title {
   color: #991B1B !important;
 }
+
 html.light .error-banner-message,
 html:not(.dark) .error-banner-message,
 body.light .error-banner-message {
   color: #7F1D1D !important;
 }
+
 html.light .error-banner-close,
 html:not(.dark) .error-banner-close,
 body.light .error-banner-close {
@@ -4963,34 +5152,60 @@ html:not(.dark) .menu-pdf-download-btn:active *,
 [class*="hover:text-black"]:hover *,
 [class*="hover:text-black"]:focus *,
 [class*="hover:text-black"]:active *,
-a[class*="hover:bg-amber"]:hover,
-a[class*="hover:bg-amber"]:focus,
-a[class*="hover:bg-amber"]:active,
-a[class*="hover:bg-amber"]:hover *,
-a[class*="hover:bg-amber"]:focus *,
-a[class*="hover:bg-amber"]:active *,
-button[class*="hover:bg-amber"]:hover,
-button[class*="hover:bg-amber"]:focus,
-button[class*="hover:bg-amber"]:active,
-button[class*="hover:bg-amber"]:hover *,
-button[class*="hover:bg-amber"]:focus *,
-button[class*="hover:bg-amber"]:active *,
-html.light a[class*="hover:bg-amber"]:hover,
-html.light a[class*="hover:bg-amber"]:focus,
-html.light a[class*="hover:bg-amber"]:active,
-html.light a[class*="hover:bg-amber"]:hover *,
-html.light a[class*="hover:bg-amber"]:focus *,
-html.light a[class*="hover:bg-amber"]:active *,
-html:not(.dark) a[class*="hover:bg-amber"]:hover,
-html:not(.dark) a[class*="hover:bg-amber"]:focus,
-html:not(.dark) a[class*="hover:bg-amber"]:active,
-html:not(.dark) a[class*="hover:bg-amber"]:hover *,
-html:not(.dark) a[class*="hover:bg-amber"]:focus *,
-html:not(.dark) a[class*="hover:bg-amber"]:active * {
+/* Solid Amber Hover: ONLY for solid amber backgrounds, NOT translucent /10, /20, /5 */
+a[class*="hover:bg-amber-500"]:not([class*="/"]):hover,
+a[class*="hover:bg-amber-500"]:not([class*="/"]):focus,
+a[class*="hover:bg-amber-500"]:not([class*="/"]):active,
+a[class*="hover:bg-amber-500"]:not([class*="/"]):hover *,
+a[class*="hover:bg-amber-500"]:not([class*="/"]):focus *,
+a[class*="hover:bg-amber-500"]:not([class*="/"]):active *,
+a[class*="hover:bg-amber-400"]:not([class*="/"]):hover,
+a[class*="hover:bg-amber-400"]:not([class*="/"]):focus,
+a[class*="hover:bg-amber-400"]:not([class*="/"]):active,
+a[class*="hover:bg-amber-400"]:not([class*="/"]):hover *,
+a[class*="hover:bg-amber-400"]:not([class*="/"]):focus *,
+a[class*="hover:bg-amber-400"]:not([class*="/"]):active *,
+button[class*="hover:bg-amber-500"]:not([class*="/"]):hover,
+button[class*="hover:bg-amber-500"]:not([class*="/"]):focus,
+button[class*="hover:bg-amber-500"]:not([class*="/"]):active,
+button[class*="hover:bg-amber-500"]:not([class*="/"]):hover *,
+button[class*="hover:bg-amber-500"]:not([class*="/"]):focus *,
+button[class*="hover:bg-amber-500"]:not([class*="/"]):active *,
+button[class*="hover:bg-amber-400"]:not([class*="/"]):hover,
+button[class*="hover:bg-amber-400"]:not([class*="/"]):focus,
+button[class*="hover:bg-amber-400"]:not([class*="/"]):active,
+button[class*="hover:bg-amber-400"]:not([class*="/"]):hover *,
+button[class*="hover:bg-amber-400"]:not([class*="/"]):focus *,
+button[class*="hover:bg-amber-400"]:not([class*="/"]):active * {
   color: #000000 !important;
   -webkit-text-fill-color: #000000 !important;
   fill: #000000 !important;
   text-shadow: none !important;
+}
+
+/* Translucent & Outline Amber Buttons (Explore Tasting Menu & Glass Buttons):
+   Text color stays constant luminous amber/gold on hover in BOTH themes */
+.hero-tasting-menu-btn,
+.hero-tasting-menu-btn:hover,
+.hero-tasting-menu-btn:focus,
+.hero-tasting-menu-btn:active,
+.hero-tasting-menu-btn:hover *,
+.hero-tasting-menu-btn:focus *,
+.hero-tasting-menu-btn:active *,
+.hero-tasting-menu-btn i,
+.hero-tasting-menu-btn span,
+html.light .hero-tasting-menu-btn,
+html.light .hero-tasting-menu-btn:hover,
+html.light .hero-tasting-menu-btn:hover *,
+html:not(.dark) .hero-tasting-menu-btn,
+html:not(.dark) .hero-tasting-menu-btn:hover,
+html:not(.dark) .hero-tasting-menu-btn:hover *,
+body.light .hero-tasting-menu-btn,
+body.light .hero-tasting-menu-btn:hover,
+body.light .hero-tasting-menu-btn:hover * {
+  color: #FCD34D !important;
+  -webkit-text-fill-color: #FCD34D !important;
+  fill: #FCD34D !important;
 }
 
 .menu-pdf-download-btn:hover,
@@ -5058,11 +5273,11 @@ html.dark [data-event-filter]:not(.bg-amber-500):hover,
    =================================================================== */
 
 /* Top-level active navbar pills ONLY (strictly excludes dropdown-menu links) */
-header nav > a.nav-active,
-header nav > a.active,
-header nav .dropdown-group.active > button,
-header nav .dropdown-group > button.nav-active,
-header nav .dropdown-group > button.active {
+header nav>a.nav-active,
+header nav>a.active,
+header nav .dropdown-group.active>button,
+header nav .dropdown-group>button.nav-active,
+header nav .dropdown-group>button.active {
   color: #F59E0B !important;
   background: rgba(245, 158, 11, 0.15) !important;
   border: 1px solid rgba(245, 158, 11, 0.45) !important;
@@ -5078,36 +5293,36 @@ header nav .dropdown-group > button.active {
 }
 
 /* Explicitly enforce text color on active text spans, icons, and children in dark mode */
-header nav > a.nav-active,
-header nav > a.nav-active span,
-header nav > a.nav-active i,
-header nav > a.nav-active *,
-header nav > a.active,
-header nav > a.active span,
-header nav > a.active i,
-header nav > a.active *,
-header nav .dropdown-group.active > button,
-header nav .dropdown-group.active > button span,
-header nav .dropdown-group.active > button i,
-header nav .dropdown-group.active > button *,
-header nav .dropdown-group > button.nav-active,
-header nav .dropdown-group > button.nav-active span,
-header nav .dropdown-group > button.nav-active i,
-header nav .dropdown-group > button.nav-active *,
-header nav .dropdown-group > button.active,
-header nav .dropdown-group > button.active span,
-header nav .dropdown-group > button.active i,
-header nav .dropdown-group > button.active * {
+header nav>a.nav-active,
+header nav>a.nav-active span,
+header nav>a.nav-active i,
+header nav>a.nav-active *,
+header nav>a.active,
+header nav>a.active span,
+header nav>a.active i,
+header nav>a.active *,
+header nav .dropdown-group.active>button,
+header nav .dropdown-group.active>button span,
+header nav .dropdown-group.active>button i,
+header nav .dropdown-group.active>button *,
+header nav .dropdown-group>button.nav-active,
+header nav .dropdown-group>button.nav-active span,
+header nav .dropdown-group>button.nav-active i,
+header nav .dropdown-group>button.nav-active *,
+header nav .dropdown-group>button.active,
+header nav .dropdown-group>button.active span,
+header nav .dropdown-group>button.active i,
+header nav .dropdown-group>button.active * {
   color: #F59E0B !important;
   font-weight: 700 !important;
 }
 
 /* Glowing gold indicator dot for active page */
-header nav > a.nav-active::before,
-header nav > a.active::before,
-header nav .dropdown-group.active > button::before,
-header nav .dropdown-group > button.nav-active::before,
-header nav .dropdown-group > button.active::before {
+header nav>a.nav-active::before,
+header nav>a.active::before,
+header nav .dropdown-group.active>button::before,
+header nav .dropdown-group>button.nav-active::before,
+header nav .dropdown-group>button.active::before {
   content: "" !important;
   display: inline-block !important;
   width: 6px !important;
@@ -5119,76 +5334,76 @@ header nav .dropdown-group > button.active::before {
   flex-shrink: 0 !important;
 }
 
-html[dir="rtl"] header nav > a.nav-active::before,
-html[dir="rtl"] header nav > a.active::before,
-html[dir="rtl"] header nav .dropdown-group.active > button::before,
-html[dir="rtl"] header nav .dropdown-group > button.nav-active::before,
-html[dir="rtl"] header nav .dropdown-group > button.active::before {
+html[dir="rtl"] header nav>a.nav-active::before,
+html[dir="rtl"] header nav>a.active::before,
+html[dir="rtl"] header nav .dropdown-group.active>button::before,
+html[dir="rtl"] header nav .dropdown-group>button.nav-active::before,
+html[dir="rtl"] header nav .dropdown-group>button.active::before {
   margin-right: 0 !important;
   margin-left: 4px !important;
 }
 
 /* Light mode luxury active highlight pill with dark, high-contrast readable text */
-html.light header nav > a.nav-active,
-html.light header nav > a.active,
-html.light header nav .dropdown-group.active > button,
-html.light header nav .dropdown-group > button.nav-active,
-html.light header nav .dropdown-group > button.active,
-body.light header nav > a.nav-active,
-body.light header nav > a.active,
-body.light header nav .dropdown-group.active > button,
-body.light header nav .dropdown-group > button.nav-active,
-body.light header nav .dropdown-group > button.active {
+html.light header nav>a.nav-active,
+html.light header nav>a.active,
+html.light header nav .dropdown-group.active>button,
+html.light header nav .dropdown-group>button.nav-active,
+html.light header nav .dropdown-group>button.active,
+body.light header nav>a.nav-active,
+body.light header nav>a.active,
+body.light header nav .dropdown-group.active>button,
+body.light header nav .dropdown-group>button.nav-active,
+body.light header nav .dropdown-group>button.active {
   color: #78350F !important;
   background: #FEF3C7 !important;
   border: 1px solid #F59E0B !important;
   box-shadow: 0 2px 8px rgba(245, 158, 11, 0.25) !important;
 }
 
-html.light header nav > a.nav-active span,
-html.light header nav > a.nav-active i,
-html.light header nav > a.nav-active *,
-html.light header nav > a.active span,
-html.light header nav > a.active i,
-html.light header nav > a.active *,
-html.light header nav .dropdown-group.active > button span,
-html.light header nav .dropdown-group.active > button i,
-html.light header nav .dropdown-group.active > button *,
-html.light header nav .dropdown-group > button.nav-active span,
-html.light header nav .dropdown-group > button.nav-active i,
-html.light header nav .dropdown-group > button.nav-active *,
-html.light header nav .dropdown-group > button.active span,
-html.light header nav .dropdown-group > button.active i,
-html.light header nav .dropdown-group > button.active *,
-body.light header nav > a.nav-active span,
-body.light header nav > a.nav-active i,
-body.light header nav > a.nav-active *,
-body.light header nav > a.active span,
-body.light header nav > a.active i,
-body.light header nav > a.active *,
-body.light header nav .dropdown-group.active > button span,
-body.light header nav .dropdown-group.active > button i,
-body.light header nav .dropdown-group.active > button *,
-body.light header nav .dropdown-group > button.nav-active span,
-body.light header nav .dropdown-group > button.nav-active i,
-body.light header nav .dropdown-group > button.nav-active *,
-body.light header nav .dropdown-group > button.active span,
-body.light header nav .dropdown-group > button.active i,
-body.light header nav .dropdown-group > button.active * {
+html.light header nav>a.nav-active span,
+html.light header nav>a.nav-active i,
+html.light header nav>a.nav-active *,
+html.light header nav>a.active span,
+html.light header nav>a.active i,
+html.light header nav>a.active *,
+html.light header nav .dropdown-group.active>button span,
+html.light header nav .dropdown-group.active>button i,
+html.light header nav .dropdown-group.active>button *,
+html.light header nav .dropdown-group>button.nav-active span,
+html.light header nav .dropdown-group>button.nav-active i,
+html.light header nav .dropdown-group>button.nav-active *,
+html.light header nav .dropdown-group>button.active span,
+html.light header nav .dropdown-group>button.active i,
+html.light header nav .dropdown-group>button.active *,
+body.light header nav>a.nav-active span,
+body.light header nav>a.nav-active i,
+body.light header nav>a.nav-active *,
+body.light header nav>a.active span,
+body.light header nav>a.active i,
+body.light header nav>a.active *,
+body.light header nav .dropdown-group.active>button span,
+body.light header nav .dropdown-group.active>button i,
+body.light header nav .dropdown-group.active>button *,
+body.light header nav .dropdown-group>button.nav-active span,
+body.light header nav .dropdown-group>button.nav-active i,
+body.light header nav .dropdown-group>button.nav-active *,
+body.light header nav .dropdown-group>button.active span,
+body.light header nav .dropdown-group>button.active i,
+body.light header nav .dropdown-group>button.active * {
   color: #78350F !important;
   font-weight: 700 !important;
 }
 
-html.light header nav > a.nav-active::before,
-html.light header nav > a.active::before,
-html.light header nav .dropdown-group.active > button::before,
-html.light header nav .dropdown-group > button.nav-active::before,
-html.light header nav .dropdown-group > button.active::before,
-body.light header nav > a.nav-active::before,
-body.light header nav > a.active::before,
-body.light header nav .dropdown-group.active > button::before,
-body.light header nav .dropdown-group > button.nav-active::before,
-body.light header nav .dropdown-group > button.active::before {
+html.light header nav>a.nav-active::before,
+html.light header nav>a.active::before,
+html.light header nav .dropdown-group.active>button::before,
+html.light header nav .dropdown-group>button.nav-active::before,
+html.light header nav .dropdown-group>button.active::before,
+body.light header nav>a.nav-active::before,
+body.light header nav>a.active::before,
+body.light header nav .dropdown-group.active>button::before,
+body.light header nav .dropdown-group>button.nav-active::before,
+body.light header nav .dropdown-group>button.active::before {
   background-color: #D97706 !important;
   box-shadow: 0 0 5px #D97706 !important;
 }
@@ -5300,16 +5515,16 @@ html:not(.dark) #mobileMenu a.active {
 /* ===================================================================
    Section 39: Permanent Light-Mode Image Clarity & Anti-Blur Scrim Fix
    =================================================================== */
-html.light .rounded-3xl > div[class*="absolute"][class*="bg-gradient-to-t"],
-html.light .rounded-2xl > div[class*="absolute"][class*="bg-gradient-to-t"],
-html.light .rounded-xl > div[class*="absolute"][class*="bg-gradient-to-t"],
-html.light div[class*="overflow-hidden"] > div[class*="absolute"][class*="bg-gradient-to-t"],
-html.light div:has(> img) > div[class*="absolute"][class*="bg-gradient"],
-html:not(.dark) .rounded-3xl > div[class*="absolute"][class*="bg-gradient-to-t"],
-html:not(.dark) .rounded-2xl > div[class*="absolute"][class*="bg-gradient-to-t"],
-html:not(.dark) .rounded-xl > div[class*="absolute"][class*="bg-gradient-to-t"],
-html:not(.dark) div[class*="overflow-hidden"] > div[class*="absolute"][class*="bg-gradient-to-t"],
-html:not(.dark) div:has(> img) > div[class*="absolute"][class*="bg-gradient"] {
+html.light .rounded-3xl>div[class*="absolute"][class*="bg-gradient-to-t"],
+html.light .rounded-2xl>div[class*="absolute"][class*="bg-gradient-to-t"],
+html.light .rounded-xl>div[class*="absolute"][class*="bg-gradient-to-t"],
+html.light div[class*="overflow-hidden"]>div[class*="absolute"][class*="bg-gradient-to-t"],
+html.light div:has(> img)>div[class*="absolute"][class*="bg-gradient"],
+html:not(.dark) .rounded-3xl>div[class*="absolute"][class*="bg-gradient-to-t"],
+html:not(.dark) .rounded-2xl>div[class*="absolute"][class*="bg-gradient-to-t"],
+html:not(.dark) .rounded-xl>div[class*="absolute"][class*="bg-gradient-to-t"],
+html:not(.dark) div[class*="overflow-hidden"]>div[class*="absolute"][class*="bg-gradient-to-t"],
+html:not(.dark) div:has(> img)>div[class*="absolute"][class*="bg-gradient"] {
   --tw-gradient-from: rgba(0, 0, 0, 0.85) var(--tw-gradient-from-position) !important;
   --tw-gradient-to: rgba(0, 0, 0, 0) var(--tw-gradient-to-position) !important;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
@@ -5329,54 +5544,54 @@ img {
    Guarantees all text positioned inside absolute overlays over photos
    maintains pure crisp white and bright gold typography in both light and dark themes.
    =================================================================== */
-.relative > .absolute h1,
-.relative > .absolute h2,
-.relative > .absolute h3,
-.relative > .absolute h4,
-.relative > .absolute h5,
-.relative > .absolute h6,
-.relative > .absolute .text-white,
-html.light .relative > .absolute h1,
-html.light .relative > .absolute h2,
-html.light .relative > .absolute h3,
-html.light .relative > .absolute h4,
-html.light .relative > .absolute h5,
-html.light .relative > .absolute h6,
-html.light .relative > .absolute .text-white,
-body.light .relative > .absolute h1,
-body.light .relative > .absolute h2,
-body.light .relative > .absolute h3,
-body.light .relative > .absolute h4,
-body.light .relative > .absolute h5,
-body.light .relative > .absolute h6,
-body.light .relative > .absolute .text-white,
-html:not(.dark) .relative > .absolute h1,
-html:not(.dark) .relative > .absolute h2,
-html:not(.dark) .relative > .absolute h3,
-html:not(.dark) .relative > .absolute h4,
-html:not(.dark) .relative > .absolute h5,
-html:not(.dark) .relative > .absolute h6,
-html:not(.dark) .relative > .absolute .text-white {
+.relative>.absolute h1,
+.relative>.absolute h2,
+.relative>.absolute h3,
+.relative>.absolute h4,
+.relative>.absolute h5,
+.relative>.absolute h6,
+.relative>.absolute .text-white,
+html.light .relative>.absolute h1,
+html.light .relative>.absolute h2,
+html.light .relative>.absolute h3,
+html.light .relative>.absolute h4,
+html.light .relative>.absolute h5,
+html.light .relative>.absolute h6,
+html.light .relative>.absolute .text-white,
+body.light .relative>.absolute h1,
+body.light .relative>.absolute h2,
+body.light .relative>.absolute h3,
+body.light .relative>.absolute h4,
+body.light .relative>.absolute h5,
+body.light .relative>.absolute h6,
+body.light .relative>.absolute .text-white,
+html:not(.dark) .relative>.absolute h1,
+html:not(.dark) .relative>.absolute h2,
+html:not(.dark) .relative>.absolute h3,
+html:not(.dark) .relative>.absolute h4,
+html:not(.dark) .relative>.absolute h5,
+html:not(.dark) .relative>.absolute h6,
+html:not(.dark) .relative>.absolute .text-white {
   color: #FFFFFF !important;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
 }
 
-.relative > .absolute p,
-html.light .relative > .absolute p,
-body.light .relative > .absolute p,
-html:not(.dark) .relative > .absolute p,
-.relative > .absolute p.text-gray-300,
-.relative > .absolute p.text-gray-200 {
+.relative>.absolute p,
+html.light .relative>.absolute p,
+body.light .relative>.absolute p,
+html:not(.dark) .relative>.absolute p,
+.relative>.absolute p.text-gray-300,
+.relative>.absolute p.text-gray-200 {
   color: #E2E8F0 !important;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
 }
 
-.relative > .absolute span[class*="text-amber"],
-html.light .relative > .absolute span[class*="text-amber"],
-body.light .relative > .absolute span[class*="text-amber"],
-html:not(.dark) .relative > .absolute span[class*="text-amber"],
-.relative > .absolute span.text-amber-400,
-.relative > .absolute span.text-amber-300 {
+.relative>.absolute span[class*="text-amber"],
+html.light .relative>.absolute span[class*="text-amber"],
+body.light .relative>.absolute span[class*="text-amber"],
+html:not(.dark) .relative>.absolute span[class*="text-amber"],
+.relative>.absolute span.text-amber-400,
+.relative>.absolute span.text-amber-300 {
   color: #FBBF24 !important;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
 }
@@ -5386,13 +5601,13 @@ html:not(.dark) .relative > .absolute span[class*="text-amber"],
    Overlays situated over dark photographs must ALWAYS maintain
    luxury obsidian glass styling with high-contrast radiant gold and white text.
    =================================================================== */
-div[class*="absolute"] > div.glass-dark,
+div[class*="absolute"]>div.glass-dark,
 div[class*="absolute"].glass-dark,
-html.light div[class*="absolute"] > div.glass-dark,
+html.light div[class*="absolute"]>div.glass-dark,
 html.light div[class*="absolute"].glass-dark,
-body.light div[class*="absolute"] > div.glass-dark,
+body.light div[class*="absolute"]>div.glass-dark,
 body.light div[class*="absolute"].glass-dark,
-html:not(.dark) div[class*="absolute"] > div.glass-dark,
+html:not(.dark) div[class*="absolute"]>div.glass-dark,
 html:not(.dark) div[class*="absolute"].glass-dark {
   background: rgba(11, 15, 23, 0.9) !important;
   background-color: rgba(11, 15, 23, 0.9) !important;
@@ -5402,52 +5617,52 @@ html:not(.dark) div[class*="absolute"].glass-dark {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
 }
 
-div[class*="absolute"] > div.glass-dark *,
-html.light div[class*="absolute"] > div.glass-dark *,
-body.light div[class*="absolute"] > div.glass-dark *,
-html:not(.dark) div[class*="absolute"] > div.glass-dark * {
+div[class*="absolute"]>div.glass-dark *,
+html.light div[class*="absolute"]>div.glass-dark *,
+body.light div[class*="absolute"]>div.glass-dark *,
+html:not(.dark) div[class*="absolute"]>div.glass-dark * {
   text-shadow: none !important;
 }
 
-div[class*="absolute"] > div.glass-dark span[class*="text-amber"],
-html.light div[class*="absolute"] > div.glass-dark span[class*="text-amber"],
-body.light div[class*="absolute"] > div.glass-dark span[class*="text-amber"],
-html:not(.dark) div[class*="absolute"] > div.glass-dark span[class*="text-amber"] {
+div[class*="absolute"]>div.glass-dark span[class*="text-amber"],
+html.light div[class*="absolute"]>div.glass-dark span[class*="text-amber"],
+body.light div[class*="absolute"]>div.glass-dark span[class*="text-amber"],
+html:not(.dark) div[class*="absolute"]>div.glass-dark span[class*="text-amber"] {
   color: #FBBF24 !important;
   font-weight: 700 !important;
 }
 
-div[class*="absolute"] > div.glass-dark .text-white,
-div[class*="absolute"] > div.glass-dark h3,
-div[class*="absolute"] > div.glass-dark h4,
-html.light div[class*="absolute"] > div.glass-dark .text-white,
-html.light div[class*="absolute"] > div.glass-dark h3,
-html.light div[class*="absolute"] > div.glass-dark h4,
-body.light div[class*="absolute"] > div.glass-dark .text-white,
-body.light div[class*="absolute"] > div.glass-dark h3,
-body.light div[class*="absolute"] > div.glass-dark h4,
-html:not(.dark) div[class*="absolute"] > div.glass-dark .text-white,
-html:not(.dark) div[class*="absolute"] > div.glass-dark h3,
-html:not(.dark) div[class*="absolute"] > div.glass-dark h4 {
+div[class*="absolute"]>div.glass-dark .text-white,
+div[class*="absolute"]>div.glass-dark h3,
+div[class*="absolute"]>div.glass-dark h4,
+html.light div[class*="absolute"]>div.glass-dark .text-white,
+html.light div[class*="absolute"]>div.glass-dark h3,
+html.light div[class*="absolute"]>div.glass-dark h4,
+body.light div[class*="absolute"]>div.glass-dark .text-white,
+body.light div[class*="absolute"]>div.glass-dark h3,
+body.light div[class*="absolute"]>div.glass-dark h4,
+html:not(.dark) div[class*="absolute"]>div.glass-dark .text-white,
+html:not(.dark) div[class*="absolute"]>div.glass-dark h3,
+html:not(.dark) div[class*="absolute"]>div.glass-dark h4 {
   color: #FFFFFF !important;
   font-weight: 700 !important;
 }
 
-div[class*="absolute"] > div.glass-dark .text-gray-400,
-div[class*="absolute"] > div.glass-dark .text-gray-300,
-html.light div[class*="absolute"] > div.glass-dark .text-gray-400,
-html.light div[class*="absolute"] > div.glass-dark .text-gray-300,
-body.light div[class*="absolute"] > div.glass-dark .text-gray-400,
-body.light div[class*="absolute"] > div.glass-dark .text-gray-300,
-html:not(.dark) div[class*="absolute"] > div.glass-dark .text-gray-400,
-html:not(.dark) div[class*="absolute"] > div.glass-dark .text-gray-300 {
+div[class*="absolute"]>div.glass-dark .text-gray-400,
+div[class*="absolute"]>div.glass-dark .text-gray-300,
+html.light div[class*="absolute"]>div.glass-dark .text-gray-400,
+html.light div[class*="absolute"]>div.glass-dark .text-gray-300,
+body.light div[class*="absolute"]>div.glass-dark .text-gray-400,
+body.light div[class*="absolute"]>div.glass-dark .text-gray-300,
+html:not(.dark) div[class*="absolute"]>div.glass-dark .text-gray-400,
+html:not(.dark) div[class*="absolute"]>div.glass-dark .text-gray-300 {
   color: #94A3B8 !important;
 }
 
-div[class*="absolute"] > div.glass-dark .bg-amber-500,
-html.light div[class*="absolute"] > div.glass-dark .bg-amber-500,
-body.light div[class*="absolute"] > div.glass-dark .bg-amber-500,
-html:not(.dark) div[class*="absolute"] > div.glass-dark .bg-amber-500 {
+div[class*="absolute"]>div.glass-dark .bg-amber-500,
+html.light div[class*="absolute"]>div.glass-dark .bg-amber-500,
+body.light div[class*="absolute"]>div.glass-dark .bg-amber-500,
+html:not(.dark) div[class*="absolute"]>div.glass-dark .bg-amber-500 {
   background-color: #F59E0B !important;
   color: #000000 !important;
   font-weight: 800 !important;
@@ -5458,12 +5673,12 @@ html:not(.dark) div[class*="absolute"] > div.glass-dark .bg-amber-500 {
    Guarantees that event cards, residency cards, and hero overlays always
    display pure white titles and radiant gold timestamps/badges over photo backgrounds.
    =================================================================== */
-.relative > .absolute h3,
-.relative > .absolute h3.text-white,
+.relative>.absolute h3,
+.relative>.absolute h3.text-white,
 .relative .absolute h3,
 .relative .absolute h3.text-white,
-html.light .relative > .absolute h3,
-html.light .relative > .absolute h3.text-white,
+html.light .relative>.absolute h3,
+html.light .relative>.absolute h3.text-white,
 html.light .relative .absolute h3,
 html.light .relative .absolute h3.text-white,
 html.light div.relative div.absolute h3,
@@ -5478,9 +5693,9 @@ body.light :not(header):not(footer) div.relative div.absolute h3.text-white {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.85) !important;
 }
 
-.relative > .absolute span[class*="text-amber"],
+.relative>.absolute span[class*="text-amber"],
 .relative .absolute span[class*="text-amber"],
-html.light .relative > .absolute span[class*="text-amber"],
+html.light .relative>.absolute span[class*="text-amber"],
 html.light .relative .absolute span[class*="text-amber"],
 html:not(.dark) :not(header):not(footer) div.relative div.absolute span[class*="text-amber"],
 body.light :not(header):not(footer) div.relative div.absolute span[class*="text-amber"] {
@@ -5488,13 +5703,82 @@ body.light :not(header):not(footer) div.relative div.absolute span[class*="text-
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
 }
 
+/* Home 2 hero showcase: keep overlay bar text white in light theme */
+#private-sky-cabanas-bar .aura-overlay-white {
+  color: #FFFFFF !important;
+}
+
+/* Skydeck badge: in light theme the global badge rule paints this pill cream,
+   while the overlay rule forces gold text. Restore dark bronze text so the
+   label stays legible on the cream background. */
+html.light #skydeck-showcase .absolute span.text-amber-300,
+html:not(.dark) #skydeck-showcase .absolute span.text-amber-300,
+body.light #skydeck-showcase .absolute span.text-amber-300 {
+  color: #92400E !important;
+  -webkit-text-fill-color: #92400E !important;
+  text-shadow: none !important;
+}
+
+/* ===================================================================
+   GUEST INFORMATION / FAQ HEADING: IDENTICAL IN LTR & RTL
+   The centred heading block, badge icon position and label spacing must
+   not change when the page direction toggles.
+   =================================================================== */
+.faq-heading,
+.faq-heading * {
+  direction: ltr !important;
+  text-align: center !important;
+}
+
+/* Neutralise the global RTL .mr-1 flip so the badge icon keeps its gap
+   on the same side in both directions. */
+.faq-heading .faq-badge .faq-badge-icon,
+html[dir="rtl"] .faq-heading .faq-badge-icon,
+body[dir="rtl"] .faq-heading .faq-badge-icon {
+  margin-left: 0 !important;
+  margin-right: 0.25rem !important;
+}
+
+html.light #private-sky-cabanas-bar,
+html:not(.dark) #private-sky-cabanas-bar,
+body.light #private-sky-cabanas-bar {
+  background-color: transparent !important;
+}
+
 /* ===================================================================
    Section 43: Mobile Viewport Hardening & Contact Heading Letter Fix
    =================================================================== */
-html,
+html {
+  overflow-x: clip;
+  scroll-behavior: smooth;
+}
+
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  overflow-x: clip;
+  position: relative;
+}
+
+/* Offset for Anchor Scrolling below Sticky Header */
+#menu-grid,
+section[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+/* ===================================================================
+   Sticky Navigation Bar Guarantee
+   Ensures the header sticks firmly to the top of the viewport
+   during scrolling across all browsers, viewports, and themes.
+   =================================================================== */
+header,
+header.sticky,
+.sticky,
+.dashboard-topbar {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  width: 100% !important;
 }
 
 /* Contact page hero AURA SKY Y visibility guarantee */
@@ -5505,6 +5789,7 @@ body {
 }
 
 @media (max-width: 640px) {
+
   /* Prevent large typography overflowing narrow 320px-375px phone screens */
   h1 {
     word-break: break-word;
@@ -5525,7 +5810,7 @@ body {
 
   /* Modals take full mobile width with comfortable breathing room */
   .modal-content,
-  div[id*="Modal"] > div {
+  div[id*="Modal"]>div {
     max-width: 95vw !important;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -5551,7 +5836,7 @@ header a[href="index.html"].group {
 }
 
 .brand-logo-text,
-header a[href="index.html"].group > div.flex-col {
+header a[href="index.html"].group>div.flex-col {
   display: flex !important;
   flex-direction: column !important;
   white-space: nowrap !important;
@@ -5578,6 +5863,7 @@ header a[href="index.html"].group div.uppercase {
 
 /* Responsive Scaling: <=480px (covers 360px, 375px, 390px, 412px, 430px) */
 @media (max-width: 480px) {
+
   /* Header Container Padding */
   header .max-w-7xl {
     padding-left: 0.625rem !important;
@@ -5597,8 +5883,8 @@ header a[href="index.html"].group div.uppercase {
   }
 
   .brand-logo-icon,
-  header a[href="index.html"].group > div.rounded-xl,
-  header a[href="index.html"].group > div[class*="rounded-"] {
+  header a[href="index.html"].group>div.rounded-xl,
+  header a[href="index.html"].group>div[class*="rounded-"] {
     width: 2rem !important;
     height: 2rem !important;
     min-width: 2rem !important;
@@ -5628,7 +5914,7 @@ header a[href="index.html"].group div.uppercase {
 
   /* Right Header Controls on <=480px */
   header .header-actions,
-  header div[class*="items-center justify-between"] > div.flex.items-center:last-child {
+  header div[class*="items-center justify-between"]>div.flex.items-center:last-child {
     gap: 0.25rem !important;
   }
 
@@ -5694,3 +5980,338 @@ header a[href="index.html"].group div.uppercase {
 
 
 
+
+
+/* ===================================================================
+   HEADER TOGGLE ICONS: ALWAYS VISIBLE GOLD (INCLUDING HOVER/FOCUS)
+   The global solid-amber hover rule button[class*=hover:bg-amber]:hover *
+   forces #000 on descendants, which turned the theme/RTL icons black.
+   These higher-specificity overrides keep them gold in both themes.
+   =================================================================== */
+header .theme-toggle-btn,
+header .rtl-toggle-btn,
+header .theme-toggle-btn:hover,
+header .rtl-toggle-btn:hover,
+header .theme-toggle-btn:focus,
+header .rtl-toggle-btn:focus,
+header .theme-toggle-btn:active,
+header .rtl-toggle-btn:active,
+html.light header .theme-toggle-btn:hover,
+html.light header .rtl-toggle-btn:hover,
+html:not(.dark) header .theme-toggle-btn:hover,
+html:not(.dark) header .rtl-toggle-btn:hover,
+body.light header .theme-toggle-btn:hover,
+body.light header .rtl-toggle-btn:hover {
+  color: #FBBF24 !important;
+  -webkit-text-fill-color: #FBBF24 !important;
+  fill: #FBBF24 !important;
+}
+
+header .theme-toggle-btn i,
+header .rtl-toggle-btn i,
+header .theme-toggle-btn span,
+header .rtl-toggle-btn span,
+header .theme-toggle-btn:hover i,
+header .rtl-toggle-btn:hover i,
+header .theme-toggle-btn:hover span,
+header .rtl-toggle-btn:hover span,
+header .theme-toggle-btn:focus i,
+header .rtl-toggle-btn:focus i,
+header .theme-toggle-btn:focus span,
+header .rtl-toggle-btn:focus span,
+html.light header .theme-toggle-btn:hover i,
+html.light header .rtl-toggle-btn:hover i,
+html.light header .theme-toggle-btn:hover span,
+html.light header .rtl-toggle-btn:hover span,
+html:not(.dark) header .theme-toggle-btn:hover i,
+html:not(.dark) header .rtl-toggle-btn:hover i,
+html:not(.dark) header .theme-toggle-btn:hover span,
+html:not(.dark) header .rtl-toggle-btn:hover span,
+body.light header .theme-toggle-btn:hover i,
+body.light header .rtl-toggle-btn:hover i,
+body.light header .theme-toggle-btn:hover span,
+body.light header .rtl-toggle-btn:hover span {
+  color: #FBBF24 !important;
+  -webkit-text-fill-color: #FBBF24 !important;
+  fill: #FBBF24 !important;
+}
+
+
+/* ===================================================================
+   CONSTANT NAVBAR: NO MODAL LAYOUT SHIFT
+   Reserve the scrollbar gutter permanently so opening a CTA modal
+   cannot change the header width/alignment when body scroll is locked.
+   =================================================================== */
+html {
+  scrollbar-gutter: stable !important;
+}
+
+
+/* ===================================================================
+   LIGHT THEME: CONSTANT LINK COLOR ON HOVER
+   Dark-theme links are already gold at rest and on hover, so hovering
+   changes nothing there. Light-theme links use darker, high-contrast
+   colors, so the universal gold hover rule is neutralized here:
+   :hover reuses the resting color captured by JS in --aura-link-rest.
+   =================================================================== */
+html.aura-capturing *,
+html.aura-capturing *::before,
+html.aura-capturing *::after {
+  transition: none !important;
+}
+
+html.light a:not(.text-black):not(.bg-amber-500):not(.bg-amber-400):not(.bg-gradient-to-r):not([class*="hover:text-black"]):not([class*="hover:bg-amber"]):hover:not(#aura-no-hover-lock),
+html:not(.dark) a:not(.text-black):not(.bg-amber-500):not(.bg-amber-400):not(.bg-gradient-to-r):not([class*="hover:text-black"]):not([class*="hover:bg-amber"]):hover:not(#aura-no-hover-lock),
+body.light a:not(.text-black):not(.bg-amber-500):not(.bg-amber-400):not(.bg-gradient-to-r):not([class*="hover:text-black"]):not([class*="hover:bg-amber"]):hover:not(#aura-no-hover-lock) {
+  color: var(--aura-link-rest, #B45309) !important;
+}
+
+
+/* ===================================================================
+   CONSTANT NAVBAR WHILE RESERVATION MODAL SCROLLS
+   The sticky header is pinned to the viewport for as long as a modal
+   has locked body scroll. The reservation panel gets its own contained
+   scroll area below the navbar, so scrolling inside it cannot move,
+   resize, or hide the header. No body padding is added, so alignment
+   stays identical before, during, and after modal open.
+   =================================================================== */
+html {
+  --aura-modal-header-offset: 5rem;
+}
+
+body[data-scroll-locked="1"] header,
+body[data-scroll-locked="1"] header.sticky {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+  z-index: 1000 !important;
+}
+
+#reservationModal {
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+  padding-top: calc(var(--aura-modal-header-offset) + 1rem) !important;
+  padding-bottom: 1rem !important;
+}
+
+#reservationModal>div {
+  max-height: calc(100vh - var(--aura-modal-header-offset) - 2rem) !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+}
+
+/* Explore Tasting Menu CTA - Fix visibility in both themes */
+
+/* Light theme */
+html.light .hero-tasting-menu-btn,
+html.light .hero-tasting-menu-btn *,
+html:not(.dark) .hero-tasting-menu-btn,
+html:not(.dark) .hero-tasting-menu-btn *,
+body.light .hero-tasting-menu-btn,
+body.light .hero-tasting-menu-btn * {
+  color: #92400E !important;
+  -webkit-text-fill-color: #92400E !important;
+}
+
+/* Dark theme */
+html.dark .hero-tasting-menu-btn,
+html.dark .hero-tasting-menu-btn *,
+html.dark .hero-tasting-menu-btn:hover,
+html.dark .hero-tasting-menu-btn:hover * {
+  color: #FCD34D !important;
+  -webkit-text-fill-color: #FCD34D !important;
+}
+
+/* Keep colours unchanged on hover, focus and click */
+.hero-tasting-menu-btn:hover,
+.hero-tasting-menu-btn:focus,
+.hero-tasting-menu-btn:active {
+  text-decoration: none !important;
+}
+
+/* EXPLORE TASTING MENU - LOCK TEXT COLOUR ON ALL STATES */
+
+/* Light theme: always dark amber */
+html.light .hero-tasting-menu-btn,
+html.light .hero-tasting-menu-btn:hover,
+html.light .hero-tasting-menu-btn:focus,
+html.light .hero-tasting-menu-btn:active,
+html.light .hero-tasting-menu-btn *,
+html:not(.dark) .hero-tasting-menu-btn,
+html:not(.dark) .hero-tasting-menu-btn:hover,
+html:not(.dark) .hero-tasting-menu-btn:focus,
+html:not(.dark) .hero-tasting-menu-btn:active,
+html:not(.dark) .hero-tasting-menu-btn *,
+body.light .hero-tasting-menu-btn,
+body.light .hero-tasting-menu-btn:hover,
+body.light .hero-tasting-menu-btn * {
+  color: #92400E !important;
+  -webkit-text-fill-color: #92400E !important;
+}
+
+/* Dark theme: always bright gold */
+html.dark .hero-tasting-menu-btn,
+html.dark .hero-tasting-menu-btn:hover,
+html.dark .hero-tasting-menu-btn:focus,
+html.dark .hero-tasting-menu-btn:active,
+html.dark .hero-tasting-menu-btn * {
+  color: #FCD34D !important;
+  -webkit-text-fill-color: #FCD34D !important;
+}
+
+/* Prevent hover colour transitions */
+.hero-tasting-menu-btn,
+.hero-tasting-menu-btn * {
+  transition: background-color 0.2s ease,
+    border-color 0.2s ease !important;
+}
+
+/* EXPLORE TASTING MENU - REMOVE HOVER TEXT COLOR EFFECT */
+
+/* Light theme: constant dark amber */
+html.light body a.hero-tasting-menu-btn,
+html.light body a.hero-tasting-menu-btn:hover,
+html.light body a.hero-tasting-menu-btn:focus,
+html.light body a.hero-tasting-menu-btn:active,
+body.light a.hero-tasting-menu-btn,
+body.light a.hero-tasting-menu-btn:hover,
+html:not(.dark) body a.hero-tasting-menu-btn,
+html:not(.dark) body a.hero-tasting-menu-btn:hover {
+  color: #92400E !important;
+  -webkit-text-fill-color: #92400E !important;
+}
+
+/* Keep icon and text colour constant */
+html.light body a.hero-tasting-menu-btn *,
+html.light body a.hero-tasting-menu-btn:hover *,
+body.light a.hero-tasting-menu-btn *,
+body.light a.hero-tasting-menu-btn:hover *,
+html:not(.dark) body a.hero-tasting-menu-btn *,
+html:not(.dark) body a.hero-tasting-menu-btn:hover * {
+  color: #92400E !important;
+  -webkit-text-fill-color: #92400E !important;
+}
+
+/* Dark theme: constant gold */
+html.dark body a.hero-tasting-menu-btn,
+html.dark body a.hero-tasting-menu-btn:hover,
+html.dark body a.hero-tasting-menu-btn *,
+html.dark body a.hero-tasting-menu-btn:hover * {
+  color: #FCD34D !important;
+  -webkit-text-fill-color: #FCD34D !important;
+}
+
+/* Disable text colour transition completely */
+a.hero-tasting-menu-btn,
+a.hero-tasting-menu-btn * {
+  transition-property: background-color, border-color !important;
+}
+
+/* ===================================================================
+   BOOK SOMMELIER PAIRING - NO HOVER EFFECT (CONSTANT IN BOTH THEMES)
+   Light Theme: Constant dark charcoal slate (#0F172A), transparent background, amber border
+   Dark Theme: Constant luminous gold (#FCD34D), transparent background, amber border
+   No hover color shift, background change, or border change: appearance stays 100% constant.
+   =================================================================== */
+
+/* --- LIGHT THEME: CONSTANT DARK SLATE TEXT & TRANSPARENT BG --- */
+.sommelier-pairing-btn,
+.sommelier-pairing-btn:hover,
+.sommelier-pairing-btn:focus,
+.sommelier-pairing-btn:active,
+.sommelier-pairing-btn *,
+.sommelier-pairing-btn:hover *,
+.sommelier-pairing-btn:focus *,
+.sommelier-pairing-btn:active *,
+html.light .sommelier-pairing-btn,
+html.light .sommelier-pairing-btn:hover,
+html.light .sommelier-pairing-btn:focus,
+html.light .sommelier-pairing-btn:active,
+html.light .sommelier-pairing-btn *,
+html.light .sommelier-pairing-btn:hover *,
+html.light .sommelier-pairing-btn:focus *,
+html.light .sommelier-pairing-btn:active *,
+html:not(.dark) .sommelier-pairing-btn,
+html:not(.dark) .sommelier-pairing-btn:hover,
+html:not(.dark) .sommelier-pairing-btn:focus,
+html:not(.dark) .sommelier-pairing-btn:active,
+html:not(.dark) .sommelier-pairing-btn *,
+html:not(.dark) .sommelier-pairing-btn:hover *,
+html:not(.dark) .sommelier-pairing-btn:focus *,
+html:not(.dark) .sommelier-pairing-btn:active *,
+body.light .sommelier-pairing-btn,
+body.light .sommelier-pairing-btn:hover,
+body.light .sommelier-pairing-btn:focus,
+body.light .sommelier-pairing-btn:active,
+body.light .sommelier-pairing-btn *,
+body.light .sommelier-pairing-btn:hover * {
+  color: #0F172A !important;
+  -webkit-text-fill-color: #0F172A !important;
+  fill: #0F172A !important;
+  background-color: transparent !important;
+  background: transparent !important;
+  border-color: #D97706 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* --- DARK THEME: CONSTANT LUMINOUS GOLD TEXT & TRANSPARENT BG --- */
+html.dark .sommelier-pairing-btn,
+html.dark .sommelier-pairing-btn:hover,
+html.dark .sommelier-pairing-btn:focus,
+html.dark .sommelier-pairing-btn:active,
+html.dark .sommelier-pairing-btn *,
+html.dark .sommelier-pairing-btn:hover *,
+html.dark .sommelier-pairing-btn:focus *,
+html.dark .sommelier-pairing-btn:active *,
+.dark .sommelier-pairing-btn,
+.dark .sommelier-pairing-btn:hover,
+.dark .sommelier-pairing-btn:focus,
+.dark .sommelier-pairing-btn:active,
+.dark .sommelier-pairing-btn *,
+.dark .sommelier-pairing-btn:hover * {
+  color: #FCD34D !important;
+  -webkit-text-fill-color: #FCD34D !important;
+  fill: #FCD34D !important;
+  background-color: transparent !important;
+  background: transparent !important;
+  border-color: rgba(245, 158, 11, 0.4) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Disable all transitions on sommelier-pairing button */
+button.sommelier-pairing-btn,
+button.sommelier-pairing-btn * {
+  transition: none !important;
+}
+
+/* ===================================================================
+   FOOTER RTL ACCENT DASH LINE FIX (ALL PAGES)
+   In RTL mode, aligns the amber vertical dash line to the right of footer
+   column headings (Navigation, Experiences, Portals & System) so it sits
+   properly beside the right-aligned heading text.
+   =================================================================== */
+html[dir="rtl"] footer h4,
+html.rtl footer h4,
+body[dir="rtl"] footer h4,
+body.rtl footer h4,
+[dir="rtl"] footer h4,
+html[dir="rtl"] footer .border-l-2,
+html.rtl footer .border-l-2,
+body[dir="rtl"] footer .border-l-2,
+body.rtl footer .border-l-2,
+[dir="rtl"] footer .border-l-2 {
+  border-left: none !important;
+  border-left-width: 0 !important;
+  border-right: 2px solid #FBBF24 !important;
+  border-right-width: 2px !important;
+  border-right-style: solid !important;
+  border-right-color: #FBBF24 !important;
+  padding-left: 0 !important;
+  padding-right: 0.5rem !important;
+  text-align: right !important;
+}

@@ -32,7 +32,7 @@
     }
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=101">
+  <link rel="stylesheet" href="assets/css/style.css?v=114">
 </head>
 
 <body class="bg-white text-slate-900 dark:bg-[#07090E] dark:text-slate-100 transition-colors duration-300">
@@ -184,7 +184,7 @@
   </section>
 
   <!-- Contact Cards & Form -->
-  <section class="py-20">
+  <section id="contact-content" class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -272,7 +272,7 @@
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label class="block text-xs font-semibold text-gray-300 mb-1">Your Full Name</label>
-                  <input type="text" required placeholder="Elena Rostova"
+                  <input minlength="2" data-full-name title="This name field is mandatory and must contain at least 2 characters" type="text" required placeholder="Elena Rostova"
                     class="w-full bg-slate-900 border border-gray-700 rounded-xl p-3 text-xs text-white focus:border-amber-400 focus:outline-none">
                 </div>
                 <div>
@@ -603,7 +603,7 @@
 
   <!-- Universal Footer -->
   <!-- Main Footer (Pure Black in Both Themes) -->
-  <footer class="bg-black text-gray-400 text-xs border-t border-amber-500/20 pt-16 pb-12 mt-8 sm:mt-12"
+  <footer class="bg-black text-gray-400 text-xs border-t border-amber-500/20 pt-16 pb-12"
     style="background-color: #000000 !important; background: #000000 !important;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -663,7 +663,7 @@
         <!-- Quick Links with Chevrons & Hover Slide -->
         <div>
           <h4
-            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-amber-400 pl-2">
+            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 rtl:border-l-0 rtl:border-r-2 border-amber-400 pl-2 rtl:pl-0 rtl:pr-2">
             Navigation</h4>
           <ul class="space-y-2.5">
             <li><a href="about.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> About Our Sky
@@ -681,31 +681,25 @@
           </ul>
         </div>
 
-        <!-- Services & Private Dining -->
+        <!-- Experiences (Available in Navbar Pages) -->
         <div>
           <h4
-            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-amber-400 pl-2">
+            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 rtl:border-l-0 rtl:border-r-2 border-amber-400 pl-2 rtl:pl-0 rtl:pr-2">
             Experiences</h4>
           <ul class="space-y-2.5">
-            <li><a href="service-details.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i>
-                Penthouse VIP Cabanas</a></li>
-            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Sunset
-                Romantic Dinners</a></li>
-            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Private
-                Corporate Buyouts</a></li>
-            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Mixology
-                Masterclasses</a></li>
-            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Skyline
-                Wedding Receptions</a></li>
-            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Sommelier Wine
-                Tastings</a></li>
+            <li><a href="index.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Skyline Dining (Home 1)</a></li>
+            <li><a href="index-2.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Sunset Lounge (Home 2)</a></li>
+            <li><a href="menu.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Haute Cuisine &amp; Menu</a></li>
+            <li><a href="events.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Events &amp; Live Music</a></li>
+            <li><a href="gallery.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Panoramic Photo Gallery</a></li>
+            <li><a href="blog.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Skyline Journal &amp; Press</a></li>
           </ul>
         </div>
 
         <!-- Portals & VIP Dispatch -->
         <div>
           <h4
-            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-amber-400 pl-2">
+            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 rtl:border-l-0 rtl:border-r-2 border-amber-400 pl-2 rtl:pl-0 rtl:pr-2">
             Portals & System</h4>
           <ul class="space-y-2.5">
             <li><a href="dashboard-guest.html" class="footer-nav-link text-amber-300 font-semibold"><i
@@ -785,7 +779,7 @@
           <div>
             <label class="block text-xs font-medium text-gray-300 mb-1">Full Name <span
                 class="text-amber-400 font-bold">*</span></label>
-            <input type="text" id="reserveName" required placeholder="Guest Name"
+            <input minlength="2" data-full-name title="This name field is mandatory and must contain at least 2 characters" type="text" id="reserveName" required placeholder="Guest Name"
               class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-xs text-white">
           </div>
           <div>
@@ -806,7 +800,7 @@
     </div>
   </div>
 
-  <script src="assets/js/main.js?v=101"></script>
+  <script src="assets/js/main.js?v=113"></script>
 </body>
 
 </html>

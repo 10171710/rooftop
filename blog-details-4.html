@@ -30,12 +30,13 @@
     }
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=101">
+  <link rel="stylesheet" href="assets/css/style.css?v=114">
 </head>
 <body class="bg-white text-slate-900 dark:bg-[#07090E] dark:text-slate-100 transition-colors duration-300">
 
   <!-- Main Navigation Header -->
-  <header class="sticky top-0 z-40 bg-black border-b border-amber-500/20 shadow-lg shadow-black/50" style="background-color: #000000 !important; background: #000000 !important;">
+  <header class="sticky top-0 z-40 bg-black border-b border-amber-500/20 shadow-lg shadow-black/50"
+    style="background-color: #000000 !important; background: #000000 !important;">
     <div class="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 sm:h-20">
         <!-- Brand Logo -->
@@ -54,27 +55,39 @@
           </div>
         </a>
 
-        <!-- Desktop Navigation -->
-        <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-gray-300">
-          <div class="relative group">
-            <button class="hover:text-amber-400 transition flex items-center gap-1.5 py-2">
-              Home <i class="fa-solid fa-chevron-down text-[10px] transition group-hover:rotate-180"></i>
+        <!-- Desktop Navigation Menu -->
+        <nav class="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium whitespace-nowrap">
+          <!-- Home (Dropdown) -->
+          <div class="relative dropdown-group">
+            <button
+              class="flex items-center gap-1.5 text-white hover:text-amber-400 py-2 focus:outline-none transition whitespace-nowrap font-medium">
+              <span>Home</span>
+              <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
             </button>
-            <div class="dropdown-menu absolute top-full left-0 w-44 bg-black/95 border border-amber-500/20 rounded-xl py-2 hidden group-hover:block backdrop-blur-md shadow-xl">
-              <a href="index.html" class="block px-4 py-2 hover:bg-amber-500/10 hover:text-amber-400 text-[11px] transition">Classic Rooftop</a>
-              <a href="index-2.html" class="block px-4 py-2 hover:bg-amber-500/10 hover:text-amber-400 text-[11px] transition">Twilight Lounge</a>
+            <div class="dropdown-menu absolute top-full left-0 w-60 py-2 mt-2 rounded-xl shadow-2xl z-50">
+              <a href="index.html" class="dropdown-link  block px-4 py-2.5 text-xs">
+                <div class="dropdown-item-title font-bold text-white hover:text-amber-400">Home 1 - Skyline Dining</div>
+                <div class="dropdown-item-sub text-[10px] text-gray-400">Panoramic Rooftop Restaurant</div>
+              </a>
+              <a href="index-2.html" class="dropdown-link  block px-4 py-2.5 text-xs">
+                <div class="dropdown-item-title font-bold text-white hover:text-amber-400">Home 2 - Sunset Lounge</div>
+                <div class="dropdown-item-sub text-[10px] text-gray-400">Craft Cocktails & DJ Club</div>
+              </a>
             </div>
           </div>
-          <a href="about.html" class="hover:text-amber-400 transition">About</a>
-          <a href="menu.html" class="hover:text-amber-400 transition">Menu</a>
-          <a href="events.html" class="hover:text-amber-400 transition">Events &amp; Live Music</a>
-          <a href="gallery.html" class="hover:text-amber-400 transition">Gallery</a>
-          <a href="blog.html" class="text-amber-400 transition">Blog</a>
-          <a href="contact.html" class="hover:text-amber-400 transition">Contact</a>
-          <a href="dashboard-admin.html" class="hover:text-amber-400 transition">Dashboard</a>
+
+          <a href="about.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">About</a>
+          <a href="menu.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Menu</a>
+          <a href="events.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Events & Live
+            Music</a>
+          <a href="gallery.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Gallery</a>
+          <a href="blog.html" class="whitespace-nowrap text-amber-400 font-semibold nav-active active">Blog</a>
+          <a href="contact.html" class="whitespace-nowrap text-white hover:text-amber-400 transition">Contact</a>
+          <a href="dashboard-guest.html" class="whitespace-nowrap text-white hover:text-amber-400 transition ">
+            Dashboard
+          </a>
         </nav>
 
-        <!-- Right Side Utility Controls -->
         <!-- Right Header Actions: Theme Toggle, RTL Toggle, Login Portal CTA -->
         <div class="flex items-center gap-1 sm:gap-2 md:gap-3 shrink-0 header-actions">
 
@@ -111,18 +124,33 @@
       </div>
     </div>
 
-    <!-- Mobile Nav Drawer -->
-    <div id="mobileMenu" class="hidden lg:hidden bg-black/95 border-b border-amber-500/20 px-6 py-6 text-sm uppercase tracking-wider space-y-3">
-      <a href="index.html" class="block py-2 text-gray-300 hover:text-amber-400">Home (Classic)</a>
-      <a href="index-2.html" class="block py-2 text-gray-300 hover:text-amber-400">Home (Twilight)</a>
-      <a href="about.html" class="block py-2 text-gray-300 hover:text-amber-400">About</a>
-      <a href="menu.html" class="block py-2 text-gray-300 hover:text-amber-400">Menu</a>
-      <a href="events.html" class="block py-2 text-gray-300 hover:text-amber-400">Events &amp; Live Music</a>
-      <a href="gallery.html" class="block py-2 text-gray-300 hover:text-amber-400">Gallery</a>
-      <a href="blog.html" class="block py-2 text-amber-400 font-bold">Blog Gazette</a>
-      <a href="contact.html" class="block py-2 text-gray-300 hover:text-amber-400">Contact</a>
-      <a href="dashboard-admin.html" class="block py-2 text-gray-300 hover:text-amber-400">Dashboard</a>
-      <a href="login.html" class="text-amber-400 py-2 border-t border-gray-800 font-semibold block">Login Portal</a>
+    <!-- Mobile Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-[#07090E] border-b border-amber-500/20 px-6 py-6">
+      <div class="flex flex-col gap-4 text-sm font-medium">
+        <div class="border-b border-gray-800 pb-2">
+          <button id="mobileHomeDropdownBtn"
+            class="w-full flex justify-between items-center text-gray-300 py-1 font-semibold">
+            <span>Home</span>
+            <i class="fa-solid fa-chevron-down text-xs"></i>
+          </button>
+          <div id="mobileHomeDropdownMenu" class="hidden pl-4 pt-2 flex flex-col gap-2">
+            <a href="index.html" class="text-gray-300 hover:text-amber-400 text-xs py-1">Home 1 - Skyline Dining</a>
+            <a href="index-2.html" class="text-gray-300 hover:text-amber-400 text-xs py-1">Home 2 - Sunset Lounge</a>
+          </div>
+        </div>
+        <a href="about.html" class="text-white hover:text-amber-400 py-1">About</a>
+        <a href="menu.html" class="text-white hover:text-amber-400 py-1">Menu</a>
+        <a href="events.html" class="whitespace-nowrap text-white hover:text-amber-400 py-1">Events & Live Music</a>
+        <a href="gallery.html" class="text-white hover:text-amber-400 py-1">Gallery</a>
+        <a href="blog.html" class="text-amber-400 font-bold py-1">Blog</a>
+        <a href="contact.html" class="text-white hover:text-amber-400 py-1">Contact</a>
+        <a href="dashboard-guest.html" class="text-white hover:text-amber-400 py-1 ">
+          Dashboard
+        </a>
+        <a href="login.html" class="text-amber-400 py-2 border-t border-gray-800  font-semibold">
+          <i class="fa-solid fa-user-lock"></i> Guest Login Portal
+        </a>
+      </div>
     </div>
   </header>
 
@@ -293,7 +321,7 @@
               <h4 class="font-serif text-lg font-bold text-white">Leave a Thought</h4>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <input type="text" 
+                  <input data-full-name type="text" 
                          name="fullname"
                          required 
                          minlength="2" 
@@ -329,7 +357,7 @@
           
           <!-- Quick Navigation to All Gazette Stories -->
           <div class="p-6 rounded-2xl glass-dark border border-amber-500/20">
-            <h4 class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-amber-400 pl-2">
+            <h4 class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 rtl:border-l-0 rtl:border-r-2 border-amber-400 pl-2 rtl:pl-0 rtl:pr-2">
               All Gazette Stories
             </h4>
             <ul class="space-y-3 text-xs">
@@ -375,7 +403,7 @@
 
           <!-- Working Search Gazette Widget -->
           <div class="p-6 rounded-2xl glass-dark border border-gray-800 relative gazette-search-widget">
-            <h4 class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-3 border-l-2 border-amber-400 pl-2">
+            <h4 class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-3 border-l-2 rtl:border-l-0 rtl:border-r-2 border-amber-400 pl-2 rtl:pl-0 rtl:pr-2">
               Search Gazette
             </h4>
             <form onsubmit="event.preventDefault(); window.submitGazetteSearch(this);" class="relative">
@@ -395,7 +423,7 @@
 
           <!-- Quick Curated Topics -->
           <div class="p-6 rounded-2xl glass-dark border border-gray-800">
-            <h4 class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-3 border-l-2 border-amber-400 pl-2">
+            <h4 class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-3 border-l-2 rtl:border-l-0 rtl:border-r-2 border-amber-400 pl-2 rtl:pl-0 rtl:pr-2">
               Curated Topics
             </h4>
             <div class="flex flex-wrap gap-2 text-xs">
@@ -519,62 +547,134 @@
         <!-- Brand Info -->
         <div class="lg:col-span-2 space-y-4">
           <a href="index.html" class="flex items-center gap-3 group">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0">
+            <div
+              class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-gold-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition shrink-0">
               <div class="w-full h-full bg-black rounded-[10px] flex items-center justify-center">
-                <i class="fa-solid fa-martini-glass-citrus text-amber-400 text-base group-hover:rotate-12 transition duration-300"></i>
+                <i
+                  class="fa-solid fa-martini-glass-citrus text-amber-400 text-base group-hover:rotate-12 transition duration-300"></i>
               </div>
             </div>
             <div class="flex flex-col">
-              <span class="font-display text-xl font-bold tracking-widest text-white group-hover:text-amber-400 transition leading-none">AURA SKY</span>
-              <span class="text-[9px] uppercase tracking-[0.25em] text-amber-400 font-semibold mt-1">Rooftop &amp; Lounge</span>
+              <span
+                class="font-display text-xl font-bold tracking-widest text-white group-hover:text-amber-400 transition leading-none">AURA
+                SKY</span>
+              <span class="text-[9px] uppercase tracking-[0.25em] text-amber-400 font-semibold mt-1">Rooftop &
+                Lounge</span>
             </div>
           </a>
-          <p class="text-gray-400 text-xs leading-relaxed max-w-sm">
-            Ascend to the 54th floor for wood-fired culinary artistry, rare cellar allocations, and panoramic twilight horizons above the metropolis.
+          <p class="text-gray-400 max-w-sm leading-relaxed text-xs">
+            Elevated dining, Michelin-trained craftsmanship, and panoramic skyline vistas from the 54th floor penthouse
+            of the Grand Metropolis Tower.
           </p>
+          <!-- Credential Badges -->
+          <div class="flex flex-wrap gap-2 pt-1">
+            <span class="footer-credential-pill"><i class="fa-solid fa-award text-amber-400"></i> Michelin Star Guide
+              2026</span>
+            <span class="footer-credential-pill"><i class="fa-solid fa-shield-halved text-emerald-400"></i> 54th Fl
+              Penthouse Reserve</span>
+          </div>
+          <!-- Contact Items with Clickable Links -->
+          <div class="space-y-1.5 text-xs pt-1">
+            <div class="footer-contact-item"><i class="fa-solid fa-location-dot text-amber-400"></i> <a
+                href="contact.html">5400 Skyline Blvd, Penthouse Level, Metropolis</a></div>
+            <div class="footer-contact-item"><i class="fa-solid fa-phone text-amber-400"></i> <a
+                href="tel:+18005552872">+1 (800) 555-AURA (2872)</a></div>
+            <div class="footer-contact-item"><i class="fa-solid fa-envelope text-amber-400"></i> <a
+                href="mailto:concierge@auraskyrooftop.com">concierge@auraskyrooftop.com</a></div>
+          </div>
+          <!-- Squircle Social Buttons with Hover Glow -->
+          <div class="flex gap-2 pt-2">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="Facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="Twitter / X" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="footer-social-btn"
+              aria-label="YouTube Channel" title="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
+          </div>
         </div>
 
-        <!-- Quick Links -->
+        <!-- Quick Links with Chevrons & Hover Slide -->
         <div>
-          <h4 class="text-white font-serif text-sm font-bold mb-4 uppercase tracking-wider border-l-2 border-amber-400 pl-2">Navigation</h4>
-          <ul class="space-y-2">
-            <li><a href="index.html" class="hover:text-amber-400 transition">Classic Rooftop</a></li>
-            <li><a href="about.html" class="hover:text-amber-400 transition">About Us</a></li>
-            <li><a href="menu.html" class="hover:text-amber-400 transition">A la Carte Menu</a></li>
-            <li><a href="events.html" class="hover:text-amber-400 transition">Events &amp; Music</a></li>
-            <li><a href="blog.html" class="hover:text-amber-400 transition">Skyline Gazette</a></li>
-            <li><a href="contact.html" class="hover:text-amber-400 transition">Contact Concierge</a></li>
+          <h4
+            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 rtl:border-l-0 rtl:border-r-2 border-amber-400 pl-2 rtl:pl-0 rtl:pr-2">
+            Navigation</h4>
+          <ul class="space-y-2.5">
+            <li><a href="about.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> About Our Sky
+                Lounge</a></li>
+            <li><a href="menu.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Culinary &
+                Mixology Menu</a></li>
+            <li><a href="events.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Nightlife & DJ
+                Lineups</a></li>
+            <li><a href="gallery.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Panoramic Photo
+                Gallery</a></li>
+            <li><a href="pricing.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> VIP Cabanas &
+                Bottle Service</a></li>
+            <li><a href="contact.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Location &
+                Directions</a></li>
           </ul>
         </div>
 
-        <!-- Hours & Location -->
+        <!-- Experiences (Available in Navbar Pages) -->
         <div>
-          <h4 class="text-white font-serif text-sm font-bold mb-4 uppercase tracking-wider border-l-2 border-amber-400 pl-2">Hours</h4>
-          <ul class="space-y-2 text-gray-400">
-            <li><span class="text-white font-semibold block">Dinner &amp; Raw Bar:</span> Daily 5:00 PM – 11:00 PM</li>
-            <li><span class="text-white font-semibold block">Twilight Lounge (21+):</span> Nightly 9:00 PM – 2:00 AM</li>
-            <li><span class="text-white font-semibold block">Weekend Brunch:</span> Sat &amp; Sun 11:00 AM – 3:30 PM</li>
+          <h4
+            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 rtl:border-l-0 rtl:border-r-2 border-amber-400 pl-2 rtl:pl-0 rtl:pr-2">
+            Experiences</h4>
+          <ul class="space-y-2.5">
+            <li><a href="index.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Skyline Dining (Home 1)</a></li>
+            <li><a href="index-2.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Sunset Lounge (Home 2)</a></li>
+            <li><a href="menu.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Haute Cuisine &amp; Menu</a></li>
+            <li><a href="events.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Events &amp; Live Music</a></li>
+            <li><a href="gallery.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Panoramic Photo Gallery</a></li>
+            <li><a href="blog.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Skyline Journal &amp; Press</a></li>
           </ul>
         </div>
 
-        <!-- Contact & Reservations -->
+        <!-- Portals & VIP Dispatch -->
         <div>
-          <h4 class="text-white font-serif text-sm font-bold mb-4 uppercase tracking-wider border-l-2 border-amber-400 pl-2">Reservations</h4>
-          <p class="text-gray-400 leading-relaxed mb-3">
-            5400 Skyline Blvd, Penthouse Level<br>Metropolis Tower
-          </p>
-          <a href="mailto:concierge@auraskyrooftop.com" class="text-amber-400 hover:underline block font-semibold">concierge@auraskyrooftop.com</a>
-          <span class="text-gray-400 block mt-1">+1 (555) 839-2872</span>
+          <h4
+            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 rtl:border-l-0 rtl:border-r-2 border-amber-400 pl-2 rtl:pl-0 rtl:pr-2">
+            Portals & System</h4>
+          <ul class="space-y-2.5">
+            <li><a href="dashboard-guest.html" class="footer-nav-link text-amber-300 font-semibold"><i
+                  class="fa-solid fa-user mr-1 text-xs"></i> Guest Dashboard</a></li>
+            <li><a href="dashboard-admin.html" class="footer-nav-link text-emerald-400 font-semibold"><i
+                  class="fa-solid fa-chart-line mr-1 text-xs"></i> Admin Dashboard</a></li>
+            <li><a href="login.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Login / VIP
+                Portal</a></li>
+            <li><a href="register.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Create
+                Account</a></li>
+            <li><a href="coming-soon.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Coming Soon
+                / Maintenance</a></li>
+            <li><a href="404.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> 404 Error Page</a>
+            </li>
+          </ul>
+          <!-- Newsletter Dispatch -->
+          <div class="mt-4 pt-3 border-t border-gray-800">
+            <span class="text-[11px] font-semibold text-white uppercase tracking-wider block mb-1">VIP Skyline
+              Dispatch</span>
+            <form class="footer-newsletter-box"
+              onsubmit="event.preventDefault(); showToast('VIP Subscription Confirmed', 'You are on the VIP priority guest list.', 'success'); this.reset();">
+              <input type="email" placeholder="vip.guest@gmail.com"
+                pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" required aria-label="Email address">
+              <button type="submit">Join</button>
+            </form>
+          </div>
         </div>
 
       </div>
 
-      <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-gray-500 text-[11px]">
-        <p>&copy; 2026 AURA SKY Rooftop &amp; Lounge. All rights reserved.</p>
-        <div class="flex items-center gap-6">
-          <a href="privacy.html" class="hover:text-amber-400 transition">Privacy Policy</a>
-          <a href="terms.html" class="hover:text-amber-400 transition">Terms of Service</a>
-          <a href="accessibility.html" class="hover:text-amber-400 transition">Accessibility</a>
+      <!-- Copyright & Legal with Interactive Modals -->
+      <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] text-gray-500">
+        <div>
+          &copy; 2026 AURA SKY Rooftop & Lounge. All Rights Reserved. Crafted for ThemeForest & TemplateMonster.
+        </div>
+        <div class="flex flex-wrap gap-4 sm:gap-6">
+          <a href="#privacyPolicy" class="hover:text-amber-400 transition cursor-pointer">Privacy Policy</a>
+          <a href="#termsOfService" class="hover:text-amber-400 transition cursor-pointer">Terms of Service</a>
+          <a href="#dressCode" class="hover:text-amber-400 transition cursor-pointer">Dress Code Policy</a>
+          <a href="#sitemap" class="hover:text-amber-400 transition cursor-pointer">Sitemap</a>
         </div>
       </div>
 
@@ -582,6 +682,6 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="assets/js/main.js?v=101"></script>
+  <script src="assets/js/main.js?v=113"></script>
 </body>
 </html>

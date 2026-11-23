@@ -42,7 +42,7 @@
 
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=101">
+  <link rel="stylesheet" href="assets/css/style.css?v=114">
 </head>
 
 <body class="bg-white text-slate-900 dark:bg-[#06080D] dark:text-slate-100 transition-colors duration-300">
@@ -260,7 +260,7 @@
               <i class="fa-solid fa-champagne-glasses text-sm"></i>
               <span>Book VIP Bottle Service</span>
             </button>
-            <a href="events.html"
+            <a href="events.html#events-schedule"
               class="px-7 py-4 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider border border-amber-400/30 bg-black/40 hover:bg-amber-500/10 text-amber-300 hover:border-amber-400 backdrop-blur-md transition flex items-center gap-2">
               <i class="fa-solid fa-ticket text-xs"></i>
               <span>View DJ Lineup & Guestlist</span>
@@ -313,41 +313,16 @@
                 class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
               <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to top, rgba(6,8,13,0.7) 0%, rgba(6,8,13,0.1) 40%, transparent 100%) !important;"></div>
 
-              <!-- Top Card Tag -->
-              <div
-                class="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 border border-amber-500/30 backdrop-blur-md text-[11px] font-semibold text-amber-300">
-                <i class="fa-solid fa-cloud-moon text-amber-400"></i>
-                <span>54th Floor Sky Lounge • Open Till 3:00 AM Fri–Sat</span>
-              </div>
             </div>
-
-            <!-- Floating Pill 1: Tonight's Headliner (Top-Right Angle) -->
-            <div
-              class="absolute top-16 right-4 sm:-right-4 glass-dark p-3.5 rounded-2xl border border-amber-500/40 shadow-2xl backdrop-blur-xl max-w-[210px] animate-float"
-              style="background: rgba(11, 15, 23, 0.9) !important; backdrop-filter: blur(16px) !important; -webkit-backdrop-filter: blur(16px) !important; border: 1px solid rgba(245, 158, 11, 0.4) !important;">
-              <div class="flex items-center gap-2.5">
-                <div
-                  class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xs shrink-0 border border-amber-500/30">
-                  <i class="fa-solid fa-headphones"></i>
-                </div>
-                <div>
-                  <span class="text-[9px] uppercase font-bold text-amber-400 tracking-wider block" style="color: #FBBF24 !important; text-shadow: none !important;">Tonight's DJ</span>
-                  <span class="text-xs font-bold text-white block" style="color: #FFFFFF !important; text-shadow: none !important;">Valentin &amp; Guests</span>
-                  <span class="text-[10px] text-gray-400" style="color: #94A3B8 !important; text-shadow: none !important;">9:30 PM – Late</span>
-                </div>
-              </div>
-            </div>
-
-
 
             <!-- Card Bottom Bar: Quick Table/Guestlist Finder -->
-            <div
+            <div id="private-sky-cabanas-bar"
               class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-[#06080D] via-[#06080D]/95 to-transparent border-t border-amber-500/20">
               <div class="flex items-center justify-between gap-3">
                 <div class="text-left">
                   <span class="text-[10px] uppercase font-bold text-amber-400 tracking-wider block">Private Sky
                     Cabanas</span>
-                  <span class="text-xs font-bold text-white">Minimum Spend from $450</span>
+                  <span class="text-xs font-bold aura-overlay-white">Minimum Spend from $450</span>
                 </div>
                 <button data-open-reservation
                   class="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-amber-500 hover:bg-amber-400 text-black transition flex items-center gap-1.5 shadow-lg">
@@ -462,7 +437,7 @@
           </div>
 
           <div class="pt-4">
-            <a href="menu.html"
+            <a href="menu.html#menu-grid"
               class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-black text-xs font-bold uppercase tracking-wider transition">
               <span>View Mixology Menu</span>
               <i class="fa-solid fa-arrow-right rtl-flip"></i>
@@ -476,16 +451,16 @@
               alt="Pomegranate and basil cocktail with a rosemary garnish" class="w-full h-[520px] object-cover">
             <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, transparent 100%) !important;"></div>
 
-            <div class="absolute bottom-6 left-6 right-6 p-6 rounded-2xl glass-dark border border-amber-500/30"
+            <div class="absolute bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 sm:right-auto max-w-xs p-3.5 sm:p-4 rounded-2xl glass-dark border border-amber-500/30"
                  style="background: rgba(11, 15, 23, 0.9) !important; backdrop-filter: blur(16px) !important; -webkit-backdrop-filter: blur(16px) !important; border: 1px solid rgba(245, 158, 11, 0.35) !important;">
-              <span class="text-xs text-amber-400 uppercase font-bold tracking-wider" style="color: #FBBF24 !important; text-shadow: none !important;">Spotlight Creation</span>
-              <h3 class="font-serif text-xl font-bold text-white mt-1">
+              <span class="text-[10px] text-amber-400 uppercase font-bold tracking-wider" style="color: #FBBF24 !important; text-shadow: none !important;">Spotlight Creation</span>
+              <h3 class="font-serif text-base font-bold text-white mt-1">
                 <a href="menu.html" class="hover:text-amber-300 transition" style="color: #FFFFFF !important; text-shadow: none !important;">Pomegranate &amp; Basil Fizz</a>
               </h3>
-              <p class="text-xs text-gray-300 mt-1" style="color: #E2E8F0 !important; text-shadow: none !important;">Pomegranate shrub, basil-infused vodka, lime, soda, and rosemary,
+              <p class="text-[10px] text-gray-300 mt-1 leading-snug" style="color: #E2E8F0 !important; text-shadow: none !important;">Pomegranate shrub, basil-infused vodka, lime, soda, and rosemary,
                 finished with pomegranate seeds.</p>
-              <a href="menu.html"
-                class="inline-flex items-center gap-1.5 mt-3 text-[11px] font-bold uppercase tracking-wider text-amber-400 hover:text-amber-300 transition"
+              <a href="menu.html#menu-grid"
+                class="inline-flex items-center gap-1.5 mt-2 text-[10px] font-bold uppercase tracking-wider text-amber-400 hover:text-amber-300 transition"
                 style="color: #FBBF24 !important; text-shadow: none !important;">
                 <span>View on Menu</span>
                 <i class="fa-solid fa-arrow-right text-[9px] rtl-flip"></i>
@@ -766,14 +741,14 @@
               style="filter: none !important; -webkit-filter: none !important;">
             <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.35) 50%, transparent 100%) !important;"></div>
             <div class="absolute bottom-4 left-4 right-4">
-              <span class="text-amber-400 text-[10px] font-bold uppercase tracking-wider block">Friday Resident</span>
-              <h3 class="font-serif text-lg font-bold text-white mt-0.5 drop-shadow-sm" style="color: #FFFFFF !important;">Julian Vance</h3>
-              <p class="text-[11px] text-gray-200 mt-0.5" style="color: #E2E8F0 !important;">Tenor &amp; Alto Saxophone • Lounge Soloist</p>
+              <span class="text-amber-400 text-[9px] font-bold uppercase tracking-wider block">Friday Resident</span>
+              <h3 class="font-serif text-sm font-bold text-white mt-0.5 drop-shadow-sm" style="color: #FFFFFF !important;">Julian Vance</h3>
+              <p class="text-[10px] text-gray-200 mt-0.5" style="color: #E2E8F0 !important;">Tenor &amp; Alto Saxophone • Lounge Soloist</p>
             </div>
           </div>
           <div class="p-4 border-t border-gray-800 flex justify-between items-center text-xs">
             <span class="text-gray-400">Every Friday 6:30 PM</span>
-            <a href="events.html" class="text-amber-400 font-bold hover:underline">Guestlist &rarr;</a>
+            <a href="events.html#events-schedule" class="text-amber-400 font-bold hover:underline">Guestlist &rarr;</a>
           </div>
         </div>
 
@@ -784,9 +759,9 @@
               style="filter: none !important; -webkit-filter: none !important;">
             <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.35) 50%, transparent 100%) !important;"></div>
             <div class="absolute bottom-4 left-4 right-4">
-              <span class="text-amber-400 text-[10px] font-bold uppercase tracking-wider block">Saturday Resident</span>
-              <h3 class="font-serif text-lg font-bold text-white mt-0.5 drop-shadow-sm" style="color: #FFFFFF !important;">Elena Rostova</h3>
-              <p class="text-[11px] text-gray-200 mt-0.5" style="color: #E2E8F0 !important;">Spanish Nylon &amp; Fingerstyle Guitar</p>
+              <span class="text-amber-400 text-[9px] font-bold uppercase tracking-wider block">Saturday Resident</span>
+              <h3 class="font-serif text-sm font-bold text-white mt-0.5 drop-shadow-sm" style="color: #FFFFFF !important;">Elena Rostova</h3>
+              <p class="text-[10px] text-gray-200 mt-0.5" style="color: #E2E8F0 !important;">Spanish Nylon &amp; Fingerstyle Guitar</p>
             </div>
           </div>
           <div class="p-4 border-t border-gray-800 flex justify-between items-center text-xs">
@@ -803,9 +778,9 @@
               style="filter: none !important; -webkit-filter: none !important;">
             <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.35) 50%, transparent 100%) !important;"></div>
             <div class="absolute bottom-4 left-4 right-4">
-              <span class="text-amber-400 text-[10px] font-bold uppercase tracking-wider block">Wednesday Resident</span>
-              <h3 class="font-serif text-lg font-bold text-white mt-0.5 drop-shadow-sm" style="color: #FFFFFF !important;">Julian Sterling</h3>
-              <p class="text-[11px] text-gray-200 mt-0.5" style="color: #E2E8F0 !important;">Steinway Baby Grand • Jazz Ballads</p>
+              <span class="text-amber-400 text-[9px] font-bold uppercase tracking-wider block">Wednesday Resident</span>
+              <h3 class="font-serif text-sm font-bold text-white mt-0.5 drop-shadow-sm" style="color: #FFFFFF !important;">Julian Sterling</h3>
+              <p class="text-[10px] text-gray-200 mt-0.5" style="color: #E2E8F0 !important;">Steinway Baby Grand • Jazz Ballads</p>
             </div>
           </div>
           <div class="p-4 border-t border-gray-800 flex justify-between items-center text-xs">
@@ -822,14 +797,14 @@
               style="filter: none !important; -webkit-filter: none !important;">
             <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.35) 50%, transparent 100%) !important;"></div>
             <div class="absolute bottom-4 left-4 right-4">
-              <span class="text-amber-400 text-[10px] font-bold uppercase tracking-wider block">Sunday Sunset</span>
-              <h3 class="font-serif text-lg font-bold text-white mt-0.5 drop-shadow-sm" style="color: #FFFFFF !important;">Skyline Collective</h3>
-              <p class="text-[11px] text-gray-200 mt-0.5" style="color: #E2E8F0 !important;">5-String Electric Violin &amp; Handpan</p>
+              <span class="text-amber-400 text-[9px] font-bold uppercase tracking-wider block">Sunday Sunset</span>
+              <h3 class="font-serif text-sm font-bold text-white mt-0.5 drop-shadow-sm" style="color: #FFFFFF !important;">Skyline Collective</h3>
+              <p class="text-[10px] text-gray-200 mt-0.5" style="color: #E2E8F0 !important;">5-String Electric Violin &amp; Handpan</p>
             </div>
           </div>
           <div class="p-4 border-t border-gray-800 flex justify-between items-center text-xs">
             <span class="text-gray-400">Sunday 6:00 PM</span>
-            <a href="events.html" class="text-amber-400 font-bold hover:underline">Schedule &rarr;</a>
+            <a href="events.html#events-schedule" class="text-amber-400 font-bold hover:underline">Schedule &rarr;</a>
           </div>
         </div>
 
@@ -947,10 +922,10 @@
           </div>
         </div>
         <div class="flex items-center gap-3 shrink-0">
-          <a href="contact.html" class="px-5 py-2.5 rounded-lg border border-amber-500/40 text-amber-400 hover:bg-amber-500/10 text-xs font-bold uppercase tracking-wider transition">
+          <a href="contact.html#contact-content" class="px-5 py-2.5 rounded-lg border border-amber-500/40 text-amber-400 hover:bg-amber-500/10 text-xs font-bold uppercase tracking-wider transition">
             Inquire &amp; Contact
           </a>
-          <a href="contact.html" class="px-5 py-2.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs uppercase tracking-wider transition shadow-lg shadow-amber-500/20 inline-flex items-center gap-2" style="color: #000000 !important;">
+          <a href="contact.html#contact-content" class="px-5 py-2.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-black font-bold text-xs uppercase tracking-wider transition shadow-lg shadow-amber-500/20 inline-flex items-center gap-2" style="color: #000000 !important;">
             <span>Reserve VIP Table</span>
             <i class="fa-solid fa-arrow-right text-[10px]"></i>
           </a>
@@ -1084,7 +1059,7 @@
               class="px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider bg-gradient-to-r from-amber-400 via-gold-500 to-amber-400 text-black shadow-xl shadow-amber-500/30 hover:scale-105 active:scale-95 transition flex items-center gap-2">
               <i class="fa-solid fa-calendar-check mr-2"></i> Book A VIP Table Now
             </button>
-            <a href="contact.html"
+            <a href="contact.html#contact-content"
               class="px-8 py-4 rounded-xl text-sm font-bold uppercase tracking-wider border border-amber-400/40 bg-black/40 text-amber-300 hover:border-amber-400 transition flex items-center gap-2">
               Contact VIP Host
             </a>
@@ -1157,7 +1132,7 @@
         <!-- Quick Links with Chevrons & Hover Slide -->
         <div>
           <h4
-            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-amber-400 pl-2">
+            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 rtl:border-l-0 rtl:border-r-2 border-amber-400 pl-2 rtl:pl-0 rtl:pr-2">
             Navigation</h4>
           <ul class="space-y-2.5">
             <li><a href="about.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> About Our Sky
@@ -1175,31 +1150,25 @@
           </ul>
         </div>
 
-        <!-- Services & Private Dining -->
+        <!-- Experiences (Available in Navbar Pages) -->
         <div>
           <h4
-            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-amber-400 pl-2">
+            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 rtl:border-l-0 rtl:border-r-2 border-amber-400 pl-2 rtl:pl-0 rtl:pr-2">
             Experiences</h4>
           <ul class="space-y-2.5">
-            <li><a href="service-details.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i>
-                Penthouse VIP Cabanas</a></li>
-            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Sunset
-                Romantic Dinners</a></li>
-            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Private
-                Corporate Buyouts</a></li>
-            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Mixology
-                Masterclasses</a></li>
-            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Skyline
-                Wedding Receptions</a></li>
-            <li><a href="services.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Sommelier Wine
-                Tastings</a></li>
+            <li><a href="index.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Skyline Dining (Home 1)</a></li>
+            <li><a href="index-2.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Sunset Lounge (Home 2)</a></li>
+            <li><a href="menu.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Haute Cuisine &amp; Menu</a></li>
+            <li><a href="events.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Events &amp; Live Music</a></li>
+            <li><a href="gallery.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Panoramic Photo Gallery</a></li>
+            <li><a href="blog.html" class="footer-nav-link"><i class="fa-solid fa-chevron-right"></i> Skyline Journal &amp; Press</a></li>
           </ul>
         </div>
 
         <!-- Portals & VIP Dispatch -->
         <div>
           <h4
-            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-amber-400 pl-2">
+            class="font-serif text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 rtl:border-l-0 rtl:border-r-2 border-amber-400 pl-2 rtl:pl-0 rtl:pr-2">
             Portals & System</h4>
           <ul class="space-y-2.5">
             <li><a href="dashboard-guest.html" class="footer-nav-link text-amber-300 font-semibold"><i
@@ -1383,7 +1352,7 @@
             <div>
               <label class="block text-xs font-medium text-gray-300 mb-1">Full Name <span
                   class="text-amber-400 font-bold">*</span></label>
-              <input type="text" id="reserveName" required placeholder="Alex Mercer"
+              <input minlength="2" data-full-name title="This name field is mandatory and must contain at least 2 characters" type="text" id="reserveName" required placeholder="Alex Mercer"
                 class="w-full bg-slate-900 border border-gray-700 rounded-lg p-2.5 text-xs text-white focus:border-amber-400 focus:outline-none">
             </div>
             <div>
@@ -1427,7 +1396,7 @@
     </div>
   </div>
 
-  <script src="assets/js/main.js?v=101"></script>
+  <script src="assets/js/main.js?v=113"></script>
 </body>
 
 </html>

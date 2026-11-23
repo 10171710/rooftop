@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initStatCounters();
   initBlogGazette();
   initBlogDetailsSearch();
+  initFullNameValidation();
 });
 
 /* ===================================================================
@@ -45,6 +46,31 @@ function initTheme() {
       localStorage.setItem('aura-theme', newTheme);
     });
   });
+
+  // Keep light-theme link hover colors locked to each link's resting color,
+  // including links added later by filters, modals or search results.
+  if (window.MutationObserver && document.body) {
+    new MutationObserver(() => lockLightThemeLinkColors()).observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  }
+}
+
+/* Captures the real resting color of every link in light theme so the CSS
+   hover override can reuse it instead of jumping to bright gold. */
+function lockLightThemeLinkColors() {
+  const html = document.documentElement;
+  if (!html.classList.contains('light')) return;
+
+  // Stop color transitions so getComputedStyle returns the settled
+  // resting color instead of a mid-theme-switch interpolated value.
+  html.classList.add('aura-capturing');
+  void document.body.offsetHeight;
+  document.querySelectorAll('a').forEach(link => {
+    link.style.setProperty('--aura-link-rest', getComputedStyle(link).color);
+  });
+  html.classList.remove('aura-capturing');
 }
 
 function applyTheme(theme) {
@@ -84,6 +110,7 @@ function applyTheme(theme) {
   }
 
   updateThemeIcons(theme);
+  lockLightThemeLinkColors();
 }
 
 function updateThemeIcons(theme) {
@@ -246,10 +273,30 @@ function initReservationModal() {
   const modal = document.getElementById('reservationModal');
   if (!modal) return;
 
+  // Keep the modal scroll area clear of the pinned navbar at every width.
+  const syncModalHeaderOffset = () => {
+    const header = document.querySelector('header');
+    if (header) {
+      document.documentElement.style.setProperty(
+        '--aura-modal-header-offset', header.offsetHeight + 'px'
+      );
+    }
+  };
+  const resetModalScroll = () => {
+    modal.scrollTop = 0;
+    const panel = modal.firstElementChild;
+    if (panel) panel.scrollTop = 0;
+  };
+
+  syncModalHeaderOffset();
+  window.addEventListener('resize', syncModalHeaderOffset, { passive: true });
+
   window.openReservationModal = function () {
     modal.classList.remove('hidden');
     modal.classList.add('flex');
-    document.body.style.overflow = 'hidden';
+    setBodyScrollLock(true);
+    syncModalHeaderOffset();
+    resetModalScroll();
     const dateInput = document.getElementById('reserveDate');
     if (dateInput && !dateInput.value) {
       const today = new Date().toISOString().split('T')[0];
@@ -260,6 +307,7 @@ function initReservationModal() {
   const openBtns = document.querySelectorAll('[data-open-reservation]');
   const closeBtns = modal.querySelectorAll('[data-close-modal]');
   const form = document.getElementById('reservationForm');
+  if (form) form.noValidate = true; // hidden wizard steps must not block native submit
   const stepIndicators = modal.querySelectorAll('.step-indicator');
   const steps = modal.querySelectorAll('.booking-step');
 
@@ -270,7 +318,9 @@ function initReservationModal() {
       e.preventDefault();
       modal.classList.remove('hidden');
       modal.classList.add('flex');
-      document.body.style.overflow = 'hidden';
+      setBodyScrollLock(true);
+      syncModalHeaderOffset();
+      resetModalScroll();
       // Preset date to today
       const dateInput = document.getElementById('reserveDate');
       if (dateInput && !dateInput.value) {
@@ -295,7 +345,7 @@ function initReservationModal() {
   function closeModal() {
     modal.classList.add('hidden');
     modal.classList.remove('flex');
-    document.body.style.overflow = 'auto';
+    setBodyScrollLock(false);
   }
 
   // Next / Prev step navigation in Modal
@@ -346,6 +396,9 @@ function initReservationModal() {
     if (stepNum === 3) {
       updateBookingSummary();
     }
+
+    // Each new step starts at the top of the contained modal scroll area.
+    resetModalScroll();
   }
 
   function validateStep(step) {
@@ -403,6 +456,14 @@ function initReservationModal() {
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      const emailInput = form.querySelector('input[type="email"]');
+      if (emailInput && !emailInput.checkValidity()) {
+        showToast('Email Required', 'Please enter a valid email address to confirm your reservation.', 'warning');
+        emailInput.focus();
+        return;
+      }
+
       const phoneInput = form.querySelector('input[type="tel"]');
       const phoneVal = phoneInput ? phoneInput.value.replace(/[^0-9]/g, '') : '';
 
@@ -412,7 +473,18 @@ function initReservationModal() {
         return;
       }
 
-      const guestName = document.getElementById('reserveName')?.value || 'Valued Guest';
+      const nameInput = document.getElementById('reserveName');
+      const guestName = nameInput ? nameInput.value.trim() : '';
+      if (guestName.length < 2) {
+        showToast('Full Name Required', 'Full Name is mandatory and must contain at least 2 characters.', 'warning');
+        if (nameInput) {
+          nameInput.setAttribute('aria-invalid', 'true');
+          nameInput.focus();
+          nameInput.reportValidity();
+        }
+        return;
+      }
+      if (nameInput) nameInput.removeAttribute('aria-invalid');
       closeModal();
       showToast('Reservation Confirmed!', `Thank you ${guestName}, your skyline table has been reserved. A confirmation SMS & email have been dispatched.`, 'success');
       form.reset();
@@ -567,7 +639,7 @@ function initGalleryLightbox() {
         if (lightboxTitle) lightboxTitle.textContent = title;
         lightbox.classList.remove('hidden');
         lightbox.classList.add('flex');
-        document.body.style.overflow = 'hidden';
+        setBodyScrollLock(true);
       }
     });
   });
@@ -585,7 +657,7 @@ function initGalleryLightbox() {
     if (lightbox) {
       lightbox.classList.add('hidden');
       lightbox.classList.remove('flex');
-      document.body.style.overflow = 'auto';
+      setBodyScrollLock(false);
     }
   }
 }
@@ -1500,6 +1572,9 @@ function initActiveNavHighlighter() {
       }
     }
   }
+
+  // Active-link classes change colors after the theme has been applied.
+  lockLightThemeLinkColors();
 }
 
 if (document.readyState === 'loading') {
@@ -1524,3 +1599,111 @@ if (document.readyState === 'loading') {
 } else {
   removeLegacyAuroraSublabel();
 }
+
+
+/* ===================================================================
+   FULL NAME + CONSTANT NAVBAR SUPPORT
+   - Every name input is mandatory and needs at least 2 characters.
+   - Body scroll locking relies on the stable html scrollbar gutter so
+     CTA modals never shift the sticky navbar.
+   =================================================================== */
+function setBodyScrollLock(locked) {
+  const body = document.body;
+  if (!body) return;
+  if (locked) {
+    if (body.dataset.scrollLocked === '1') return;
+    body.dataset.scrollLocked = '1';
+    body.style.overflow = 'hidden';
+  } else {
+    if (body.dataset.scrollLocked !== '1' && body.style.overflow !== 'hidden') return;
+    delete body.dataset.scrollLocked;
+    body.style.overflow = '';
+  }
+}
+
+function initFullNameValidation() {
+  const nameTerms = [
+    'full name', 'first name', 'last name', 'guest full name',
+    'full staff legal name', 'your name', 'reservename', 'fullname',
+    'custfirstname', 'custlastname', 'adminfullname'
+  ];
+
+  const labelFor = (input) => {
+    if (input.id) {
+      const byFor = document.querySelector('label[for="' + CSS.escape(input.id) + '"]');
+      if (byFor) return byFor.textContent.trim();
+    }
+    const container = input.closest('div') || input.parentElement;
+    const label = container ? container.querySelector('label') : null;
+    return label ? label.textContent.trim() : '';
+  };
+
+  document.querySelectorAll('input[type="text"]').forEach((input) => {
+    if (input.hasAttribute('data-full-name')) return;
+    const haystack = (labelFor(input) + ' ' + (input.getAttribute('placeholder') || '') + ' ' +
+      (input.id || '') + ' ' + (input.name || '')).toLowerCase();
+    if (nameTerms.some(term => haystack.includes(term))) {
+      input.setAttribute('data-full-name', '');
+    }
+  });
+
+  document.querySelectorAll('input[data-full-name]').forEach((input) => {
+    input.required = true;
+    if (!input.getAttribute('minlength') || Number(input.getAttribute('minlength')) < 2) {
+      input.setAttribute('minlength', '2');
+    }
+
+    const validate = () => {
+      const value = (input.value || '').trim();
+      if (!value) {
+        input.setCustomValidity('This name field is mandatory.');
+      } else if (value.length < 2) {
+        input.setCustomValidity('Please enter at least 2 characters.');
+      } else {
+        input.setCustomValidity('');
+      }
+      if (value.length >= 2) input.removeAttribute('aria-invalid');
+    };
+
+    input.addEventListener('input', validate);
+    input.addEventListener('blur', validate);
+    validate();
+  });
+}
+
+/* Anchor Smooth Scrolling Helper for Deep Links */
+function scrollToHashTarget() {
+  if (!window.location.hash) return;
+
+  let hashTarget = null;
+  try {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    hashTarget = document.getElementById(id) || document.querySelector(`[name="${CSS.escape(id)}"]`);
+  } catch (error) {
+    return;
+  }
+
+  if (!hashTarget) return;
+
+  const rect = hashTarget.getBoundingClientRect();
+  const scrollMargin = parseFloat(getComputedStyle(hashTarget).scrollMarginTop);
+  const header = document.querySelector('header');
+  const offset = Number.isFinite(scrollMargin)
+    ? scrollMargin
+    : (header ? header.getBoundingClientRect().height + 16 : 88);
+
+  window.scrollTo({
+    top: Math.max(0, rect.top + window.scrollY - offset),
+    behavior: 'smooth'
+  });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (window.location.hash) {
+    setTimeout(scrollToHashTarget, 120);
+  }
+});
+window.addEventListener('hashchange', () => {
+  setTimeout(scrollToHashTarget, 60);
+});
+
