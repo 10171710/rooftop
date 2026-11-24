@@ -1,0 +1,2721 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operations Console | AURA SKY Rooftop &amp; Lounge</title>
+  <meta name="description"
+    content="AURA SKY operations console: live reservations, table dispatch, media library, menu availability, events and guest registry for the 54th floor skydeck.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: { 300: '#F5E6B8', 400: '#E5C468', 500: '#D4AF37', 600: '#B89222' },
+            midnight: '#07090E',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            display: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Shared Styles -->
+  <link rel="stylesheet" href="assets/css/style.css?v=115">
+
+  <style>
+    /* =====================================================================
+       AURA SKY OPERATIONS CONSOLE - page-scoped design system
+       ===================================================================== */
+    body.dashboard-console {
+      --dc-bg: #07090E;
+      --dc-panel: #0E1320;
+      --dc-panel-2: #141B2A;
+      --dc-line: rgba(245, 158, 11, 0.18);
+      --dc-line-strong: rgba(245, 158, 11, 0.38);
+      --dc-ink: #F8FAFC;
+      --dc-body: #C7D2E0;
+      --dc-muted: #93A3BA;
+      --dc-gold: #F59E0B;
+      --dc-gold-soft: rgba(245, 158, 11, 0.14);
+      --dc-green: #10B981;
+      --dc-green-soft: rgba(16, 185, 129, 0.14);
+      --dc-red: #F87171;
+      --dc-red-soft: rgba(248, 113, 113, 0.14);
+      --dc-blue: #60A5FA;
+      --dc-blue-soft: rgba(96, 165, 250, 0.14);
+      --dc-purple: #A78BFA;
+      --dc-purple-soft: rgba(167, 139, 250, 0.14);
+      --dc-input: #101725;
+      --dc-shadow: 0 18px 40px -24px rgba(0, 0, 0, 0.9);
+      background-color: var(--dc-bg) !important;
+      color: var(--dc-body) !important;
+      min-height: 100vh;
+    }
+
+    html.light body.dashboard-console,
+    body.light.dashboard-console {
+      --dc-bg: #F4F6FB;
+      --dc-panel: #FFFFFF;
+      --dc-panel-2: #F8FAFC;
+      --dc-line: #E2E8F0;
+      --dc-line-strong: #CBD5E1;
+      --dc-ink: #0F172A;
+      --dc-body: #334155;
+      --dc-muted: #64748B;
+      --dc-gold: #B45309;
+      --dc-gold-soft: #FEF3C7;
+      --dc-green: #047857;
+      --dc-green-soft: #D1FAE5;
+      --dc-red: #B91C1C;
+      --dc-red-soft: #FEE2E2;
+      --dc-blue: #1D4ED8;
+      --dc-blue-soft: #DBEAFE;
+      --dc-purple: #6D28D9;
+      --dc-purple-soft: #EDE9FE;
+      --dc-input: #FFFFFF;
+      --dc-shadow: 0 14px 30px -22px rgba(15, 23, 42, 0.35);
+    }
+
+    body.dashboard-console .dashboard-sidebar {
+      background-color: #0A0E18 !important;
+      border-right: 1px solid var(--dc-line) !important;
+    }
+
+    html.light body.dashboard-console .dashboard-sidebar,
+    body.light.dashboard-console .dashboard-sidebar {
+      background-color: #FFFFFF !important;
+      border-right-color: #E2E8F0 !important;
+    }
+
+    body.dashboard-console .dashboard-main {
+      background-color: var(--dc-bg) !important;
+    }
+
+    body.dashboard-console .dashboard-topbar {
+      background-color: rgba(10, 14, 24, 0.92) !important;
+      border-bottom: 1px solid var(--dc-line) !important;
+    }
+
+    html.light body.dashboard-console .dashboard-topbar,
+    body.light.dashboard-console .dashboard-topbar {
+      background-color: rgba(255, 255, 255, 0.94) !important;
+      border-bottom-color: #E2E8F0 !important;
+    }
+
+    /* Sidebar brand + nav */
+    .dc-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1.4rem 1.25rem 1.15rem;
+      border-bottom: 1px solid var(--dc-line);
+    }
+
+    .dc-brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #0B0E17;
+      background: linear-gradient(135deg, #F5E6B8, #D4AF37);
+      box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.5), 0 8px 18px -8px rgba(212, 175, 55, 0.8);
+      flex-shrink: 0;
+    }
+
+    .dc-brand-name {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      font-size: 0.95rem;
+      color: var(--dc-ink) !important;
+      line-height: 1.1;
+      margin: 0;
+    }
+
+    .dc-brand-sub {
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--dc-muted) !important;
+      margin: 0.3rem 0 0;
+      font-weight: 600;
+    }
+
+    .dc-sidebar-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.1rem 0.9rem 1rem;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(245, 158, 11, 0.4) transparent;
+    }
+
+    .dc-sidebar-scroll::-webkit-scrollbar { width: 5px; }
+    .dc-sidebar-scroll::-webkit-scrollbar-thumb { background: rgba(245, 158, 11, 0.35); border-radius: 99px; }
+
+    .dc-nav-group + .dc-nav-group { margin-top: 1.15rem; }
+
+    .dc-nav-label {
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dc-muted) !important;
+      padding: 0 0.65rem 0.45rem;
+      margin: 0;
+    }
+
+    .dc-nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      width: 100%;
+      padding: 0.66rem 0.8rem;
+      margin-bottom: 0.24rem;
+      border-radius: 0.7rem;
+      border: 1px solid transparent;
+      background: transparent;
+      color: #A8B6CA !important;
+      font-size: 0.855rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    html.light .dc-nav-link,
+    body.light .dc-nav-link { color: #475569 !important; }
+
+    .dc-nav-link i {
+      width: 20px;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--dc-gold) !important;
+    }
+
+    .dc-nav-link .dc-nav-count {
+      margin-left: auto;
+      font-size: 0.66rem;
+      font-weight: 800;
+      padding: 0.14rem 0.45rem;
+      border-radius: 99px;
+      background: var(--dc-gold-soft);
+      color: var(--dc-gold) !important;
+    }
+
+    [dir="rtl"] .dc-nav-link { text-align: right; }
+    [dir="rtl"] .dc-nav-link .dc-nav-count { margin-left: 0; margin-right: auto; }
+
+    .dc-nav-link:hover {
+      background: rgba(245, 158, 11, 0.08);
+      color: var(--dc-ink) !important;
+      border-color: var(--dc-line);
+    }
+
+    .dc-nav-link.is-active {
+      background: linear-gradient(100deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.06));
+      border-color: var(--dc-line-strong);
+      color: var(--dc-ink) !important;
+      box-shadow: inset 3px 0 0 var(--dc-gold);
+    }
+
+    [dir="rtl"] .dc-nav-link.is-active { box-shadow: inset -3px 0 0 var(--dc-gold); }
+
+    .dc-nav-link.is-active i { color: var(--dc-gold) !important; }
+
+    .dc-sidebar-foot {
+      border-top: 1px solid var(--dc-line);
+      padding: 0.95rem;
+    }
+
+    .dc-sidebar-card {
+      background: var(--dc-panel-2);
+      border: 1px solid var(--dc-line);
+      border-radius: 0.85rem;
+      padding: 0.85rem;
+    }
+
+    .dc-sidebar-card p { color: var(--dc-muted) !important; }
+    .dc-sidebar-card strong { color: var(--dc-ink) !important; }
+
+    /* Topbar */
+    .dc-topbar-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--dc-ink) !important;
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    .dc-topbar-sub {
+      font-size: 0.72rem;
+      color: var(--dc-muted) !important;
+      margin: 0.18rem 0 0;
+    }
+
+    .dc-icon-btn {
+      width: 38px;
+      height: 38px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 0.65rem;
+      border: 1px solid var(--dc-line);
+      background: var(--dc-panel);
+      color: var(--dc-body) !important;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .dc-icon-btn:hover {
+      border-color: var(--dc-line-strong);
+      color: var(--dc-gold) !important;
+      background: var(--dc-gold-soft);
+    }
+
+    .dc-icon-btn i { pointer-events: none; }
+
+    .dc-search-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .dc-search-wrap > i {
+      position: absolute;
+      left: 0.8rem;
+      font-size: 0.8rem;
+      color: var(--dc-muted);
+      pointer-events: none;
+    }
+
+    [dir="rtl"] .dc-search-wrap > i { left: auto; right: 0.8rem; }
+
+    .dc-search {
+      width: 100%;
+      background: var(--dc-input) !important;
+      border: 1px solid var(--dc-line) !important;
+      color: var(--dc-ink) !important;
+      border-radius: 0.65rem;
+      padding: 0.58rem 0.8rem 0.58rem 2.2rem;
+      font-size: 0.8rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    [dir="rtl"] .dc-search { padding: 0.58rem 2.2rem 0.58rem 0.8rem; }
+
+    .dc-search::placeholder { color: var(--dc-muted) !important; }
+
+    .dc-search:focus {
+      border-color: var(--dc-line-strong) !important;
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.14);
+    }
+
+    .dc-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid var(--dc-line-strong);
+    }
+
+    .dc-dropdown {
+      position: absolute;
+      top: calc(100% + 0.6rem);
+      right: 0;
+      width: 320px;
+      max-width: calc(100vw - 2rem);
+      border-radius: 0.9rem;
+      border: 1px solid var(--dc-line-strong);
+      background: var(--dc-panel) !important;
+      box-shadow: var(--dc-shadow);
+      overflow: hidden;
+      z-index: 1090;
+    }
+
+    [dir="rtl"] .dc-dropdown { right: auto; left: 0; }
+
+    .dc-dropdown[hidden] { display: none !important; }
+
+    .dc-dropdown-head {
+      padding: 0.8rem 0.95rem;
+      border-bottom: 1px solid var(--dc-line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--dc-ink) !important;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .dc-dropdown-item {
+      display: flex;
+      gap: 0.7rem;
+      padding: 0.75rem 0.95rem;
+      border-bottom: 1px solid var(--dc-line);
+      align-items: flex-start;
+    }
+
+    .dc-dropdown-item:last-child { border-bottom: 0; }
+
+    .dc-dropdown-item p { margin: 0; font-size: 0.76rem; color: var(--dc-body) !important; line-height: 1.45; }
+    .dc-dropdown-item span { font-size: 0.66rem; color: var(--dc-muted) !important; }
+    .dc-dropdown-item i { color: var(--dc-gold) !important; margin-top: 0.15rem; }
+
+    /* Views, panels, text */
+    .dc-view[hidden] { display: none !important; }
+
+    .dc-view { animation: dcFade 0.28s ease both; }
+
+    @keyframes dcFade {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .dc-panel {
+      background: var(--dc-panel) !important;
+      border: 1px solid var(--dc-line) !important;
+      border-radius: 1rem;
+      box-shadow: var(--dc-shadow);
+      padding: 1.25rem;
+      min-width: 0;
+    }
+
+    .dc-panel-tight { padding: 1rem 1.1rem; }
+
+    .dc-panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .dc-panel-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--dc-ink) !important;
+      margin: 0;
+    }
+
+    .dc-panel-sub {
+      font-size: 0.72rem;
+      color: var(--dc-muted) !important;
+      margin: 0.2rem 0 0;
+    }
+
+    .dc-h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.5rem, 2.4vw, 2.05rem);
+      font-weight: 700;
+      color: var(--dc-ink) !important;
+      line-height: 1.2;
+      margin: 0;
+      letter-spacing: 0.01em;
+    }
+
+    .dc-lead {
+      color: var(--dc-muted) !important;
+      font-size: 0.86rem;
+      line-height: 1.6;
+      margin: 0.4rem 0 0;
+      max-width: 68ch;
+    }
+
+    .dc-label {
+      font-size: 0.64rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--dc-muted) !important;
+      margin: 0;
+    }
+
+    .dc-ink { color: var(--dc-ink) !important; }
+    .dc-body { color: var(--dc-body) !important; }
+    .dc-muted { color: var(--dc-muted) !important; }
+    .dc-gold { color: var(--dc-gold) !important; }
+
+    .dc-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.58rem 0.95rem;
+      border-radius: 0.65rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: 1px solid var(--dc-line);
+      background: var(--dc-panel-2);
+      color: var(--dc-ink) !important;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .dc-btn:hover { border-color: var(--dc-line-strong); background: var(--dc-gold-soft); }
+    .dc-btn i { font-size: 0.78rem; }
+
+    .dc-btn-gold {
+      background: linear-gradient(120deg, #F5E6B8, #D4AF37) !important;
+      border-color: transparent !important;
+      color: #14100A !important;
+      box-shadow: 0 10px 22px -14px rgba(212, 175, 55, 0.9);
+    }
+
+    .dc-btn-gold:hover { filter: brightness(1.06); background: linear-gradient(120deg, #F5E6B8, #D4AF37) !important; }
+
+    .dc-btn-ghost { background: transparent; }
+    .dc-btn-danger { color: var(--dc-red) !important; }
+    .dc-btn-sm { padding: 0.4rem 0.65rem; font-size: 0.7rem; border-radius: 0.5rem; }
+
+    .dc-chip-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    .dc-chip {
+      padding: 0.36rem 0.72rem;
+      border-radius: 99px;
+      border: 1px solid var(--dc-line);
+      background: transparent;
+      color: var(--dc-muted) !important;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .dc-chip:hover { color: var(--dc-ink) !important; border-color: var(--dc-line-strong); }
+
+    .dc-chip.is-active {
+      background: var(--dc-gold-soft);
+      border-color: var(--dc-line-strong);
+      color: var(--dc-gold) !important;
+    }
+
+    .dc-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 99px;
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      border: 1px solid transparent;
+    }
+
+    .dc-badge-gold { background: var(--dc-gold-soft); color: var(--dc-gold) !important; border-color: rgba(245, 158, 11, 0.3); }
+    .dc-badge-green { background: var(--dc-green-soft); color: var(--dc-green) !important; }
+    .dc-badge-red { background: var(--dc-red-soft); color: var(--dc-red) !important; }
+    .dc-badge-blue { background: var(--dc-blue-soft); color: var(--dc-blue) !important; }
+    .dc-badge-purple { background: var(--dc-purple-soft); color: var(--dc-purple) !important; }
+    .dc-badge-neutral { background: var(--dc-panel-2); color: var(--dc-muted) !important; border-color: var(--dc-line); }
+
+    /* KPI */
+    .dc-kpi {
+      padding: 1.1rem 1.15rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      min-width: 0;
+    }
+
+    .dc-kpi-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.6rem; }
+    .dc-kpi-ico {
+      width: 40px; height: 40px; border-radius: 0.7rem; display: grid; place-items: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+
+    .dc-kpi-label {
+      font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--dc-muted) !important; margin: 0;
+    }
+
+    .dc-kpi-value {
+      font-family: 'Cinzel', serif; font-size: 1.75rem; font-weight: 700;
+      color: var(--dc-ink) !important; line-height: 1; margin: 0;
+    }
+
+    .dc-kpi-meta { font-size: 0.7rem; color: var(--dc-muted) !important; margin: 0; display: flex; align-items: center; gap: 0.35rem; }
+    .dc-kpi-meta strong { color: var(--dc-green) !important; font-weight: 800; }
+
+    /* Tables */
+    .dc-table-wrap { overflow-x: auto; border-radius: 0.75rem; border: 1px solid var(--dc-line); }
+
+    .dc-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: transparent !important;
+      color: var(--dc-body) !important;
+      font-size: 0.8rem;
+      min-width: 640px;
+    }
+
+    html.light .dc-table { background: transparent !important; color: var(--dc-body) !important; }
+
+    .dc-table thead th {
+      background: var(--dc-panel-2) !important;
+      color: var(--dc-muted) !important;
+      font-size: 0.64rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-align: left;
+      padding: 0.7rem 0.85rem;
+      border-bottom: 1px solid var(--dc-line) !important;
+      white-space: nowrap;
+    }
+
+    html.light .dc-table thead th { background: var(--dc-panel-2) !important; color: var(--dc-muted) !important; border-bottom-color: var(--dc-line) !important; }
+
+    [dir="rtl"] .dc-table thead th { text-align: right; }
+
+    .dc-table tbody td {
+      padding: 0.72rem 0.85rem;
+      border-bottom: 1px solid var(--dc-line) !important;
+      vertical-align: middle;
+    }
+
+    .dc-table tbody tr:last-child td { border-bottom: 0 !important; }
+    .dc-table tbody tr { transition: background 0.2s ease; }
+    .dc-table tbody tr:hover { background: rgba(245, 158, 11, 0.05); }
+    .dc-table strong { color: var(--dc-ink) !important; font-weight: 700; }
+    .dc-table .dc-sub { display: block; font-size: 0.68rem; color: var(--dc-muted) !important; margin-top: 0.15rem; }
+
+    .dc-empty {
+      padding: 2.2rem 1rem;
+      text-align: center;
+      color: var(--dc-muted) !important;
+      font-size: 0.84rem;
+    }
+
+    .dc-empty i { display: block; font-size: 1.5rem; margin-bottom: 0.6rem; color: var(--dc-line-strong); }
+
+    /* Media library */
+    .dc-media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .dc-media-card {
+      border: 1px solid var(--dc-line);
+      border-radius: 0.85rem;
+      overflow: hidden;
+      background: var(--dc-panel-2);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      min-width: 0;
+    }
+
+    .dc-media-card:hover { transform: translateY(-3px); border-color: var(--dc-line-strong); }
+
+    .dc-media-thumb {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #0A0E18;
+    }
+
+    .dc-media-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .dc-media-card:hover .dc-media-thumb img { transform: scale(1.05); }
+
+    .dc-media-open {
+      position: absolute;
+      inset: 0;
+      border: 0;
+      background: rgba(7, 9, 14, 0.42);
+      color: #FFFFFF;
+      display: grid;
+      place-items: center;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      cursor: zoom-in;
+      font-size: 1.05rem;
+    }
+
+    .dc-media-card:hover .dc-media-open, .dc-media-open:focus-visible { opacity: 1; }
+
+    .dc-media-body { padding: 0.7rem 0.75rem 0.8rem; }
+    .dc-media-title {
+      font-size: 0.78rem; font-weight: 700; color: var(--dc-ink) !important;
+      margin: 0 0 0.3rem; line-height: 1.35;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+      min-height: 2.1em;
+    }
+    .dc-media-meta { display: flex; align-items: center; justify-content: space-between; gap: 0.4rem; font-size: 0.66rem; color: var(--dc-muted) !important; }
+    .dc-media-actions { display: flex; gap: 0.35rem; margin-top: 0.55rem; }
+
+    .dc-media-card.is-list { display: grid; grid-template-columns: 92px 1fr; }
+    .dc-media-card.is-list .dc-media-thumb { aspect-ratio: 1; height: 100%; }
+
+    /* Toggle */
+    .dc-switch { position: relative; display: inline-flex; align-items: center; cursor: pointer; flex-shrink: 0; }
+    .dc-switch input { position: absolute; opacity: 0; width: 0; height: 0; }
+    .dc-switch-track {
+      width: 40px; height: 22px; border-radius: 99px;
+      background: #334155; transition: background 0.2s ease; display: block;
+    }
+    .dc-switch-track::after {
+      content: ''; position: absolute; top: 3px; left: 3px;
+      width: 16px; height: 16px; border-radius: 50%; background: #FFFFFF;
+      transition: transform 0.2s ease; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    .dc-switch input:checked + .dc-switch-track { background: #10B981; }
+    .dc-switch input:checked + .dc-switch-track::after { transform: translateX(18px); }
+    [dir="rtl"] .dc-switch input:checked + .dc-switch-track::after { transform: translateX(-18px); }
+    .dc-switch input:focus-visible + .dc-switch-track { outline: 2px solid var(--dc-gold); outline-offset: 2px; }
+
+    /* Forms */
+    .dc-field { display: flex; flex-direction: column; gap: 0.35rem; min-width: 0; }
+    .dc-field > label { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--dc-muted) !important; }
+
+    .dc-input, .dc-select, .dc-textarea {
+      width: 100%;
+      background: var(--dc-input) !important;
+      border: 1px solid var(--dc-line) !important;
+      color: var(--dc-ink) !important;
+      border-radius: 0.6rem;
+      padding: 0.55rem 0.7rem;
+      font-size: 0.8rem;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .dc-input:focus, .dc-select:focus, .dc-textarea:focus {
+      border-color: var(--dc-line-strong) !important;
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.14);
+    }
+
+    .dc-input::placeholder, .dc-textarea::placeholder { color: var(--dc-muted) !important; }
+    .dc-select option { background: var(--dc-panel); color: var(--dc-ink); }
+
+    /* Modal */
+    .dc-modal {
+      position: fixed; inset: 0; z-index: 1200;
+      display: grid; place-items: center;
+      padding: 1rem;
+      background: rgba(4, 6, 10, 0.78);
+      backdrop-filter: blur(6px);
+    }
+
+    .dc-modal[hidden] { display: none !important; }
+
+    .dc-modal-card {
+      width: 100%; max-width: 560px; max-height: 92vh; overflow-y: auto;
+      background: var(--dc-panel) !important;
+      border: 1px solid var(--dc-line-strong);
+      border-radius: 1rem;
+      box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.9);
+    }
+
+    .dc-modal-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: 1.1rem 1.2rem; border-bottom: 1px solid var(--dc-line); }
+    .dc-modal-body { padding: 1.1rem 1.2rem; }
+    .dc-modal-foot { display: flex; justify-content: flex-end; gap: 0.5rem; padding: 0.9rem 1.2rem; border-top: 1px solid var(--dc-line); flex-wrap: wrap; }
+
+    /* Lightbox */
+    .dc-lightbox {
+      position: fixed; inset: 0; z-index: 1250;
+      background: rgba(3, 5, 9, 0.93);
+      display: flex; flex-direction: column;
+      padding: 1rem;
+    }
+
+    .dc-lightbox[hidden] { display: none !important; }
+
+    .dc-lightbox-bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; color: #F8FAFC; padding: 0.2rem 0.2rem 0.8rem; }
+    .dc-lightbox-bar h3 { margin: 0; font-size: 0.95rem; font-weight: 700; color: #FFFFFF !important; font-family: 'Cinzel', serif; }
+    .dc-lightbox-bar p { margin: 0.2rem 0 0; font-size: 0.7rem; color: #CBD5E1 !important; }
+    .dc-lightbox-stage { flex: 1; display: grid; place-items: center; min-height: 0; }
+    .dc-lightbox-stage img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 0.5rem; box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.9); }
+    .dc-lightbox-actions { display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding-top: 0.85rem; flex-wrap: wrap; }
+    .dc-lightbox .dc-icon-btn { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); color: #FFFFFF !important; }
+
+    /* Toast */
+    #dcToast { position: fixed; left: 50%; bottom: 1.4rem; transform: translate(-50%, 20px); z-index: 1300; opacity: 0; pointer-events: none; transition: all 0.25s ease; }
+    #dcToast.show { opacity: 1; transform: translate(-50%, 0); }
+    .dc-toast-card { display: flex; align-items: center; gap: 0.6rem; background: #0F1420; border: 1px solid rgba(16, 185, 129, 0.4); color: #F8FAFC; border-radius: 0.7rem; padding: 0.7rem 1rem; font-size: 0.78rem; font-weight: 600; box-shadow: 0 20px 40px -18px rgba(0, 0, 0, 0.9); }
+    .dc-toast-card i { color: #10B981; }
+
+    /* Charts */
+    .dc-bars { display: flex; align-items: flex-end; gap: 0.55rem; height: 150px; padding-top: 0.5rem; }
+    .dc-bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; height: 100%; justify-content: flex-end; min-width: 0; }
+    .dc-bar {
+      width: 100%; max-width: 38px; border-radius: 0.35rem 0.35rem 0.15rem 0.15rem;
+      background: linear-gradient(180deg, #F5E6B8, #D4AF37 55%, #B89222);
+      min-height: 6px;
+      transition: filter 0.2s ease, height 0.4s ease;
+      position: relative;
+    }
+    .dc-bar:hover { filter: brightness(1.12); }
+    .dc-bar-label { font-size: 0.63rem; color: var(--dc-muted) !important; font-weight: 700; }
+
+    /* Timeline */
+    .dc-timeline { display: flex; flex-direction: column; }
+    .dc-timeline-item { display: grid; grid-template-columns: 54px 1fr auto; gap: 0.8rem; align-items: center; padding: 0.65rem 0; border-bottom: 1px solid var(--dc-line); }
+    .dc-timeline-item:last-child { border-bottom: 0; }
+    .dc-time { font-family: 'Cinzel', serif; font-size: 0.78rem; font-weight: 700; color: var(--dc-gold) !important; }
+
+    .dc-progress { height: 6px; border-radius: 99px; background: var(--dc-panel-2); overflow: hidden; }
+    .dc-progress > span { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, #D4AF37, #F5E6B8); }
+
+    .dc-split { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+
+    @media (min-width: 1024px) {
+      .dc-split-2 { grid-template-columns: 1.35fr 1fr; }
+      .dc-split-3 { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .dc-img-hero { position: relative; overflow: hidden; border-radius: 0.9rem; border: 1px solid var(--dc-line); min-height: 220px; }
+    .dc-img-hero img { width: 100%; height: 100%; min-height: 220px; max-height: 300px; object-fit: cover; display: block; }
+    .dc-img-hero .dc-hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7, 9, 14, 0.05) 30%, rgba(7, 9, 14, 0.88)); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.1rem; }
+    .dc-hero-overlay h3 { margin: 0; color: #FFFFFF !important; font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 700; }
+    .dc-hero-overlay p { margin: 0.25rem 0 0; color: #E2E8F0 !important; font-size: 0.74rem; }
+
+    .dc-quick-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+
+    .dc-quick {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.7rem 0.75rem; border-radius: 0.7rem;
+      border: 1px solid var(--dc-line); background: var(--dc-panel-2);
+      color: var(--dc-body) !important; font-size: 0.75rem; font-weight: 700;
+      cursor: pointer; text-align: left; transition: all 0.2s ease;
+    }
+
+    .dc-quick:hover { border-color: var(--dc-line-strong); color: var(--dc-ink) !important; }
+    .dc-quick i { color: var(--dc-gold) !important; font-size: 0.9rem; width: 18px; text-align: center; }
+    [dir="rtl"] .dc-quick { text-align: right; }
+
+    .dc-avatar-sm { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; border: 1px solid var(--dc-line-strong); flex-shrink: 0; }
+    .dc-avatar-fallback { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--dc-gold-soft); color: var(--dc-gold) !important; font-size: 0.68rem; font-weight: 800; flex-shrink: 0; }
+
+    .dc-page-row { display: flex; align-items: center; gap: 0.8rem; padding: 0.75rem 0; border-bottom: 1px solid var(--dc-line); }
+    .dc-page-row:last-child { border-bottom: 0; }
+    .dc-page-ico { width: 34px; height: 34px; border-radius: 0.55rem; display: grid; place-items: center; background: var(--dc-gold-soft); color: var(--dc-gold) !important; font-size: 0.82rem; flex-shrink: 0; }
+
+    .dc-settings-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.85rem 0; border-bottom: 1px solid var(--dc-line); }
+    .dc-settings-row:last-child { border-bottom: 0; }
+
+    .dc-seg { display: inline-flex; border: 1px solid var(--dc-line); border-radius: 0.6rem; overflow: hidden; }
+    .dc-seg button { padding: 0.4rem 0.8rem; font-size: 0.72rem; font-weight: 700; background: transparent; color: var(--dc-muted) !important; border: 0; cursor: pointer; }
+    .dc-seg button.is-active { background: var(--dc-gold-soft); color: var(--dc-gold) !important; }
+
+    .dc-scroll-y { max-height: 430px; overflow-y: auto; scrollbar-width: thin; }
+    .dc-scroll-y::-webkit-scrollbar { width: 5px; }
+    .dc-scroll-y::-webkit-scrollbar-thumb { background: var(--dc-line-strong); border-radius: 99px; }
+
+    body.dc-compact .dc-table tbody td { padding: 0.4rem 0.6rem; }
+    body.dc-compact .dc-table thead th { padding: 0.5rem 0.6rem; }
+
+    @media (max-width: 640px) {
+      .dc-media-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+      .dc-quick-grid { grid-template-columns: 1fr; }
+      .dc-kpi-value { font-size: 1.5rem; }
+      .dc-search-wrap.dc-global { display: none; }
+      .dc-media-card.is-list { grid-template-columns: 76px 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .dc-view, .dc-media-card, .dc-media-thumb img, .dc-bar { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+
+<body class="dashboard-console dark">
+  <div class="dashboard-wrapper">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="dashboard-sidebar" id="consoleSidebar" aria-label="Console navigation">
+      <div class="dc-brand">
+        <span class="dc-brand-mark">AS</span>
+        <div>
+          <p class="dc-brand-name">AURA SKY</p>
+          <p class="dc-brand-sub">Operations Console</p>
+        </div>
+      </div>
+
+      <div class="dc-sidebar-scroll">
+        <div class="dc-nav-group">
+          <p class="dc-nav-label">Command</p>
+          <button type="button" class="dc-nav-link is-active" data-view="overview">
+            <i class="fa-solid fa-gauge-high"></i><span>Overview</span>
+          </button>
+          <button type="button" class="dc-nav-link" data-view="reservations">
+            <i class="fa-regular fa-calendar-check"></i><span>Reservations</span>
+            <span class="dc-nav-count" data-count="reservations">0</span>
+          </button>
+          <button type="button" class="dc-nav-link" data-view="guests">
+            <i class="fa-solid fa-user-group"></i><span>Guest Registry</span>
+            <span class="dc-nav-count" data-count="guests">0</span>
+          </button>
+        </div>
+
+        <div class="dc-nav-group">
+          <p class="dc-nav-label">Floor &amp; Menu</p>
+          <button type="button" class="dc-nav-link" data-view="media">
+            <i class="fa-regular fa-images"></i><span>Media Library</span>
+            <span class="dc-nav-count" data-count="media">0</span>
+          </button>
+          <button type="button" class="dc-nav-link" data-view="menu">
+            <i class="fa-solid fa-wine-glass"></i><span>Menu &amp; Cellar</span>
+          </button>
+          <button type="button" class="dc-nav-link" data-view="events">
+            <i class="fa-solid fa-music"></i><span>Events</span>
+            <span class="dc-nav-count" data-count="events">0</span>
+          </button>
+        </div>
+
+        <div class="dc-nav-group">
+          <p class="dc-nav-label">Publishing</p>
+          <button type="button" class="dc-nav-link" data-view="pages">
+            <i class="fa-regular fa-file-lines"></i><span>Website Pages</span>
+            <span class="dc-nav-count" data-count="pages">0</span>
+          </button>
+          <button type="button" class="dc-nav-link" data-view="settings">
+            <i class="fa-solid fa-sliders"></i><span>Settings</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="dc-sidebar-foot">
+        <div class="dc-sidebar-card">
+          <p class="dc-label" style="margin-bottom:0.35rem;">Skydeck status</p>
+          <p style="font-size:0.78rem;line-height:1.5;margin:0 0 0.6rem;"><strong>54F open</strong> · service until 01:00</p>
+          <a href="index.html" class="dc-btn dc-btn-sm" style="width:100%;text-decoration:none;">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> View live site
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <div class="dashboard-sidebar-backdrop" id="sidebarBackdrop" onclick="toggleMobileSidebar()"></div>
+
+    <!-- ================= MAIN ================= -->
+    <div class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div class="flex items-center gap-3 min-w-0">
+          <button type="button" class="dc-icon-btn lg:hidden" id="sidebarToggleBtn" onclick="toggleMobileSidebar()" aria-label="Toggle sidebar navigation">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="min-w-0">
+            <h1 class="dc-topbar-title truncate" id="viewTitle">Overview</h1>
+            <p class="dc-topbar-sub truncate" id="viewSubtitle">Live floor performance for the 54th floor</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <div class="dc-search-wrap dc-global w-56 xl:w-72">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" class="dc-search" id="globalSearch" placeholder="Search this view..." aria-label="Search this view">
+          </div>
+
+          <button type="button" class="dc-icon-btn theme-toggle-btn" aria-label="Toggle color theme">
+            <i class="fa-solid fa-sun theme-toggle-icon"></i>
+          </button>
+
+          <button type="button" class="dc-icon-btn" id="rtlToggle" aria-label="Toggle text direction" title="Toggle LTR / RTL">
+            <i class="fa-solid fa-right-left"></i>
+          </button>
+
+          <div class="relative">
+            <button type="button" class="dc-icon-btn" id="notifBtn" aria-label="Notifications" aria-expanded="false">
+              <i class="fa-regular fa-bell"></i>
+              <span id="notifDot" style="position:absolute;top:6px;right:7px;width:7px;height:7px;border-radius:50%;background:#F87171;"></span>
+            </button>
+            <div class="dc-dropdown" id="notifPanel" hidden>
+              <div class="dc-dropdown-head">
+                <span>Notifications</span>
+                <button type="button" class="dc-btn dc-btn-sm dc-btn-ghost" id="markAllRead">Mark all read</button>
+              </div>
+              <div id="notifList">
+                <div class="dc-dropdown-item">
+                  <i class="fa-solid fa-calendar-plus"></i>
+                  <div><p><strong>4 new reservations</strong> for the 19:30 seating.</p><span>2 minutes ago</span></div>
+                </div>
+                <div class="dc-dropdown-item">
+                  <i class="fa-solid fa-wine-bottle"></i>
+                  <div><p><strong>Ruinart</strong> stock dropped below 8 bottles.</p><span>26 minutes ago</span></div>
+                </div>
+                <div class="dc-dropdown-item">
+                  <i class="fa-solid fa-image"></i>
+                  <div><p><strong>22 updated images</strong> published to the library.</p><span>Today, 10:05</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="about.html" class="hidden sm:flex items-center gap-2 pl-2" title="About the team">
+            <img src="assets/images/dashboard-thumbs/press-media-kit.jpg" alt="AURA SKY operations avatar" class="dc-avatar">
+          </a>
+        </div>
+      </header>
+
+      <main class="dashboard-content" id="viewHost">
+        <!-- ================= OVERVIEW ================= -->
+        <section class="dc-view" data-view-panel="overview">
+          <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
+            <div>
+              <h2 class="dc-h1">Skydeck command centre</h2>
+              <p class="dc-lead">Reservations, floor pacing, media publishing and cellar health for Tuesday, 24 November 2026.</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <button type="button" class="dc-btn dc-btn-gold" onclick="openReservationModal()">
+                <i class="fa-solid fa-plus"></i> New reservation
+              </button>
+              <button type="button" class="dc-btn" data-goto="media">
+                <i class="fa-regular fa-images"></i> Media library
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 xl:grid-cols-4 gap-3 mb-4">
+            <article class="dc-panel dc-kpi">
+              <div class="dc-kpi-top">
+                <div>
+                  <p class="dc-kpi-label">Covers tonight</p>
+                  <p class="dc-kpi-value">184</p>
+                </div>
+                <span class="dc-kpi-ico" style="background: var(--dc-gold-soft); color: var(--dc-gold);"><i class="fa-solid fa-champagne-glasses"></i></span>
+              </div>
+              <p class="dc-kpi-meta"><strong><i class="fa-solid fa-arrow-trend-up"></i> 12.4%</strong> vs last Tuesday</p>
+            </article>
+
+            <article class="dc-panel dc-kpi">
+              <div class="dc-kpi-top">
+                <div>
+                  <p class="dc-kpi-label">Table occupancy</p>
+                  <p class="dc-kpi-value">92%</p>
+                </div>
+                <span class="dc-kpi-ico" style="background: var(--dc-green-soft); color: var(--dc-green);"><i class="fa-solid fa-chair"></i></span>
+              </div>
+              <p class="dc-kpi-meta"><strong><i class="fa-solid fa-arrow-trend-up"></i> 6 pts</strong> above forecast</p>
+            </article>
+
+            <article class="dc-panel dc-kpi">
+              <div class="dc-kpi-top">
+                <div>
+                  <p class="dc-kpi-label">Average spend</p>
+                  <p class="dc-kpi-value">$86</p>
+                </div>
+                <span class="dc-kpi-ico" style="background: var(--dc-blue-soft); color: var(--dc-blue);"><i class="fa-solid fa-receipt"></i></span>
+              </div>
+              <p class="dc-kpi-meta"><strong><i class="fa-solid fa-arrow-trend-up"></i> $7.20</strong> per seated guest</p>
+            </article>
+
+            <article class="dc-panel dc-kpi">
+              <div class="dc-kpi-top">
+                <div>
+                  <p class="dc-kpi-label">Open requests</p>
+                  <p class="dc-kpi-value" id="openRequests">7</p>
+                </div>
+                <span class="dc-kpi-ico" style="background: var(--dc-purple-soft); color: var(--dc-purple);"><i class="fa-regular fa-circle-question"></i></span>
+              </div>
+              <p class="dc-kpi-meta"><strong style="color: var(--dc-red) !important;"><i class="fa-solid fa-triangle-exclamation"></i> 2 urgent</strong> allergy notes</p>
+            </article>
+          </div>
+
+          <div class="dc-split dc-split-2 mb-4">
+            <article class="dc-panel">
+              <div class="dc-panel-head">
+                <div>
+                  <h3 class="dc-panel-title">Tonight's arrival flow</h3>
+                  <p class="dc-panel-sub">Seatings by slot with live check-in state</p>
+                </div>
+                <button type="button" class="dc-btn dc-btn-sm" data-goto="reservations">Open list</button>
+              </div>
+              <div class="dc-timeline">
+                <div class="dc-timeline-item">
+                  <span class="dc-time">18:00</span>
+                  <div><strong class="dc-ink" style="font-size:0.83rem;">Early skyline seating</strong><p class="dc-muted" style="margin:0;font-size:0.7rem;">12 covers · terrace edge</p></div>
+                  <span class="dc-badge dc-badge-green">Seated</span>
+                </div>
+                <div class="dc-timeline-item">
+                  <span class="dc-time">19:00</span>
+                  <div><strong class="dc-ink" style="font-size:0.83rem;">Golden hour service</strong><p class="dc-muted" style="margin:0;font-size:0.7rem;">38 covers · two turns</p></div>
+                  <span class="dc-badge dc-badge-gold">In progress</span>
+                </div>
+                <div class="dc-timeline-item">
+                  <span class="dc-time">19:30</span>
+                  <div><strong class="dc-ink" style="font-size:0.83rem;">Chef's counter</strong><p class="dc-muted" style="margin:0;font-size:0.7rem;">9 covers · tasting menu</p></div>
+                  <span class="dc-badge dc-badge-blue">Arriving</span>
+                </div>
+                <div class="dc-timeline-item">
+                  <span class="dc-time">21:00</span>
+                  <div><strong class="dc-ink" style="font-size:0.83rem;">Lounge transition</strong><p class="dc-muted" style="margin:0;font-size:0.7rem;">56 covers · live handpan</p></div>
+                  <span class="dc-badge dc-badge-purple">VIP hold</span>
+                </div>
+                <div class="dc-timeline-item">
+                  <span class="dc-time">22:30</span>
+                  <div><strong class="dc-ink" style="font-size:0.83rem;">Late cellar flight</strong><p class="dc-muted" style="margin:0;font-size:0.7rem;">24 covers · Ruinart pairing</p></div>
+                  <span class="dc-badge dc-badge-neutral">Confirmed</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="dc-panel">
+              <div class="dc-panel-head">
+                <div>
+                  <h3 class="dc-panel-title">Media spotlight</h3>
+                  <p class="dc-panel-sub">Latest published visual</p>
+                </div>
+                <button type="button" class="dc-btn dc-btn-sm" data-goto="media">All 22</button>
+              </div>
+              <div class="dc-img-hero">
+                <img src="assets/images/dashboard-thumbs/press-media-kit.jpg" alt="Press and media kit rooftop visual" loading="lazy">
+                <div class="dc-hero-overlay">
+                  <span class="dc-badge dc-badge-gold" style="align-self:flex-start;margin-bottom:0.4rem;">Contact Page</span>
+                  <h3>Press &amp; Media Kit</h3>
+                  <p>Updated 24 Nov 2026 · 8.8 MB original</p>
+                </div>
+              </div>
+              <div class="grid grid-cols-3 gap-2 mt-2">
+                <button type="button" class="dc-media-thumb" style="border-radius:0.6rem;border:1px solid var(--dc-line);" data-goto="media" aria-label="Open media library">
+                  <img src="assets/images/dashboard-thumbs/film-brand-shoots.jpg" alt="Film and brand shoots" loading="lazy">
+                </button>
+                <button type="button" class="dc-media-thumb" style="border-radius:0.6rem;border:1px solid var(--dc-line);" data-goto="media" aria-label="Open media library">
+                  <img src="assets/images/dashboard-thumbs/vip-concierge-talent.jpg" alt="VIP concierge and talent" loading="lazy">
+                </button>
+                <button type="button" class="dc-media-thumb" style="border-radius:0.6rem;border:1px solid var(--dc-line);" data-goto="media" aria-label="Open media library">
+                  <img src="assets/images/dashboard-thumbs/weather-resilient.jpg" alt="Weather resilient terrace" loading="lazy">
+                </button>
+              </div>
+            </article>
+          </div>
+
+          <div class="dc-split dc-split-2">
+            <article class="dc-panel">
+              <div class="dc-panel-head">
+                <div>
+                  <h3 class="dc-panel-title">Weekly covers</h3>
+                  <p class="dc-panel-sub">Seated guests per service, last seven days</p>
+                </div>
+                <span class="dc-badge dc-badge-green">On plan</span>
+              </div>
+              <div class="dc-bars" role="img" aria-label="Weekly covers chart: Wednesday 118, Thursday 142, Friday 205, Saturday 228, Sunday 197, Monday 121, Tuesday 184">
+                <div class="dc-bar-col"><div class="dc-bar" style="height:52%;" title="Wednesday · 118"></div><span class="dc-bar-label">Wed</span></div>
+                <div class="dc-bar-col"><div class="dc-bar" style="height:62%;" title="Thursday · 142"></div><span class="dc-bar-label">Thu</span></div>
+                <div class="dc-bar-col"><div class="dc-bar" style="height:90%;" title="Friday · 205"></div><span class="dc-bar-label">Fri</span></div>
+                <div class="dc-bar-col"><div class="dc-bar" style="height:100%;" title="Saturday · 228"></div><span class="dc-bar-label">Sat</span></div>
+                <div class="dc-bar-col"><div class="dc-bar" style="height:86%;" title="Sunday · 197"></div><span class="dc-bar-label">Sun</span></div>
+                <div class="dc-bar-col"><div class="dc-bar" style="height:53%;" title="Monday · 121"></div><span class="dc-bar-label">Mon</span></div>
+                <div class="dc-bar-col"><div class="dc-bar" style="height:81%;" title="Tuesday · 184"></div><span class="dc-bar-label">Tue</span></div>
+              </div>
+              <div class="flex items-center justify-between mt-3 pt-3" style="border-top:1px solid var(--dc-line);">
+                <p class="dc-muted" style="margin:0;font-size:0.72rem;">Peak: Saturday, 228 covers</p>
+                <p class="dc-ink" style="margin:0;font-size:0.78rem;font-weight:800;">1,195 total</p>
+              </div>
+            </article>
+
+            <article class="dc-panel">
+              <div class="dc-panel-head">
+                <div>
+                  <h3 class="dc-panel-title">Quick actions</h3>
+                  <p class="dc-panel-sub">Shortcuts used by the floor team</p>
+                </div>
+              </div>
+              <div class="dc-quick-grid">
+                <button type="button" class="dc-quick" onclick="openReservationModal()"><i class="fa-solid fa-calendar-plus"></i> Add booking</button>
+                <button type="button" class="dc-quick" data-goto="menu"><i class="fa-solid fa-utensils"></i> Mark dish sold out</button>
+                <button type="button" class="dc-quick" data-goto="events"><i class="fa-solid fa-bullhorn"></i> Publish event</button>
+                <button type="button" class="dc-quick" data-goto="guests"><i class="fa-solid fa-crown"></i> VIP arrivals</button>
+                <button type="button" class="dc-quick" data-goto="pages"><i class="fa-solid fa-globe"></i> Website pages</button>
+                <button type="button" class="dc-quick" data-goto="settings"><i class="fa-solid fa-palette"></i> Console theme</button>
+              </div>
+              <div class="mt-3 p-3" style="border:1px dashed var(--dc-line-strong);border-radius:0.7rem;">
+                <p class="dc-label" style="margin-bottom:0.3rem;">Weather watch</p>
+                <p class="dc-body" style="margin:0;font-size:0.76rem;line-height:1.5;">18&deg;C, clear sky, wind 9 km/h. Terrace cabanas and acoustic screens remain open for the 21:00 lounge set.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ================= RESERVATIONS ================= -->
+        <section class="dc-view" data-view-panel="reservations" hidden>
+          <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
+            <div>
+              <h2 class="dc-h1">Reservations</h2>
+              <p class="dc-lead">Manage every seating request, confirm arrivals and keep table dispatch aligned with the terrace plan.</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <button type="button" class="dc-btn" id="exportReservations"><i class="fa-solid fa-file-arrow-down"></i> Export CSV</button>
+              <button type="button" class="dc-btn dc-btn-gold" onclick="openReservationModal()"><i class="fa-solid fa-plus"></i> New reservation</button>
+            </div>
+          </div>
+
+          <div class="dc-panel">
+            <div class="dc-panel-head">
+              <div>
+                <h3 class="dc-panel-title">Booking ledger</h3>
+                <p class="dc-panel-sub"><span id="resVisibleCount">0</span> of <span id="resTotalCount">0</span> reservations</p>
+              </div>
+              <div class="dc-search-wrap w-full sm:w-64">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" class="dc-search" id="resSearch" data-global-target="reservations" placeholder="Guest, table or phone..." aria-label="Search reservations">
+              </div>
+            </div>
+
+            <div class="dc-chip-row mb-3" id="resStatusChips">
+              <button type="button" class="dc-chip is-active" data-res-status="all">All <span id="chipAll">0</span></button>
+              <button type="button" class="dc-chip" data-res-status="pending">Pending <span id="chipPending">0</span></button>
+              <button type="button" class="dc-chip" data-res-status="confirmed">Confirmed <span id="chipConfirmed">0</span></button>
+              <button type="button" class="dc-chip" data-res-status="seated">Seated <span id="chipSeated">0</span></button>
+              <button type="button" class="dc-chip" data-res-status="cancelled">Cancelled <span id="chipCancelled">0</span></button>
+            </div>
+
+            <div class="dc-table-wrap">
+              <table class="dc-table">
+                <thead>
+                  <tr>
+                    <th>Guest</th>
+                    <th>Time</th>
+                    <th>Party</th>
+                    <th>Table</th>
+                    <th>Status</th>
+                    <th style="text-align:right;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="reservationBody"></tbody>
+              </table>
+            </div>
+            <div class="dc-empty" id="resEmpty" hidden><i class="fa-regular fa-calendar-xmark"></i>No reservations match this filter.</div>
+          </div>
+        </section>
+
+        <!-- ================= MEDIA LIBRARY ================= -->
+        <section class="dc-view" data-view-panel="media" hidden>
+          <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
+            <div>
+              <h2 class="dc-h1">Media library</h2>
+              <p class="dc-lead">All 22 visuals refreshed across the website. Thumbnails keep the console fast; the lightbox opens the full-resolution original.</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <button type="button" class="dc-btn" id="mediaViewGrid" aria-pressed="true"><i class="fa-solid fa-table-cells-large"></i> Grid</button>
+              <button type="button" class="dc-btn" id="mediaViewList" aria-pressed="false"><i class="fa-solid fa-list"></i> List</button>
+            </div>
+          </div>
+
+          <div class="dc-panel">
+            <div class="dc-panel-head">
+              <div>
+                <h3 class="dc-panel-title">Published assets</h3>
+                <p class="dc-panel-sub"><span id="mediaVisibleCount">0</span> of <span id="mediaTotalCount">0</span> images · <span id="mediaTotalSize">0</span> MB of originals</p>
+              </div>
+              <div class="dc-search-wrap w-full sm:w-64">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" class="dc-search" id="mediaSearch" data-global-target="media" placeholder="Search asset name..." aria-label="Search media library">
+              </div>
+            </div>
+
+            <div class="dc-chip-row mb-4" id="mediaCategoryChips">
+              <button type="button" class="dc-chip is-active" data-media-category="all">All pages</button>
+              <button type="button" class="dc-chip" data-media-category="Contact Page">Contact Page</button>
+              <button type="button" class="dc-chip" data-media-category="Events">Events</button>
+              <button type="button" class="dc-chip" data-media-category="Gallery">Gallery</button>
+              <button type="button" class="dc-chip" data-media-category="Menu &amp; Cellar">Menu &amp; Cellar</button>
+              <button type="button" class="dc-chip" data-media-category="Home Page">Home Page</button>
+            </div>
+
+            <div class="dc-media-grid" id="mediaGrid"></div>
+            <div class="dc-empty" id="mediaEmpty" hidden><i class="fa-regular fa-image"></i>No assets match this search.</div>
+          </div>
+        </section>
+
+        <!-- ================= MENU & CELLAR ================= -->
+        <section class="dc-view" data-view-panel="menu" hidden>
+          <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
+            <div>
+              <h2 class="dc-h1">Menu &amp; cellar</h2>
+              <p class="dc-lead">Toggle dish availability for service, watch cellar depth and keep dietary stations visible to the host stand.</p>
+            </div>
+            <button type="button" class="dc-btn dc-btn-gold" id="saveMenuState"><i class="fa-solid fa-floppy-disk"></i> Save service sheet</button>
+          </div>
+
+          <div class="dc-split dc-split-2 mb-4">
+            <article class="dc-panel">
+              <div class="dc-panel-head">
+                <div>
+                  <h3 class="dc-panel-title">Dinner service availability</h3>
+                  <p class="dc-panel-sub">Changes apply to the host stand and online menu</p>
+                </div>
+                <span class="dc-badge dc-badge-green" id="menuAvailableBadge">0 available</span>
+              </div>
+
+              <div id="menuList">
+                <div class="dc-settings-row" data-menu-item="wagyu">
+                  <div class="min-w-0">
+                    <p class="dc-ink" style="margin:0;font-size:0.83rem;font-weight:700;">Miyazaki Wagyu A5 &amp; Winter Truffle</p>
+                    <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Chef's counter · $128</p>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="dc-badge dc-badge-green" data-menu-state>Available</span>
+                    <label class="dc-switch" aria-label="Toggle Miyazaki Wagyu availability">
+                      <input type="checkbox" checked data-menu-toggle="wagyu">
+                      <span class="dc-switch-track"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="dc-settings-row" data-menu-item="scallop">
+                  <div class="min-w-0">
+                    <p class="dc-ink" style="margin:0;font-size:0.83rem;font-weight:700;">Hokkaido Scallop Crudo &amp; Caviar</p>
+                    <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Raw bar · $46</p>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="dc-badge dc-badge-green" data-menu-state>Available</span>
+                    <label class="dc-switch" aria-label="Toggle Hokkaido scallop availability">
+                      <input type="checkbox" checked data-menu-toggle="scallop">
+                      <span class="dc-switch-track"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="dc-settings-row" data-menu-item="vegan">
+                  <div class="min-w-0">
+                    <p class="dc-ink" style="margin:0;font-size:0.83rem;font-weight:700;">Vegan Haute Gastronomy</p>
+                    <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Plant-forward tasting · $92</p>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="dc-badge dc-badge-green" data-menu-state>Available</span>
+                    <label class="dc-switch" aria-label="Toggle vegan tasting availability">
+                      <input type="checkbox" checked data-menu-toggle="vegan">
+                      <span class="dc-switch-track"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="dc-settings-row" data-menu-item="celiac">
+                  <div class="min-w-0">
+                    <p class="dc-ink" style="margin:0;font-size:0.83rem;font-weight:700;">Dedicated Celiac Station</p>
+                    <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Gluten-free kitchen line · no surcharge</p>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="dc-badge dc-badge-green" data-menu-state>Available</span>
+                    <label class="dc-switch" aria-label="Toggle celiac station">
+                      <input type="checkbox" checked data-menu-toggle="celiac">
+                      <span class="dc-switch-track"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="dc-settings-row" data-menu-item="obsidian">
+                  <div class="min-w-0">
+                    <p class="dc-ink" style="margin:0;font-size:0.83rem;font-weight:700;">Obsidian Hickory Smoke Infusion</p>
+                    <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Bar theatre · $24</p>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="dc-badge dc-badge-gold" data-menu-state>Low stock</span>
+                    <label class="dc-switch" aria-label="Toggle obsidian infusion">
+                      <input type="checkbox" checked data-menu-toggle="obsidian">
+                      <span class="dc-switch-track"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="dc-settings-row" data-menu-item="fizz">
+                  <div class="min-w-0">
+                    <p class="dc-ink" style="margin:0;font-size:0.83rem;font-weight:700;">Pomegranate &amp; Basil Fizz</p>
+                    <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Zero-proof flight · $18</p>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="dc-badge dc-badge-green" data-menu-state>Available</span>
+                    <label class="dc-switch" aria-label="Toggle pomegranate fizz">
+                      <input type="checkbox" checked data-menu-toggle="fizz">
+                      <span class="dc-switch-track"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="dc-panel">
+              <div class="dc-panel-head">
+                <div>
+                  <h3 class="dc-panel-title">Cellar inventory</h3>
+                  <p class="dc-panel-sub">Bottle depth against tonight's pairing plan</p>
+                </div>
+                <span class="dc-badge dc-badge-gold">Live</span>
+              </div>
+
+              <div class="space-y-3">
+                <div data-cellar-item data-stock="6">
+                  <div class="flex items-center justify-between gap-2 mb-1">
+                    <div class="min-w-0">
+                      <p class="dc-ink" style="margin:0;font-size:0.8rem;font-weight:700;">Ruinart Blanc de Blancs</p>
+                      <p class="dc-muted" style="margin:0;font-size:0.68rem;">Champagne · 6 bottles</p>
+                    </div>
+                    <span class="dc-badge dc-badge-gold" data-cellar-badge>Low</span>
+                  </div>
+                  <div class="dc-progress"><span data-cellar-bar style="width:25%;"></span></div>
+                </div>
+
+                <div data-cellar-item data-stock="18">
+                  <div class="flex items-center justify-between gap-2 mb-1">
+                    <div class="min-w-0">
+                      <p class="dc-ink" style="margin:0;font-size:0.8rem;font-weight:700;">Ch&acirc;teau Margaux 2015</p>
+                      <p class="dc-muted" style="margin:0;font-size:0.68rem;">Bordeaux · 18 bottles</p>
+                    </div>
+                    <span class="dc-badge dc-badge-green" data-cellar-badge>Healthy</span>
+                  </div>
+                  <div class="dc-progress"><span data-cellar-bar style="width:75%;"></span></div>
+                </div>
+
+                <div data-cellar-item data-stock="9">
+                  <div class="flex items-center justify-between gap-2 mb-1">
+                    <div class="min-w-0">
+                      <p class="dc-ink" style="margin:0;font-size:0.8rem;font-weight:700;">Krug Grande Cuv&eacute;e</p>
+                      <p class="dc-muted" style="margin:0;font-size:0.68rem;">Champagne · 9 bottles</p>
+                    </div>
+                    <span class="dc-badge dc-badge-blue" data-cellar-badge>Stable</span>
+                  </div>
+                  <div class="dc-progress"><span data-cellar-bar style="width:37%;"></span></div>
+                </div>
+
+                <div data-cellar-item data-stock="4">
+                  <div class="flex items-center justify-between gap-2 mb-1">
+                    <div class="min-w-0">
+                      <p class="dc-ink" style="margin:0;font-size:0.8rem;font-weight:700;">Sancerre Loire Valley</p>
+                      <p class="dc-muted" style="margin:0;font-size:0.68rem;">White · 4 bottles</p>
+                    </div>
+                    <span class="dc-badge dc-badge-red" data-cellar-badge>Critical</span>
+                  </div>
+                  <div class="dc-progress"><span data-cellar-bar style="width:16%;"></span></div>
+                </div>
+              </div>
+
+              <button type="button" class="dc-btn dc-btn-sm w-full mt-4" id="restockCellar"><i class="fa-solid fa-rotate"></i> Restock flagged bottles</button>
+            </article>
+          </div>
+
+          <article class="dc-panel">
+            <div class="dc-panel-head">
+              <div>
+                <h3 class="dc-panel-title">Dietary station spotlight</h3>
+                <p class="dc-panel-sub">Updated menu imagery and guest-facing labels</p>
+              </div>
+              <button type="button" class="dc-btn dc-btn-sm" data-goto="media">Manage imagery</button>
+            </div>
+            <div class="grid sm:grid-cols-3 gap-3">
+              <div class="dc-media-card">
+                <div class="dc-media-thumb"><img src="assets/images/dashboard-thumbs/vegan-haute-gastronomy.jpg" alt="Vegan haute gastronomy plated dish" loading="lazy"></div>
+                <div class="dc-media-body">
+                  <p class="dc-media-title">Vegan Haute Gastronomy</p>
+                  <div class="dc-media-meta"><span>Menu &amp; Cellar</span><span class="dc-badge dc-badge-green">Live</span></div>
+                </div>
+              </div>
+              <div class="dc-media-card">
+                <div class="dc-media-thumb"><img src="assets/images/dashboard-thumbs/dedicated-celiac-station.jpg" alt="Dedicated celiac station" loading="lazy"></div>
+                <div class="dc-media-body">
+                  <p class="dc-media-title">Dedicated Celiac Station</p>
+                  <div class="dc-media-meta"><span>Menu &amp; Cellar</span><span class="dc-badge dc-badge-green">Live</span></div>
+                </div>
+              </div>
+              <div class="dc-media-card">
+                <div class="dc-media-thumb"><img src="assets/images/dashboard-thumbs/zero-proof-botanical-flights.jpg" alt="Zero-proof botanical flights" loading="lazy"></div>
+                <div class="dc-media-body">
+                  <p class="dc-media-title">Zero-Proof Botanical Flights</p>
+                  <div class="dc-media-meta"><span>Menu &amp; Cellar</span><span class="dc-badge dc-badge-green">Live</span></div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- ================= EVENTS ================= -->
+        <section class="dc-view" data-view-panel="events" hidden>
+          <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
+            <div>
+              <h2 class="dc-h1">Events</h2>
+              <p class="dc-lead">Publish the live programme, watch capacity and keep the new event imagery aligned with the public calendar.</p>
+            </div>
+            <button type="button" class="dc-btn dc-btn-gold" id="newEventBtn"><i class="fa-solid fa-plus"></i> New event</button>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-3 mb-4" id="eventGrid">
+            <article class="dc-panel" style="padding:0;overflow:hidden;" data-event-card="ivory">
+              <div style="position:relative;">
+                <img src="assets/images/dashboard-thumbs/ivory-ember-candlelight-piano.jpg" alt="Ivory and Ember candlelight piano" style="width:100%;height:150px;object-fit:cover;display:block;" loading="lazy">
+                <span class="dc-badge dc-badge-green" data-event-badge style="position:absolute;top:0.6rem;left:0.6rem;">Published</span>
+              </div>
+              <div style="padding:0.9rem;">
+                <p class="dc-label" style="margin-bottom:0.3rem;">Friday · 20:00</p>
+                <h3 class="dc-ink" style="margin:0;font-size:0.9rem;font-weight:700;font-family:'Cinzel',serif;">Ivory &amp; Ember Candlelight Piano</h3>
+                <p class="dc-muted" style="margin:0.3rem 0 0.7rem;font-size:0.72rem;line-height:1.5;">Candlelit grand piano with a champagne flight in the west lounge.</p>
+                <div class="flex items-center justify-between mb-1">
+                  <span class="dc-muted" style="font-size:0.68rem;">Capacity</span>
+                  <span class="dc-ink" style="font-size:0.7rem;font-weight:800;" data-event-capacity>68 / 100</span>
+                </div>
+                <div class="dc-progress"><span data-event-bar style="width:68%;"></span></div>
+                <div class="flex items-center justify-between mt-3">
+                  <span class="dc-muted" style="font-size:0.68rem;">Public visibility</span>
+                  <label class="dc-switch" aria-label="Toggle Ivory and Ember publication">
+                    <input type="checkbox" checked data-event-toggle="ivory">
+                    <span class="dc-switch-track"></span>
+                  </label>
+                </div>
+              </div>
+            </article>
+
+            <article class="dc-panel" style="padding:0;overflow:hidden;" data-event-card="afterglow">
+              <div style="position:relative;">
+                <img src="assets/images/dashboard-thumbs/electric-afterglow-violin-over-deep-house.jpg" alt="Electric Afterglow violin over deep house" style="width:100%;height:150px;object-fit:cover;display:block;" loading="lazy">
+                <span class="dc-badge dc-badge-green" data-event-badge style="position:absolute;top:0.6rem;left:0.6rem;">Published</span>
+              </div>
+              <div style="padding:0.9rem;">
+                <p class="dc-label" style="margin-bottom:0.3rem;">Saturday · 22:00</p>
+                <h3 class="dc-ink" style="margin:0;font-size:0.9rem;font-weight:700;font-family:'Cinzel',serif;">Electric Afterglow Violin</h3>
+                <p class="dc-muted" style="margin:0.3rem 0 0.7rem;font-size:0.72rem;line-height:1.5;">Violin over deep house, with late cellar pours until 01:00.</p>
+                <div class="flex items-center justify-between mb-1">
+                  <span class="dc-muted" style="font-size:0.68rem;">Capacity</span>
+                  <span class="dc-ink" style="font-size:0.7rem;font-weight:800;" data-event-capacity>142 / 160</span>
+                </div>
+                <div class="dc-progress"><span data-event-bar style="width:89%;"></span></div>
+                <div class="flex items-center justify-between mt-3">
+                  <span class="dc-muted" style="font-size:0.68rem;">Public visibility</span>
+                  <label class="dc-switch" aria-label="Toggle Electric Afterglow publication">
+                    <input type="checkbox" checked data-event-toggle="afterglow">
+                    <span class="dc-switch-track"></span>
+                  </label>
+                </div>
+              </div>
+            </article>
+
+            <article class="dc-panel" style="padding:0;overflow:hidden;" data-event-card="handpan">
+              <div style="position:relative;">
+                <img src="assets/images/dashboard-thumbs/horizon-drum-handpan-at-golden-hour.jpg" alt="Horizon drum handpan at golden hour" style="width:100%;height:150px;object-fit:cover;display:block;" loading="lazy">
+                <span class="dc-badge dc-badge-gold" data-event-badge style="position:absolute;top:0.6rem;left:0.6rem;">Draft</span>
+              </div>
+              <div style="padding:0.9rem;">
+                <p class="dc-label" style="margin-bottom:0.3rem;">Sunday · 18:30</p>
+                <h3 class="dc-ink" style="margin:0;font-size:0.9rem;font-weight:700;font-family:'Cinzel',serif;">Horizon Drum Handpan</h3>
+                <p class="dc-muted" style="margin:0.3rem 0 0.7rem;font-size:0.72rem;line-height:1.5;">Golden-hour handpan set on the terrace edge with botanical flights.</p>
+                <div class="flex items-center justify-between mb-1">
+                  <span class="dc-muted" style="font-size:0.68rem;">Capacity</span>
+                  <span class="dc-ink" style="font-size:0.7rem;font-weight:800;" data-event-capacity>41 / 90</span>
+                </div>
+                <div class="dc-progress"><span data-event-bar style="width:46%;"></span></div>
+                <div class="flex items-center justify-between mt-3">
+                  <span class="dc-muted" style="font-size:0.68rem;">Public visibility</span>
+                  <label class="dc-switch" aria-label="Toggle Horizon Drum publication">
+                    <input type="checkbox" data-event-toggle="handpan">
+                    <span class="dc-switch-track"></span>
+                  </label>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <article class="dc-panel">
+            <div class="dc-panel-head">
+              <div>
+                <h3 class="dc-panel-title">This week's programme</h3>
+                <p class="dc-panel-sub">Resident and guest performances on the skydeck</p>
+              </div>
+              <span class="dc-badge dc-badge-neutral" id="eventPublishCount">0 published</span>
+            </div>
+            <div class="dc-table-wrap">
+              <table class="dc-table">
+                <thead>
+                  <tr>
+                    <th>Night</th>
+                    <th>Act</th>
+                    <th>Set time</th>
+                    <th>Room</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Tuesday</strong></td><td>Velvet Sax Residency</td><td>20:30</td><td>Main lounge</td><td><span class="dc-badge dc-badge-green">Confirmed</span></td></tr>
+                  <tr><td><strong>Wednesday</strong></td><td>Noir Vinyl Session</td><td>21:00</td><td>Cellar bar</td><td><span class="dc-badge dc-badge-green">Confirmed</span></td></tr>
+                  <tr><td><strong>Thursday</strong></td><td>Skyline Strings Trio</td><td>19:30</td><td>Terrace edge</td><td><span class="dc-badge dc-badge-gold">Hold</span></td></tr>
+                  <tr><td><strong>Friday</strong></td><td>Ivory &amp; Ember Candlelight Piano</td><td>20:00</td><td>West lounge</td><td><span class="dc-badge dc-badge-green">Published</span></td></tr>
+                  <tr><td><strong>Saturday</strong></td><td>Electric Afterglow Violin</td><td>22:00</td><td>Skydeck</td><td><span class="dc-badge dc-badge-green">Published</span></td></tr>
+                  <tr><td><strong>Sunday</strong></td><td>Horizon Drum Handpan</td><td>18:30</td><td>Terrace edge</td><td><span class="dc-badge dc-badge-gold">Draft</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+
+        <!-- ================= GUEST REGISTRY ================= -->
+        <section class="dc-view" data-view-panel="guests" hidden>
+          <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
+            <div>
+              <h2 class="dc-h1">Guest registry</h2>
+              <p class="dc-lead">Recognise returning guests, protect preferences and brief the floor before VIP arrivals.</p>
+            </div>
+            <button type="button" class="dc-btn" id="exportGuests"><i class="fa-solid fa-file-arrow-down"></i> Export registry</button>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+            <div class="dc-panel dc-panel-tight"><p class="dc-kpi-label">Registry</p><p class="dc-kpi-value" id="guestTotal">0</p><p class="dc-kpi-meta">profiled guests</p></div>
+            <div class="dc-panel dc-panel-tight"><p class="dc-kpi-label">Platinum</p><p class="dc-kpi-value" id="guestPlatinum">0</p><p class="dc-kpi-meta">priority seating</p></div>
+            <div class="dc-panel dc-panel-tight"><p class="dc-kpi-label">Gold</p><p class="dc-kpi-value" id="guestGold">0</p><p class="dc-kpi-meta">cellar allocation</p></div>
+            <div class="dc-panel dc-panel-tight"><p class="dc-kpi-label">Returning</p><p class="dc-kpi-value" id="guestReturning">0</p><p class="dc-kpi-meta">3+ visits</p></div>
+          </div>
+
+          <div class="dc-panel">
+            <div class="dc-panel-head">
+              <div>
+                <h3 class="dc-panel-title">Guest profiles</h3>
+                <p class="dc-panel-sub"><span id="guestVisibleCount">0</span> of <span id="guestTotalCount">0</span> guests</p>
+              </div>
+              <div class="dc-search-wrap w-full sm:w-64">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" class="dc-search" id="guestSearch" data-global-target="guests" placeholder="Name, preference or note..." aria-label="Search guest registry">
+              </div>
+            </div>
+
+            <div class="dc-chip-row mb-3" id="guestTierChips">
+              <button type="button" class="dc-chip is-active" data-guest-tier="all">All tiers</button>
+              <button type="button" class="dc-chip" data-guest-tier="Platinum">Platinum</button>
+              <button type="button" class="dc-chip" data-guest-tier="Gold">Gold</button>
+              <button type="button" class="dc-chip" data-guest-tier="Insider">Insider</button>
+            </div>
+
+            <div class="dc-table-wrap">
+              <table class="dc-table">
+                <thead>
+                  <tr>
+                    <th>Guest</th>
+                    <th>Tier</th>
+                    <th>Visits</th>
+                    <th>Lifetime spend</th>
+                    <th>Preference</th>
+                    <th>Last visit</th>
+                  </tr>
+                </thead>
+                <tbody id="guestBody"></tbody>
+              </table>
+            </div>
+            <div class="dc-empty" id="guestEmpty" hidden><i class="fa-solid fa-user-slash"></i>No guests match this search.</div>
+          </div>
+        </section>
+
+        <!-- ================= WEBSITE PAGES ================= -->
+        <section class="dc-view" data-view-panel="pages" hidden>
+          <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
+            <div>
+              <h2 class="dc-h1">Website pages</h2>
+              <p class="dc-lead">Every page in the AURA SKY site, with the refreshed visuals tracked against each route.</p>
+            </div>
+            <a href="index.html" target="_blank" rel="noopener" class="dc-btn dc-btn-gold" style="text-decoration:none;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open live site</a>
+          </div>
+
+          <div class="dc-panel">
+            <div class="dc-panel-head">
+              <div>
+                <h3 class="dc-panel-title">Page directory</h3>
+                <p class="dc-panel-sub"><span id="pageVisibleCount">0</span> of <span id="pageTotalCount">0</span> pages</p>
+              </div>
+              <div class="dc-search-wrap w-full sm:w-64">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" class="dc-search" id="pageSearch" data-global-target="pages" placeholder="Search pages..." aria-label="Search website pages">
+              </div>
+            </div>
+            <div id="pageList" class="dc-scroll-y"></div>
+            <div class="dc-empty" id="pageEmpty" hidden><i class="fa-regular fa-file"></i>No pages match this search.</div>
+          </div>
+        </section>
+
+        <!-- ================= SETTINGS ================= -->
+        <section class="dc-view" data-view-panel="settings" hidden>
+          <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
+            <div>
+              <h2 class="dc-h1">Settings</h2>
+              <p class="dc-lead">Console appearance, direction and alert preferences are stored in this browser.</p>
+            </div>
+            <button type="button" class="dc-btn dc-btn-danger" id="resetConsole"><i class="fa-solid fa-arrow-rotate-left"></i> Reset console settings</button>
+          </div>
+
+          <div class="dc-split dc-split-2">
+            <article class="dc-panel">
+              <div class="dc-panel-head">
+                <div>
+                  <h3 class="dc-panel-title">Appearance</h3>
+                  <p class="dc-panel-sub">Applies to the console and the public website</p>
+                </div>
+              </div>
+
+              <div class="dc-settings-row">
+                <div>
+                  <p class="dc-ink" style="margin:0;font-size:0.82rem;font-weight:700;">Colour theme</p>
+                  <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Midnight for service floors, day for office handover</p>
+                </div>
+                <div class="dc-seg" id="themeSeg">
+                  <button type="button" data-set-theme="dark">Midnight</button>
+                  <button type="button" data-set-theme="light">Day</button>
+                </div>
+              </div>
+
+              <div class="dc-settings-row">
+                <div>
+                  <p class="dc-ink" style="margin:0;font-size:0.82rem;font-weight:700;">Text direction</p>
+                  <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Mirror the layout for Arabic or Hebrew service teams</p>
+                </div>
+                <div class="dc-seg" id="dirSeg">
+                  <button type="button" data-set-dir="ltr">LTR</button>
+                  <button type="button" data-set-dir="rtl">RTL</button>
+                </div>
+              </div>
+
+              <div class="dc-settings-row">
+                <div>
+                  <p class="dc-ink" style="margin:0;font-size:0.82rem;font-weight:700;">Compact tables</p>
+                  <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Tighter row spacing for long service sheets</p>
+                </div>
+                <label class="dc-switch" aria-label="Toggle compact tables">
+                  <input type="checkbox" data-setting="compact">
+                  <span class="dc-switch-track"></span>
+                </label>
+              </div>
+            </article>
+
+            <article class="dc-panel">
+              <div class="dc-panel-head">
+                <div>
+                  <h3 class="dc-panel-title">Alerts</h3>
+                  <p class="dc-panel-sub">In-console notices for the duty manager</p>
+                </div>
+              </div>
+
+              <div class="dc-settings-row">
+                <div>
+                  <p class="dc-ink" style="margin:0;font-size:0.82rem;font-weight:700;">New reservations</p>
+                  <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Notify when a booking arrives or changes</p>
+                </div>
+                <label class="dc-switch" aria-label="Toggle reservation alerts">
+                  <input type="checkbox" checked data-setting="alertsReservations">
+                  <span class="dc-switch-track"></span>
+                </label>
+              </div>
+
+              <div class="dc-settings-row">
+                <div>
+                  <p class="dc-ink" style="margin:0;font-size:0.82rem;font-weight:700;">Low cellar stock</p>
+                  <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Flag bottles below 8 units</p>
+                </div>
+                <label class="dc-switch" aria-label="Toggle cellar alerts">
+                  <input type="checkbox" checked data-setting="alertsCellar">
+                  <span class="dc-switch-track"></span>
+                </label>
+              </div>
+
+              <div class="dc-settings-row">
+                <div>
+                  <p class="dc-ink" style="margin:0;font-size:0.82rem;font-weight:700;">VIP arrivals</p>
+                  <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Brief the floor 30 minutes before arrival</p>
+                </div>
+                <label class="dc-switch" aria-label="Toggle VIP alerts">
+                  <input type="checkbox" checked data-setting="alertsVip">
+                  <span class="dc-switch-track"></span>
+                </label>
+              </div>
+            </article>
+          </div>
+
+          <article class="dc-panel mt-4">
+            <div class="dc-panel-head">
+              <div>
+                <h3 class="dc-panel-title">Console snapshot</h3>
+                <p class="dc-panel-sub">Current content state for this workspace</p>
+              </div>
+              <span class="dc-badge dc-badge-green">Synchronised</span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div><p class="dc-label">Reservations</p><p class="dc-ink" style="margin:0.25rem 0 0;font-size:1.15rem;font-weight:800;" id="snapReservations">0</p></div>
+              <div><p class="dc-label">Media assets</p><p class="dc-ink" style="margin:0.25rem 0 0;font-size:1.15rem;font-weight:800;" id="snapMedia">0</p></div>
+              <div><p class="dc-label">Menu dishes</p><p class="dc-ink" style="margin:0.25rem 0 0;font-size:1.15rem;font-weight:800;">6</p></div>
+              <div><p class="dc-label">Pages tracked</p><p class="dc-ink" style="margin:0.25rem 0 0;font-size:1.15rem;font-weight:800;" id="snapPages">0</p></div>
+            </div>
+            <p class="dc-muted" style="margin:1rem 0 0;font-size:0.72rem;">Settings are saved to <code style="color:var(--dc-gold);">localStorage</code> under the AURA SKY console keys. Nothing leaves this browser.</p>
+          </article>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal + lightbox + toast inserted here -->
+  <!-- Reservation modal -->
+  <div class="dc-modal" id="reservationModal" hidden role="dialog" aria-modal="true" aria-labelledby="reservationModalTitle">
+    <div class="dc-modal-card">
+      <div class="dc-modal-head">
+        <div>
+          <h3 class="dc-panel-title" id="reservationModalTitle">New reservation</h3>
+          <p class="dc-panel-sub">Added straight to tonight's booking ledger</p>
+        </div>
+        <button type="button" class="dc-icon-btn" data-close-modal="reservationModal" aria-label="Close reservation form">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <form id="reservationForm">
+        <div class="dc-modal-body">
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="dc-field">
+              <label for="resGuest">Guest name</label>
+              <input class="dc-input" id="resGuest" name="guest" required placeholder="e.g. Amara Okafor" autocomplete="off">
+            </div>
+            <div class="dc-field">
+              <label for="resPhone">Phone</label>
+              <input class="dc-input" id="resPhone" name="phone" required placeholder="+1 555 0100" autocomplete="off">
+            </div>
+            <div class="dc-field">
+              <label for="resDate">Date</label>
+              <input class="dc-input" id="resDate" name="date" type="date" required>
+            </div>
+            <div class="dc-field">
+              <label for="resTime">Time</label>
+              <input class="dc-input" id="resTime" name="time" type="time" value="19:30" required>
+            </div>
+            <div class="dc-field">
+              <label for="resParty">Party size</label>
+              <input class="dc-input" id="resParty" name="party" type="number" min="1" max="24" value="2" required>
+            </div>
+            <div class="dc-field">
+              <label for="resTable">Table</label>
+              <select class="dc-select" id="resTable" name="table" required>
+                <option value="T-02">T-02 · Terrace edge</option>
+                <option value="T-05">T-05 · Window banquette</option>
+                <option value="T-08">T-08 · Chef's counter</option>
+                <option value="T-11">T-11 · Lounge sofa</option>
+                <option value="T-14">T-14 · Cabana</option>
+                <option value="T-17">T-17 · Skyline rail</option>
+              </select>
+            </div>
+            <div class="dc-field sm:col-span-2">
+              <label for="resStatus">Status</label>
+              <select class="dc-select" id="resStatus" name="status">
+                <option value="pending">Pending</option>
+                <option value="confirmed" selected>Confirmed</option>
+                <option value="seated">Seated</option>
+              </select>
+            </div>
+            <div class="dc-field sm:col-span-2">
+              <label for="resNotes">Notes</label>
+              <textarea class="dc-textarea" id="resNotes" name="notes" rows="2" placeholder="Allergies, celebration, seating preference..."></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="dc-modal-foot">
+          <button type="button" class="dc-btn dc-btn-ghost" data-close-modal="reservationModal">Cancel</button>
+          <button type="submit" class="dc-btn dc-btn-gold"><i class="fa-solid fa-check"></i> Save reservation</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Event modal -->
+  <div class="dc-modal" id="eventModal" hidden role="dialog" aria-modal="true" aria-labelledby="eventModalTitle">
+    <div class="dc-modal-card">
+      <div class="dc-modal-head">
+        <div>
+          <h3 class="dc-panel-title" id="eventModalTitle">New event</h3>
+          <p class="dc-panel-sub">Adds a card to the public programme grid</p>
+        </div>
+        <button type="button" class="dc-icon-btn" data-close-modal="eventModal" aria-label="Close event form">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <form id="eventForm">
+        <div class="dc-modal-body">
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="dc-field sm:col-span-2">
+              <label for="evName">Event name</label>
+              <input class="dc-input" id="evName" name="name" required placeholder="e.g. Champagne &amp; Strings at Dusk" autocomplete="off">
+            </div>
+            <div class="dc-field">
+              <label for="evNight">Night</label>
+              <input class="dc-input" id="evNight" name="night" required placeholder="e.g. Thursday · 20:30" autocomplete="off">
+            </div>
+            <div class="dc-field">
+              <label for="evCapacity">Capacity</label>
+              <input class="dc-input" id="evCapacity" name="capacity" type="number" min="10" max="400" value="80" required>
+            </div>
+            <div class="dc-field sm:col-span-2">
+              <label for="evDesc">Description</label>
+              <textarea class="dc-textarea" id="evDesc" name="desc" rows="2" required placeholder="One line for the events page..."></textarea>
+            </div>
+            <div class="dc-field sm:col-span-2">
+              <label class="flex items-center gap-2" style="text-transform:none;letter-spacing:0;font-size:0.78rem;">
+                <input type="checkbox" id="evPublish" checked style="accent-color:#D4AF37;">
+                Publish immediately on the events page
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="dc-modal-foot">
+          <button type="button" class="dc-btn dc-btn-ghost" data-close-modal="eventModal">Cancel</button>
+          <button type="submit" class="dc-btn dc-btn-gold"><i class="fa-solid fa-check"></i> Create event</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="dc-lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Media preview">
+    <div class="dc-lightbox-bar">
+      <div class="min-w-0">
+        <h3 id="lightboxTitle">Asset</h3>
+        <p id="lightboxMeta"></p>
+      </div>
+      <button type="button" class="dc-icon-btn" id="lightboxClose" aria-label="Close preview">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="dc-lightbox-stage">
+      <img id="lightboxImg" src="" alt="">
+    </div>
+    <div class="dc-lightbox-actions">
+      <button type="button" class="dc-btn dc-btn-sm" id="lightboxCopy"><i class="fa-regular fa-copy"></i> Copy asset path</button>
+      <a class="dc-btn dc-btn-sm" id="lightboxOpen" href="#" target="_blank" rel="noopener" style="text-decoration:none;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Open original</a>
+      <a class="dc-btn dc-btn-sm" id="lightboxPage" href="#" target="_blank" rel="noopener" style="text-decoration:none;"><i class="fa-regular fa-file-lines"></i> View page</a>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="dcToast" role="status" aria-live="polite">
+    <div class="dc-toast-card"><i class="fa-solid fa-circle-check"></i><span id="dcToastText">Saved</span></div>
+  </div>
+
+  <script src="assets/js/main.js?v=115"></script>
+  <script>
+    /* ==================================================================
+       AURA SKY OPERATIONS CONSOLE
+       ================================================================== */
+    const $ = (sel, ctx = document) => ctx.querySelector(sel);
+    const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+    const esc = (value) => String(value).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const LS = {
+      menu: 'aura-console-menu',
+      events: 'aura-console-events',
+      customEvents: 'aura-console-custom-events',
+      settings: 'aura-console-settings',
+      mediaView: 'aura-console-media-view'
+    };
+    const readLS = (key, fallback) => {
+      try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch (e) { return fallback; }
+    };
+    const writeLS = (key, value) => {
+      try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) { /* storage unavailable */ }
+    };
+
+    const VIEW_META = {
+      overview: ['Overview', 'Live floor performance for the 54th floor'],
+      reservations: ['Reservations', 'Booking ledger, arrivals and table dispatch'],
+      guests: ['Guest Registry', 'Tiers, preferences and VIP arrivals'],
+      media: ['Media Library', '22 refreshed visuals across the website'],
+      menu: ['Menu & Cellar', 'Dish availability, cellar depth and dietary stations'],
+      events: ['Events', 'Programme publishing and capacity'],
+      pages: ['Website Pages', 'Directory of every AURA SKY route'],
+      settings: ['Settings', 'Appearance, direction and alert preferences']
+    };
+
+    /* ---------------- Media registry: all updated assets ---------------- */
+    const MEDIA_ROWS = [
+      ['Press & Media Kit', 'assets/images/Press%20%26%20Media%20Kit.png', 'assets/images/dashboard-thumbs/press-media-kit.jpg', 'Contact Page', 8.8, 'contact.html', '24 Nov 2026'],
+      ['Film & Brand Shoots', 'assets/images/Film%20%26%20Brand%20Shoots.png', 'assets/images/dashboard-thumbs/film-brand-shoots.jpg', 'Contact Page', 8.8, 'contact.html', '24 Nov 2026'],
+      ['VIP Concierge & Talent', 'assets/images/VIP%20Concierge%20%26%20Talent.png', 'assets/images/dashboard-thumbs/vip-concierge-talent.jpg', 'Contact Page', 9.4, 'contact.html', '24 Nov 2026'],
+      ['Weather Resilient', 'assets/images/Weather%20Resilient.png', 'assets/images/dashboard-thumbs/weather-resilient.jpg', 'Contact Page', 8.9, 'contact.html', '24 Nov 2026'],
+      ['Photography CourtesyPhotography Courtesy', 'assets/images/Photography%20CourtesyPhotography%20Courtesy.png', 'assets/images/dashboard-thumbs/photography-courtesyphotography-courtesy.jpg', 'Contact Page', 8.7, 'contact.html', '24 Nov 2026'],
+      ['Ivory & Ember Candlelight Piano', 'assets/images/Ivory%20%26%20Ember%20Candlelight%20Piano.png', 'assets/images/dashboard-thumbs/ivory-ember-candlelight-piano.jpg', 'Events', 9.0, 'events.html', '24 Nov 2026'],
+      ['Electric Afterglow Violin Over Deep House', 'assets/images/Electric%20Afterglow%20Violin%20Over%20Deep%20House.png', 'assets/images/dashboard-thumbs/electric-afterglow-violin-over-deep-house.jpg', 'Events', 9.3, 'events.html', '24 Nov 2026'],
+      ['Horizon Drum Handpan at Golden Hour', 'assets/images/Horizon%20Drum%20Handpan%20at%20Golden%20Hour.png', 'assets/images/dashboard-thumbs/horizon-drum-handpan-at-golden-hour.jpg', 'Events', 8.0, 'events.html', '24 Nov 2026'],
+      ['Culinary Art \u2013 Miyazaki Wagyu A5 & Winter Truffle', 'assets/images/Culinary%20Art%20%E2%80%93%20Miyazaki%20Wagyu%20A5%20%26%20Winter%20Truffle.png', 'assets/images/dashboard-thumbs/culinary-art-miyazaki-wagyu-a5-winter-truffle.jpg', 'Gallery', 8.3, 'gallery.html', '24 Nov 2026'],
+      ['Raw Bar \u2013 Hokkaido Scallop Crudo & Caviar', 'assets/images/Raw%20Bar%20%E2%80%93%20Hokkaido%20Scallop%20Crudo%20%26%20Caviar.png', 'assets/images/dashboard-thumbs/raw-bar-hokkaido-scallop-crudo-caviar.jpg', 'Gallery', 8.6, 'gallery.html', '24 Nov 2026'],
+      ['\u2013 Obsidian Hickory Wood Smoke Infusion', 'assets/images/%E2%80%93%20Obsidian%20Hickory%20Wood%20Smoke%20Infusion.png', 'assets/images/dashboard-thumbs/obsidian-hickory-wood-smoke-infusion.jpg', 'Gallery', 8.5, 'gallery.html', '24 Nov 2026'],
+      ['Vegan Haute Gastronomy', 'assets/images/Vegan%20Haute%20Gastronomy.png', 'assets/images/dashboard-thumbs/vegan-haute-gastronomy.jpg', 'Menu & Cellar', 7.9, 'menu.html', '24 Nov 2026'],
+      ['Dedicated Celiac Station', 'assets/images/Dedicated%20Celiac%20Station.png', 'assets/images/dashboard-thumbs/dedicated-celiac-station.jpg', 'Menu & Cellar', 7.5, 'menu.html', '24 Nov 2026'],
+      ['Zero-Proof Botanical Flights', 'assets/images/Zero-Proof%20Botanical%20Flights.png', 'assets/images/dashboard-thumbs/zero-proof-botanical-flights.jpg', 'Menu & Cellar', 7.9, 'menu.html', '24 Nov 2026'],
+      ['Ruinart Blanc de Blancs Elegance', 'assets/images/Ruinart%20Blanc%20de%20Blancs%20Elegance.png', 'assets/images/dashboard-thumbs/ruinart-blanc-de-blancs-elegance.jpg', 'Home Page', 1.9, 'index.html', '23 Nov 2026'],
+      ['Golden Hour Rooftop Lounge Bar', 'assets/images/Golden%20Hour%20Rooftop%20Lounge%20Bar.png', 'assets/images/dashboard-thumbs/golden-hour-rooftop-lounge-bar.jpg', 'Home Page', 2.5, 'index.html', '23 Nov 2026'],
+      ['Romantic Skyline Dining', 'assets/images/Romantic%20Skyline%20Dining.png', 'assets/images/dashboard-thumbs/romantic-skyline-dining.jpg', 'Home Page', 9.3, 'index.html', '23 Nov 2026'],
+      ['Corporate & Private Buyout', 'assets/images/Corporate%20%26%20Private%20Buyout.png', 'assets/images/dashboard-thumbs/corporate-private-buyout.jpg', 'Home Page', 9.2, 'index.html', '23 Nov 2026'],
+      ['Climate-Heated Cabanas', 'assets/images/Climate-Heated%20Cabanas.png', 'assets/images/dashboard-thumbs/climate-heated-cabanas.jpg', 'Home Page', 9.5, 'index.html', '23 Nov 2026'],
+      ['Acoustic Wind Barriers', 'assets/images/Acoustic%20Wind%20Barriers.png', 'assets/images/dashboard-thumbs/acoustic-wind-barriers.jpg', 'Home Page', 9.1, 'index.html', '23 Nov 2026'],
+      ['360\u00B0 Metropolitan Vista', 'assets/images/360%C2%B0%20Metropolitan%20Vista.png', 'assets/images/dashboard-thumbs/360-metropolitan-vista.jpg', 'Home Page', 9.6, 'index.html', '23 Nov 2026'],
+      ['Pomegranate & Basil Fizz', 'assets/images/Pomegranate%20%26%20Basil%20Fizz.png', 'assets/images/dashboard-thumbs/pomegranate-basil-fizz.jpg', 'Menu & Cellar', 8.1, 'menu.html', '23 Nov 2026']
+    ];
+
+    const media = MEDIA_ROWS.map(([name, src, thumb, cat, size, page, added], index) => ({ id: index, name, src, thumb, cat, size, page, added }));
+
+    /* ---------------- Reservations ---------------- */
+    let reservations = [
+      { id: 'r1', guest: 'Amara Okafor', phone: '+1 555 0142', time: '18:00', party: 4, table: 'T-02', status: 'seated', notes: 'Anniversary \u00b7 window banquette', vip: true },
+      { id: 'r2', guest: 'Julian Mercer', phone: '+1 555 0177', time: '18:30', party: 2, table: 'T-05', status: 'confirmed', notes: 'Champagne on arrival', vip: true },
+      { id: 'r3', guest: 'Priya & Rohan Shah', phone: '+1 555 0133', time: '19:00', party: 6, table: 'T-11', status: 'confirmed', notes: 'Vegetarian tasting \u00d7 2', vip: false },
+      { id: 'r4', guest: 'Elena Voss', phone: '+1 555 0164', time: '19:30', party: 2, table: 'T-08', status: 'pending', notes: 'Shellfish allergy', vip: false },
+      { id: 'r5', guest: 'Marcus Adeyemi', phone: '+1 555 0128', time: '19:30', party: 8, table: 'T-14', status: 'confirmed', notes: 'Corporate \u00b7 separate bills', vip: true },
+      { id: 'r6', guest: 'Sofia Lindqvist', phone: '+1 555 0191', time: '20:00', party: 2, table: 'T-17', status: 'seated', notes: 'Proposal setup at 21:15', vip: false },
+      { id: 'r7', guest: 'Daniel Cho', phone: '+1 555 0110', time: '20:30', party: 4, table: 'T-05', status: 'pending', notes: 'Birthday cake', vip: false },
+      { id: 'r8', guest: 'Yara Haddad', phone: '+1 555 0189', time: '21:00', party: 3, table: 'T-02', status: 'confirmed', notes: 'Gluten-free \u00b7 celiac station', vip: false },
+      { id: 'r9', guest: 'Thomas Weber', phone: '+1 555 0173', time: '21:30', party: 2, table: 'T-08', status: 'confirmed', notes: 'Cellar pairing \u00b7 Ruinart', vip: true },
+      { id: 'r10', guest: 'Nina Petrova', phone: '+1 555 0155', time: '22:00', party: 5, table: 'T-11', status: 'cancelled', notes: 'Cancelled by guest', vip: false },
+      { id: 'r11', guest: 'Omar Al-Farsi', phone: '+1 555 0198', time: '22:30', party: 4, table: 'T-14', status: 'pending', notes: 'VIP \u00b7 quiet corner', vip: true },
+      { id: 'r12', guest: 'Grace Mensah', phone: '+1 555 0115', time: '23:00', party: 2, table: 'T-17', status: 'confirmed', notes: 'Late dessert service', vip: false }
+    ];
+    let currentResStatus = 'all';
+
+    /* ---------------- Guests ---------------- */
+    const guests = [
+      { name: 'Amara Okafor', tier: 'Platinum', visits: 14, spend: 6840, pref: 'Window banquette \u00b7 still water', last: '18 Nov 2026' },
+      { name: 'Julian Mercer', tier: 'Platinum', visits: 22, spend: 11250, pref: 'Ruinart \u00b7 corner booth', last: '21 Nov 2026' },
+      { name: 'Priya Shah', tier: 'Gold', visits: 9, spend: 4120, pref: 'Vegetarian tasting \u00b7 no nuts', last: '16 Nov 2026' },
+      { name: 'Elena Voss', tier: 'Gold', visits: 7, spend: 2980, pref: 'Shellfish allergy \u00b7 terrace', last: '12 Nov 2026' },
+      { name: 'Marcus Adeyemi', tier: 'Platinum', visits: 18, spend: 9340, pref: 'Private cabana \u00b7 separate bills', last: '22 Nov 2026' },
+      { name: 'Sofia Lindqvist', tier: 'Insider', visits: 3, spend: 1180, pref: 'Proposal setup \u00b7 champagne', last: '19 Nov 2026' },
+      { name: 'Yara Haddad', tier: 'Gold', visits: 11, spend: 5210, pref: 'Celiac \u00b7 dedicated station', last: '23 Nov 2026' },
+      { name: 'Omar Al-Farsi', tier: 'Insider', visits: 2, spend: 940, pref: 'Quiet corner \u00b7 no alcohol', last: '20 Nov 2026' }
+    ];
+    let currentGuestTier = 'all';
+
+    /* ---------------- Website pages ---------------- */
+    const pages = [
+      ['Home One', 'index.html', 7, '23 Nov 2026'],
+      ['Home Two', 'index-2.html', 0, '12 Nov 2026'],
+      ['About', 'about.html', 0, '12 Nov 2026'],
+      ['Menu', 'menu.html', 5, '23 Nov 2026'],
+      ['Events', 'events.html', 3, '24 Nov 2026'],
+      ['Gallery', 'gallery.html', 3, '24 Nov 2026'],
+      ['Blog', 'blog.html', 0, '12 Nov 2026'],
+      ['Blog detail \u00b7 01', 'blog-details.html', 0, '12 Nov 2026'],
+      ['Blog detail \u00b7 02', 'blog-details-1.html', 0, '12 Nov 2026'],
+      ['Blog detail \u00b7 03', 'blog-details-2.html', 0, '12 Nov 2026'],
+      ['Blog detail \u00b7 04', 'blog-details-3.html', 0, '12 Nov 2026'],
+      ['Blog detail \u00b7 05', 'blog-details-4.html', 0, '12 Nov 2026'],
+      ['Blog detail \u00b7 06', 'blog-details-5.html', 0, '12 Nov 2026'],
+      ['Blog detail \u00b7 07', 'blog-details-6.html', 0, '12 Nov 2026'],
+      ['Blog detail \u00b7 08', 'blog-details-7.html', 0, '12 Nov 2026'],
+      ['Contact', 'contact.html', 5, '24 Nov 2026'],
+      ['Pricing', 'pricing.html', 0, '12 Nov 2026'],
+      ['Services', 'services.html', 0, '12 Nov 2026'],
+      ['Service Detail', 'service-details.html', 0, '12 Nov 2026'],
+      ['Login', 'login.html', 0, '12 Nov 2026'],
+      ['Register', 'register.html', 0, '12 Nov 2026'],
+      ['Operations Console', 'dashboard.html', 22, '24 Nov 2026'],
+      ['Guest Dashboard', 'dashboard-guest.html', 0, '12 Nov 2026'],
+      ['Staff Dashboard', 'dashboard-admin.html', 0, '12 Nov 2026'],
+      ['Coming Soon', 'coming-soon.html', 0, '12 Nov 2026'],
+      ['404', '404.html', 0, '12 Nov 2026']
+    ].map(([title, file, imgs, updated], i) => ({ id: i, title, file, imgs, updated }));
+    let currentPageQuery = '';
+
+    /* ---------------- Helpers ---------------- */
+    function initialsFor(name) {
+      const parts = String(name).replace(/&/g, ' ').split(/\s+/).filter(Boolean);
+      return (parts.slice(0, 2).map((p) => p[0]).join('') || 'AS').toUpperCase();
+    }
+
+    function toast(message) {
+      const box = $('#dcToast');
+      $('#dcToastText').textContent = message;
+      box.classList.add('show');
+      clearTimeout(toast._timer);
+      toast._timer = setTimeout(() => box.classList.remove('show'), 2600);
+    }
+
+    function copyText(text, label) {
+      const done = () => toast(label || 'Copied to clipboard');
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+      } else {
+        fallbackCopy(text, done);
+      }
+    }
+
+    function fallbackCopy(text, done) {
+      const area = document.createElement('textarea');
+      area.value = text;
+      area.style.position = 'fixed';
+      area.style.opacity = '0';
+      document.body.appendChild(area);
+      area.select();
+      try { document.execCommand('copy'); done(); } catch (e) { toast('Copy unavailable in this browser'); }
+      document.body.removeChild(area);
+    }
+
+    function downloadCSV(filename, rows) {
+      const content = rows.map((row) => row.map((cell) => '"' + String(cell).replace(/"/g, '""') + '"').join(',')).join('\r\n');
+      const blob = new Blob([content], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(link.href);
+      toast('Exported ' + filename);
+    }
+
+    function refreshCounts() {
+      const set = (key, value) => $$('[data-count="' + key + '"]').forEach((el) => { el.textContent = value; });
+      set('reservations', reservations.length);
+      set('media', media.length);
+      set('guests', guests.length);
+      set('pages', pages.length);
+      const events = $$('[data-event-toggle]').length;
+      set('events', events);
+      $('#resTotalCount').textContent = reservations.length;
+      $('#guestTotalCount').textContent = guests.length;
+      $('#mediaTotalCount').textContent = media.length;
+      $('#pageTotalCount').textContent = pages.length;
+      $('#snapReservations').textContent = reservations.length;
+      $('#snapMedia').textContent = media.length;
+      $('#snapPages').textContent = pages.length;
+      $('#guestTotal').textContent = guests.length;
+      $('#guestPlatinum').textContent = guests.filter((g) => g.tier === 'Platinum').length;
+      $('#guestGold').textContent = guests.filter((g) => g.tier === 'Gold').length;
+      $('#guestReturning').textContent = guests.filter((g) => g.visits >= 3).length;
+      $('#openRequests').textContent = reservations.filter((r) => r.status === 'pending').length;
+      $('#eventPublishCount').textContent = $$('[data-event-toggle]:checked').length + ' published';
+    }
+
+    /* ---------------- View routing ---------------- */
+    function showView(name, updateHash) {
+      if (!VIEW_META[name]) name = 'overview';
+      $$('.dc-view').forEach((panel) => { panel.hidden = panel.dataset.viewPanel !== name; });
+      $$('.dc-nav-link').forEach((link) => link.classList.toggle('is-active', link.dataset.view === name));
+      const meta = VIEW_META[name];
+      $('#viewTitle').textContent = meta[0];
+      $('#viewSubtitle').textContent = meta[1];
+      document.title = meta[0] + ' | AURA SKY Operations Console';
+      const target = $('[data-global-target="' + name + '"]');
+      $('#globalSearch').value = target ? target.value : '';
+      $('#globalSearch').placeholder = target ? 'Search this view...' : 'Search reservations, media, guests or pages';
+      if (updateHash !== false) {
+        try { history.replaceState(null, '', '#' + name); } catch (e) { /* file protocol */ }
+      }
+      closeSidebar();
+    }
+
+    function closeSidebar() {
+      const sidebar = $('#consoleSidebar');
+      if (!sidebar) return;
+      sidebar.classList.remove('show');
+      $('#sidebarBackdrop').classList.remove('show');
+    }
+
+    function toggleMobileSidebar() {
+      const sidebar = $('#consoleSidebar');
+      const open = !sidebar.classList.contains('show');
+      sidebar.classList.toggle('show', open);
+      $('#sidebarBackdrop').classList.toggle('show', open);
+    }
+
+    /* ---------------- Reservations ---------------- */
+    const RES_STATUS = {
+      pending: ['Pending', 'dc-badge-gold'],
+      confirmed: ['Confirmed', 'dc-badge-green'],
+      seated: ['Seated', 'dc-badge-blue'],
+      cancelled: ['Cancelled', 'dc-badge-red']
+    };
+
+    function renderReservations() {
+      const query = ($('#resSearch').value || '').trim().toLowerCase();
+      const rows = reservations.filter((r) => {
+        const matchesStatus = currentResStatus === 'all' || r.status === currentResStatus;
+        const haystack = [r.guest, r.phone, r.table, r.notes, r.time].join(' ').toLowerCase();
+        return matchesStatus && (!query || haystack.includes(query));
+      });
+
+      const count = (status) => reservations.filter((r) => r.status === status).length;
+      $('#chipAll').textContent = reservations.length;
+      $('#chipPending').textContent = count('pending');
+      $('#chipConfirmed').textContent = count('confirmed');
+      $('#chipSeated').textContent = count('seated');
+      $('#chipCancelled').textContent = count('cancelled');
+      $('#resVisibleCount').textContent = rows.length;
+
+      $('#reservationBody').innerHTML = rows.map((r) => {
+        const badge = RES_STATUS[r.status];
+        let actions = '';
+        if (r.status === 'pending') actions += '<button type="button" class="dc-btn dc-btn-sm" data-res-action="confirm" data-id="' + r.id + '">Confirm</button> ';
+        if (r.status === 'confirmed') actions += '<button type="button" class="dc-btn dc-btn-sm" data-res-action="seat" data-id="' + r.id + '">Seat</button> ';
+        if (r.status === 'cancelled') actions += '<button type="button" class="dc-btn dc-btn-sm" data-res-action="restore" data-id="' + r.id + '">Restore</button> ';
+        else actions += '<button type="button" class="dc-btn dc-btn-sm dc-btn-danger" data-res-action="cancel" data-id="' + r.id + '" title="Cancel booking"><i class="fa-solid fa-xmark"></i></button>';
+        const note = r.notes ? '<span class="dc-sub">' + esc(r.notes) + '</span>' : '';
+        const vip = r.vip ? ' <i class="fa-solid fa-crown" style="color:var(--dc-gold);font-size:0.62rem;" title="VIP guest"></i>' : '';
+        return '<tr>' +
+          '<td><div class="flex items-center gap-2"><span class="dc-avatar-fallback">' + esc(initialsFor(r.guest)) + '</span><div class="min-w-0"><strong>' + esc(r.guest) + vip + '</strong><span class="dc-sub">' + esc(r.phone) + '</span></div></div></td>' +
+          '<td><strong>' + esc(r.time) + '</strong>' + note + '</td>' +
+          '<td>' + esc(r.party) + '</td>' +
+          '<td>' + esc(r.table) + '</td>' +
+          '<td><span class="dc-badge ' + badge[1] + '">' + badge[0] + '</span></td>' +
+          '<td><div class="flex items-center justify-end gap-1 flex-wrap">' + actions + '</div></td>' +
+          '</tr>';
+      }).join('');
+
+      $('#resEmpty').hidden = rows.length !== 0;
+      refreshCounts();
+    }
+
+    function openReservationModal() {
+      const modal = $('#reservationModal');
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+      const date = $('#resDate');
+      if (!date.value) date.value = new Date().toISOString().slice(0, 10);
+      setTimeout(() => $('#resGuest').focus(), 60);
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      modal.hidden = true;
+      document.body.style.overflow = '';
+    }
+
+    /* ---------------- Guests ---------------- */
+    const TIER_CLASS = { Platinum: 'dc-badge-purple', Gold: 'dc-badge-gold', Insider: 'dc-badge-blue' };
+
+    function renderGuests() {
+      const query = ($('#guestSearch').value || '').trim().toLowerCase();
+      const rows = guests.filter((g) => {
+        const tierOk = currentGuestTier === 'all' || g.tier === currentGuestTier;
+        return tierOk && (!query || [g.name, g.tier, g.pref, g.last].join(' ').toLowerCase().includes(query));
+      });
+      $('#guestVisibleCount').textContent = rows.length;
+      $('#guestBody').innerHTML = rows.map((g) => {
+        const dollars = '$' + g.spend.toLocaleString('en-US');
+        return '<tr>' +
+          '<td><div class="flex items-center gap-2"><span class="dc-avatar-fallback">' + esc(initialsFor(g.name)) + '</span><strong>' + esc(g.name) + '</strong></div></td>' +
+          '<td><span class="dc-badge ' + (TIER_CLASS[g.tier] || 'dc-badge-neutral') + '">' + esc(g.tier) + '</span></td>' +
+          '<td>' + g.visits + '</td>' +
+          '<td><strong>' + dollars + '</strong></td>' +
+          '<td><span class="dc-body">' + esc(g.pref) + '</span></td>' +
+          '<td><span class="dc-muted">' + esc(g.last) + '</span></td>' +
+          '</tr>';
+      }).join('');
+      $('#guestEmpty').hidden = rows.length !== 0;
+      refreshCounts();
+    }
+
+    /* ---------------- Media ---------------- */
+    let currentMediaCategory = 'all';
+    let mediaViewMode = readLS(LS.mediaView, 'grid') === 'list' ? 'list' : 'grid';
+
+    function renderMedia() {
+      const query = ($('#mediaSearch').value || '').trim().toLowerCase();
+      const rows = media.filter((m) => {
+        const catOk = currentMediaCategory === 'all' || m.cat === currentMediaCategory;
+        return catOk && (!query || [m.name, m.cat, m.page].join(' ').toLowerCase().includes(query));
+      });
+      $('#mediaVisibleCount').textContent = rows.length;
+      const total = rows.reduce((sum, m) => sum + m.size, 0);
+      $('#mediaTotalSize').textContent = total.toFixed(1);
+      $('#mediaGrid').innerHTML = rows.map((m) => {
+        return '<article class="dc-media-card' + (mediaViewMode === 'list' ? ' is-list' : '') + '">' +
+          '<button type="button" class="dc-media-thumb" data-media-open="' + m.id + '" style="border:0;padding:0;width:100%;display:block;cursor:zoom-in;" aria-label="Preview ' + esc(m.name) + '">' +
+          '<img src="' + m.thumb + '" alt="' + esc(m.name) + '" loading="lazy">' +
+          '<span class="dc-media-open"><i class="fa-solid fa-expand"></i></span>' +
+          '</button>' +
+          '<div class="dc-media-body">' +
+          '<p class="dc-media-title" title="' + esc(m.name) + '">' + esc(m.name) + '</p>' +
+          '<div class="dc-media-meta"><span class="dc-badge dc-badge-neutral">' + esc(m.cat) + '</span><span>' + m.size.toFixed(1) + ' MB</span></div>' +
+          '<div class="dc-media-actions">' +
+          '<button type="button" class="dc-btn dc-btn-sm" data-media-copy="' + m.id + '"><i class="fa-regular fa-copy"></i> Copy path</button>' +
+          '<a class="dc-btn dc-btn-sm" href="' + m.page + '" target="_blank" rel="noopener" style="text-decoration:none;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Page</a>' +
+          '</div></div></article>';
+      }).join('');
+      $('#mediaEmpty').hidden = rows.length !== 0;
+      $('#mediaVisibleCount').textContent = rows.length;
+      $('#mediaViewGrid').setAttribute('aria-pressed', String(mediaViewMode === 'grid'));
+      $('#mediaViewList').setAttribute('aria-pressed', String(mediaViewMode === 'list'));
+    }
+
+    function openLightbox(id) {
+      const item = media.find((m) => m.id === Number(id));
+      if (!item) return;
+      $('#lightboxImg').src = item.src;
+      $('#lightboxImg').alt = item.name;
+      $('#lightboxTitle').textContent = item.name;
+      $('#lightboxMeta').textContent = item.cat + ' \u00b7 ' + item.size.toFixed(1) + ' MB original \u00b7 added ' + item.added + ' \u00b7 used on ' + item.page;
+      $('#lightboxOpen').href = item.src;
+      $('#lightboxPage').href = item.page;
+      $('#lightbox').hidden = false;
+      $('#lightbox').dataset.mediaId = String(item.id);
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      $('#lightbox').hidden = true;
+      $('#lightboxImg').src = '';
+      document.body.style.overflow = '';
+    }
+
+    /* ---------------- Pages ---------------- */
+    function renderPages() {
+      const query = ($('#pageSearch').value || '').trim().toLowerCase();
+      const rows = pages.filter((p) => !query || [p.title, p.file, p.updated].join(' ').toLowerCase().includes(query));
+      $('#pageVisibleCount').textContent = rows.length;
+      $('#pageList').innerHTML = rows.map((p) => {
+        const badge = p.imgs > 0
+          ? '<span class="dc-badge dc-badge-gold">' + p.imgs + ' updated images</span>'
+          : '<span class="dc-badge dc-badge-neutral">Baseline</span>';
+        return '<div class="dc-page-row">' +
+          '<span class="dc-page-ico"><i class="fa-regular fa-file-lines"></i></span>' +
+          '<div class="min-w-0" style="flex:1;">' +
+          '<p class="dc-ink" style="margin:0;font-size:0.82rem;font-weight:700;">' + esc(p.title) + '</p>' +
+          '<p class="dc-muted" style="margin:0.1rem 0 0;font-size:0.68rem;">' + esc(p.file) + ' \u00b7 updated ' + esc(p.updated) + '</p>' +
+          '</div>' +
+          badge +
+          '<a class="dc-btn dc-btn-sm" href="' + p.file + '" target="_blank" rel="noopener" style="text-decoration:none;" title="Open page"><i class="fa-solid fa-arrow-up-right-from-square"></i><span class="hidden sm:inline">Open</span></a>' +
+          '<button type="button" class="dc-btn dc-btn-sm" data-copy-page="' + p.file + '" title="Copy link"><i class="fa-regular fa-copy"></i></button>' +
+          '</div>';
+      }).join('');
+      $('#pageEmpty').hidden = rows.length !== 0;
+      refreshCounts();
+    }
+
+    /* ---------------- Menu & cellar ---------------- */
+    let menuState = readLS(LS.menu, {});
+
+    function paintMenuRow(toggle) {
+      const row = toggle.closest('[data-menu-item]');
+      if (!row) return;
+      const badge = row.querySelector('[data-menu-state]');
+      if (!toggle.checked) {
+        badge.textContent = 'Sold out';
+        badge.className = 'dc-badge dc-badge-red';
+      } else if (toggle.dataset.menuToggle === 'obsidian') {
+        badge.textContent = 'Low stock';
+        badge.className = 'dc-badge dc-badge-gold';
+      } else {
+        badge.textContent = 'Available';
+        badge.className = 'dc-badge dc-badge-green';
+      }
+      const available = $$('[data-menu-toggle]:checked').length;
+      $('#menuAvailableBadge').textContent = available + ' available';
+    }
+
+    function applyMenuState() {
+      $$('[data-menu-toggle]').forEach((toggle) => {
+        const key = toggle.dataset.menuToggle;
+        if (typeof menuState[key] === 'boolean') toggle.checked = menuState[key];
+        paintMenuRow(toggle);
+      });
+    }
+
+    function restockCellar() {
+      let changed = 0;
+      $$('[data-cellar-item]').forEach((item) => {
+        const stock = Number(item.dataset.stock) || 0;
+        if (stock >= 8) return;
+        item.dataset.stock = '24';
+        const label = item.querySelector('p.dc-muted');
+        if (label) label.textContent = label.textContent.replace(/\u00b7\s*\d+\s*bottles/, '\u00b7 24 bottles');
+        const bar = item.querySelector('[data-cellar-bar]');
+        if (bar) bar.style.width = '100%';
+        const badge = item.querySelector('[data-cellar-badge]');
+        if (badge) { badge.textContent = 'Restocked'; badge.className = 'dc-badge dc-badge-green'; }
+        changed += 1;
+      });
+      toast(changed ? changed + ' low bottle' + (changed > 1 ? 's' : '') + ' restocked' : 'Cellar is already above threshold');
+    }
+
+    /* ---------------- Events ---------------- */
+    let eventState = readLS(LS.events, {});
+    let customEvents = readLS(LS.customEvents, []);
+
+    function paintEventBadge(toggle) {
+      const card = toggle.closest('[data-event-card]');
+      if (!card) return;
+      const badge = card.querySelector('[data-event-badge]');
+      if (!badge) return;
+      badge.textContent = toggle.checked ? 'Published' : 'Draft';
+      badge.className = 'dc-badge ' + (toggle.checked ? 'dc-badge-green' : 'dc-badge-gold');
+    }
+
+    function refreshEventCount() {
+      const toggles = $$('[data-event-toggle]');
+      const published = toggles.filter((t) => t.checked).length;
+      $('#eventPublishCount').textContent = published + ' published';
+      $$('[data-count="events"]').forEach((el) => { el.textContent = toggles.length; });
+    }
+
+    function applyEventState() {
+      $$('[data-event-toggle]').forEach((toggle) => {
+        const key = toggle.dataset.eventToggle;
+        if (typeof eventState[key] === 'boolean') toggle.checked = eventState[key];
+        paintEventBadge(toggle);
+      });
+      refreshEventCount();
+    }
+
+    function customEventCard(ev) {
+      return '<article class="dc-panel" style="padding:0;overflow:hidden;" data-event-card="' + esc(ev.id) + '">' +
+        '<div style="position:relative;height:118px;background:linear-gradient(120deg,#131A29,#2A2415 58%,#6B4E12);display:grid;place-items:center;">' +
+        '<i class="fa-solid fa-champagne-glasses" style="font-size:1.7rem;color:#F5E6B8;"></i>' +
+        '<span class="dc-badge ' + (ev.published ? 'dc-badge-green' : 'dc-badge-gold') + '" data-event-badge style="position:absolute;top:0.6rem;left:0.6rem;">' + (ev.published ? 'Published' : 'Draft') + '</span>' +
+        '</div>' +
+        '<div style="padding:0.9rem;">' +
+        '<p class="dc-label" style="margin-bottom:0.3rem;">' + esc(ev.night) + '</p>' +
+        '<h3 class="dc-ink" style="margin:0;font-size:0.9rem;font-weight:700;font-family:\'Cinzel\',serif;">' + esc(ev.name) + '</h3>' +
+        '<p class="dc-muted" style="margin:0.3rem 0 0.7rem;font-size:0.72rem;line-height:1.5;">' + esc(ev.desc) + '</p>' +
+        '<div class="flex items-center justify-between mb-1"><span class="dc-muted" style="font-size:0.68rem;">Capacity</span><span class="dc-ink" style="font-size:0.7rem;font-weight:800;" data-event-capacity>0 / ' + Number(ev.capacity) + '</span></div>' +
+        '<div class="dc-progress"><span data-event-bar style="width:2%;"></span></div>' +
+        '<div class="flex items-center justify-between mt-3"><span class="dc-muted" style="font-size:0.68rem;">Public visibility</span>' +
+        '<label class="dc-switch" aria-label="Toggle ' + esc(ev.name) + ' publication"><input type="checkbox" ' + (ev.published ? 'checked' : '') + ' data-event-toggle="' + esc(ev.id) + '"><span class="dc-switch-track"></span></label>' +
+        '</div></div></article>';
+    }
+
+    function renderCustomEvents() {
+      const grid = $('#eventGrid');
+      customEvents.forEach((ev) => grid.insertAdjacentHTML('beforeend', customEventCard(ev)));
+    }
+
+    /* ---------------- Settings ---------------- */
+    let consoleSettings = readLS(LS.settings, {});
+
+    function paintSettings() {
+      $$('[data-setting]').forEach((input) => {
+        const key = input.dataset.setting;
+        if (typeof consoleSettings[key] === 'boolean') input.checked = consoleSettings[key];
+      });
+      document.body.classList.toggle('dc-compact', Boolean(consoleSettings.compact));
+      paintThemeSeg();
+      paintDirSeg();
+    }
+
+    function paintThemeSeg() {
+      const isDark = document.documentElement.classList.contains('dark');
+      $$('#themeSeg button').forEach((btn) => {
+        btn.classList.toggle('is-active', (btn.dataset.setTheme === 'dark') === isDark);
+      });
+    }
+
+    function paintDirSeg() {
+      const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+      $$('#dirSeg button').forEach((btn) => {
+        btn.classList.toggle('is-active', (btn.dataset.setDir === 'rtl') === isRTL);
+      });
+    }
+
+    /* ---------------- Notifications ---------------- */
+    function toggleNotif(force) {
+      const panel = $('#notifPanel');
+      const open = typeof force === 'boolean' ? force : panel.hidden;
+      panel.hidden = !open;
+      $('#notifBtn').setAttribute('aria-expanded', String(open));
+    }
+
+    /* ---------------- Wiring ---------------- */
+    function bindConsole() {
+      /* Nav + shortcuts */
+      $$('.dc-nav-link').forEach((link) => {
+        link.addEventListener('click', () => showView(link.dataset.view));
+      });
+      $$('[data-goto]').forEach((btn) => {
+        btn.addEventListener('click', () => showView(btn.dataset.goto));
+      });
+
+      /* Global search mirrors the active view search box */
+      $('#globalSearch').addEventListener('input', (event) => {
+        const active = $('.dc-view:not([hidden])');
+        if (!active) return;
+        const target = $('[data-global-target="' + active.dataset.viewPanel + '"]');
+        if (!target) return;
+        target.value = event.target.value;
+        target.dispatchEvent(new Event('input', { bubbles: true }));
+      });
+
+      /* Reservations */
+      $('#resSearch').addEventListener('input', renderReservations);
+      $('#resStatusChips').addEventListener('click', (event) => {
+        const chip = event.target.closest('[data-res-status]');
+        if (!chip) return;
+        currentResStatus = chip.dataset.resStatus;
+        $$('#resStatusChips .dc-chip').forEach((c) => c.classList.toggle('is-active', c === chip));
+        renderReservations();
+      });
+      $('#reservationBody').addEventListener('click', (event) => {
+        const btn = event.target.closest('[data-res-action]');
+        if (!btn) return;
+        const reservation = reservations.find((r) => r.id === btn.dataset.id);
+        if (!reservation) return;
+        const action = btn.dataset.resAction;
+        if (action === 'confirm') { reservation.status = 'confirmed'; toast('Confirmed ' + reservation.guest + ' for ' + reservation.time); }
+        if (action === 'seat') { reservation.status = 'seated'; toast(reservation.guest + ' seated at ' + reservation.table); }
+        if (action === 'cancel') { reservation.status = 'cancelled'; toast('Cancelled ' + reservation.guest + ' \u00b7 ' + reservation.time); }
+        if (action === 'restore') { reservation.status = 'pending'; toast('Restored ' + reservation.guest + ' to pending'); }
+        renderReservations();
+      });
+      $('#exportReservations').addEventListener('click', () => {
+        downloadCSV('aura-sky-reservations.csv', [
+          ['Guest', 'Phone', 'Time', 'Party', 'Table', 'Status', 'Notes'],
+          ...reservations.map((r) => [r.guest, r.phone, r.time, r.party, r.table, r.status, r.notes])
+        ]);
+      });
+
+      /* Guests */
+      $('#guestSearch').addEventListener('input', renderGuests);
+      $('#guestTierChips').addEventListener('click', (event) => {
+        const chip = event.target.closest('[data-guest-tier]');
+        if (!chip) return;
+        currentGuestTier = chip.dataset.guestTier;
+        $$('#guestTierChips .dc-chip').forEach((c) => c.classList.toggle('is-active', c === chip));
+        renderGuests();
+      });
+      $('#exportGuests').addEventListener('click', () => {
+        downloadCSV('aura-sky-guest-registry.csv', [
+          ['Guest', 'Tier', 'Visits', 'Lifetime spend', 'Preference', 'Last visit'],
+          ...guests.map((g) => [g.name, g.tier, g.visits, g.spend, g.pref, g.last])
+        ]);
+      });
+
+      /* Media */
+      $('#mediaSearch').addEventListener('input', renderMedia);
+      $('#mediaCategoryChips').addEventListener('click', (event) => {
+        const chip = event.target.closest('[data-media-category]');
+        if (!chip) return;
+        currentMediaCategory = chip.dataset.mediaCategory;
+        $$('#mediaCategoryChips .dc-chip').forEach((c) => c.classList.toggle('is-active', c === chip));
+        renderMedia();
+      });
+      $('#mediaViewGrid').addEventListener('click', () => {
+        mediaViewMode = 'grid'; writeLS(LS.mediaView, 'grid'); renderMedia();
+      });
+      $('#mediaViewList').addEventListener('click', () => {
+        mediaViewMode = 'list'; writeLS(LS.mediaView, 'list'); renderMedia();
+      });
+      $('#mediaGrid').addEventListener('click', (event) => {
+        const open = event.target.closest('[data-media-open]');
+        if (open) { openLightbox(open.dataset.mediaOpen); return; }
+        const copy = event.target.closest('[data-media-copy]');
+        if (copy) {
+          const item = media.find((m) => m.id === Number(copy.dataset.mediaCopy));
+          if (item) copyText(new URL(item.src, location.href).href, 'Asset path copied');
+        }
+      });
+      $('#lightboxClose').addEventListener('click', closeLightbox);
+      $('#lightbox').addEventListener('click', (event) => { if (event.target.id === 'lightbox') closeLightbox(); });
+      $('#lightboxCopy').addEventListener('click', () => {
+        const item = media.find((m) => String(m.id) === $('#lightbox').dataset.mediaId);
+        if (item) copyText(new URL(item.src, location.href).href, 'Asset path copied');
+      });
+
+      /* Pages */
+      $('#pageSearch').addEventListener('input', renderPages);
+      $('#pageList').addEventListener('click', (event) => {
+        const copy = event.target.closest('[data-copy-page]');
+        if (!copy) return;
+        copyText(new URL(copy.dataset.copyPage, location.href).href, 'Page link copied');
+      });
+
+      /* Menu + cellar */
+      $('#menuList').addEventListener('change', (event) => {
+        const toggle = event.target.closest('[data-menu-toggle]');
+        if (!toggle) return;
+        menuState[toggle.dataset.menuToggle] = toggle.checked;
+        writeLS(LS.menu, menuState);
+        paintMenuRow(toggle);
+        const row = toggle.closest('[data-menu-item]');
+        const name = row ? row.querySelector('.dc-ink').textContent : 'Dish';
+        toast(name + (toggle.checked ? ' is available for service' : ' marked sold out'));
+      });
+      $('#saveMenuState').addEventListener('click', () => toast('Service sheet saved for tonight'));
+      $('#restockCellar').addEventListener('click', restockCellar);
+
+      /* Events */
+      document.addEventListener('change', (event) => {
+        const toggle = event.target.closest('[data-event-toggle]');
+        if (!toggle) return;
+        paintEventBadge(toggle);
+        const key = toggle.dataset.eventToggle;
+        if (key.indexOf('ev-') === 0) {
+          const custom = customEvents.find((ev) => ev.id === key);
+          if (custom) { custom.published = toggle.checked; writeLS(LS.customEvents, customEvents); }
+        } else {
+          eventState[key] = toggle.checked;
+          writeLS(LS.events, eventState);
+        }
+        refreshEventCount();
+        toast(toggle.checked ? 'Event published to the website' : 'Event moved back to draft');
+      });
+      $('#newEventBtn').addEventListener('click', () => {
+        $('#eventModal').hidden = false;
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => $('#evName').focus(), 60);
+      });
+
+      /* Settings */
+      $$('#themeSeg button').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const theme = btn.dataset.setTheme;
+          applyTheme(theme);
+          localStorage.setItem('aura-theme', theme);
+          paintThemeSeg();
+          toast(theme === 'dark' ? 'Midnight theme applied' : 'Day theme applied');
+        });
+      });
+      $('#rtlToggle').addEventListener('click', () => {
+        const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+        enableRTL(!isRTL);
+        paintDirSeg();
+        toast(!isRTL ? 'Right-to-left layout enabled' : 'Left-to-right layout enabled');
+      });
+      $$('#dirSeg button').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          enableRTL(btn.dataset.setDir === 'rtl');
+          paintDirSeg();
+          toast(btn.dataset.setDir === 'rtl' ? 'Right-to-left layout enabled' : 'Left-to-right layout enabled');
+        });
+      });
+      $$('[data-setting]').forEach((input) => {
+        input.addEventListener('change', () => {
+          const key = input.dataset.setting;
+          consoleSettings[key] = input.checked;
+          writeLS(LS.settings, consoleSettings);
+          if (key === 'compact') {
+            document.body.classList.toggle('dc-compact', input.checked);
+            toast(input.checked ? 'Compact tables enabled' : 'Comfortable tables restored');
+          } else {
+            toast('Alert preference saved');
+          }
+        });
+      });
+      $('#resetConsole').addEventListener('click', () => {
+        Object.keys(LS).forEach((key) => localStorage.removeItem(LS[key]));
+        applyTheme('dark');
+        localStorage.setItem('aura-theme', 'dark');
+        enableRTL(false);
+        location.reload();
+      });
+
+      /* Notifications */
+      $('#notifBtn').addEventListener('click', (event) => {
+        event.stopPropagation();
+        toggleNotif();
+      });
+      $('#markAllRead').addEventListener('click', (event) => {
+        event.stopPropagation();
+        $('#notifList').innerHTML = '<div class="dc-empty" style="padding:1.6rem 1rem;"><i class="fa-regular fa-bell-slash"></i>You are all caught up.</div>';
+        $('#notifDot').style.display = 'none';
+        toast('All notifications marked as read');
+      });
+      document.addEventListener('click', (event) => {
+        const panel = $('#notifPanel');
+        if (panel.hidden) return;
+        if (event.target.closest('#notifPanel') || event.target.closest('#notifBtn')) return;
+        toggleNotif(false);
+      });
+
+      /* Modals */
+      $$('[data-close-modal]').forEach((btn) => {
+        btn.addEventListener('click', () => closeModal(btn.dataset.closeModal));
+      });
+      $$('.dc-modal').forEach((modal) => {
+        modal.addEventListener('click', (event) => { if (event.target === modal) closeModal(modal.id); });
+      });
+      $('#reservationForm').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const data = new FormData(form);
+        const reservation = {
+          id: 'r-' + Date.now(),
+          guest: String(data.get('guest') || '').trim() || 'Walk-in guest',
+          phone: String(data.get('phone') || '').trim() || '\u2014',
+          time: String(data.get('time') || '19:30'),
+          party: Number(data.get('party') || 2),
+          table: String(data.get('table') || 'T-02'),
+          status: String(data.get('status') || 'confirmed'),
+          notes: String(data.get('notes') || '').trim(),
+          vip: false
+        };
+        reservations.push(reservation);
+        renderReservations();
+        form.reset();
+        $('#resDate').value = new Date().toISOString().slice(0, 10);
+        $('#resTime').value = '19:30';
+        closeModal('reservationModal');
+        showView('reservations');
+        toast('Reservation saved for ' + reservation.guest);
+      });
+      $('#eventForm').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        const name = String(data.get('name') || '').trim() || 'Skydeck Session';
+        const ev = {
+          id: 'ev-' + Date.now(),
+          name,
+          night: String(data.get('night') || '').trim() || 'Date to confirm',
+          capacity: Number(data.get('capacity') || 80),
+          desc: String(data.get('desc') || '').trim() || 'New skydeck programme.',
+          published: $('#evPublish').checked
+        };
+        customEvents.push(ev);
+        writeLS(LS.customEvents, customEvents);
+        $('#eventGrid').insertAdjacentHTML('beforeend', customEventCard(ev));
+        event.target.reset();
+        closeModal('eventModal');
+        refreshEventCount();
+        refreshCounts();
+        toast(name + (ev.published ? ' published' : ' saved as draft'));
+      });
+
+      /* Escape key */
+      document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape') return;
+        if (!$('#lightbox').hidden) { closeLightbox(); return; }
+        if (!$('#reservationModal').hidden) { closeModal('reservationModal'); return; }
+        if (!$('#eventModal').hidden) { closeModal('eventModal'); return; }
+        if (!$('#notifPanel').hidden) toggleNotif(false);
+      });
+    }
+
+    function initConsole() {
+      renderCustomEvents();
+      applyEventState();
+      applyMenuState();
+      paintSettings();
+      renderReservations();
+      renderGuests();
+      renderMedia();
+      renderPages();
+      refreshCounts();
+      bindConsole();
+      $('#resDate').value = new Date().toISOString().slice(0, 10);
+      const fromHash = location.hash.replace('#', '');
+      showView(VIEW_META[fromHash] ? fromHash : 'overview', false);
+      window.addEventListener('hashchange', () => {
+        const name = location.hash.replace('#', '');
+        if (VIEW_META[name]) showView(name, false);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', initConsole);
+  </script>
+</body>
+
+</html>

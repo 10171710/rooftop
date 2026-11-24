@@ -5668,6 +5668,44 @@ html:not(.dark) div[class*="absolute"]>div.glass-dark .bg-amber-500 {
   font-weight: 800 !important;
 }
 
+/* Self-positioned floating glass panels (the .glass-dark element itself is the
+   absolute overlay, e.g. the contact page map card). Light theme must keep the
+   obsidian panel readable with white/light-gray/gold text and gold badges. */
+html.light div[class*="absolute"].glass-dark .text-white,
+html.light div[class*="absolute"].glass-dark h3,
+html.light div[class*="absolute"].glass-dark h4,
+body.light div[class*="absolute"].glass-dark .text-white,
+body.light div[class*="absolute"].glass-dark h3,
+body.light div[class*="absolute"].glass-dark h4 {
+  color: #FFFFFF !important;
+}
+
+html.light div[class*="absolute"].glass-dark .text-gray-200,
+html.light div[class*="absolute"].glass-dark .text-gray-300,
+html.light div[class*="absolute"].glass-dark .text-gray-400,
+html.light div[class*="absolute"].glass-dark p,
+body.light div[class*="absolute"].glass-dark .text-gray-200,
+body.light div[class*="absolute"].glass-dark .text-gray-300,
+body.light div[class*="absolute"].glass-dark .text-gray-400,
+body.light div[class*="absolute"].glass-dark p {
+  color: #CBD5E1 !important;
+}
+
+html.light div[class*="absolute"].glass-dark span[class*="text-amber"],
+body.light div[class*="absolute"].glass-dark span[class*="text-amber"] {
+  color: #FBBF24 !important;
+  font-weight: 700 !important;
+}
+
+html.light div[class*="absolute"].glass-dark .bg-amber-500\/20,
+html.light div[class*="absolute"].glass-dark .bg-amber-500\/10,
+body.light div[class*="absolute"].glass-dark .bg-amber-500\/20,
+body.light div[class*="absolute"].glass-dark .bg-amber-500\/10 {
+  background-color: rgba(245, 158, 11, 0.18) !important;
+  border-color: rgba(245, 158, 11, 0.5) !important;
+  color: #FCD34D !important;
+}
+
 /* ===================================================================
    Section 42: Nightlife & Live Music Events Cards Image Overlay Text Lock
    Guarantees that event cards, residency cards, and hero overlays always
@@ -6277,6 +6315,7 @@ html.dark .sommelier-pairing-btn:active *,
   -webkit-text-fill-color: #FCD34D !important;
   fill: #FCD34D !important;
   background-color: transparent !important;
+
   background: transparent !important;
   border-color: rgba(245, 158, 11, 0.4) !important;
   box-shadow: none !important;
