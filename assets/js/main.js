@@ -76,8 +76,10 @@ function lockLightThemeLinkColors() {
 function applyTheme(theme) {
   const html = document.documentElement;
   const body = document.body;
-  const header = document.querySelector('header');
-  const footer = document.querySelector('footer');
+  // Dashboard pages style their own topbar; only the public site header/footer
+  // should be forced to pure black.
+  const header = document.querySelector('header:not(.dashboard-topbar)');
+  const footer = document.querySelector('footer:not(.dashboard-footer)');
 
   if (theme === 'light') {
     html.classList.remove('dark');

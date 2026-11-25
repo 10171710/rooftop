@@ -6354,3 +6354,143 @@ body.rtl footer .border-l-2,
   padding-right: 0.5rem !important;
   text-align: right !important;
 }
+
+/* ==========================================================================
+   AUTH PORTAL CTA BOX (100% Crisp Visibility in Both Dark & Light Themes)
+   ========================================================================== */
+.auth-quick-access {
+  background: rgba(245, 158, 11, 0.08) !important;
+  border: 1px solid rgba(245, 158, 11, 0.22) !important;
+}
+
+html.light .auth-quick-access,
+html:not(.dark) .auth-quick-access {
+  background: #F8FAFC !important;
+  border: 1px solid rgba(217, 119, 6, 0.3) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+html.light .auth-quick-access #profileHintText,
+html:not(.dark) .auth-quick-access #profileHintText {
+  color: #475569 !important;
+}
+
+html.light .auth-quick-access button.border,
+html:not(.dark) .auth-quick-access button.border {
+  border-color: rgba(217, 119, 6, 0.45) !important;
+  color: #92400E !important;
+}
+
+.auth-portal-cta-box {
+  padding: 0.85rem 1rem;
+  border-radius: 0.75rem;
+  background: rgba(245, 158, 11, 0.08) !important;
+  border: 1px solid rgba(245, 158, 11, 0.28) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.auth-portal-cta-box .auth-portal-cta-title {
+  display: block;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #FFFFFF !important;
+  letter-spacing: 0.01em;
+}
+
+.auth-portal-cta-box .auth-portal-cta-desc {
+  display: block;
+  font-size: 0.73rem;
+  color: #CBD5E1 !important;
+  margin-top: 0.15rem;
+  line-height: 1.35;
+}
+
+.auth-portal-cta-btn {
+  background: #F59E0B !important;
+  color: #000000 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25) !important;
+  white-space: nowrap;
+}
+
+.auth-portal-cta-btn:hover {
+  background: #FBBF24 !important;
+  color: #000000 !important;
+}
+
+/* LIGHT THEME: Luminous warm amber luxury container, high-contrast typography */
+html.light .auth-portal-cta-box,
+html:not(.dark) .auth-portal-cta-box {
+  background: #FFFBEB !important; /* Luminous warm amber surface, 100% visible on white card */
+  border: 1.5px solid #F59E0B !important; /* Crisp luxury amber border */
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.12), 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+html.light .auth-portal-cta-box .auth-portal-cta-title,
+html:not(.dark) .auth-portal-cta-box .auth-portal-cta-title {
+  color: #78350F !important; /* Deep rich amber-900 - ultra crisp and legible */
+  font-weight: 800 !important;
+}
+
+html.light .auth-portal-cta-box .auth-portal-cta-desc,
+html:not(.dark) .auth-portal-cta-box .auth-portal-cta-desc {
+  color: #92400E !important; /* Warm amber-800 - clear high contrast */
+  font-weight: 600 !important;
+}
+
+/* Light Theme Divider & Sublinks */
+html.light .auth-bottom-divider,
+html:not(.dark) .auth-bottom-divider {
+  border-top-color: #CBD5E1 !important;
+}
+
+html.light .auth-sublinks,
+html:not(.dark) .auth-sublinks {
+  color: #475569 !important;
+}
+
+html.light .auth-sublinks a,
+html:not(.dark) .auth-sublinks a {
+  color: #1E293B !important;
+  font-weight: 600 !important;
+}
+
+html.light .auth-sublinks a:hover,
+html:not(.dark) .auth-sublinks a:hover {
+  color: #D97706 !important;
+}
+
+/* ==========================================================================
+   AUTH PAGE MINIMAL HEADER CONTROLS (Light Theme & RTL Support)
+   ========================================================================== */
+html.light .auth-page header a span,
+html:not(.dark) .auth-page header a span {
+  color: #0F172A !important;
+}
+html.light .auth-page header a:hover span,
+html:not(.dark) .auth-page header a:hover span {
+  color: #D97706 !important;
+}
+html.light .auth-page header .theme-toggle-btn,
+html:not(.dark) .auth-page header .theme-toggle-btn,
+html.light .auth-page header .rtl-toggle-btn,
+html:not(.dark) .auth-page header .rtl-toggle-btn {
+  background: #FFFFFF !important;
+  border-color: rgba(217, 119, 6, 0.35) !important;
+  color: #B45309 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+html.light .auth-page header .theme-toggle-btn:hover,
+html:not(.dark) .auth-page header .theme-toggle-btn:hover,
+html.light .auth-page header .rtl-toggle-btn:hover,
+html:not(.dark) .auth-page header .rtl-toggle-btn:hover {
+  background: #FFFBEB !important;
+  border-color: #D97706 !important;
+  color: #78350F !important;
+}
+
+/* RTL Arrow Flipping */
+html[dir="rtl"] .auth-page header .fa-arrow-left,
+body.rtl .auth-page header .fa-arrow-left {
+  transform: rotate(180deg) !important;
+}

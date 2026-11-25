@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Shared Styles -->
-  <link rel="stylesheet" href="assets/css/style.css?v=115">
+  <link rel="stylesheet" href="assets/css/style.css?v=118">
 
   <style>
     /* =====================================================================
@@ -121,46 +121,82 @@
     }
 
     /* Sidebar brand + nav */
+    /* Brand block mirrors the home page navbar exactly: black bar, gold tile,
+       white wordmark and amber sub-label, in both themes. */
     .dc-brand {
       display: flex;
       align-items: center;
-      gap: 0.8rem;
-      padding: 1.4rem 1.25rem 1.15rem;
-      border-bottom: 1px solid var(--dc-line);
+      padding: 1.15rem 1.15rem 1.05rem;
+      background: #000000 !important;
+      border-bottom: 1px solid rgba(245, 158, 11, 0.3);
     }
 
-    .dc-brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
+    .dc-brand-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      min-width: 0;
+    }
+
+    .dc-brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 0.75rem;
+      padding: 2px;
+      background: linear-gradient(135deg, #FBBF24, #D4AF37 50%, #B45309);
+      box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.2), 0 4px 6px -4px rgba(245, 158, 11, 0.2);
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .dc-brand-icon i {
+      width: 100%;
+      height: 100%;
       display: grid;
       place-items: center;
-      font-family: 'Cinzel', serif;
-      font-weight: 700;
+      border-radius: 0.6rem;
+      background: #000000;
+      color: #FBBF24;
       font-size: 1rem;
-      color: #0B0E17;
-      background: linear-gradient(135deg, #F5E6B8, #D4AF37);
-      box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.5), 0 8px 18px -8px rgba(212, 175, 55, 0.8);
-      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    /* Same tilt as the Home 1 navbar logo on hover */
+    @media (hover: hover) {
+      .dc-brand-link:hover .dc-brand-icon i { transform: rotate(12deg); }
+    }
+
+    .dc-brand-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
     }
 
     .dc-brand-name {
       font-family: 'Cinzel', serif;
       font-weight: 700;
-      letter-spacing: 0.2em;
-      font-size: 0.95rem;
-      color: var(--dc-ink) !important;
-      line-height: 1.1;
+      letter-spacing: 0.12em;
+      font-size: 1.25rem;
+      color: #FFFFFF !important;
+      line-height: 1;
       margin: 0;
+      white-space: nowrap;
     }
 
     .dc-brand-sub {
-      font-size: 0.62rem;
-      letter-spacing: 0.28em;
+      font-size: 0.56rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--dc-muted) !important;
-      margin: 0.3rem 0 0;
-      font-weight: 600;
+      color: #FBBF24 !important;
+      margin: 0.32rem 0 0;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    html.light body.dashboard-console .dc-brand,
+    body.light.dashboard-console .dc-brand {
+      background: #000000 !important;
     }
 
     .dc-sidebar-scroll {
@@ -799,6 +835,27 @@
       .dc-split-3 { grid-template-columns: repeat(3, 1fr); }
     }
 
+    /* Dark feature surfaces keep white headings in both themes.
+       #viewHost raises specificity above the global light-theme .text-white rules. */
+    body.dashboard-console .dc-dark-surface h2,
+    body.dashboard-console .dc-dark-surface h3 { color: #FFFFFF !important; }
+
+    .dc-hero-title { color: #FFFFFF !important; }
+    .dc-hero-copy { color: #D1D5DB !important; }
+    .dc-hero-meta { color: #9CA3AF !important; }
+    body.dashboard-console .dc-dark-surface .dc-btn:not(.dc-btn-gold) { color: #FFFFFF !important; }
+    body.dashboard-console .dc-dark-surface .dc-btn:not(.dc-btn-gold):hover { color: #FFFFFF !important; }
+
+    /* Topbar heading contrast in both themes */
+    body.dashboard-console.dark .dc-topbar-title { color: #F8FAFC !important; }
+    body.dashboard-console.dark .dc-topbar-sub { color: #93A3BA !important; }
+
+    html.light body.dashboard-console .dc-topbar-title,
+    body.light.dashboard-console .dc-topbar-title { color: #0F172A !important; }
+
+    html.light body.dashboard-console .dc-topbar-sub,
+    body.light.dashboard-console .dc-topbar-sub { color: #64748B !important; }
+
     .dc-img-hero { position: relative; overflow: hidden; border-radius: 0.9rem; border: 1px solid var(--dc-line); min-height: 220px; }
     .dc-img-hero img { width: 100%; height: 100%; min-height: 220px; max-height: 300px; object-fit: cover; display: block; }
     .dc-img-hero .dc-hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7, 9, 14, 0.05) 30%, rgba(7, 9, 14, 0.88)); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.1rem; }
@@ -860,11 +917,13 @@
     <!-- ================= SIDEBAR ================= -->
     <aside class="dashboard-sidebar" id="consoleSidebar" aria-label="Console navigation">
       <div class="dc-brand">
-        <span class="dc-brand-mark">AS</span>
-        <div>
-          <p class="dc-brand-name">AURA SKY</p>
-          <p class="dc-brand-sub">Operations Console</p>
-        </div>
+        <a href="index.html" class="dc-brand-link">
+          <span class="dc-brand-icon"><i class="fa-solid fa-martini-glass-citrus"></i></span>
+          <span class="dc-brand-text">
+            <span class="dc-brand-name">AURA SKY</span>
+            <span class="dc-brand-sub">Rooftop &amp; Lounge</span>
+          </span>
+        </a>
       </div>
 
       <div class="dc-sidebar-scroll">
@@ -873,9 +932,17 @@
           <button type="button" class="dc-nav-link is-active" data-view="overview">
             <i class="fa-solid fa-gauge-high"></i><span>Overview</span>
           </button>
+          <button type="button" class="dc-nav-link" data-view="analytics">
+            <i class="fa-solid fa-chart-line"></i><span>Analytics &amp; Revenue</span>
+            <span class="dc-nav-count" data-count="analytics">$48.9k</span>
+          </button>
           <button type="button" class="dc-nav-link" data-view="reservations">
             <i class="fa-regular fa-calendar-check"></i><span>Reservations</span>
             <span class="dc-nav-count" data-count="reservations">0</span>
+          </button>
+          <button type="button" class="dc-nav-link" data-view="cabanas">
+            <i class="fa-solid fa-couch"></i><span>VIP Cabanas</span>
+            <span class="dc-nav-count" data-count="cabanas">6</span>
           </button>
           <button type="button" class="dc-nav-link" data-view="guests">
             <i class="fa-solid fa-user-group"></i><span>Guest Registry</span>
@@ -884,11 +951,7 @@
         </div>
 
         <div class="dc-nav-group">
-          <p class="dc-nav-label">Floor &amp; Menu</p>
-          <button type="button" class="dc-nav-link" data-view="media">
-            <i class="fa-regular fa-images"></i><span>Media Library</span>
-            <span class="dc-nav-count" data-count="media">0</span>
-          </button>
+          <p class="dc-nav-label">Floor &amp; Service</p>
           <button type="button" class="dc-nav-link" data-view="menu">
             <i class="fa-solid fa-wine-glass"></i><span>Menu &amp; Cellar</span>
           </button>
@@ -896,10 +959,18 @@
             <i class="fa-solid fa-music"></i><span>Events</span>
             <span class="dc-nav-count" data-count="events">0</span>
           </button>
+          <button type="button" class="dc-nav-link" data-view="staff">
+            <i class="fa-solid fa-user-tie"></i><span>Staff &amp; Roster</span>
+            <span class="dc-nav-count" data-count="staff">4</span>
+          </button>
+          <button type="button" class="dc-nav-link" data-view="media">
+            <i class="fa-regular fa-images"></i><span>Media Library</span>
+            <span class="dc-nav-count" data-count="media">0</span>
+          </button>
         </div>
 
         <div class="dc-nav-group">
-          <p class="dc-nav-label">Publishing</p>
+          <p class="dc-nav-label">Publishing &amp; System</p>
           <button type="button" class="dc-nav-link" data-view="pages">
             <i class="fa-regular fa-file-lines"></i><span>Website Pages</span>
             <span class="dc-nav-count" data-count="pages">0</span>
@@ -911,12 +982,26 @@
       </div>
 
       <div class="dc-sidebar-foot">
+        <div class="dc-sidebar-card mb-2" style="background: rgba(212,175,55,0.06); border: 1px solid rgba(212,175,55,0.2);">
+          <div class="flex items-center gap-2.5 mb-2">
+            <img src="assets/images/about/team-julian-vance-32224391.jpg" alt="Julian Vance" class="w-8 h-8 rounded-full object-cover border border-amber-500/40 shrink-0">
+            <div class="min-w-0">
+              <p class="dc-ink truncate" style="margin:0;font-size:0.78rem;font-weight:700;">Julian Vance</p>
+              <p class="dc-muted truncate" style="margin:0;font-size:0.65rem;">Director of Operations</p>
+            </div>
+          </div>
+          <div class="flex gap-1.5">
+            <a href="index.html" class="dc-btn dc-btn-sm" style="flex:1;text-decoration:none;font-size:0.7rem;padding:0.3rem 0.5rem;justify-content:center;">
+              <i class="fa-solid fa-globe"></i> Live site
+            </a>
+            <a href="login.html" class="dc-btn dc-btn-sm dc-btn-ghost" style="text-decoration:none;font-size:0.7rem;padding:0.3rem 0.5rem;" title="Switch Account">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </a>
+          </div>
+        </div>
         <div class="dc-sidebar-card">
-          <p class="dc-label" style="margin-bottom:0.35rem;">Skydeck status</p>
-          <p style="font-size:0.78rem;line-height:1.5;margin:0 0 0.6rem;"><strong>54F open</strong> · service until 01:00</p>
-          <a href="index.html" class="dc-btn dc-btn-sm" style="width:100%;text-decoration:none;">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> View live site
-          </a>
+          <p class="dc-label" style="margin-bottom:0.25rem;">Skydeck status</p>
+          <p style="font-size:0.75rem;line-height:1.4;margin:0 0 0.4rem;"><strong>54F open</strong> · service until 01:00</p>
         </div>
       </div>
     </aside>
@@ -986,18 +1071,39 @@
       <main class="dashboard-content" id="viewHost">
         <!-- ================= OVERVIEW ================= -->
         <section class="dc-view" data-view-panel="overview">
-          <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
-            <div>
-              <h2 class="dc-h1">Skydeck command centre</h2>
-              <p class="dc-lead">Reservations, floor pacing, media publishing and cellar health for Tuesday, 24 November 2026.</p>
+          <div class="dc-dark-surface relative overflow-hidden rounded-2xl mb-6 border border-amber-500/20 shadow-2xl" style="background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(11,13,16,0.98));">
+            <div class="absolute inset-0 z-0 opacity-25 mix-blend-overlay">
+              <img src="assets/images/gallery/midnight-skyline-36869274.jpg" alt="AURA SKY Panoramic Skyline" class="w-full h-full object-cover">
             </div>
-            <div class="flex flex-wrap gap-2">
-              <button type="button" class="dc-btn dc-btn-gold" onclick="openReservationModal()">
-                <i class="fa-solid fa-plus"></i> New reservation
-              </button>
-              <button type="button" class="dc-btn" data-goto="media">
-                <i class="fa-regular fa-images"></i> Media library
-              </button>
+            <div class="relative z-10 p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs font-semibold tracking-wider uppercase mb-3">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  54th Floor Skydeck &bull; Executive Command Active
+                </div>
+                <h2 class="dc-hero-title text-2xl md:text-3xl font-extrabold tracking-tight font-serif mb-2" style="font-family:'Cinzel',serif;">
+                  AURA SKY Operations Console
+                </h2>
+                <p class="dc-hero-copy text-sm leading-relaxed">
+                  Real-time table dispatch, VIP cabana pacing, Grand Cru cellar reserves, and synchronized floor brigading for tonight's service.
+                </p>
+                <div class="dc-hero-meta flex flex-wrap items-center gap-4 mt-4 pt-4 border-t border-white/10 text-xs">
+                  <span class="flex items-center gap-1.5"><i class="fa-solid fa-cloud-sun text-amber-400"></i> Clear Sky, 18&deg;C</span>
+                  <span class="flex items-center gap-1.5"><i class="fa-solid fa-users text-amber-400"></i> 184 Total Covers</span>
+                  <span class="flex items-center gap-1.5"><i class="fa-solid fa-champagne-glasses text-amber-400"></i> 94% Table Occupancy</span>
+                </div>
+              </div>
+              <div class="flex flex-wrap md:flex-col gap-2.5 shrink-0">
+                <button type="button" class="dc-btn dc-btn-gold px-4 py-2.5 shadow-lg shadow-amber-500/10" onclick="openReservationModal()">
+                  <i class="fa-solid fa-calendar-plus mr-1.5"></i> New Reservation
+                </button>
+                <button type="button" class="dc-btn bg-white/10 hover:bg-white/15 border-white/20 px-4 py-2" data-goto="cabanas">
+                  <i class="fa-solid fa-couch mr-1.5 text-amber-400"></i> Floor Cabanas
+                </button>
+                <button type="button" class="dc-btn bg-white/10 hover:bg-white/15 border-white/20 px-4 py-2" data-goto="staff">
+                  <i class="fa-solid fa-user-tie mr-1.5 text-amber-400"></i> Staff Roster
+                </button>
+              </div>
             </div>
           </div>
 
@@ -1162,6 +1268,240 @@
           </div>
         </section>
 
+        <!-- ================= ANALYTICS & REVENUE REPORTS ================= -->
+        <section class="dc-view" data-view-panel="analytics" hidden>
+          <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
+            <div>
+              <h2 class="dc-h1">Analytics &amp; Revenue Reports</h2>
+              <p class="dc-lead">Live floor gross sales, RevPASH (revenue per available seat hour), zone pacing, and Grand Cru allocations.</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <select class="dc-select text-xs py-1.5 px-3 rounded-lg" id="analyticsRange" onchange="updateAnalyticsRange(this.value)" aria-label="Financial Report Range">
+                <option value="tonight">Tonight (24 Nov 2026)</option>
+                <option value="week">Past 7 Days</option>
+                <option value="month">Month to Date (Nov 2026)</option>
+              </select>
+              <button type="button" class="dc-btn dc-btn-gold" id="exportFinancialReportBtn" onclick="exportAnalyticsCSV()">
+                <i class="fa-solid fa-file-invoice-dollar"></i> Export Financial Report
+              </button>
+            </div>
+          </div>
+
+          <!-- Top Financial KPI Cards -->
+          <div class="grid grid-cols-2 xl:grid-cols-4 gap-3 mb-4">
+            <article class="dc-panel dc-kpi">
+              <div class="dc-kpi-top">
+                <div>
+                  <p class="dc-kpi-label">Gross Revenue Tonight</p>
+                  <p class="dc-kpi-value text-amber-400" id="kpiGrossRev">$48,920</p>
+                </div>
+                <span class="dc-kpi-ico" style="background: var(--dc-gold-soft); color: var(--dc-gold);"><i class="fa-solid fa-vault"></i></span>
+              </div>
+              <p class="dc-kpi-meta"><strong><i class="fa-solid fa-arrow-trend-up"></i> +14.2%</strong> vs forecast target ($42,800)</p>
+            </article>
+
+            <article class="dc-panel dc-kpi">
+              <div class="dc-kpi-top">
+                <div>
+                  <p class="dc-kpi-label">Total Covers &amp; Turn Rate</p>
+                  <p class="dc-kpi-value" id="kpiCovers">184</p>
+                </div>
+                <span class="dc-kpi-ico" style="background: var(--dc-green-soft); color: var(--dc-green);"><i class="fa-solid fa-chair"></i></span>
+              </div>
+              <p class="dc-kpi-meta"><strong>1.85 turns</strong> &bull; 94% terrace occupancy</p>
+            </article>
+
+            <article class="dc-panel dc-kpi">
+              <div class="dc-kpi-top">
+                <div>
+                  <p class="dc-kpi-label">Average Spend / Cover</p>
+                  <p class="dc-kpi-value" id="kpiAvgSpend">$265.80</p>
+                </div>
+                <span class="dc-kpi-ico" style="background: var(--dc-blue-soft); color: var(--dc-blue);"><i class="fa-solid fa-receipt"></i></span>
+              </div>
+              <p class="dc-kpi-meta"><strong>Food: $123.80</strong> &bull; Beverage: $142.00</p>
+            </article>
+
+            <article class="dc-panel dc-kpi">
+              <div class="dc-kpi-top">
+                <div>
+                  <p class="dc-kpi-label">VIP Minimums &amp; Cellar</p>
+                  <p class="dc-kpi-value text-purple-400" id="kpiVipMin">$18,450</p>
+                </div>
+                <span class="dc-kpi-ico" style="background: var(--dc-purple-soft); color: var(--dc-purple);"><i class="fa-solid fa-champagne-glasses"></i></span>
+              </div>
+              <p class="dc-kpi-meta"><strong>37.7%</strong> of tonight's gross volume</p>
+            </article>
+          </div>
+
+          <!-- Split Visual Breakdown Panels -->
+          <div class="dc-split dc-split-2 mb-4">
+            <!-- Category Breakdown with Real Photos -->
+            <article class="dc-panel">
+              <div class="dc-panel-head">
+                <div>
+                  <h3 class="dc-panel-title">Revenue by Service Category</h3>
+                  <p class="dc-panel-sub">Audited register totals for tonight's service</p>
+                </div>
+                <span class="dc-badge dc-badge-green"><i class="fa-solid fa-circle-check mr-1"></i> Live POS Sync</span>
+              </div>
+
+              <div class="space-y-3.5 mt-2">
+                <div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <div class="flex items-center gap-2">
+                      <img src="assets/images/gallery/wagyu-plating-11118539.jpg" alt="Haute Cuisine" class="w-7 h-7 rounded object-cover border border-amber-500/30">
+                      <span class="dc-ink font-semibold text-xs">Haute Cuisine &amp; Tasting Menus</span>
+                    </div>
+                    <span class="text-xs font-bold text-amber-400">$18,240 <span class="text-[10px] text-gray-400 font-normal">(37.3%)</span></span>
+                  </div>
+                  <div class="dc-progress"><span style="width:37.3%;background:#D4AF37;"></span></div>
+                </div>
+
+                <div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <div class="flex items-center gap-2">
+                      <img src="assets/images/home/ruinart-champagne-29811323.jpg" alt="Grand Cru Cellar" class="w-7 h-7 rounded object-cover border border-amber-500/30">
+                      <span class="dc-ink font-semibold text-xs">Grand Cru Cellar &amp; Vintage Champagne</span>
+                    </div>
+                    <span class="text-xs font-bold text-amber-400">$14,800 <span class="text-[10px] text-gray-400 font-normal">(30.2%)</span></span>
+                  </div>
+                  <div class="dc-progress"><span style="width:30.2%;background:#10B981;"></span></div>
+                </div>
+
+                <div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <div class="flex items-center gap-2">
+                      <img src="assets/images/gallery/smoked-cocktail-17541202.jpg" alt="Skyline Mixology" class="w-7 h-7 rounded object-cover border border-amber-500/30">
+                      <span class="dc-ink font-semibold text-xs">Signature Skydeck Mixology</span>
+                    </div>
+                    <span class="text-xs font-bold text-amber-400">$8,680 <span class="text-[10px] text-gray-400 font-normal">(17.7%)</span></span>
+                  </div>
+                  <div class="dc-progress"><span style="width:17.7%;background:#3B82F6;"></span></div>
+                </div>
+
+                <div>
+                  <div class="flex items-center justify-between mb-1.5">
+                    <div class="flex items-center gap-2">
+                      <img src="assets/images/gallery/skyline-cabana-35598463.jpg" alt="VIP Cabana Packages" class="w-7 h-7 rounded object-cover border border-amber-500/30">
+                      <span class="dc-ink font-semibold text-xs">VIP Cabana Packages &amp; Salon Minimums</span>
+                    </div>
+                    <span class="text-xs font-bold text-amber-400">$7,200 <span class="text-[10px] text-gray-400 font-normal">(14.8%)</span></span>
+                  </div>
+                  <div class="dc-progress"><span style="width:14.8%;background:#A855F7;"></span></div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Hourly Velocity Bar Chart -->
+            <article class="dc-panel">
+              <div class="dc-panel-head">
+                <div>
+                  <h3 class="dc-panel-title">Hourly Revenue Velocity</h3>
+                  <p class="dc-panel-sub">Floor gross by hour ($k) and peak service intervals</p>
+                </div>
+                <span class="dc-badge dc-badge-gold">Peak: 20:00 ($14.2k)</span>
+              </div>
+              <div class="dc-bars" role="img" aria-label="Hourly revenue chart: 17:00 $4.2k, 18:00 $7.8k, 19:00 $11.4k, 20:00 $14.2k, 21:00 $8.6k, 22:00 $2.7k">
+                <div class="dc-bar-col"><div class="dc-bar" style="height:30%;background:rgba(212,175,55,0.6);" title="17:00 · $4,200 (22 covers)"></div><span class="dc-bar-label">17h</span></div>
+                <div class="dc-bar-col"><div class="dc-bar" style="height:55%;background:rgba(212,175,55,0.75);" title="18:00 · $7,800 (34 covers)"></div><span class="dc-bar-label">18h</span></div>
+                <div class="dc-bar-col"><div class="dc-bar" style="height:80%;background:rgba(212,175,55,0.9);" title="19:00 · $11,400 (46 covers)"></div><span class="dc-bar-label">19h</span></div>
+                <div class="dc-bar-col"><div class="dc-bar" style="height:100%;background:#D4AF37;" title="20:00 · $14,200 (48 covers) - Peak Rush"></div><span class="dc-bar-label">20h</span></div>
+                <div class="dc-bar-col"><div class="dc-bar" style="height:60%;background:rgba(212,175,55,0.8);" title="21:00 · $8,600 (38 covers)"></div><span class="dc-bar-label">21h</span></div>
+                <div class="dc-bar-col"><div class="dc-bar" style="height:20%;background:rgba(212,175,55,0.5);" title="22:00 · $2,720 (16 covers)"></div><span class="dc-bar-label">22h</span></div>
+              </div>
+              <div class="flex items-center justify-between mt-3 pt-3" style="border-top:1px solid var(--dc-line);">
+                <p class="dc-muted" style="margin:0;font-size:0.72rem;">Dinner Peak Velocity: $236/minute</p>
+                <p class="dc-ink" style="margin:0;font-size:0.78rem;font-weight:800;">$48,920 Total Today</p>
+              </div>
+            </article>
+          </div>
+
+          <!-- Detailed Zone Financial Performance Ledger -->
+          <article class="dc-panel mb-4">
+            <div class="dc-panel-head">
+              <div>
+                <h3 class="dc-panel-title">Floor Zone Financial Performance</h3>
+                <p class="dc-panel-sub">Station yield, cover average, and turn efficiency</p>
+              </div>
+              <span class="dc-badge dc-badge-neutral">4 Zones Active</span>
+            </div>
+            <div class="dc-table-wrap">
+              <table class="dc-table">
+                <thead>
+                  <tr>
+                    <th>Service Zone</th>
+                    <th>Covers</th>
+                    <th>Gross Revenue</th>
+                    <th>Avg / Cover</th>
+                    <th>Table Turn Rate</th>
+                    <th>Peak Hour</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="analyticsZoneTable">
+                  <tr>
+                    <td>
+                      <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                        <strong>54F Skyline Terrace (Edge Tables)</strong>
+                      </div>
+                    </td>
+                    <td>82 covers</td>
+                    <td class="font-bold text-amber-400">$22,400</td>
+                    <td>$273.17</td>
+                    <td>2.05 turns</td>
+                    <td>20:00</td>
+                    <td><span class="dc-badge dc-badge-green">At Capacity</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span>
+                        <strong>Glass Atrium &amp; Penthouse Suites</strong>
+                      </div>
+                    </td>
+                    <td>44 covers</td>
+                    <td class="font-bold text-amber-400">$15,800</td>
+                    <td>$359.09</td>
+                    <td>1.45 turns</td>
+                    <td>19:30</td>
+                    <td><span class="dc-badge dc-badge-green">Optimal Yield</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                        <strong>Chef's Tasting Counter (Omakase)</strong>
+                      </div>
+                    </td>
+                    <td>16 covers</td>
+                    <td class="font-bold text-amber-400">$4,080</td>
+                    <td>$255.00</td>
+                    <td>2.00 turns</td>
+                    <td>20:30</td>
+                    <td><span class="dc-badge dc-badge-green">Full Seating</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-blue-400"></span>
+                        <strong>Main Sunset Bar &amp; Mixology Salon</strong>
+                      </div>
+                    </td>
+                    <td>42 covers</td>
+                    <td class="font-bold text-amber-400">$6,640</td>
+                    <td>$158.10</td>
+                    <td>2.60 turns</td>
+                    <td>21:30</td>
+                    <td><span class="dc-badge dc-badge-blue">Flowing</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+
         <!-- ================= RESERVATIONS ================= -->
         <section class="dc-view" data-view-panel="reservations" hidden>
           <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
@@ -1211,6 +1551,26 @@
               </table>
             </div>
             <div class="dc-empty" id="resEmpty" hidden><i class="fa-regular fa-calendar-xmark"></i>No reservations match this filter.</div>
+          </div>
+        </section>
+
+        
+        <!-- ================= VIP CABANAS & FLOOR PLAN ================= -->
+        <section class="dc-view" data-view-panel="cabanas" hidden>
+          <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
+            <div>
+              <h2 class="dc-h1">VIP Cabanas &amp; Floor Plan</h2>
+              <p class="dc-lead">54th floor terrace suites, private dining salons, and glass atrium cabanas with live occupancy &amp; bottle service pacing.</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="dc-badge dc-badge-green" id="cabanaAvailableBadge">4 Available</span>
+              <span class="dc-badge dc-badge-gold" id="cabanaOccupiedBadge">2 Occupied / Reserved</span>
+              <button type="button" class="dc-btn dc-btn-gold" onclick="openReservationModal()"><i class="fa-solid fa-plus"></i> Reserve Cabana</button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mb-6" id="cabanasGrid">
+            <!-- Rendered dynamically by renderCabanas() -->
           </div>
         </section>
 
@@ -1275,9 +1635,12 @@
 
               <div id="menuList">
                 <div class="dc-settings-row" data-menu-item="wagyu">
-                  <div class="min-w-0">
-                    <p class="dc-ink" style="margin:0;font-size:0.83rem;font-weight:700;">Miyazaki Wagyu A5 &amp; Winter Truffle</p>
-                    <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Chef's counter · $128</p>
+                  <div class="flex items-center gap-3 min-w-0">
+                    <img src="assets/images/gallery/wagyu-plating-11118539.jpg" alt="Miyazaki Wagyu" class="w-11 h-11 rounded-lg object-cover border border-amber-500/30 shrink-0">
+                    <div class="min-w-0">
+                      <p class="dc-ink truncate" style="margin:0;font-size:0.83rem;font-weight:700;">Miyazaki Wagyu A5 &amp; Winter Truffle</p>
+                      <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Chef's counter · $128 · Charcoal seared</p>
+                    </div>
                   </div>
                   <div class="flex items-center gap-2">
                     <span class="dc-badge dc-badge-green" data-menu-state>Available</span>
@@ -1289,9 +1652,12 @@
                 </div>
 
                 <div class="dc-settings-row" data-menu-item="scallop">
-                  <div class="min-w-0">
-                    <p class="dc-ink" style="margin:0;font-size:0.83rem;font-weight:700;">Hokkaido Scallop Crudo &amp; Caviar</p>
-                    <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Raw bar · $46</p>
+                  <div class="flex items-center gap-3 min-w-0">
+                    <img src="assets/images/gallery/scallop-crudo-32525175.jpg" alt="Hokkaido Scallop Crudo" class="w-11 h-11 rounded-lg object-cover border border-amber-500/30 shrink-0">
+                    <div class="min-w-0">
+                      <p class="dc-ink truncate" style="margin:0;font-size:0.83rem;font-weight:700;">Hokkaido Scallop Crudo &amp; Caviar</p>
+                      <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Raw bar · $46 · Oscietra gold</p>
+                    </div>
                   </div>
                   <div class="flex items-center gap-2">
                     <span class="dc-badge dc-badge-green" data-menu-state>Available</span>
@@ -1303,9 +1669,12 @@
                 </div>
 
                 <div class="dc-settings-row" data-menu-item="vegan">
-                  <div class="min-w-0">
-                    <p class="dc-ink" style="margin:0;font-size:0.83rem;font-weight:700;">Vegan Haute Gastronomy</p>
-                    <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Plant-forward tasting · $92</p>
+                  <div class="flex items-center gap-3 min-w-0">
+                    <img src="assets/images/dashboard-thumbs/vegan-haute-gastronomy.jpg" alt="Vegan Haute Gastronomy" class="w-11 h-11 rounded-lg object-cover border border-amber-500/30 shrink-0">
+                    <div class="min-w-0">
+                      <p class="dc-ink truncate" style="margin:0;font-size:0.83rem;font-weight:700;">Vegan Haute Gastronomy</p>
+                      <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Plant-forward tasting · $92 · 5 courses</p>
+                    </div>
                   </div>
                   <div class="flex items-center gap-2">
                     <span class="dc-badge dc-badge-green" data-menu-state>Available</span>
@@ -1317,9 +1686,12 @@
                 </div>
 
                 <div class="dc-settings-row" data-menu-item="celiac">
-                  <div class="min-w-0">
-                    <p class="dc-ink" style="margin:0;font-size:0.83rem;font-weight:700;">Dedicated Celiac Station</p>
-                    <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Gluten-free kitchen line · no surcharge</p>
+                  <div class="flex items-center gap-3 min-w-0">
+                    <img src="assets/images/dashboard-thumbs/dedicated-celiac-station.jpg" alt="Dedicated Celiac Station" class="w-11 h-11 rounded-lg object-cover border border-amber-500/30 shrink-0">
+                    <div class="min-w-0">
+                      <p class="dc-ink truncate" style="margin:0;font-size:0.83rem;font-weight:700;">Dedicated Celiac Station</p>
+                      <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Gluten-free kitchen line · 100% certified</p>
+                    </div>
                   </div>
                   <div class="flex items-center gap-2">
                     <span class="dc-badge dc-badge-green" data-menu-state>Available</span>
@@ -1331,9 +1703,12 @@
                 </div>
 
                 <div class="dc-settings-row" data-menu-item="obsidian">
-                  <div class="min-w-0">
-                    <p class="dc-ink" style="margin:0;font-size:0.83rem;font-weight:700;">Obsidian Hickory Smoke Infusion</p>
-                    <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Bar theatre · $24</p>
+                  <div class="flex items-center gap-3 min-w-0">
+                    <img src="assets/images/gallery/smoked-cocktail-17541202.jpg" alt="Smoked cocktail" class="w-11 h-11 rounded-lg object-cover border border-amber-500/30 shrink-0">
+                    <div class="min-w-0">
+                      <p class="dc-ink truncate" style="margin:0;font-size:0.83rem;font-weight:700;">Obsidian Hickory Smoke Infusion</p>
+                      <p class="dc-muted" style="margin:0.15rem 0 0;font-size:0.7rem;">Bar theatre · $24 · Tableside smoke bell</p>
+                    </div>
                   </div>
                   <div class="flex items-center gap-2">
                     <span class="dc-badge dc-badge-gold" data-menu-state>Low stock</span>
@@ -1567,6 +1942,24 @@
               </table>
             </div>
           </article>
+        </section>
+
+        <!-- ================= STAFF & OPERATIONS ROSTER ================= -->
+        <section class="dc-view" data-view-panel="staff" hidden>
+          <div class="flex flex-wrap items-end justify-between gap-3 mb-5">
+            <div>
+              <h2 class="dc-h1">Staff &amp; Operations Roster</h2>
+              <p class="dc-lead">Live floor stations, radio channels, shift coverage, and duty statuses for the 54th floor service brigade.</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="dc-badge dc-badge-green" id="staffOnDutyCount">4 On Duty</span>
+              <span class="dc-badge dc-badge-neutral">Brigade Active</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6" id="staffGrid">
+            <!-- Rendered dynamically by renderStaff() -->
+          </div>
         </section>
 
         <!-- ================= GUEST REGISTRY ================= -->
@@ -1909,7 +2302,7 @@
     <div class="dc-toast-card"><i class="fa-solid fa-circle-check"></i><span id="dcToastText">Saved</span></div>
   </div>
 
-  <script src="assets/js/main.js?v=115"></script>
+  <script src="assets/js/main.js?v=117"></script>
   <script>
     /* ==================================================================
        AURA SKY OPERATIONS CONSOLE
@@ -1933,11 +2326,14 @@
 
     const VIEW_META = {
       overview: ['Overview', 'Live floor performance for the 54th floor'],
+      analytics: ['Analytics & Revenue Reports', 'Gross revenue pacing, average spend per cover, and sales velocity'],
       reservations: ['Reservations', 'Booking ledger, arrivals and table dispatch'],
+      cabanas: ['VIP Cabanas & Floor Plan', '54th floor terrace suites, glass salons and private cabanas'],
       guests: ['Guest Registry', 'Tiers, preferences and VIP arrivals'],
-      media: ['Media Library', '22 refreshed visuals across the website'],
       menu: ['Menu & Cellar', 'Dish availability, cellar depth and dietary stations'],
       events: ['Events', 'Programme publishing and capacity'],
+      staff: ['Staff & Operations', 'Floor duty roster, station assignments and communications'],
+      media: ['Media Library', '22 refreshed visuals across the website'],
       pages: ['Website Pages', 'Directory of every AURA SKY route'],
       settings: ['Settings', 'Appearance, direction and alert preferences']
     };
@@ -2025,11 +2421,215 @@
       ['Register', 'register.html', 0, '12 Nov 2026'],
       ['Operations Console', 'dashboard.html', 22, '24 Nov 2026'],
       ['Guest Dashboard', 'dashboard-guest.html', 0, '12 Nov 2026'],
-      ['Staff Dashboard', 'dashboard-admin.html', 0, '12 Nov 2026'],
+      ['Staff Dashboard', 'dashboard.html', 0, '12 Nov 2026'],
       ['Coming Soon', 'coming-soon.html', 0, '12 Nov 2026'],
       ['404', '404.html', 0, '12 Nov 2026']
     ].map(([title, file, imgs, updated], i) => ({ id: i, title, file, imgs, updated }));
     let currentPageQuery = '';
+
+    
+    
+    /* ---------------- Analytics & Financial Reporting ---------------- */
+    function updateAnalyticsRange(range) {
+      const kpiRev = $('#kpiGrossRev');
+      const kpiCov = $('#kpiCovers');
+      const kpiSpend = $('#kpiAvgSpend');
+      const kpiVip = $('#kpiVipMin');
+      if (!kpiRev) return;
+
+      if (range === 'week') {
+        kpiRev.textContent = '$312,450';
+        kpiCov.textContent = '1,195';
+        kpiSpend.textContent = '$261.46';
+        kpiVip.textContent = '$118,600';
+        showToast('Financial Scope', 'Loaded trailing 7-day revenue analytics.', 'info');
+      } else if (range === 'month') {
+        kpiRev.textContent = '$1,084,200';
+        kpiCov.textContent = '4,180';
+        kpiSpend.textContent = '$259.38';
+        kpiVip.textContent = '$396,400';
+        showToast('Financial Scope', 'Loaded Month-to-Date revenue analytics.', 'info');
+      } else {
+        kpiRev.textContent = '$48,920';
+        kpiCov.textContent = '184';
+        kpiSpend.textContent = '$265.80';
+        kpiVip.textContent = '$18,450';
+        showToast('Financial Scope', 'Loaded tonight\'s live service analytics.', 'info');
+      }
+    }
+
+    function exportAnalyticsCSV() {
+      const rows = [
+        ['AURA SKY ROOFTOP & LOUNGE - FINANCIAL REPORT'],
+        ['Date Generated', new Date().toLocaleString()],
+        ['Period', $('#analyticsRange')?.value || 'Tonight'],
+        [''],
+        ['Service Zone', 'Covers', 'Gross Revenue ($)', 'Average Spend ($)', 'Table Turn Rate', 'Peak Hour', 'Status'],
+        ['54F Skyline Terrace', '82', '22400', '273.17', '2.05', '20:00', 'At Capacity'],
+        ['Glass Atrium & Penthouse Suites', '44', '15800', '359.09', '1.45', '19:30', 'Optimal Yield'],
+        ["Chef's Tasting Counter (Omakase)", '16', '4080', '255.00', '2.00', '20:30', 'Full Seating'],
+        ['Main Sunset Bar & Mixology Salon', '42', '6640', '158.10', '2.60', '21:30', 'Flowing'],
+        [''],
+        ['Category Breakdown', 'Revenue ($)', 'Share (%)'],
+        ['Haute Cuisine & Tasting Menus', '18240', '37.3%'],
+        ['Grand Cru Cellar & Vintage Champagne', '14800', '30.2%'],
+        ['Signature Skydeck Mixology', '8680', '17.7%'],
+        ['VIP Cabana Packages & Minimums', '7200', '14.8%'],
+        [''],
+        ['TOTAL GROSS REVENUE', '48920', '100%']
+      ];
+
+      const csvContent = 'data:text/csv;charset=utf-8,' + rows.map(e => e.map(cell => '"' + String(cell).replace(/"/g, '""') + '"').join(',')).join('\n');
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement('a');
+      link.setAttribute('href', encodedUri);
+      link.setAttribute('download', 'aura-sky-financial-report-' + new Date().toISOString().slice(0, 10) + '.csv');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast('Export Completed', 'Financial performance ledger downloaded as CSV.', 'success');
+    }
+
+    /* ---------------- VIP Cabanas & Floor Plan ---------------- */
+    const CABANAS = [
+      { id: 'c1', name: 'Penthouse Reserve Suite A1', image: 'assets/images/gallery/skyline-cabana-35598463.jpg', cap: 'Up to 12 Guests', view: '360° Skyline Panoramic', status: 'occupied', guest: 'Elena Rostova (Obsidian VIP)', spend: '$3,500 min spend', bottle: 'Dom Pérignon Vintage 2013' },
+      { id: 'c2', name: 'Sunset Terrace Cabana B4', image: 'assets/images/gallery/terrace-sunset-31769337.jpg', cap: 'Up to 8 Guests', view: 'West Skyline & Sunset', status: 'reserved', guest: 'Marcus Vance Party (19:30)', spend: '$2,200 min spend', bottle: 'Ruinart Blanc de Blancs' },
+      { id: 'c3', name: 'Glass Atrium Salon C2', image: 'assets/images/gallery/terrace-dubai-4765862.jpg', cap: 'Up to 10 Guests', view: 'Climate-Controlled Glass Enclosure', status: 'available', guest: 'Open for Walk-In / Dispatch', spend: '$2,800 min spend', bottle: 'Custom Sommelier Flight' },
+      { id: 'c4', name: 'Infinity Edge Suite D1', image: 'assets/images/gallery/midnight-skyline-36869274.jpg', cap: 'Up to 6 Guests', view: '54th Fl Perimeter Glass Edge', status: 'occupied', guest: 'Dr. Vivienne Chen (Gold Tier)', spend: '$1,800 min spend', bottle: '24K Saffron Elixir' },
+      { id: 'c5', name: "Chef's Tasting Counter", image: 'assets/images/gallery/wagyu-plating-11118539.jpg', cap: '8 Counter Seats', view: 'Direct Kitchen Theater', status: 'reserved', guest: 'Omakase Service (20:00)', spend: '$250 per guest', bottle: 'Sake & Grand Cru Pairing' },
+      { id: 'c6', name: 'Sommelier Grand Cellar Salon', image: 'assets/images/gallery/wine-cellar-35501239.jpg', cap: 'Up to 14 Guests', view: 'Sub-Zero Cellar Vault & Tasting Table', status: 'available', guest: 'Available for Private Booking', spend: '$4,000 min spend', bottle: 'Domaine de la Romanée-Conti' }
+    ];
+
+    function renderCabanas() {
+      const grid = $('#cabanasGrid');
+      if (!grid) return;
+      let avail = 0;
+      let occ = 0;
+
+      grid.innerHTML = CABANAS.map((c) => {
+        if (c.status === 'available') avail++;
+        else occ++;
+        const badgeClass = c.status === 'available' ? 'dc-badge-green' : c.status === 'occupied' ? 'dc-badge-blue' : 'dc-badge-gold';
+        const statusLabel = c.status === 'available' ? 'Available' : c.status === 'occupied' ? 'Occupied' : 'Reserved';
+
+        return `
+          <article class="dc-panel" style="padding:0;overflow:hidden;border:1px solid var(--dc-line);">
+            <div class="relative overflow-hidden" style="height:175px;">
+              <img src="${c.image}" alt="${esc(c.name)}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" loading="lazy">
+              <span class="dc-badge ${badgeClass}" style="position:absolute;top:0.75rem;left:0.75rem;box-shadow:0 2px 8px rgba(0,0,0,0.4);">
+                ${statusLabel}
+              </span>
+              <span class="text-[11px] font-semibold text-white/90 px-2 py-0.5 rounded bg-black/60 backdrop-blur-sm" style="position:absolute;bottom:0.75rem;right:0.75rem;">
+                <i class="fa-solid fa-users mr-1 text-amber-400"></i>${c.cap}
+              </span>
+            </div>
+            <div style="padding:1rem;">
+              <h3 class="dc-ink" style="margin:0;font-size:0.95rem;font-weight:700;font-family:'Cinzel',serif;">${esc(c.name)}</h3>
+              <p class="dc-muted" style="margin:0.25rem 0 0.75rem;font-size:0.72rem;"><i class="fa-solid fa-location-dot mr-1 text-amber-500"></i>${c.view}</p>
+              
+              <div style="background:var(--dc-bg-card-sub, rgba(255,255,255,0.03));border:1px solid var(--dc-line);border-radius:0.5rem;padding:0.6rem 0.75rem;margin-bottom:0.75rem;">
+                <div class="flex items-center justify-between text-xs mb-1">
+                  <span class="dc-muted" style="font-size:0.68rem;">Guest Allocation</span>
+                  <span class="dc-ink font-bold truncate" style="font-size:0.75rem;max-width:160px;">${esc(c.guest)}</span>
+                </div>
+                <div class="flex items-center justify-between text-xs">
+                  <span class="dc-muted" style="font-size:0.68rem;">Bottle Service</span>
+                  <span class="text-amber-400 font-semibold truncate" style="font-size:0.72rem;max-width:160px;">${esc(c.bottle)}</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between pt-1">
+                <span class="text-xs font-bold text-gray-400">${c.spend}</span>
+                <button type="button" class="dc-btn dc-btn-sm" onclick="cycleCabanaStatus('${c.id}')" title="Click to change status">
+                  <i class="fa-solid fa-rotate mr-1"></i> Cycle Status
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      const abEl = $('#cabanaAvailableBadge');
+      if (abEl) abEl.textContent = avail + ' Available';
+      const obEl = $('#cabanaOccupiedBadge');
+      if (obEl) obEl.textContent = occ + ' Occupied / Reserved';
+      const countEl = $('[data-count="cabanas"]');
+      if (countEl) countEl.textContent = CABANAS.length;
+    }
+
+    function cycleCabanaStatus(id) {
+      const c = CABANAS.find(item => item.id === id);
+      if (!c) return;
+      if (c.status === 'available') {
+        c.status = 'reserved';
+        c.guest = 'Marcus Vance Party (19:30)';
+      } else if (c.status === 'reserved') {
+        c.status = 'occupied';
+        c.guest = 'Elena Rostova Party';
+      } else {
+        c.status = 'available';
+        c.guest = 'Open for Walk-In / Dispatch';
+      }
+      renderCabanas();
+      showToast('Cabana Status Updated', c.name + ' set to ' + c.status.toUpperCase(), 'success');
+    }
+
+    /* ---------------- Staff Stations & Operations ---------------- */
+    const STAFF = [
+      { id: 's1', name: 'Julian Vance', role: 'Director of Operations', image: 'assets/images/about/team-julian-vance-32224391.jpg', station: 'Floor 54 Command & VIP Reception', radio: 'Channel 1 (Operations)', shift: '16:00 – Close', status: 'on-duty' },
+      { id: 's2', name: 'Chef Antoine Dubois', role: 'Executive Culinary Director', image: 'assets/images/about/team-antoine-dubois-33344926.jpg', station: "Kitchen Pass & Chef's Counter", radio: 'Channel 2 (Kitchen)', shift: '15:30 – 23:30', status: 'on-duty' },
+      { id: 's3', name: 'Sophia Leclerc', role: 'Head Sommelier & Cellar Master', image: 'assets/images/about/team-sophia-leclerc-3771101.jpg', station: 'Grand Cellar Vault & Sommelier Salon', radio: 'Channel 3 (Cellar)', shift: '17:00 – Close', status: 'on-duty' },
+      { id: 's4', name: 'Clara Lindqvist', role: 'Lead Mixologist & Bar Director', image: 'assets/images/about/team-clara-lindqvist-5964621.jpg', station: 'Main Skyline Bar & Mixology Lab', radio: 'Channel 4 (Bar)', shift: '17:30 – Close', status: 'on-duty' }
+    ];
+
+    function renderStaff() {
+      const grid = $('#staffGrid');
+      if (!grid) return;
+      let onDuty = 0;
+
+      grid.innerHTML = STAFF.map((s) => {
+        if (s.status === 'on-duty') onDuty++;
+        const badgeClass = s.status === 'on-duty' ? 'dc-badge-green' : s.status === 'break' ? 'dc-badge-gold' : 'dc-badge-neutral';
+        const statusLabel = s.status === 'on-duty' ? 'On Duty' : s.status === 'break' ? 'On Break' : 'Off Duty';
+
+        return `
+          <article class="dc-panel text-center" style="padding:1.25rem 1rem;border:1px solid var(--dc-line);">
+            <div class="relative w-20 h-20 mx-auto mb-3">
+              <img src="${s.image}" alt="${esc(s.name)}" class="w-full h-full rounded-full object-cover border-2 border-amber-500/40 shadow-lg">
+              <span class="w-4 h-4 rounded-full border-2 border-slate-900 absolute bottom-0 right-0 ${s.status === 'on-duty' ? 'bg-emerald-400 animate-pulse' : s.status === 'break' ? 'bg-amber-400' : 'bg-gray-500'}"></span>
+            </div>
+            <h3 class="dc-ink font-bold text-sm" style="margin:0 0 0.15rem;">${esc(s.name)}</h3>
+            <p class="text-amber-400 font-medium text-xs mb-2">${esc(s.role)}</p>
+            <span class="dc-badge ${badgeClass} mb-3">${statusLabel}</span>
+
+            <div class="text-left text-xs p-2.5 rounded-lg mb-3" style="background:var(--dc-bg-card-sub, rgba(255,255,255,0.03));border:1px solid var(--dc-line);">
+              <p class="dc-muted text-[11px] mb-1"><i class="fa-solid fa-map-pin text-amber-500 mr-1.5"></i>${esc(s.station)}</p>
+              <p class="dc-muted text-[11px] mb-1"><i class="fa-solid fa-walkie-talkie text-amber-500 mr-1.5"></i>${esc(s.radio)}</p>
+              <p class="dc-muted text-[11px]"><i class="fa-solid fa-clock text-amber-500 mr-1.5"></i>Shift: ${esc(s.shift)}</p>
+            </div>
+
+            <button type="button" class="dc-btn dc-btn-sm w-full justify-center" onclick="toggleStaffDuty('${s.id}')">
+              <i class="fa-solid fa-repeat mr-1.5"></i> Toggle Status
+            </button>
+          </article>
+        `;
+      }).join('');
+
+      const countEl = $('#staffOnDutyCount');
+      if (countEl) countEl.textContent = onDuty + ' On Duty';
+      const staffNavCount = $('[data-count="staff"]');
+      if (staffNavCount) staffNavCount.textContent = STAFF.length;
+    }
+
+    function toggleStaffDuty(id) {
+      const s = STAFF.find(item => item.id === id);
+      if (!s) return;
+      if (s.status === 'on-duty') s.status = 'break';
+      else if (s.status === 'break') s.status = 'off-duty';
+      else s.status = 'on-duty';
+      renderStaff();
+      showToast('Brigade Status', s.name + ' is now ' + (s.status === 'on-duty' ? 'On Duty' : s.status === 'break' ? 'On Break' : 'Off Duty'), 'info');
+    }
 
     /* ---------------- Helpers ---------------- */
     function initialsFor(name) {
@@ -2703,6 +3303,8 @@
       renderGuests();
       renderMedia();
       renderPages();
+      renderCabanas();
+      renderStaff();
       refreshCounts();
       bindConsole();
       $('#resDate').value = new Date().toISOString().slice(0, 10);
