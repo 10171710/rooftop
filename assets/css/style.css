@@ -926,6 +926,28 @@ html:not(.dark) #mobileMenu a:hover {
   color: #FBBF24 !important;
 }
 
+/* Mobile drawer floats below the header instead of pushing the hero/content down */
+#mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  max-height: calc(100vh - 4rem);
+  max-height: calc(100dvh - 4rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+}
+
+@media (min-width: 640px) {
+  #mobileMenu {
+    max-height: calc(100vh - 5rem);
+    max-height: calc(100dvh - 5rem);
+  }
+}
+
 /* Logo Text in Header & Footer - Identical Crisp Luxury White in Both Themes */
 header .font-display,
 footer .font-display,

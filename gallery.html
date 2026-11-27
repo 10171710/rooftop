@@ -30,7 +30,7 @@
     }
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=118">
+  <link rel="stylesheet" href="assets/css/style.css?v=119">
 </head>
 <body class="bg-white text-slate-900 dark:bg-[#07090E] dark:text-slate-100 transition-colors duration-300">
 
@@ -55,7 +55,7 @@
         </a>
 
         <!-- Desktop Navigation Menu -->
-        <nav class="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium whitespace-nowrap">
+        <nav class="hidden xl:flex items-center gap-5 xl:gap-7 text-sm font-medium whitespace-nowrap">
           <!-- Home (Dropdown) -->
           <div class="relative dropdown-group">
             <button class="flex items-center gap-1.5 text-white hover:text-amber-400 py-2 focus:outline-none transition whitespace-nowrap font-medium">
@@ -113,7 +113,7 @@
           </a>
 
           <button id="mobileMenuBtn"
-            class="lg:hidden w-8 h-8 sm:w-10 sm:h-10 rounded-lg border border-amber-500/30 bg-amber-500/10 text-amber-400 flex items-center justify-center text-base sm:text-lg focus:outline-none shrink-0">
+            class="xl:hidden w-8 h-8 sm:w-10 sm:h-10 rounded-lg border border-amber-500/30 bg-amber-500/10 text-amber-400 flex items-center justify-center text-base sm:text-lg focus:outline-none shrink-0">
             <i class="fa-solid fa-bars"></i>
           </button>
         </div>
@@ -121,7 +121,7 @@
     </div>
 
     <!-- Mobile Drawer -->
-    <div id="mobileMenu" class="hidden lg:hidden bg-[#07090E] border-b border-amber-500/20 px-6 py-6">
+    <div id="mobileMenu" class="hidden xl:hidden bg-[#07090E] border-b border-amber-500/20 px-6 py-6">
       <div class="flex flex-col gap-4 text-sm font-medium">
         <div class="border-b border-gray-800 pb-2">
           <button id="mobileHomeDropdownBtn" class="w-full flex justify-between items-center text-gray-300 py-1 font-semibold">
@@ -142,7 +142,7 @@
         <a href="dashboard.html" class="text-white hover:text-amber-400 py-1 ">
           Dashboard
         </a>
-        <a href="login.html" class="text-amber-400 py-2 border-t border-gray-800  font-semibold">
+        <a href="login.html" class="sm:hidden text-amber-400 py-2 border-t border-gray-800  font-semibold">
           <i class="fa-solid fa-user-lock"></i> Guest Login Portal
         </a>
       </div>
